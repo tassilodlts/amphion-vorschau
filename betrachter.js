@@ -264,6 +264,7 @@ function tun(a) {
 window.formaZustand = () => { const m = aktiv; if (!m || !camera) return null; const sichtbar = {}; for (const k of Object.keys(m.dateien)) if (k !== 'kacheln' && k !== 'fern') sichtbar[k] = sollSichtbar(k);
   return { modell: m.name, sichtbar, zustand: m.zustand || null, schnitt: m.schnitt || 'kein', struktur: (() => { let d = null; m.gruppen.gebaeude?.traverse(o => { if (d === null && o.isMesh && o.material !== SCHNITT && !o.material.userData.glas) d = o.material.opacity; }); return d !== null && d < 0.2; })(), abstand: camera.position.distanceTo(controls.target), hoehe: camera.position.y, status: status?.textContent || '', zuruecksetzen: undefined }; };
 window.formaZustand.zuruecksetzen = () => { tun({ alles: true }); melde(''); };
+window.formaZustand.kamera = (pos, ziel) => kamera(pos, ziel);   // für Prüfungen und Vergleichsbilder: Kamera exakt setzen
 // Freien Text deuten: Stichwörter in drei Sprachen. Liefert eine Aktion oder null.
 const W = {
   neg: /\b(ohne|weg|aus\b|raus\b|lösch|losch|entfern|versteck|ausblend|nicht|kein|delete|without|hide|remove|no\b|sin\b|quita|oculta|fuera)/i,

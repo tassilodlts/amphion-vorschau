@@ -1,46 +1,46 @@
 {
- "quelle": "walhalla8.obj",
+ "quelle": "w8.json",
  "mitte": [
   5.936,
   0,
   -5.5
  ],
  "gruppen": {
-  "haus": {
-   "datei": "haus.glb",
-   "mb": 0.06,
-   "dreiecke": 47085,
-   "objekte": 17
-  },
-  "bestand": {
-   "datei": "bestand.glb",
-   "mb": 0.07,
-   "dreiecke": 50769,
-   "objekte": 29
-  },
-  "umgebung": {
-   "datei": "umgebung.glb",
-   "mb": 0.07,
-   "dreiecke": 54140,
-   "objekte": 29
+  "einrichtung": {
+   "datei": "einrichtung.glb",
+   "mb": 1.44,
+   "dreiecke": 1101771,
+   "objekte": 11382
   },
   "vorschlag": {
    "datei": "vorschlag.glb",
-   "mb": 0.12,
-   "dreiecke": 86729,
-   "objekte": 37
+   "mb": 0.19,
+   "dreiecke": 125516,
+   "objekte": 4733
   },
-  "einrichtung": {
-   "datei": "einrichtung.glb",
-   "mb": 0.62,
-   "dreiecke": 597716,
-   "objekte": 16
+  "haus": {
+   "datei": "haus.glb",
+   "mb": 0.07,
+   "dreiecke": 51155,
+   "objekte": 668
+  },
+  "bestand": {
+   "datei": "bestand.glb",
+   "mb": 0.1,
+   "dreiecke": 70565,
+   "objekte": 2579
+  },
+  "umgebung": {
+   "datei": "umgebung.glb",
+   "mb": 0.13,
+   "dreiecke": 118092,
+   "objekte": 5185
   },
   "baeume": {
    "datei": "baeume.glb",
-   "mb": 1.13,
-   "dreiecke": 240936,
-   "objekte": 2
+   "mb": 0.64,
+   "dreiecke": 544652,
+   "objekte": 592
   }
  }
 }
