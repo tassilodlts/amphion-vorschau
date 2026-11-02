@@ -94,6 +94,7 @@ main>section,.band{padding:72px var(--rand);max-width:var(--breit);margin:0 auto
 .galerie{display:grid;gap:18px}
 .galerie figure img{width:100%;aspect-ratio:3/2;object-fit:cover}
 .galerie .hoch img{aspect-ratio:3/4}
+.galerie .grundriss img{aspect-ratio:auto;object-fit:contain;background:#fff;border:1px solid var(--linie)}   /* Grundrisse ganz zeigen, nicht beschneiden */
 .galerie .schnitt img{object-position:center 62%}
 
 /* Funktionen */
@@ -158,3 +159,19 @@ main>section,.band{padding:72px var(--rand);max-width:var(--breit);margin:0 auto
   .plaene{grid-template-columns:repeat(3,1fr);gap:48px}
   .held{padding-top:128px}
 }
+
+/* Vergleich Modell und KI-Rendering (2.11., Tassilo: Regler in der Mitte, links Viewport, nach links ziehen zeigt das Rendering) */
+.vergleich{margin-top:36px}
+.vergleich h4{font-size:20px;margin:0 0 6px;letter-spacing:-.01em}
+.vergleich p{margin:0 0 14px;color:var(--hell);max-width:640px}
+.vgl-buehne{position:relative;aspect-ratio:3/2;overflow:hidden;background:#eee;user-select:none;-webkit-user-select:none}
+.vgl-buehne img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.vgl-vorne{clip-path:inset(0 calc(100% - var(--x,50%)) 0 0)}
+.vgl-griff{position:absolute;top:0;bottom:0;left:var(--x,50%);width:2px;margin-left:-1px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.12);pointer-events:none}
+.vgl-griff::after{content:'‹ ›';position:absolute;top:50%;left:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:#fff;color:#000;font-size:18px;line-height:44px;text-align:center;letter-spacing:2px;box-shadow:0 2px 12px rgba(0,0,0,.25)}
+.vgl-regler{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;-webkit-appearance:none;appearance:none}
+.vgl-marke{position:absolute;top:12px;font-size:12px;padding:4px 8px;background:rgba(0,0,0,.55);color:#fff;pointer-events:none}
+.vgl-marke.links{left:12px}.vgl-marke.rechts{right:12px}
+.vgl-wahl{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.vgl-wahl button{font:inherit;font-size:14px;padding:8px 14px;border:1px solid var(--linie);background:var(--bg);color:var(--ink);cursor:pointer;min-height:40px}
+.vgl-wahl button.on{background:var(--ink);color:#fff;border-color:var(--ink)}

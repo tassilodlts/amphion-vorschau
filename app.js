@@ -28,7 +28,7 @@ const TEXTE = {
     'proj.vanc': 'Hochhaus mit fünf öffentlichen Lichtungen, Wettbewerb 2026. Modell, Renderings, Pläne und Tafeln aus Amphion.',
     'vanc.1': 'Der Turm über der Stadt', 'vanc.2': 'Vom Park aus', 'vanc.3': 'Dachgärten auf dem Sockel', 'vanc.4': 'Terrasse im Turm', 'vanc.5': 'Ecke des Sockels', 'vanc.6': 'An der Straße', 'vanc.7': 'Lichtung im Sockel', 'vanc.8': 'Schnitt durch den Turm',
     'proj.muc': 'Umbau einer Villa von 1913 mit Anbau, 2026. Bestand, Entwurf, Innenräume und Grundrisse in Amphion, Abstimmung mit dem Bauherrn an den Bildern.', 'proj.muct': 'Villa von 1913',
-    'muc.1': 'Straßenecke', 'muc.2': 'Vogelperspektive mit Anbau', 'muc.3': 'Isometrie mit Nachbarn', 'muc.4': 'Dachterrasse', 'muc.5': 'Salon mit Kaminofen', 'muc.6': 'Erdgeschoss mit Möbeln',
+    'muc.1': 'Straßenecke', 'muc.2': 'Vogelperspektive mit Anbau', 'muc.3': 'Axonometrie, Obergeschoss offen', 'muc.4': 'Dachterrasse', 'muc.5': 'Salon mit Kaminofen', 'muc.6': 'So war es 1913', 'muc.7': 'Grundriss Erdgeschoss, Umbau', 'muc.8': 'Grundriss Obergeschoss, Umbau', 'vgl.titel': 'Vom Modell zum Bild', 'vgl.text': 'Links die Ansicht aus dem Modell, rechts das KI-Rendering, das Amphion daraus macht. Zieh den Regler.', 'vgl.links': 'Modell', 'vgl.rechts': 'KI-Rendering', 'vgl.regler': 'Regler zwischen Modell und Rendering', 'vgl.strasse': 'Straße', 'vgl.garten': 'Garten', 'vgl.erker': 'Erker', 'vgl.salon': 'Salon', 'vgl.kueche': 'Küche',
     'fkt.titel': 'Was Amphion kann',
     'fkt.1t': 'Echte Bauteile', 'fkt.1': 'Wände, Decken, Stützen, Fenster, Treppen. Mit Maßen, Schichten und Mengen, nicht nur Flächen.',
     'fkt.2t': 'Sprechen statt klicken', 'fkt.2': 'Du sagst oder schreibst, was du willst, in ganzen Sätzen. Amphion versteht dich in deiner Sprache.',
@@ -75,7 +75,7 @@ const TEXTE = {
     'proj.vanc': 'High-rise with five public clearings, competition 2026. Model, renderings, drawings and boards from Amphion.',
     'vanc.1': 'The tower above the city', 'vanc.2': 'From the park', 'vanc.3': 'Roof gardens on the podium', 'vanc.4': 'Terrace in the tower', 'vanc.5': 'Corner of the podium', 'vanc.6': 'On the street', 'vanc.7': 'Clearing in the podium', 'vanc.8': 'Section through the tower',
     'proj.muc': 'Conversion of a 1913 villa with an extension, 2026. Existing building, design, interiors and plans in Amphion, agreed with the client on the images.', 'proj.muct': 'Villa from 1913',
-    'muc.1': 'Street corner', 'muc.2': 'Bird’s-eye view with extension', 'muc.3': 'Isometric with neighbours', 'muc.4': 'Roof terrace', 'muc.5': 'Salon with wood stove', 'muc.6': 'Ground floor with furniture',
+    'muc.1': 'Street corner', 'muc.2': 'Bird’s-eye view with extension', 'muc.3': 'Axonometric, upper floor open', 'muc.4': 'Roof terrace', 'muc.5': 'Salon with wood stove', 'muc.6': 'As it was in 1913', 'muc.7': 'Ground floor plan, remodel', 'muc.8': 'Upper floor plan, remodel', 'vgl.titel': 'From model to image', 'vgl.text': 'On the left the view from the model, on the right the AI rendering Amphion makes from it. Drag the slider.', 'vgl.links': 'Model', 'vgl.rechts': 'AI rendering', 'vgl.regler': 'Slider between model and rendering', 'vgl.strasse': 'Street', 'vgl.garten': 'Garden', 'vgl.erker': 'Bay window', 'vgl.salon': 'Salon', 'vgl.kueche': 'Kitchen',
     'fkt.titel': 'What Amphion does',
     'fkt.1t': 'Real building elements', 'fkt.1': 'Walls, slabs, columns, windows, stairs. With dimensions, layers and quantities, not just surfaces.',
     'fkt.2t': 'Speak instead of click', 'fkt.2': 'Say or type what you want, in whole sentences. Amphion understands you in your language.',
@@ -122,7 +122,7 @@ const TEXTE = {
     'proj.vanc': 'Torre con cinco claros públicos, concurso 2026. Modelo, renders, planos y paneles hechos en Amphion.',
     'vanc.1': 'La torre sobre la ciudad', 'vanc.2': 'Desde el parque', 'vanc.3': 'Jardines en la cubierta del podio', 'vanc.4': 'Terraza en la torre', 'vanc.5': 'Esquina del podio', 'vanc.6': 'En la calle', 'vanc.7': 'Claro en el podio', 'vanc.8': 'Sección por la torre',
     'proj.muc': 'Reforma de una villa de 1913 con ampliación, 2026. Estado actual, propuesta, interiores y plantas en Amphion, acordados con el cliente sobre las imágenes.', 'proj.muct': 'Villa de 1913',
-    'muc.1': 'Esquina de la calle', 'muc.2': 'Vista aérea con la ampliación', 'muc.3': 'Isometría con los vecinos', 'muc.4': 'Terraza en la cubierta', 'muc.5': 'Salón con estufa de leña', 'muc.6': 'Planta baja amueblada',
+    'muc.1': 'Esquina de la calle', 'muc.2': 'Vista aérea con la ampliación', 'muc.3': 'Axonometría, planta alta abierta', 'muc.4': 'Terraza en la cubierta', 'muc.5': 'Salón con estufa de leña', 'muc.6': 'Así era en 1913', 'muc.7': 'Planta baja, reforma', 'muc.8': 'Planta alta, reforma', 'vgl.titel': 'Del modelo a la imagen', 'vgl.text': 'A la izquierda la vista del modelo, a la derecha el render con IA que Amphion hace a partir de ella. Desliza el control.', 'vgl.links': 'Modelo', 'vgl.rechts': 'Render IA', 'vgl.regler': 'Control entre modelo y render', 'vgl.strasse': 'Calle', 'vgl.garten': 'Jardín', 'vgl.erker': 'Mirador', 'vgl.salon': 'Salón', 'vgl.kueche': 'Cocina',
     'fkt.titel': 'Qué hace Amphion',
     'fkt.1t': 'Elementos constructivos reales', 'fkt.1': 'Muros, losas, pilares, ventanas, escaleras. Con medidas, capas y cantidades, no solo superficies.',
     'fkt.2t': 'Habla en vez de hacer clic', 'fkt.2': 'Di o escribe lo que quieres, con frases enteras. Amphion te entiende en tu idioma.',
@@ -169,7 +169,7 @@ const TEXTE = {
     'proj.vanc': 'Tour avec cinq clairières publiques, concours 2026. Modèle, rendus, plans et planches réalisés avec Amphion.',
     'vanc.1': 'La tour au-dessus de la ville', 'vanc.2': 'Depuis le parc', 'vanc.3': 'Jardins sur le toit du socle', 'vanc.4': 'Terrasse dans la tour', 'vanc.5': 'Angle du socle', 'vanc.6': 'Dans la rue', 'vanc.7': 'Clairière dans le socle', 'vanc.8': 'Coupe à travers la tour',
     'proj.muc': 'Transformation d’une villa de 1913 avec extension, 2026. Existant, projet, intérieurs et plans dans Amphion, validés avec le maître d’ouvrage sur les images.', 'proj.muct': 'Villa de 1913',
-    'muc.1': 'Angle de rue', 'muc.2': 'Vue aérienne avec l’extension', 'muc.3': 'Isométrie avec les voisins', 'muc.4': 'Terrasse sur le toit', 'muc.5': 'Salon avec poêle à bois', 'muc.6': 'Rez-de-chaussée meublé',
+    'muc.1': 'Angle de rue', 'muc.2': 'Vue aérienne avec l’extension', 'muc.3': 'Axonométrie, étage ouvert', 'muc.4': 'Terrasse sur le toit', 'muc.5': 'Salon avec poêle à bois', 'muc.6': 'Tel qu’en 1913', 'muc.7': 'Plan du rez-de-chaussée, transformation', 'muc.8': 'Plan de l’étage, transformation', 'vgl.titel': 'Du modèle à l’image', 'vgl.text': 'À gauche la vue du modèle, à droite le rendu IA qu’Amphion en tire. Fais glisser le curseur.', 'vgl.links': 'Modèle', 'vgl.rechts': 'Rendu IA', 'vgl.regler': 'Curseur entre modèle et rendu', 'vgl.strasse': 'Rue', 'vgl.garten': 'Jardin', 'vgl.erker': 'Bow-window', 'vgl.salon': 'Salon', 'vgl.kueche': 'Cuisine',
     'fkt.titel': 'Ce que fait Amphion',
     'fkt.1t': 'De vrais éléments de construction', 'fkt.1': 'Murs, dalles, poteaux, fenêtres, escaliers. Avec cotes, couches et quantités, pas seulement des surfaces.',
     'fkt.2t': 'Parler au lieu de cliquer', 'fkt.2': 'Dis ou écris ce que tu veux, en phrases entières. Amphion te comprend dans ta langue.',
@@ -216,7 +216,7 @@ const TEXTE = {
     'proj.vanc': 'Grattacielo con cinque radure pubbliche, concorso 2026. Modello, rendering, disegni e tavole realizzati con Amphion.',
     'vanc.1': 'La torre sopra la città', 'vanc.2': 'Dal parco', 'vanc.3': 'Giardini pensili sul basamento', 'vanc.4': 'Terrazza nella torre', 'vanc.5': 'Angolo del basamento', 'vanc.6': 'Sulla strada', 'vanc.7': 'Radura nel basamento', 'vanc.8': 'Sezione attraverso la torre',
     'proj.muc': 'Ristrutturazione di una villa del 1913 con ampliamento, 2026. Stato di fatto, progetto, interni e piante in Amphion, concordati con il committente sulle immagini.', 'proj.muct': 'Villa del 1913',
-    'muc.1': 'Angolo della strada', 'muc.2': 'Vista a volo d’uccello con l’ampliamento', 'muc.3': 'Isometria con i vicini', 'muc.4': 'Terrazza sul tetto', 'muc.5': 'Salotto con stufa a legna', 'muc.6': 'Piano terra arredato',
+    'muc.1': 'Angolo della strada', 'muc.2': 'Vista a volo d’uccello con l’ampliamento', 'muc.3': 'Assonometria, piano superiore aperto', 'muc.4': 'Terrazza sul tetto', 'muc.5': 'Salotto con stufa a legna', 'muc.6': 'Com’era nel 1913', 'muc.7': 'Pianta piano terra, ristrutturazione', 'muc.8': 'Pianta primo piano, ristrutturazione', 'vgl.titel': 'Dal modello all’immagine', 'vgl.text': 'A sinistra la vista dal modello, a destra il render IA che Amphion ne ricava. Trascina il cursore.', 'vgl.links': 'Modello', 'vgl.rechts': 'Render IA', 'vgl.regler': 'Cursore tra modello e render', 'vgl.strasse': 'Strada', 'vgl.garten': 'Giardino', 'vgl.erker': 'Bovindo', 'vgl.salon': 'Salotto', 'vgl.kueche': 'Cucina',
     'fkt.titel': 'Cosa fa Amphion',
     'fkt.1t': 'Veri elementi costruttivi', 'fkt.1': 'Muri, solai, pilastri, finestre, scale. Con misure, strati e quantità, non solo superfici.',
     'fkt.2t': 'Parla invece di cliccare', 'fkt.2': 'Di’ o scrivi cosa vuoi, con frasi intere. Amphion ti capisce nella tua lingua.',
@@ -263,7 +263,7 @@ const TEXTE = {
     'proj.vanc': 'Torre com cinco clareiras públicas, concurso 2026. Modelo, renders, desenhos e painéis feitos no Amphion.',
     'vanc.1': 'A torre sobre a cidade', 'vanc.2': 'A partir do parque', 'vanc.3': 'Jardins na cobertura do embasamento', 'vanc.4': 'Terraço na torre', 'vanc.5': 'Esquina do embasamento', 'vanc.6': 'Na rua', 'vanc.7': 'Clareira no embasamento', 'vanc.8': 'Corte pela torre',
     'proj.muc': 'Reabilitação de uma villa de 1913 com ampliação, 2026. Existente, proposta, interiores e plantas no Amphion, acordados com o cliente sobre as imagens.', 'proj.muct': 'Villa de 1913',
-    'muc.1': 'Esquina da rua', 'muc.2': 'Vista aérea com a ampliação', 'muc.3': 'Isometria com os vizinhos', 'muc.4': 'Terraço na cobertura', 'muc.5': 'Sala com fogão a lenha', 'muc.6': 'Piso térreo com mobiliário',
+    'muc.1': 'Esquina da rua', 'muc.2': 'Vista aérea com a ampliação', 'muc.3': 'Axonometria, piso superior aberto', 'muc.4': 'Terraço na cobertura', 'muc.5': 'Sala com fogão a lenha', 'muc.6': 'Como era em 1913', 'muc.7': 'Planta do rés-do-chão, remodelação', 'muc.8': 'Planta do piso superior, remodelação', 'vgl.titel': 'Do modelo à imagem', 'vgl.text': 'À esquerda a vista do modelo, à direita o render com IA que o Amphion faz a partir dela. Arrasta o cursor.', 'vgl.links': 'Modelo', 'vgl.rechts': 'Render IA', 'vgl.regler': 'Cursor entre modelo e render', 'vgl.strasse': 'Rua', 'vgl.garten': 'Jardim', 'vgl.erker': 'Janela saliente', 'vgl.salon': 'Sala', 'vgl.kueche': 'Cozinha',
     'fkt.titel': 'O que o Amphion faz',
     'fkt.1t': 'Elementos construtivos reais', 'fkt.1': 'Paredes, lajes, pilares, janelas, escadas. Com medidas, camadas e quantidades, não só superfícies.',
     'fkt.2t': 'Fala em vez de clicar', 'fkt.2': 'Diz ou escreve o que queres, em frases inteiras. O Amphion entende-te na tua língua.',
@@ -336,6 +336,22 @@ window.formaZaehl = art => { try { const q = (document.referrer && new URL(docum
 if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') window.formaZaehl('seite');
 // Film im App-Bild (2.11., Tassilo: soll von selbst laufen): autoplay reicht nicht überall (Stromsparmodus, Datensparen), darum beim Laden, beim Erscheinen
 // im Bild und bei der ersten Berührung noch einmal play() ohne Ton versuchen
+// Vergleich Modell und KI-Rendering: Regler setzt --x, Knöpfe wechseln das Bildpaar, beim ersten Erscheinen schwingt der Griff einmal (zeigt, dass man ziehen kann)
+const mitStempel = p => window.AMPHION_DATEIEN?.[p] ? `${p}?v=${window.AMPHION_DATEIEN[p]}` : p;
+for (const v of document.querySelectorAll('.vergleich')) {
+  const buehne = v.querySelector('.vgl-buehne'), regler = v.querySelector('.vgl-regler'), setze = () => buehne.style.setProperty('--x', regler.value + '%');
+  regler.addEventListener('input', setze); setze();
+  for (const k of v.querySelectorAll('[data-paar]')) k.addEventListener('click', () => {
+    const n = k.dataset.paar; v.querySelector('.vgl-bild').src = mitStempel(`bilder/vergleich_${n}_rendering.jpg`); v.querySelector('.vgl-vorne').src = mitStempel(`bilder/vergleich_${n}_viewport.jpg`);
+    for (const x of v.querySelectorAll('[data-paar]')) x.classList.toggle('on', x === k); regler.value = 50; setze(); window.formaZaehl?.('vergleich');
+  });
+  const schwing = new IntersectionObserver(es => {
+    if (!es.some(e => e.isIntersecting)) return; schwing.disconnect();
+    const t0 = performance.now(), lauf = t => { const u = (t - t0) / 1600; if (u >= 1) { regler.value = 50; setze(); return; } regler.value = 50 + 22 * Math.sin(u * Math.PI * 2) * (1 - u); setze(); requestAnimationFrame(lauf); };
+    setTimeout(() => requestAnimationFrame(lauf), 400);
+  }, { threshold: 0.6 });
+  schwing.observe(buehne);
+}
 const film = document.querySelector('.app video');
 if (film) {
   // 2.11. (Tassilo: mehr Pixel): 1440 px für große Bildschirme, 800 px fürs Handy (spart die Hälfte der Daten)
