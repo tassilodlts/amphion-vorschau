@@ -1,0 +1,46 @@
+{
+ "quelle": "walhalla8.obj",
+ "mitte": [
+  5.936,
+  0,
+  -5.5
+ ],
+ "gruppen": {
+  "haus": {
+   "datei": "haus.glb",
+   "mb": 0.06,
+   "dreiecke": 47085,
+   "objekte": 17
+  },
+  "bestand": {
+   "datei": "bestand.glb",
+   "mb": 0.07,
+   "dreiecke": 50769,
+   "objekte": 29
+  },
+  "umgebung": {
+   "datei": "umgebung.glb",
+   "mb": 0.07,
+   "dreiecke": 54140,
+   "objekte": 29
+  },
+  "vorschlag": {
+   "datei": "vorschlag.glb",
+   "mb": 0.12,
+   "dreiecke": 86729,
+   "objekte": 37
+  },
+  "einrichtung": {
+   "datei": "einrichtung.glb",
+   "mb": 0.62,
+   "dreiecke": 597716,
+   "objekte": 16
+  },
+  "baeume": {
+   "datei": "baeume.glb",
+   "mb": 1.13,
+   "dreiecke": 240936,
+   "objekte": 2
+  }
+ }
+}
