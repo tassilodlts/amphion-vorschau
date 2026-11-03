@@ -24,7 +24,8 @@ const SCHWACH = LEICHT || matchMedia('(pointer: coarse)').matches || innerWidth 
 // Versionsstempel aus der Veröffentlichung (tools/veroeffentlichen.mjs): Modelle nie gemischt aus altem und neuem Stand
 const mitVersion = pfad => window.AMPHION_DATEIEN?.[pfad] ? `${pfad}?v=${window.AMPHION_DATEIEN[pfad]}` : pfad;
 // Koordinaten: X nach Osten, Y nach oben, Z nach Süden (Norden ist -Z). Schnittebene [nx, ny, nz, c]: sichtbar bleibt, was n·p + c >= 0 erfüllt.
-const MODELLE = {
+// Eigene Modelle je Seite (3.11., Amphion Estate): window.AMPHION_MODELLE ersetzt die Liste unten, derselbe Betrachter
+const MODELLE = window.AMPHION_MODELLE || {
   muenchen: {
     basis: 'modell/muenchen/', dateien: { haus: 'haus.glb', bestand: 'bestand.glb', vorschlag: 'vorschlag.glb', einrichtung: 'einrichtung.glb', umgebung: 'umgebung.glb', baeume: 'baeume.glb' },   // haus: Decken, Treppen, Gesimse, Erkerdach, Keller (beide Zustände)
     zustaende: { 1913: { bestand: true, vorschlag: false, einrichtung: false }, 2026: { bestand: false, vorschlag: true, einrichtung: true } }, zustand: '2026',
@@ -49,8 +50,8 @@ const MODELLE = {
   },
 };
 
-if (SCHWACH) { delete MODELLE.vancouver.dateien.fern; MODELLE.vancouver.fern = 9000; MODELLE.vancouver.fernst = 5000; }
-if (LEICHT) delete MODELLE.vancouver.dateien.kacheln;
+if (SCHWACH && MODELLE.vancouver) { delete MODELLE.vancouver.dateien.fern; MODELLE.vancouver.fern = 9000; MODELLE.vancouver.fernst = 5000; }   // Estate-Seite: kein Hochhaus (Befund 3.11.: Absturz auf dem Handy)
+if (LEICHT && MODELLE.vancouver) delete MODELLE.vancouver.dateien.kacheln;
 
 // Antworten je Sprache: was die Seite nach einer Aktion sagt
 const SAGT = {
@@ -126,7 +127,7 @@ function aktiviere(name) {
   scene.fog = m.nebel ? new THREE.Fog(m.nebel[0], m.nebel[1], m.nebel[2]) : null;   // ferne Stadt und Berge verblassen
   for (const b of wrap.querySelectorAll('.m-reiter button')) b.classList.toggle('on', b.dataset.modell === name);
   for (const l of leisten()) l.hidden = l.dataset.leiste !== name;
-  blick(m.start); schnitt(m.schnitt || 'kein');
+  blick(m.start); schnitt(m.schnitt || m.schnittStart || 'kein');   // schnittStart: Modell beginnt geschnitten (Estate: wie der Plan)
   for (const k of Object.keys(m.dateien)) zeige(k);
   if (m.baeume) ladeBaeume(m);
   if (m.bau && !m.teile) { let g = null; try { g = JSON.parse(localStorage.getItem('amphion.bau') || 'null'); } catch { /* ohne Speicher */ } setzeBau(Array.isArray(g) && g.length ? g : BAU_START, false); }
@@ -144,17 +145,26 @@ async function lade(k) {
     const d = await loader.loadAsync(mitVersion(m.basis + m.dateien[k]));
     const netze = []; d.scene.traverse(o => { if (o.isMesh) netze.push(o); });   // erst sammeln: die Schnittflächen kommen als Kinder dazu
     for (const o of netze) {
-      if (o.material.map) { o.material = new THREE.MeshBasicMaterial({ map: o.material.map, side: THREE.DoubleSide }); o.frustumCulled = false; continue; }   // Fotokacheln: das Licht steckt im Foto
+      if (o.material.map && !o.material.name.startsWith('tex:')) { o.material = new THREE.MeshBasicMaterial({ map: o.material.map, side: THREE.DoubleSide }); o.frustumCulled = false; continue; }   // Fotokacheln: das Licht steckt im Foto
+      if (o.material.map) {   // texturierte Teile (Estate, Rhino-Materialien): beleuchtet, Bild wiederholt sich, geschlossene Körper bekommen Kappen
+        const solid = !!o.material.userData?.solid; o.material.map.wrapS = o.material.map.wrapT = THREE.RepeatWrapping; o.material.map.colorSpace = THREE.SRGBColorSpace; o.material.map.anisotropy = 4;
+        o.material = new THREE.MeshLambertMaterial({ map: o.material.map, vertexColors: true, flatShading: true, side: THREE.DoubleSide }); o.frustumCulled = false;   // flatShading: ohne Normalen im GLB sonst schwarz
+        const kappenGruppe_ = m.kappen ? m.kappen.includes(k) : KAPPEN_GRUPPEN.has(k);
+        if (solid && kappenGruppe_) { const s = kappenGruppe(o.geometry); s.visible = !!m.schnitt; o.add(s); m.schnittflaechen.push(s); }
+        if (kappenGruppe_) { const s = new THREE.Mesh(o.geometry, SCHNITT); s.frustumCulled = false; s.visible = !!m.schnitt; o.add(s); m.schnittflaechen.push(s); (m.schnittMats ||= []).push(o.material); if (m.schnitt) { o.material.side = THREE.FrontSide; o.material.needsUpdate = true; } }
+        continue;
+      }
       const glas = o.material.name === 'glas', solid = o.material.name === 'solid';   // solid: geschlossene Körper (tools/web_3dm_glb.mjs), nur sie bekommen Kappen
       o.material = glas
         ? new THREE.MeshStandardMaterial({ vertexColors: true, metalness: 0.15, roughness: 0.04, envMap: UMGEBUNG, envMapIntensity: 1.35, transparent: true, opacity: 0.58, side: THREE.DoubleSide, depthWrite: false })   // spiegelt, leicht getönt
         : new THREE.MeshLambertMaterial({ vertexColors: true, flatShading: true, side: THREE.DoubleSide });
       o.frustumCulled = false;
-      if (solid && KAPPEN_GRUPPEN.has(k)) { const s = kappenGruppe(o.geometry); s.visible = !!m.schnitt; o.add(s); m.schnittflaechen.push(s); }
+      const kappenGruppe_ = m.kappen ? m.kappen.includes(k) : KAPPEN_GRUPPEN.has(k);
+      if (solid && kappenGruppe_) { const s = kappenGruppe(o.geometry); s.visible = !!m.schnitt; o.add(s); m.schnittflaechen.push(s); }
       // offene Körper (Wände ohne Deckel, Böden als Fläche) in denselben Gruppen: im Schnitt nur Vorderseiten, Rückseiten dunkel, so wirkt
       // auch ein offener Wandkasten massiv; ohne Schnitt wieder beidseitig, damit nichts durchsichtig wird
-      if (!glas && !KAPPEN_GRUPPEN.has(k)) { const s = new THREE.Mesh(o.geometry, SCHNITT); s.frustumCulled = false; s.visible = !!renderer.clippingPlanes.length; o.add(s); m.schnittflaechen.push(s); }   // wie bisher (Hochhaus: rote Tragwerksflächen in der Strukturansicht)
-      if (!glas && KAPPEN_GRUPPEN.has(k)) { const s = new THREE.Mesh(o.geometry, SCHNITT); s.frustumCulled = false; s.visible = !!m.schnitt; o.add(s); m.schnittflaechen.push(s); (m.schnittMats ||= []).push(o.material); if (m.schnitt) { o.material.side = THREE.FrontSide; o.material.needsUpdate = true; } }
+      if (!glas && !kappenGruppe_) { const s = new THREE.Mesh(o.geometry, SCHNITT); s.frustumCulled = false; s.visible = !!renderer.clippingPlanes.length; o.add(s); m.schnittflaechen.push(s); }   // wie bisher (Hochhaus: rote Tragwerksflächen in der Strukturansicht)
+      if (!glas && kappenGruppe_) { const s = new THREE.Mesh(o.geometry, SCHNITT); s.frustumCulled = false; s.visible = !!m.schnitt; o.add(s); m.schnittflaechen.push(s); (m.schnittMats ||= []).push(o.material); if (m.schnitt) { o.material.side = THREE.FrontSide; o.material.needsUpdate = true; } }
     }
     g.add(d.scene); g.visible = m === aktiv ? sollSichtbar(k) : true;
     if (m === aktiv && m.schnitt) strukturAnsicht(true); if (status?.textContent === '…') melde('');   // nachgeladene Gruppe in die laufende Strukturansicht
@@ -263,13 +273,15 @@ function rahmen(gruppe) {
 window.formaBau = () => MODELLE.bauplatz.teile;   // für die Prüfregel tools/pruefe_bauplatz.mjs
 
 // Eine Aktion ausführen und sagen, was passiert ist
+// Texte: Grundtexte der Sprache, je Modell ergänzt (m.sagt[lang], etwa eigene Schnitte und Blicke einer Wohnung)
+const sagtFuer = m => { const B = SAGT[sprache()], E = m?.sagt?.[sprache()] || m?.sagt?.en || {}; const out = { ...B, ...E }; for (const k of ['schnitt', 'blick', 'zustand', 'modell', 'kamera']) out[k] = { ...(B[k] || {}), ...(E[k] || {}) }; return out; };
 function tun(a) {
-  const T = SAGT[sprache()], gesagt = [];
+  const T = sagtFuer(aktiv), gesagt = [];
   if (a.modell && MODELLE[a.modell] && !MODELLE[a.modell].versteckt && MODELLE[a.modell] !== aktiv) { aktiviere(a.modell); gesagt.push(T.modell[a.modell]); }
   const m = aktiv;
   if (a.rueck && m.bau) { const v = m.verlauf?.pop(); if (v) { setzeBau(v, false); return T.rueck; } return T.nichtsRueck; }
   if (a.neu && m.bau) { setzeBau(BAU_START); blick(m.start); return T.neu; }
-  if (a.alles) { m.zustand = '2026'; for (const k of Object.keys(m.dateien)) m.sichtbar[k] = true; axo = false; blick(m.start); schnitt('kein'); for (const k of Object.keys(m.dateien)) zeige(k); return T.alles; }
+  if (a.alles) { m.zustand = '2026'; for (const k of Object.keys(m.dateien)) m.sichtbar[k] = true; axo = false; blick(m.start); schnitt(m.schnittStart || 'kein'); for (const k of Object.keys(m.dateien)) zeige(k); return T.alles; }
   if (a.zustand && m.zustaende?.[String(a.zustand)]) { zustand(String(a.zustand)); gesagt.push(T.zustand[a.zustand]); }
   if (a.gruppen) { const an = [], aus = []; for (const [k, v] of Object.entries(a.gruppen)) { if (!(k in m.dateien) || k === 'kacheln' || k === 'fern') continue; m.sichtbar[k] = !!v; zeige(k); if (k === 'stadt') { if (m.dateien.kacheln) zeige('kacheln'); if (m.dateien.fern) zeige('fern'); } (v ? an : aus).push(T.gruppen[k] || k); }
     // Deutsch und Englisch: „Bäume ausgeblendet.“; sonst „Masqué : arbres.“, das stimmt in Einzahl und Mehrzahl
