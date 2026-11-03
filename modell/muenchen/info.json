@@ -1,5 +1,5 @@
 {
- "quelle": "w8.json",
+ "quelle": "w8neu.json",
  "mitte": [
   5.936,
   0,
@@ -26,7 +26,7 @@
   },
   "bestand": {
    "datei": "bestand.glb",
-   "mb": 0.1,
+   "mb": 0.11,
    "dreiecke": 70565,
    "objekte": 2579
   },

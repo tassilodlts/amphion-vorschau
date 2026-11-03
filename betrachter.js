@@ -1,8 +1,9 @@
 // Forma · Website: Sprich mit dem Modell (three.js, Draco-GLB aus tools/web_glb.mjs und tools/web_obj_glb.mjs).
-// Ein Renderer, zwei Modelle als Reiter. Statt Knöpfen ein Satz: Vorschläge (Chips mit fester Aktion) oder freier Text. Freier Text wird zuerst
+// Ein Renderer, ein Modell (das Haus von 1913; FIVE CLEARINGS und der Bauplatz bleiben versteckt nur für die Filmaufnahmen, 3.11., Tassilo). Statt Knöpfen ein Satz: Vorschläge (Chips mit fester Aktion) oder freier Text. Freier Text wird zuerst
 // hier mit Stichwörtern (de, en, es) gedeutet, sonst fragt die Seite Forma Cloud (/demo/modell), die ein Sprachmodell auf dieselben Aktionen abbildet.
 // Aktionen: Modell, Zustand (1913 / 2026), Gruppen ein und aus, Schnitt (Geschoss: alles darüber fällt weg; längs, quer), Kamera (Perspektive,
-// Axonometrie), Blick. Rückseiten geschlossener Körper werden dunkel gezeichnet, so wirkt die Schnittfläche gefüllt. Lädt erst, wenn sichtbar.
+// Axonometrie), Blick. Schnittflächen: Stencil-Kappen (Rückseiten zählen hoch, Vorderseiten herunter, wo etwas übrig bleibt, ist man im Körper):
+// so sind Wände und Decken im Schnitt massiv (3.11., Tassilo: „die Wände haben keine Masse“). Lädt erst, wenn sichtbar.
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
@@ -32,6 +33,7 @@ const MODELLE = {
     schnitte: { ug: [0, -1, 0, -1.3], eg: [0, -1, 0, 1.3], og: [0, -1, 0, 4.5], dg: [0, -1, 0, 7.6], laengs: [1, 0, 0, 4.32], quer: [0, 0, -1, -0.51] },   // längs durch die Treppe (x = 1,6 m), quer durch die Mitte (y = 5,5 m)
   },
   vancouver: {
+    versteckt: true,   // kein Reiter, kein Satz; nur ?film=1
     basis: 'modell/vancouver/', dateien: { tragwerk: 'tragwerk.glb', gebaeude: 'gebaeude.glb', stadt: 'stadt.glb', kacheln: 'kacheln.glb', fern: 'fern.glb', pflanzen: 'pflanzen.glb' },   // fern: die ganze gebaute Stadt bis zu den Bergen (tools/film_stadt.mjs), schaltet mit stadt   // kacheln: Satellitenstadt (Fototexturen), folgt dem Schalter stadt
     baeume: { standorte: 'baeume.json', vorlagen: 'baeume_vorlagen.glb', gruppe: 'pflanzen' }, boden: { r: 1400, y: -75 },
     nah: 0.1, fern: 60000, nahst: 0.8, fernst: 16000, start: 'block', struktur: true, nebel: [0xffffff, 6000, 32000],   // 2.11. (Tassilo: frei bewegen bis auf die Straße, die ganze Stadt bis zu den Bergen)
@@ -40,6 +42,7 @@ const MODELLE = {
   },
   // Bauplatz (2.11.): hier baut die KI wirklich, aus Bauteilen (bauplatz.js), über /demo/bauen der Cloud
   bauplatz: {
+    versteckt: true,   // nur ?baufilm=1
     basis: '', dateien: {}, bau: true, boden: { r: 60, y: -0.02, farbe: 0xdfe6d6 },
     nah: 0.05, fern: 3000, nahst: 1, fernst: 400, start: 'vorn',
     blicke: { vorn: { pos: [19, 9.5, 27], ziel: [0, 4.5, 0] }, seite: { pos: [33, 8, 3], ziel: [0, 4.5, 0] }, hinten: { pos: [-19, 9.5, -27], ziel: [0, 4.5, 0] }, oben: { pos: [0.01, 60, 0], ziel: [0, 0, 0] } },
@@ -64,13 +67,26 @@ const sprache = () => SAGT[document.documentElement.lang] ? document.documentEle
 let renderer, scene, camera, controls, sichtbar = false, gestartet = false, aktiv = null, axo = false;
 const loader = new GLTFLoader(), draco = new DRACOLoader(); draco.setDecoderPath(DRACO); loader.setDRACOLoader(draco);
 const SCHNITT = new THREE.MeshBasicMaterial({ color: 0x1c1c1c, side: THREE.BackSide });
+// Schnittkappen über den Stencil-Puffer (three.js-Beispiel webgl_clipping_stencil): je Körper zwei unsichtbare Durchgänge, die Rückseiten
+// zählen hoch, die Vorderseiten herunter; eine große Ebene in der Schnittebene zeichnet dann nur dort, wo der Zähler nicht null ist.
+// Nur für Gruppen aus geschlossenen Körpern (Wände, Decken, Dach), nicht für Möbel, Bäume und Umgebung
+const KAPPEN_GRUPPEN = new Set(['haus', 'bestand', 'vorschlag']);
+const KAPPE = new THREE.MeshBasicMaterial({ color: 0x3a3634, side: THREE.DoubleSide, stencilWrite: true, stencilRef: 0, stencilFunc: THREE.NotEqualStencilFunc, stencilFail: THREE.ReplaceStencilOp, stencilZFail: THREE.ReplaceStencilOp, stencilZPass: THREE.ReplaceStencilOp });
+function kappenGruppe(geometry) {
+  const g = new THREE.Group();
+  for (const [side, op] of [[THREE.BackSide, THREE.IncrementWrapStencilOp], [THREE.FrontSide, THREE.DecrementWrapStencilOp]]) {
+    const mat = new THREE.MeshBasicMaterial({ side, depthWrite: false, depthTest: false, colorWrite: false, stencilWrite: true, stencilFunc: THREE.AlwaysStencilFunc, stencilFail: op, stencilZFail: op, stencilZPass: op });
+    const mesh = new THREE.Mesh(geometry, mat); mesh.frustumCulled = false; mesh.renderOrder = 1; g.add(mesh);
+  }
+  return g;
+}
 const SCHNITT_TRAGWERK = new THREE.MeshBasicMaterial({ color: 0x9b2c1f, side: THREE.BackSide });   // Schnittflächen des Tragwerks in der Strukturansicht
 let UMGEBUNG = null;   // Spiegelbild für Glas (2.11., Tassilo: Glas am Hochhaus sah schlecht aus), einmal aus RoomEnvironment
 const leisten = () => wrap.querySelectorAll('[data-leiste]');
 
 function start() {
   if (gestartet) return; gestartet = true; window.formaZaehl?.('modell');
-  renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false, powerPreference: 'high-performance' });
+  renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false, stencil: true, powerPreference: 'high-performance' });   // stencil für die Schnittkappen
   renderer.setPixelRatio(Math.min(devicePixelRatio, SCHWACH ? 1.5 : 2)); renderer.outputColorSpace = THREE.SRGBColorSpace;
   // 3D-Ansicht verloren (zu wenig Grafikspeicher): Hinweis und Knopf, der die Seite in der leichten Fassung neu lädt
   canvas.addEventListener('webglcontextlost', e => {
@@ -130,12 +146,15 @@ async function lade(k) {
     const netze = []; d.scene.traverse(o => { if (o.isMesh) netze.push(o); });   // erst sammeln: die Schnittflächen kommen als Kinder dazu
     for (const o of netze) {
       if (o.material.map) { o.material = new THREE.MeshBasicMaterial({ map: o.material.map, side: THREE.DoubleSide }); o.frustumCulled = false; continue; }   // Fotokacheln: das Licht steckt im Foto
-      const glas = o.material.name === 'glas';
+      const glas = o.material.name === 'glas', solid = o.material.name === 'solid';   // solid: geschlossene Körper (tools/web_3dm_glb.mjs), nur sie bekommen Kappen
       o.material = glas
         ? new THREE.MeshStandardMaterial({ vertexColors: true, metalness: 0.15, roughness: 0.04, envMap: UMGEBUNG, envMapIntensity: 1.35, transparent: true, opacity: 0.58, side: THREE.DoubleSide, depthWrite: false })   // spiegelt, leicht getönt
         : new THREE.MeshLambertMaterial({ vertexColors: true, flatShading: true, side: THREE.DoubleSide });
       o.frustumCulled = false;
-      if (!glas) { const s = new THREE.Mesh(o.geometry, SCHNITT); s.frustumCulled = false; s.visible = !!renderer.clippingPlanes.length; o.add(s); m.schnittflaechen.push(s); }
+      if (solid && KAPPEN_GRUPPEN.has(k)) { const s = kappenGruppe(o.geometry); s.visible = !!m.schnitt; o.add(s); m.schnittflaechen.push(s); }
+      // offene Körper (Wände ohne Deckel, Böden als Fläche) in denselben Gruppen: im Schnitt nur Vorderseiten, Rückseiten dunkel, so wirkt
+      // auch ein offener Wandkasten massiv; ohne Schnitt wieder beidseitig, damit nichts durchsichtig wird
+      if (!glas && KAPPEN_GRUPPEN.has(k)) { const s = new THREE.Mesh(o.geometry, SCHNITT); s.frustumCulled = false; s.visible = !!m.schnitt; o.add(s); m.schnittflaechen.push(s); (m.schnittMats ||= []).push(o.material); if (m.schnitt) { o.material.side = THREE.FrontSide; o.material.needsUpdate = true; } }
     }
     g.add(d.scene); g.visible = m === aktiv ? sollSichtbar(k) : true;
     if (m === aktiv && m.schnitt) strukturAnsicht(true); if (status?.textContent === '…') melde('');   // nachgeladene Gruppe in die laufende Strukturansicht
@@ -195,10 +214,18 @@ function strukturAnsicht(an) {
     });
   }
 }
+let kappenAn = true;
+window.formaKappen = an => { if (an === undefined) { const m = aktiv; return { stencil: !!renderer.getContext().getContextAttributes().stencil, n: m.schnittflaechen.length, sichtbar: m.schnittflaechen.filter(f => f.visible).length, kappe: m.kappe ? { sichtbar: m.kappe.visible, pos: m.kappe.position.toArray().map(v => +v.toFixed(2)) } : null }; } kappenAn = !!an; for (const mm of Object.values(MODELLE)) { if (mm.kappe) mm.kappe.visible = kappenAn && !!mm.schnitt; for (const f of mm.schnittflaechen || []) f.visible = kappenAn && !!mm.schnitt; for (const mat of mm.schnittMats || []) { mat.side = kappenAn && mm.schnitt ? THREE.FrontSide : THREE.DoubleSide; mat.needsUpdate = true; } } };   // Prüfregel: Kappen aus und an
 function schnitt(name) {
   const m = aktiv, s = m.schnitte[name]; if (name !== 'kein' && !s) return false; m.schnitt = s ? name : null;
-  renderer.clippingPlanes = s ? [new THREE.Plane(new THREE.Vector3(s[0], s[1], s[2]), s[3])] : [];
+  const ebene = s ? new THREE.Plane(new THREE.Vector3(s[0], s[1], s[2]), s[3]) : null;
+  renderer.clippingPlanes = ebene ? [ebene] : [];
   for (const mm of Object.values(MODELLE)) for (const f of mm.schnittflaechen || []) f.visible = !!s;
+  for (const mat of m.schnittMats || []) { mat.side = s ? THREE.FrontSide : THREE.DoubleSide; mat.needsUpdate = true; }
+  // Kappenebene: groß genug für das ganze Modell, liegt genau in der Schnittebene, schaut zur sichtbaren Seite; löscht danach den Stencil
+  if (!m.kappe) { m.kappe = new THREE.Mesh(new THREE.PlaneGeometry(4000, 4000), KAPPE); m.kappe.renderOrder = 2; m.kappe.frustumCulled = false; m.kappe.onAfterRender = rd => rd.clearStencil(); m.wurzel.add(m.kappe); }
+  m.kappe.visible = !!ebene && kappenAn;
+  if (ebene) { m.kappe.position.copy(ebene.normal).multiplyScalar(-ebene.constant); m.kappe.lookAt(m.kappe.position.clone().add(ebene.normal)); }
   strukturAnsicht(!!s);
   return true;
 }
@@ -238,7 +265,7 @@ window.formaBau = () => MODELLE.bauplatz.teile;   // für die Prüfregel tools/p
 // Eine Aktion ausführen und sagen, was passiert ist
 function tun(a) {
   const T = SAGT[sprache()], gesagt = [];
-  if (a.modell && MODELLE[a.modell] && MODELLE[a.modell] !== aktiv) { aktiviere(a.modell); gesagt.push(T.modell[a.modell]); }
+  if (a.modell && MODELLE[a.modell] && !MODELLE[a.modell].versteckt && MODELLE[a.modell] !== aktiv) { aktiviere(a.modell); gesagt.push(T.modell[a.modell]); }
   const m = aktiv;
   if (a.rueck && m.bau) { const v = m.verlauf?.pop(); if (v) { setzeBau(v, false); return T.rueck; } return T.nichtsRueck; }
   if (a.neu && m.bau) { setzeBau(BAU_START); blick(m.start); return T.neu; }
@@ -295,7 +322,7 @@ const WOERTER = {"fr": {"neg": ["sans", "enlève", "enleve", "retire", "cache", 
 function deuten(text) {
   const t = text.toLowerCase(); const a = {}; let traf = false;
   if (W.alles.test(t)) return { alles: true };
-  for (const [k, re] of W.modell) if (re.test(t) && !(k === 'vancouver' && /turm|tower|torre/.test(t) && aktiv.name === 'vancouver')) { if (MODELLE[k] !== aktiv && /vancouver|five|m[üu]nchen|munich|m[úu]nich|villa|walhalla/i.test(t)) { a.modell = k; traf = true; } break; }
+  for (const [k, re] of W.modell) if (!MODELLE[k]?.versteckt && re.test(t) && !(k === 'vancouver' && /turm|tower|torre/.test(t) && aktiv.name === 'vancouver')) { if (MODELLE[k] !== aktiv && /vancouver|five|m[üu]nchen|munich|m[úu]nich|villa|walhalla/i.test(t)) { a.modell = k; traf = true; } break; }
   const m = a.modell ? MODELLE[a.modell] : aktiv;
   for (const [k, re] of W.zustand) if (re.test(t) && m.zustaende) { a.zustand = k; traf = true; break; }
   const neg = W.neg.test(t), nur = W.nur.test(t), g = {};
