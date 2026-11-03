@@ -5,7 +5,8 @@ const PRODUKT = 'Amphion';          // Name, später austauschbar
 const DOWNLOAD_ARM = 'https://github.com/tassilodlts/forma-app/releases/latest/download/Amphion-Mac-Apple-Silicon.dmg';         // Mac, Apple Silicon (.dmg)
 const DOWNLOAD_X64 = 'https://github.com/tassilodlts/forma-app/releases/latest/download/Amphion-Mac-Intel.dmg';         // Mac, Intel (.dmg)
 const DOWNLOAD_WIN = 'https://github.com/tassilodlts/forma-app/releases/latest/download/Amphion-Windows.exe';         // Windows 10 und 11, 64 Bit (Installer)
-const CHECKOUT = { pro: 'mailto:hello@amphion3d.com?subject=Amphion%20Pro', studio: 'mailto:hello@amphion3d.com?subject=Amphion%20Studio' };   // Abo starten je Plan (später Paddle)
+const CHECKOUT = { pro: '#abo', studio: 'mailto:hello@amphion3d.com?subject=Amphion%20Studio' };   // Abo starten: Formular (3.11., Tassilo: „Schlüssel kaufen funktioniert nicht“; Zahlungsdienst folgt), Studio per Mail
+const CLOUD = 'https://cloud.amphion3d.com';
 
 const TEXTE = {
   de: {
@@ -13,6 +14,7 @@ const TEXTE = {
     'nav.projekte': 'Projekte', 'nav.funktionen': 'Funktionen', 'nav.preis': 'Preis', 'nav.faq': 'Fragen', 'nav.kaufen': 'Kaufen',
     'held.titel1': 'Beschreib dein Haus.', 'held.titel2': 'Amphion baut es.',
     'held.text': 'Eine Skizze, ein Plan, ein PDF, ein Foto oder ein Satz: Amphion baut daraus echte Bauteile, rendert auf deinem Computer und schreibt die Pläne.',
+    'abo.titel': "Abo starten", 'abo.text': "Schreib uns deine E-Mail-Adresse. Du bekommst innerhalb eines Tages den Lizenzschlüssel und die Rechnung. Der Schlüssel gilt für einen Computer; wechseln kannst du ihn jederzeit unter „Mein Konto“.", 'abo.email': "E-Mail-Adresse", 'abo.name': "Name oder Büro (freiwillig)", 'abo.senden': "Schlüssel anfordern", 'abo.danke': "Danke. Du hörst innerhalb eines Tages von uns, an {email}.", 'abo.fehler': "Das hat nicht geklappt. Schreib direkt an hello@amphion3d.com.", 'nav.konto': "Mein Konto",
     'held.ladenArm': 'Amphion für Mac laden (Apple Silicon)', 'held.ladenX64': 'Amphion für Mac laden (Intel)', 'held.ladenWin': 'Amphion für Windows laden',
     'held.klein': 'Für Mac (macOS 14 oder neuer) und Windows (10 und 11). Laden ist frei. Die ersten 10 Kunden testen einen Monat kostenlos, danach kostet Amphion 45 € im Monat. Vom Handy aus bedienst du Amphion im Browser, solange dein Computer läuft. Nach dem ersten Monat nicht zufrieden? Alles zurück.', 'held.kaufen': 'Schlüssel kaufen',
     'bild.band': 'FIVE CLEARINGS aus der Luft. Entwurf, Modell und Bild aus Amphion.',
@@ -61,6 +63,7 @@ const TEXTE = {
     'nav.projekte': 'Projects', 'nav.funktionen': 'Features', 'nav.preis': 'Pricing', 'nav.faq': 'FAQ', 'nav.kaufen': 'Buy',
     'held.titel1': 'Describe your building.', 'held.titel2': 'Amphion builds it.',
     'held.text': 'A sketch, a plan, a PDF, a photo or one sentence: Amphion turns it into real building elements, renders on your computer and writes the drawings.',
+    'abo.titel': "Start your subscription", 'abo.text': "Send us your email address. Within a day you receive the licence key and the invoice. The key works on one computer; you can switch it any time under “My account”.", 'abo.email': "Email address", 'abo.name': "Name or studio (optional)", 'abo.senden': "Request the key", 'abo.danke': "Thank you. You will hear from us within a day, at {email}.", 'abo.fehler': "That did not work. Write directly to hello@amphion3d.com.", 'nav.konto': "My account",
     'held.ladenArm': 'Download Amphion for Mac (Apple Silicon)', 'held.ladenX64': 'Download Amphion for Mac (Intel)', 'held.ladenWin': 'Download Amphion for Windows',
     'held.klein': 'For Mac (macOS 14 or newer) and Windows (10 and 11). The download is free. The first 10 customers try it free for one month, then Amphion costs €45 a month. From your phone you control Amphion in the browser while your computer is running. Not happy after the first month? Full refund.', 'held.kaufen': 'Buy a key',
     'bild.band': 'FIVE CLEARINGS from the air. Design, model and image from Amphion.',
@@ -109,6 +112,7 @@ const TEXTE = {
     'nav.projekte': 'Proyectos', 'nav.funktionen': 'Funciones', 'nav.preis': 'Precio', 'nav.faq': 'Preguntas', 'nav.kaufen': 'Comprar',
     'held.titel1': 'Describe tu casa.', 'held.titel2': 'Amphion la construye.',
     'held.text': 'Un boceto, un plano, un PDF, una foto o una frase: Amphion lo convierte en elementos constructivos reales, renderiza en tu ordenador y genera los planos.',
+    'abo.titel': "Empezar la suscripción", 'abo.text': "Déjanos tu correo. En un día recibes la clave de licencia y la factura. La clave vale para un ordenador; puedes cambiarlo cuando quieras en «Mi cuenta».", 'abo.email': "Correo electrónico", 'abo.name': "Nombre o estudio (opcional)", 'abo.senden': "Pedir la clave", 'abo.danke': "Gracias. Te escribimos en un día a {email}.", 'abo.fehler': "No ha funcionado. Escribe directamente a hello@amphion3d.com.", 'nav.konto': "Mi cuenta",
     'held.ladenArm': 'Descargar Amphion para Mac (Apple Silicon)', 'held.ladenX64': 'Descargar Amphion para Mac (Intel)', 'held.ladenWin': 'Descargar Amphion para Windows',
     'held.klein': 'Para Mac (macOS 14 o posterior) y Windows (10 y 11). La descarga es gratis. Los 10 primeros clientes lo prueban gratis un mes, después Amphion cuesta 45 € al mes. Desde el móvil manejas Amphion en el navegador mientras tu ordenador está encendido. ¿No te convence tras el primer mes? Te devolvemos todo.', 'held.kaufen': 'Comprar clave',
     'bild.band': 'FIVE CLEARINGS desde el aire. Diseño, modelo e imagen hechos en Amphion.',
@@ -157,6 +161,7 @@ const TEXTE = {
     'nav.projekte': 'Projets', 'nav.funktionen': 'Fonctions', 'nav.preis': 'Prix', 'nav.faq': 'Questions', 'nav.kaufen': 'Acheter',
     'held.titel1': 'Décris ton bâtiment.', 'held.titel2': 'Amphion le construit.',
     'held.text': 'Un croquis, un plan, un PDF, une photo ou une phrase : Amphion en fait de vrais éléments de construction, effectue le rendu sur ton ordinateur et produit les plans.',
+    'abo.titel': "Démarrer l’abonnement", 'abo.text': "Laisse-nous ton adresse e-mail. Sous un jour tu reçois la clé de licence et la facture. La clé vaut pour un ordinateur ; tu peux en changer à tout moment dans « Mon compte ».", 'abo.email': "Adresse e-mail", 'abo.name': "Nom ou agence (facultatif)", 'abo.senden': "Demander la clé", 'abo.danke': "Merci. Tu auras de nos nouvelles sous un jour, à {email}.", 'abo.fehler': "Cela n’a pas fonctionné. Écris directement à hello@amphion3d.com.", 'nav.konto': "Mon compte",
     'held.ladenArm': 'Télécharger Amphion pour Mac (Apple Silicon)', 'held.ladenX64': 'Télécharger Amphion pour Mac (Intel)', 'held.ladenWin': 'Télécharger Amphion pour Windows',
     'held.klein': 'Pour Mac (macOS 14 ou plus récent) et Windows (10 et 11). Le téléchargement est gratuit. Les 10 premiers clients l’essaient gratuitement pendant un mois, ensuite Amphion coûte 45 € par mois. Depuis ton téléphone, tu pilotes Amphion dans le navigateur pendant que ton ordinateur est allumé. Pas convaincu après le premier mois ? On te rembourse tout.', 'held.kaufen': 'Acheter une clé',
     'bild.band': 'FIVE CLEARINGS vu du ciel. Projet, modèle et image réalisés avec Amphion.',
@@ -205,6 +210,7 @@ const TEXTE = {
     'nav.projekte': 'Progetti', 'nav.funktionen': 'Funzioni', 'nav.preis': 'Prezzi', 'nav.faq': 'Domande', 'nav.kaufen': 'Acquista',
     'held.titel1': 'Descrivi il tuo edificio.', 'held.titel2': 'Amphion lo costruisce.',
     'held.text': 'Uno schizzo, una pianta, un PDF, una foto o una frase: Amphion lo trasforma in veri elementi costruttivi, fa il rendering sul tuo computer e produce i disegni.',
+    'abo.titel': "Avvia l’abbonamento", 'abo.text': "Lasciaci la tua e-mail. Entro un giorno ricevi la chiave di licenza e la fattura. La chiave vale per un computer; puoi cambiarlo quando vuoi in «Il mio account».", 'abo.email': "Indirizzo e-mail", 'abo.name': "Nome o studio (facoltativo)", 'abo.senden': "Richiedi la chiave", 'abo.danke': "Grazie. Ti scriviamo entro un giorno a {email}.", 'abo.fehler': "Non ha funzionato. Scrivi direttamente a hello@amphion3d.com.", 'nav.konto': "Il mio account",
     'held.ladenArm': 'Scarica Amphion per Mac (Apple Silicon)', 'held.ladenX64': 'Scarica Amphion per Mac (Intel)', 'held.ladenWin': 'Scarica Amphion per Windows',
     'held.klein': 'Per Mac (macOS 14 o successivo) e Windows (10 e 11). Il download è gratuito. I primi 10 clienti lo provano gratis per un mese, poi Amphion costa 45 € al mese. Dal telefono comandi Amphion nel browser mentre il tuo computer è acceso. Non ti convince dopo il primo mese? Ti rimborsiamo tutto.', 'held.kaufen': 'Acquista una chiave',
     'bild.band': 'FIVE CLEARINGS dall’alto. Progetto, modello e immagine realizzati con Amphion.',
@@ -253,6 +259,7 @@ const TEXTE = {
     'nav.projekte': 'Projetos', 'nav.funktionen': 'Funções', 'nav.preis': 'Preço', 'nav.faq': 'Perguntas', 'nav.kaufen': 'Comprar',
     'held.titel1': 'Descreve o teu edifício.', 'held.titel2': 'O Amphion constrói-o.',
     'held.text': 'Um esboço, uma planta, um PDF, uma foto ou uma frase: o Amphion transforma-o em elementos construtivos reais, faz o render no teu computador e gera os desenhos.',
+    'abo.titel': "Começar a subscrição", 'abo.text': "Deixa-nos o teu e-mail. Num dia recebes a chave de licença e a fatura. A chave vale para um computador; podes trocá-lo quando quiseres em «A minha conta».", 'abo.email': "Endereço de e-mail", 'abo.name': "Nome ou atelier (opcional)", 'abo.senden': "Pedir a chave", 'abo.danke': "Obrigado. Escrevemos-te num dia, para {email}.", 'abo.fehler': "Não funcionou. Escreve diretamente para hello@amphion3d.com.", 'nav.konto': "A minha conta",
     'held.ladenArm': 'Descarregar o Amphion para Mac (Apple Silicon)', 'held.ladenX64': 'Descarregar o Amphion para Mac (Intel)', 'held.ladenWin': 'Descarregar o Amphion para Windows',
     'held.klein': 'Para Mac (macOS 14 ou posterior) e Windows (10 e 11). O download é gratuito. Os 10 primeiros clientes experimentam grátis durante um mês, depois o Amphion custa 45 € por mês. No telefone controlas o Amphion no navegador enquanto o teu computador está ligado. Não te convenceu após o primeiro mês? Devolvemos tudo.', 'held.kaufen': 'Comprar uma chave',
     'bild.band': 'FIVE CLEARINGS visto do ar. Projeto, modelo e imagem feitos no Amphion.',
@@ -336,6 +343,27 @@ const MACINTOSH = /Macintosh/.test(navigator.userAgent);
 alle('[data-download="auto"]', el => el.href = WINDOWS ? DOWNLOAD_WIN : MACINTOSH ? DOWNLOAD_ARM : '#held');
 if (WINDOWS) alle('.held .knoepfe', k => { const w = k.querySelector('[data-download="win"]'); if (!w) return; k.querySelector('.primaer')?.classList.remove('primaer'); w.classList.add('primaer'); k.prepend(w); });
 alle('[data-checkout]', el => el.href = CHECKOUT[el.dataset.checkout] || CHECKOUT.pro);
+// Abo-Formular: öffnet sich bei „Abo starten“, schickt E-Mail und Plan an die Amphion Cloud (/v1/anfrage)
+{
+  const dlg = document.querySelector('#abo'), form = dlg?.querySelector('form'), meldung = dlg?.querySelector('.abo-meldung');
+  if (dlg && form) {
+    // Stripe zuerst (3.11., Tassilo: wie bei Antiga): die Cloud gibt die Adresse des gehosteten Checkouts; ohne Zahlungsdienst das Formular
+    document.addEventListener('click', async e => { const a = e.target.closest('a[data-checkout="pro"]'); if (!a) return; e.preventDefault();
+      a.classList.add('wartet');
+      try { const r = await fetch(CLOUD + '/v1/kauf', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ plan: 'pro', lang: document.documentElement.lang }) }); const j = await r.json(); if (j.url) { window.formaZaehl?.('kauf'); location.href = j.url; return; } } catch { /* Formular */ }
+      a.classList.remove('wartet'); meldung.textContent = ''; form.hidden = false; dlg.showModal(); form.querySelector('input[type=email]').focus(); });
+    dlg.querySelector('.abo-zu').onclick = () => dlg.close();
+    form.onsubmit = async e => {
+      e.preventDefault(); const email = form.email.value.trim(), name = form.name.value.trim(); const knopf = form.querySelector('button[type=submit]'); knopf.disabled = true;
+      try {
+        const r = await fetch(CLOUD + '/v1/anfrage', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, name, plan: 'pro', lang: document.documentElement.lang }) });
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        form.hidden = true; meldung.textContent = (t['abo.danke'] || '').replace('{email}', email); window.formaZaehl?.('abo');
+      } catch { meldung.textContent = t['abo.fehler'] || 'hello@amphion3d.com'; }
+      knopf.disabled = false;
+    };
+  }
+}
 alle('[data-jahr]', el => el.textContent = new Date().getFullYear());
 for (const lang of Object.keys(TEXTE)) for (const k of Object.keys(TEXTE[lang])) TEXTE[lang][k] = TEXTE[lang][k].replaceAll('Amphion', PRODUKT);
 

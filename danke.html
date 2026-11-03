@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta name="robots" content="noindex">
+<script>window.AMPHION_DATEIEN={".nojekyll":"e3b0c44298","app.js":"5c1351aa90","apple-touch-icon.png":"6a291409a2","bauplatz.js":"43a2842860","betrachter.js":"37a1c3cdd5","bilder/amphion_stadt.mp4":"9a8f04407e","bilder/amphion_stadt_klein.mp4":"c246c97389","bilder/app.jpg":"187ac9a65e","bilder/muenchen_1913.jpg":"153ba131e9","bilder/muenchen_ecke.jpg":"82cda417df","bilder/muenchen_gr_dg.jpg":"bb0540e280","bilder/muenchen_gr_eg.jpg":"02ddcce3ab","bilder/muenchen_gr_og.jpg":"5b8538d545","bilder/muenchen_iso.jpg":"ba5e3bfb62","bilder/muenchen_salon.jpg":"9721c53bca","bilder/muenchen_terrasse.jpg":"5034a2192f","bilder/muenchen_vogel.jpg":"b6c48b1ed9","bilder/vancouver_dachgaerten.jpg":"9065243320","bilder/vancouver_drohne.jpg":"44cff95a93","bilder/vancouver_lichtung.jpg":"82e8457b8d","bilder/vancouver_park.jpg":"5f72a9ea1c","bilder/vancouver_schnitt.jpg":"4311896654","bilder/vancouver_sockel.jpg":"f36d8604a2","bilder/vancouver_strasse.jpg":"17a47e3505","bilder/vancouver_terrasse.jpg":"1d92bbbe77","bilder/vancouver_turm.jpg":"268372242b","bilder/vergleich_erker_rendering.jpg":"979ea23a1e","bilder/vergleich_erker_viewport.jpg":"0bf3a2bc30","bilder/vergleich_garten_rendering.jpg":"dedfd8212c","bilder/vergleich_garten_viewport.jpg":"ff28076bb5","bilder/vergleich_kueche_rendering.jpg":"cea6021f2a","bilder/vergleich_kueche_viewport.jpg":"de9db299fd","bilder/vergleich_salon_rendering.jpg":"23100baedf","bilder/vergleich_salon_viewport.jpg":"c43e2ddf49","bilder/vergleich_strasse_rendering.jpg":"cb2cbed718","bilder/vergleich_strasse_viewport.jpg":"f1c3d641d8","favicon-32.png":"2cb1d06e9d","favicon.ico":"1425ec7a48","favicon.svg":"5f71fbf261","icon-512.png":"d98030ecd5","modell/muenchen/baeume.glb":"be3e901168","modell/muenchen/bestand.glb":"755be81e04","modell/muenchen/einrichtung.glb":"7447a397ee","modell/muenchen/haus.glb":"b49fd7d111","modell/muenchen/info.json":"ae89ec4921","modell/muenchen/umgebung.glb":"67be4cf2d7","modell/muenchen/vorschlag.glb":"969b0ae454","modell/vancouver/baeume.json":"da59088580","modell/vancouver/baeume_vorlagen.glb":"27b0351c09","modell/vancouver/fern.glb":"43ee1c6a82","modell/vancouver/gebaeude.glb":"db7b7d0a69","modell/vancouver/info.json":"a6e4747920","modell/vancouver/kacheln.glb":"71075bffb1","modell/vancouver/pflanzen.glb":"c9ec7eab80","modell/vancouver/stadt.glb":"c1b3e7d694","modell/vancouver/tragwerk.glb":"4f057c7f74","robots.txt":"914c46b04a","sitemap.xml":"87fb94a12a","style.css":"a9f2ab8851"}</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amphion 3D · Danke</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.svg?v=5f71fbf261" type="image/svg+xml">
+<link rel="stylesheet" href="style.css?v=a9f2ab8851">
+<style>
+.danke{max-width:620px;margin:0 auto;padding:72px var(--rand)}
+.danke h1{font-size:clamp(32px,5vw,52px);letter-spacing:-.03em;margin-bottom:14px}
+.danke p{color:var(--grau);margin-bottom:16px}
+.schluessel{font:700 clamp(20px,3.2vw,30px)/1.3 "SF Mono",Menlo,monospace;letter-spacing:.02em;padding:18px 20px;border:2px solid var(--ink);word-break:break-all;margin:18px 0 10px;user-select:all}
+.danke ol{margin:18px 0 18px 22px;color:var(--ink)}
+.danke li{margin-bottom:8px}
+.klein{color:var(--hell);font-size:14px}
+</style>
+</head>
+<body>
+<header class="kopf">
+  <a class="logo" href="./">Amphion</a>
+</header>
+<main>
+<section class="danke">
+  <h1 data-k="titel">Danke. Dein Abo läuft.</h1>
+  <p data-k="warte">Dein Lizenzschlüssel kommt gleich hier, die Zahlung wird gerade bestätigt …</p>
+  <div class="schluessel" id="key" hidden></div>
+  <button type="button" class="knopf" id="kopieren" hidden data-k="kopieren">Schlüssel kopieren</button>
+  <ol id="schritte" hidden>
+    <li data-k="s1">Amphion öffnen, Einstellungen.</li>
+    <li data-k="s2">Den Schlüssel eintragen und „Prüfen“ drücken.</li>
+    <li data-k="s3">Fertig. Chat, KI-Renderings und Websuche sind im Abo enthalten.</li>
+  </ol>
+  <p class="klein" data-k="mail">Den Schlüssel bekommst du auch per E-Mail. Er gilt für einen Computer; wechseln kannst du ihn unter „Mein Konto“.</p>
+  <p class="klein"><a href="./" data-k="laden">Amphion laden</a> · <a href="konto.html" data-k="konto">Mein Konto</a></p>
+</section>
+</main>
+<script>
+// Dankeseite nach dem Kauf (3.11.2026): holt den Schlüssel mit der Stripe-Sitzung von der Amphion Cloud (/v1/lizenz?session=…), bis zu zwei Minuten
+const CLOUD = 'https://cloud.amphion3d.com';
+const TEXTE = {
+  de: { titel: 'Danke. Dein Abo läuft.', warte: 'Dein Lizenzschlüssel kommt gleich hier, die Zahlung wird gerade bestätigt …', fertig: 'Das ist dein Lizenzschlüssel:', kopieren: 'Schlüssel kopieren', kopiert: 'Kopiert', s1: 'Amphion öffnen, Einstellungen.', s2: 'Den Schlüssel eintragen und „Prüfen“ drücken.', s3: 'Fertig. Chat, KI-Renderings und Websuche sind im Abo enthalten.', mail: 'Den Schlüssel bekommst du auch per E-Mail. Er gilt für einen Computer; wechseln kannst du ihn unter „Mein Konto“.', laden: 'Amphion laden', konto: 'Mein Konto', spaet: 'Die Bestätigung dauert länger als sonst. Der Schlüssel kommt per E-Mail; sonst schreib an hello@amphion3d.com.' },
+  en: { titel: 'Thank you. Your subscription is active.', warte: 'Your licence key will appear here in a moment, the payment is being confirmed …', fertig: 'This is your licence key:', kopieren: 'Copy the key', kopiert: 'Copied', s1: 'Open Amphion, Settings.', s2: 'Enter the key and press “Check”.', s3: 'Done. Chat, AI renderings and web search are included.', mail: 'You also receive the key by email. It works on one computer; switch it under “My account”.', laden: 'Download Amphion', konto: 'My account', spaet: 'Confirmation is taking longer than usual. The key arrives by email; otherwise write to hello@amphion3d.com.' },
+  es: { titel: 'Gracias. Tu suscripción está activa.', warte: 'Tu clave de licencia aparecerá aquí en un momento, se está confirmando el pago …', fertig: 'Esta es tu clave de licencia:', kopieren: 'Copiar la clave', kopiert: 'Copiada', s1: 'Abre Amphion, Ajustes.', s2: 'Introduce la clave y pulsa «Comprobar».', s3: 'Listo. Chat, renders con IA y búsqueda web están incluidos.', mail: 'También recibes la clave por correo. Vale para un ordenador; puedes cambiarlo en «Mi cuenta».', laden: 'Descargar Amphion', konto: 'Mi cuenta', spaet: 'La confirmación tarda más de lo normal. La clave llega por correo; si no, escribe a hello@amphion3d.com.' },
+  fr: { titel: 'Merci. Ton abonnement est actif.', warte: 'Ta clé de licence apparaît ici dans un instant, le paiement est en cours de confirmation …', fertig: 'Voici ta clé de licence :', kopieren: 'Copier la clé', kopiert: 'Copiée', s1: 'Ouvre Amphion, Réglages.', s2: 'Saisis la clé et appuie sur « Vérifier ».', s3: 'C’est fait. Chat, rendus IA et recherche web sont inclus.', mail: 'Tu reçois aussi la clé par e-mail. Elle vaut pour un ordinateur ; change-le dans « Mon compte ».', laden: 'Télécharger Amphion', konto: 'Mon compte', spaet: 'La confirmation prend plus de temps que d’habitude. La clé arrive par e-mail ; sinon écris à hello@amphion3d.com.' },
+  it: { titel: 'Grazie. Il tuo abbonamento è attivo.', warte: 'La tua chiave di licenza apparirà qui tra un momento, il pagamento è in conferma …', fertig: 'Questa è la tua chiave di licenza:', kopieren: 'Copia la chiave', kopiert: 'Copiata', s1: 'Apri Amphion, Impostazioni.', s2: 'Inserisci la chiave e premi «Verifica».', s3: 'Fatto. Chat, render IA e ricerca web sono inclusi.', mail: 'Ricevi la chiave anche per e-mail. Vale per un computer; cambialo in «Il mio account».', laden: 'Scarica Amphion', konto: 'Il mio account', spaet: 'La conferma richiede più tempo del solito. La chiave arriva per e-mail; altrimenti scrivi a hello@amphion3d.com.' },
+  pt: { titel: 'Obrigado. A tua subscrição está ativa.', warte: 'A tua chave de licença aparece aqui num instante, o pagamento está a ser confirmado …', fertig: 'Esta é a tua chave de licença:', kopieren: 'Copiar a chave', kopiert: 'Copiada', s1: 'Abre o Amphion, Definições.', s2: 'Introduz a chave e carrega em «Verificar».', s3: 'Pronto. Chat, renders com IA e pesquisa web estão incluídos.', mail: 'Também recebes a chave por e-mail. Vale para um computador; troca-o em «A minha conta».', laden: 'Descarregar o Amphion', konto: 'A minha conta', spaet: 'A confirmação está a demorar mais do que o habitual. A chave chega por e-mail; senão escreve para hello@amphion3d.com.' },
+};
+const q = new URLSearchParams(location.search), gew = q.get('lang'), ger = String(navigator.language || 'de').slice(0, 2).toLowerCase();
+const lang = TEXTE[gew] ? gew : TEXTE[ger] ? ger : 'en', T = TEXTE[lang]; document.documentElement.lang = lang; document.title = 'Amphion 3D · ' + T.titel;
+for (const el of document.querySelectorAll('[data-k]')) el.textContent = T[el.dataset.k] || el.textContent;
+const $ = s => document.querySelector(s), session = q.get('s') || '';
+async function holen(versuch = 0) {
+  try { const r = await fetch(CLOUD + '/v1/lizenz?session=' + encodeURIComponent(session)); const j = await r.json(); if (j.key) { zeigen(j.key); return; } } catch { /* noch einmal */ }
+  if (versuch < 60) setTimeout(() => holen(versuch + 1), 2000); else $('[data-k="warte"]').textContent = T.spaet;
+}
+function zeigen(key) {
+  $('[data-k="warte"]').textContent = T.fertig; $('#key').textContent = key; $('#key').hidden = false; $('#kopieren').hidden = false; $('#schritte').hidden = false;
+  $('#kopieren').onclick = async () => { try { await navigator.clipboard.writeText(key); $('#kopieren').textContent = T.kopiert; } catch { /* markieren reicht */ } };
+}
+if (session) holen(); else $('[data-k="warte"]').textContent = T.spaet;
+</script>
+</body>
+</html>
