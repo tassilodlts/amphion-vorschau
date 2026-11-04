@@ -10,6 +10,7 @@ const CLOUD = 'https://cloud.amphion3d.com';
 
 const TEXTE = {
   de: {
+    'cta.titel': 'Probier es mit deinem eigenen Projekt.', 'cta.laden': 'Amphion laden', 'cta.kaufen': 'Schlüssel kaufen', 'cta.klein': 'Laden kostenlos. 45 € im Monat, im ersten Monat Geld zurück.', 'cta.andere': 'Anderer Computer?',
     'aktion.preis': '45 € im Monat, monatlich kündbar. Im ersten Monat Geld zurück, wenn es nicht passt.',
     'aktion.kaufen': 'Schlüssel kaufen',
     'aktion.ladenKlein': 'kostenlos',
@@ -59,10 +60,11 @@ const TEXTE = {
     'faq.3f': 'Wo liegen meine Daten?', 'faq.3': 'Auf deinem Computer. Projekte, Modelle und Renderings bleiben lokal. An die KI gehen nur die Texte deines Chats und, wenn du es willst, das Bild für ein KI-Rendering.',
     'faq.4f': 'Brauche ich einen eigenen KI-Schlüssel?', 'faq.4': 'Nein. Im Abo ist die KI enthalten. Wer eigene Schlüssel hat (OpenAI, Gemini, Groq, OpenRouter, Ollama), kann sie in den Einstellungen eintragen.',
     'faq.5f': 'Muss ich Blender kennen?', 'faq.5': 'Nein. Amphion stellt Kamera, Licht und Materialien selbst ein und startet Blender im Hintergrund. Du siehst nur das Bild.', 'faq.namef': 'Warum heißt es Amphion?', 'faq.name': 'Im griechischen Mythos baute Amphion die Mauern von Theben, ohne einen Stein zu heben. Er sang, und die Steine fügten sich von selbst. So arbeitest du mit Amphion: Du sprichst, und das Gebäude entsteht.', titel: 'Amphion 3D · Software zum 3D-Modellieren, die zuhört',
-    'faq.6f': 'Wie kündige ich?', 'faq.6': 'Jederzeit mit einer Mail. Das Abo läuft bis zum Monatsende, danach ist Schluss. Deine Dateien bleiben bei dir.',
+    'faq.7f': 'Wie kündige ich?', 'faq.7': 'Jederzeit mit einer Mail. Das Abo läuft bis zum Monatsende, danach ist Schluss. Deine Dateien bleiben bei dir.',
     'fuss.impressum': 'Impressum', 'fuss.datenschutz': 'Datenschutz', 'fuss.kontakt': 'Kontakt'
   },
   en: {
+    'cta.titel': 'Try it with your own project.', 'cta.laden': 'Download Amphion', 'cta.kaufen': 'Buy a key', 'cta.klein': 'Free download. €45 a month, money back in the first month.', 'cta.andere': 'Different computer?',
     'aktion.preis': '€45 a month, cancel monthly. Money back in the first month if it is not right for you.',
     'aktion.kaufen': 'Buy a key',
     'aktion.ladenKlein': 'free',
@@ -112,10 +114,11 @@ const TEXTE = {
     'faq.3f': 'Where is my data?', 'faq.3': 'On your computer. Projects, models and renderings stay local. Only your chat text goes to the AI, and the image for an AI rendering if you ask for one.',
     'faq.4f': 'Do I need my own AI key?', 'faq.4': 'No. The AI is included in the subscription. If you have your own keys (OpenAI, Gemini, Groq, OpenRouter, Ollama), you can enter them in Settings.',
     'faq.5f': 'Do I need to know Blender?', 'faq.5': 'No. Amphion sets camera, light and materials itself and runs Blender in the background. You only see the image.', 'faq.namef': 'Why is it called Amphion?', 'faq.name': 'In Greek myth, Amphion built the walls of Thebes without lifting a stone. He sang, and the stones set themselves in place. That is how you work with Amphion: you speak, and the building takes shape.', titel: 'Amphion 3D · 3D modelling software that listens',
-    'faq.6f': 'How do I cancel?', 'faq.6': 'Any time with an email. The subscription runs until the end of the month, then it stops. Your files stay with you.',
+    'faq.7f': 'How do I cancel?', 'faq.7': 'Any time with an email. The subscription runs until the end of the month, then it stops. Your files stay with you.',
     'fuss.impressum': 'Legal notice', 'fuss.datenschutz': 'Privacy', 'fuss.kontakt': 'Contact'
   },
   es: {
+    'cta.titel': 'Pruébalo con tu propio proyecto.', 'cta.laden': 'Descargar Amphion', 'cta.kaufen': 'Comprar clave', 'cta.klein': 'Descarga gratis. 45 € al mes, el primer mes te devolvemos el dinero.', 'cta.andere': '¿Otro ordenador?',
     'aktion.preis': '45 € al mes, cancelable cada mes. El primer mes te devolvemos el dinero si no te convence.',
     'aktion.kaufen': 'Comprar clave',
     'aktion.ladenKlein': 'gratis',
@@ -165,10 +168,11 @@ const TEXTE = {
     'faq.3f': '¿Dónde están mis datos?', 'faq.3': 'En tu ordenador. Proyectos, modelos y renders se quedan en local. A la IA solo van los textos de tu chat y, si lo pides, la imagen para un render con IA.',
     'faq.4f': '¿Necesito mi propia clave de IA?', 'faq.4': 'No. La IA está incluida en la suscripción. Si tienes claves propias (OpenAI, Gemini, Groq, OpenRouter, Ollama), puedes introducirlas en Ajustes.',
     'faq.5f': '¿Tengo que saber Blender?', 'faq.5': 'No. Amphion ajusta cámara, luz y materiales por sí misma y ejecuta Blender en segundo plano. Tú solo ves la imagen.', 'faq.namef': '¿Por qué se llama Amphion?', 'faq.name': 'En el mito griego, Anfión levantó las murallas de Tebas sin mover una piedra. Cantaba, y las piedras se colocaban solas. Así trabajas con Amphion: hablas y el edificio toma forma.', titel: 'Amphion 3D · Software de modelado 3D que escucha',
-    'faq.6f': '¿Cómo cancelo?', 'faq.6': 'En cualquier momento con un correo. La suscripción sigue hasta fin de mes y luego termina. Tus archivos se quedan contigo.',
+    'faq.7f': '¿Cómo cancelo?', 'faq.7': 'En cualquier momento con un correo. La suscripción sigue hasta fin de mes y luego termina. Tus archivos se quedan contigo.',
     'fuss.impressum': 'Aviso legal', 'fuss.datenschutz': 'Privacidad', 'fuss.kontakt': 'Contacto'
   },
   fr: {
+    'cta.titel': 'Essaie-le avec ton propre projet.', 'cta.laden': 'Télécharger Amphion', 'cta.kaufen': 'Acheter une clé', 'cta.klein': 'Téléchargement gratuit. 45 € par mois, remboursé le premier mois.', 'cta.andere': 'Autre ordinateur ?',
     'aktion.preis': '45 € par mois, résiliable chaque mois. Remboursé le premier mois si ça ne te convient pas.',
     'aktion.kaufen': 'Acheter une clé',
     'aktion.ladenKlein': 'gratuit',
@@ -218,10 +222,11 @@ const TEXTE = {
     'faq.3f': 'Où sont mes données ?', 'faq.3': 'Sur ton ordinateur. Projets, modèles et rendus restent en local. Seuls les textes de ton chat vont à l’IA et, si tu le demandes, l’image pour un rendu IA.',
     'faq.4f': 'Ai-je besoin de ma propre clé IA ?', 'faq.4': 'Non. L’IA est incluse dans l’abonnement. Si tu as tes propres clés (OpenAI, Gemini, Groq, OpenRouter, Ollama), tu peux les saisir dans les Réglages.',
     'faq.5f': 'Dois-je connaître Blender ?', 'faq.5': 'Non. Amphion règle lui-même caméra, lumière et matériaux et lance Blender en arrière-plan. Tu ne vois que l’image.', 'faq.namef': 'Pourquoi le nom Amphion ?', 'faq.name': 'Dans le mythe grec, Amphion bâtit les murs de Thèbes sans soulever une pierre. Il chantait, et les pierres se mettaient en place d’elles-mêmes. C’est ainsi que tu travailles avec Amphion : tu parles, et le bâtiment prend forme.', titel: 'Amphion 3D · Logiciel de modélisation 3D qui écoute',
-    'faq.6f': 'Comment résilier ?', 'faq.6': 'À tout moment par e-mail. L’abonnement court jusqu’à la fin du mois, puis s’arrête. Tes fichiers restent à toi.',
+    'faq.7f': 'Comment résilier ?', 'faq.7': 'À tout moment par e-mail. L’abonnement court jusqu’à la fin du mois, puis s’arrête. Tes fichiers restent à toi.',
     'fuss.impressum': 'Mentions légales', 'fuss.datenschutz': 'Confidentialité', 'fuss.kontakt': 'Contact'
   },
   it: {
+    'cta.titel': 'Provalo con il tuo progetto.', 'cta.laden': 'Scarica Amphion', 'cta.kaufen': 'Acquista una chiave', 'cta.klein': 'Download gratuito. 45 € al mese, il primo mese ti rimborsiamo.', 'cta.andere': 'Altro computer?',
     'aktion.preis': '45 € al mese, disdicibile ogni mese. Il primo mese ti rimborsiamo se non ti convince.',
     'aktion.kaufen': 'Acquista una chiave',
     'aktion.ladenKlein': 'gratis',
@@ -271,10 +276,11 @@ const TEXTE = {
     'faq.3f': 'Dove sono i miei dati?', 'faq.3': 'Sul tuo computer. Progetti, modelli e rendering restano in locale. All’IA vanno solo i testi della tua chat e, se lo chiedi, l’immagine per un rendering IA.',
     'faq.4f': 'Mi serve una mia chiave IA?', 'faq.4': 'No. L’IA è inclusa nell’abbonamento. Se hai chiavi tue (OpenAI, Gemini, Groq, OpenRouter, Ollama), puoi inserirle nelle Impostazioni.',
     'faq.5f': 'Devo saper usare Blender?', 'faq.5': 'No. Amphion imposta da solo camera, luce e materiali e avvia Blender in background. Tu vedi solo l’immagine.', 'faq.namef': 'Perché si chiama Amphion?', 'faq.name': 'Nel mito greco Anfione costruì le mura di Tebe senza sollevare una pietra. Cantava, e le pietre si mettevano al loro posto da sole. Così lavori con Amphion: parli, e l’edificio prende forma.', titel: 'Amphion 3D · Software di modellazione 3D che ascolta',
-    'faq.6f': 'Come disdico?', 'faq.6': 'In qualsiasi momento con un’e-mail. L’abbonamento dura fino a fine mese, poi si ferma. I tuoi file restano tuoi.',
+    'faq.7f': 'Come disdico?', 'faq.7': 'In qualsiasi momento con un’e-mail. L’abbonamento dura fino a fine mese, poi si ferma. I tuoi file restano tuoi.',
     'fuss.impressum': 'Note legali', 'fuss.datenschutz': 'Privacy', 'fuss.kontakt': 'Contatti'
   },
   pt: {
+    'cta.titel': 'Experimenta com o teu próprio projeto.', 'cta.laden': 'Descarregar o Amphion', 'cta.kaufen': 'Comprar uma chave', 'cta.klein': 'Download grátis. 45 € por mês, no primeiro mês devolvemos o dinheiro.', 'cta.andere': 'Outro computador?',
     'aktion.preis': '45 € por mês, cancelável todos os meses. No primeiro mês devolvemos o dinheiro se não te convencer.',
     'aktion.kaufen': 'Comprar uma chave',
     'aktion.ladenKlein': 'grátis',
@@ -324,7 +330,7 @@ const TEXTE = {
     'faq.3f': 'Onde estão os meus dados?', 'faq.3': 'No teu computador. Projetos, modelos e renders ficam no local. Para a IA vão só os textos do teu chat e, se pedires, a imagem para um render com IA.',
     'faq.4f': 'Preciso da minha própria chave de IA?', 'faq.4': 'Não. A IA está incluída na assinatura. Se tiveres chaves próprias (OpenAI, Gemini, Groq, OpenRouter, Ollama), podes introduzi-las nas Definições.',
     'faq.5f': 'Tenho de saber usar o Blender?', 'faq.5': 'Não. O Amphion ajusta sozinho câmara, luz e materiais e executa o Blender em segundo plano. Tu só vês a imagem.', 'faq.namef': 'Porque se chama Amphion?', 'faq.name': 'No mito grego, Anfião ergueu as muralhas de Tebas sem levantar uma pedra. Cantava, e as pedras colocavam-se sozinhas no lugar. É assim que trabalhas com o Amphion: falas, e o edifício ganha forma.', titel: 'Amphion 3D · Software de modelação 3D que escuta',
-    'faq.6f': 'Como cancelo?', 'faq.6': 'A qualquer momento com um e-mail. A assinatura continua até ao fim do mês e depois termina. Os teus ficheiros ficam contigo.',
+    'faq.7f': 'Como cancelo?', 'faq.7': 'A qualquer momento com um e-mail. A assinatura continua até ao fim do mês e depois termina. Os teus ficheiros ficam contigo.',
     'fuss.impressum': 'Aviso legal', 'fuss.datenschutz': 'Privacidade', 'fuss.kontakt': 'Contacto'
   }
 };
@@ -364,7 +370,9 @@ alle('[data-download="win"]', el => el.href = DOWNLOAD_WIN);
 const WINDOWS = /Windows NT/i.test(navigator.userAgent) && !/Windows Phone/i.test(navigator.userAgent);
 // „auto“: Windows oder Mac direkt; Linux, Android, Handy: zu den drei Knöpfen springen statt einer DMG, die dort nicht läuft
 const MACINTOSH = /Macintosh/.test(navigator.userAgent);
-alle('[data-download="auto"]', el => el.href = WINDOWS ? DOWNLOAD_WIN : MACINTOSH ? DOWNLOAD_ARM : '#held');
+// Intel-Mac am Grafikchip erkennen (4.11.: „auto“ lud auf Intel-Macs die Apple-Silicon-Fassung); unsicher → Apple Silicon, „Anderer Computer?“ führt zu allen Knöpfen
+const INTEL_MAC = MACINTOSH && (() => { try { const g = document.createElement('canvas').getContext('webgl'), d = g?.getExtension('WEBGL_debug_renderer_info'); return !!d && /Intel/i.test(g.getParameter(d.UNMASKED_RENDERER_WEBGL)); } catch { return false; } })();
+alle('[data-download="auto"]', el => el.href = WINDOWS ? DOWNLOAD_WIN : MACINTOSH ? (INTEL_MAC ? DOWNLOAD_X64 : DOWNLOAD_ARM) : '#held');
 if (WINDOWS) alle('.held .knoepfe', k => { const w = k.querySelector('[data-download="win"]'); if (!w) return; k.querySelector('.primaer')?.classList.remove('primaer'); w.classList.add('primaer'); k.prepend(w); });
 alle('[data-checkout]', el => el.href = CHECKOUT[el.dataset.checkout] || CHECKOUT.pro);
 // Abo-Formular: öffnet sich bei „Abo starten“, schickt E-Mail und Plan an die Amphion Cloud (/v1/anfrage)

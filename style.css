@@ -197,3 +197,11 @@ main>section,.band{padding:72px var(--rand);max-width:var(--breit);margin:0 auto
 .abo input{font:inherit;font-size:17px;padding:12px 14px;border:2px solid var(--ink)}
 .abo-zu{position:absolute;top:10px;right:14px;font:inherit;font-size:26px;background:none;border:0;cursor:pointer;color:var(--grau)}
 .abo-meldung{margin-top:14px;font-weight:700;color:var(--ink)}
+
+/* Kaufknöpfe zwischen den Abschnitten (4.11., Tassilo: überall Call-to-Action, sofort verständlich) */
+.cta-band{max-width:var(--breit);margin:8px auto 0;padding:28px var(--rand);border-top:1px solid var(--linie);border-bottom:1px solid var(--linie);display:grid;gap:12px;justify-items:start}
+.cta-titel{font-size:clamp(20px,2.2vw,26px);font-weight:700;letter-spacing:-.01em;margin:0}
+.cta-knoepfe{display:flex;flex-wrap:wrap;gap:12px}
+.cta-band .knopf{padding:13px 20px;font-size:16px}
+.cta-band .klein{margin:0}
+@media (min-width:720px){.cta-band{grid-template-columns:1fr auto;align-items:center}.cta-band .klein{grid-column:1 / -1}}
