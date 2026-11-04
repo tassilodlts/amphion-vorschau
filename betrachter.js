@@ -35,8 +35,11 @@ const MODELLE = window.AMPHION_MODELLE || {
     schnitte: { ug: [0, -1, 0, -1.3], eg: [0, -1, 0, 1.3], og: [0, -1, 0, 4.5], dg: [0, -1, 0, 7.6], laengs: [1, 0, 0, 4.32], quer: [0, 0, -1, -0.51] },   // längs durch die Treppe (x = 1,6 m), quer durch die Mitte (y = 5,5 m)
   },
   vancouver: {
-    basis: 'modell/vancouver/', dateien: { tragwerk: 'tragwerk.glb', gebaeude: 'gebaeude.glb', stadt: 'stadt.glb', kacheln: 'kacheln.glb', fern: 'fern.glb', pflanzen: 'pflanzen.glb' },   // fern: die ganze gebaute Stadt bis zu den Bergen (tools/film_stadt.mjs), schaltet mit stadt   // kacheln: Satellitenstadt (Fototexturen), folgt dem Schalter stadt
+    basis: 'modell/vancouver/', dateien: { tragwerk: 'tragwerk.glb', gebaeude: 'gebaeude.glb', stadt: 'stadt.glb', foto: 'foto_nah.glb', fotofern: 'foto_fern.glb', nah: 'nah.glb', fern: 'fern.glb', pflanzen: 'pflanzen.glb' },   // fern: die ganze gebaute Stadt bis zu den Bergen (tools/film_stadt.mjs), schaltet mit stadt   // kacheln: Satellitenstadt (Fototexturen), folgt dem Schalter stadt
     baeume: { standorte: 'baeume.json', vorlagen: 'baeume_vorlagen.glb', gruppe: 'pflanzen' }, boden: { r: 1400, y: -75 },
+    // Zwei Städte (5.11., Tassilo: Umschalter Knopf und Satz): foto = Google Photorealistic 3D Tiles 15 km (tools/web_stadt_blender.py, leichte Fassung,
+    // Handy noch leichter), eigen = OSM-Gebäude, Gelände, Wasser und Berge aus Forma (stadt.glb, nah.glb und fern.glb aus tools/film_stadt.mjs)
+    staedte: { foto: ['foto', 'fotofern'], eigen: ['stadt', 'nah', 'fern'] }, stadtArt: 'foto',
     nah: 0.1, fern: 60000, nahst: 0.8, fernst: 16000, start: 'block', struktur: true, nebel: [0xffffff, 6000, 32000],   // 2.11. (Tassilo: frei bewegen bis auf die Straße, die ganze Stadt bis zu den Bergen)
     blicke: { block: { pos: [520, 380, 620], ziel: [0, 110, 0] }, turm: { pos: [260, 160, 300], ziel: [0, 150, 0] }, sockel: { pos: [150, 150, 180], ziel: [0, 25, 0] }, struktur: { pos: [150, 175, 165], ziel: [0, 48, 0] }, oben: { pos: [0.01, 900, 0], ziel: [0, 0, 0] } },   // Sockel von schräg oben, sonst steht die Kamera in einem Nachbarhaus
     schnitte: { eg: [0, -1, 0, 6], og: [0, -1, 0, 60], laengs: [-1, 0, 0, 0] },
@@ -51,8 +54,11 @@ const MODELLE = window.AMPHION_MODELLE || {
   },
 };
 
-if (SCHWACH && MODELLE.vancouver) { delete MODELLE.vancouver.dateien.fern; MODELLE.vancouver.fern = 9000; MODELLE.vancouver.fernst = 5000; }   // Estate-Seite: kein Hochhaus (Befund 3.11.: Absturz auf dem Handy)
-if (LEICHT && MODELLE.vancouver) delete MODELLE.vancouver.dateien.kacheln;
+// Handy (5.11.): Fotostadt in der Handyfassung, immer nur eine Stadt im Speicher (die andere wird beim Umschalten freigegeben, entsorge);
+// nach verlorener 3D-Ansicht (?leicht=1) nur die eigene Stadt ohne Ferne (Befund 3.11.: Absturz auf dem Handy)
+if (SCHWACH && MODELLE.vancouver) { const V = MODELLE.vancouver; V.dateien.foto = 'foto_nah_handy.glb'; V.dateien.fotofern = 'foto_fern_handy.glb'; V.fernst = 5000; }
+if (LEICHT && MODELLE.vancouver) { const V = MODELLE.vancouver; delete V.dateien.fern; delete V.dateien.foto; delete V.dateien.fotofern; V.staedte = { eigen: ['stadt', 'nah'] }; V.stadtArt = 'eigen'; V.fern = 9000; }
+for (const m of Object.values(MODELLE)) if (m.staedte) m.stadtStart = m.stadtArt;
 
 // Antworten je Sprache: was die Seite nach einer Aktion sagt
 const SAGT = {
@@ -63,6 +69,17 @@ const SAGT = {
   it: { "struktur": "La struttura è evidenziata, l’involucro trasparente.", "leicht": "La vista 3D richiede più memoria di quella disponibile su questo dispositivo. Tocca qui per caricare una versione più leggera.", "doppelpunkt": ": ", "baut": "Amphion sta costruendo …", "gebaut": "Costruito.", "rueck": "Annullato.", "nichtsRueck": "Niente più da annullare.", "neu": "Ricominciato.", "keinNetz": "Nessuna connessione all’Amphion Cloud. Riprova tra un momento.", "naeher": "Più vicino.", "weiter": "Più lontano.", "schnitt": {"kein": "Sezione chiusa.", "ug": "Seminterrato aperto.", "eg": "Piano terra aperto.", "og": "Primo piano aperto.", "dg": "Sottotetto aperto.", "laengs": "Sezione longitudinale.", "quer": "Sezione trasversale."}, "zustand": {"1913": "Com’era nel 1913.", "2026": "Il progetto del 2026."}, "kamera": {"axo": "Assonometria.", "persp": "Prospettiva."}, "blick": {"strasse": "Vista dalla strada.", "garten": "Vista dal giardino.", "oben": "Dall’alto.", "block": "Tutto l’isolato.", "turm": "La torre.", "sockel": "Il basamento."}, "an": "visibile", "aus": "nascosto", "gruppen": {"bestand": "Stato di fatto", "vorschlag": "Progetto", "einrichtung": "Arredi", "umgebung": "Vicini", "baeume": "Alberi", "tragwerk": "Struttura", "gebaeude": "Edificio", "stadt": "Città", "pflanzen": "Alberi"}, "modell": {"muenchen": "Casa con giardino.", "vancouver": "Torre sull’acqua."}, "schnitt60": "Tagliato a 60 metri.", "alles": "Tutto come all’inizio.", "unklar": "Non ho capito. Prova per esempio «apri il piano terra» o «senza alberi».", "denkt": "Un momento …", "hoert": "Ti ascolto … parla, poi fai una pausa.", "mikroAus": "Il microfono è bloccato. Consentilo nelle impostazioni del browser o scrivi la frase."},
   pt: { "struktur": "A estrutura fica realçada e a envolvente translúcida.", "leicht": "A vista 3D precisa de mais memória do que este dispositivo tem agora. Toca aqui para carregar uma versão mais leve.", "doppelpunkt": ": ", "baut": "O Amphion está a construir …", "gebaut": "Construído.", "rueck": "Desfeito.", "nichtsRueck": "Nada mais para desfazer.", "neu": "Recomeçado.", "keinNetz": "Sem ligação à Amphion Cloud. Tenta de novo daqui a pouco.", "naeher": "Mais perto.", "weiter": "Mais longe.", "schnitt": {"kein": "Corte fechado.", "ug": "Cave aberta.", "eg": "Piso térreo aberto.", "og": "Primeiro andar aberto.", "dg": "Sótão aberto.", "laengs": "Corte longitudinal.", "quer": "Corte transversal."}, "zustand": {"1913": "Assim era em 1913.", "2026": "A proposta de 2026."}, "kamera": {"axo": "Axonometria.", "persp": "Perspetiva."}, "blick": {"strasse": "Vista da rua.", "garten": "Vista do jardim.", "oben": "Visto de cima.", "block": "O quarteirão inteiro.", "turm": "A torre.", "sockel": "O embasamento."}, "an": "visível", "aus": "oculto", "gruppen": {"bestand": "Existente", "vorschlag": "Proposta", "einrichtung": "Mobiliário", "umgebung": "Vizinhos", "baeume": "Árvores", "tragwerk": "Estrutura", "gebaeude": "Edifício", "stadt": "Cidade", "pflanzen": "Árvores"}, "modell": {"muenchen": "Casa com jardim.", "vancouver": "Torre à beira da água."}, "schnitt60": "Cortado a 60 metros.", "alles": "Tudo como no início.", "unklar": "Não percebi. Experimenta por exemplo «abre o piso térreo» ou «sem árvores».", "denkt": "Um momento …", "hoert": "Estou a ouvir … fala e depois faz uma pausa.", "mikroAus": "O microfone está bloqueado. Permite-o nas definições do navegador ou escreve a frase."},
 };
+// Umschalter der Stadt: Antworten und Sätze in den sechs Sprachen der Seite (Prüfregel tools/pruefe_staedte.mjs)
+const STADT_SAGT = { de: { foto: 'Die echte Stadt, aus Fotos (Google 3D Tiles).', eigen: 'Die eigene Stadt, in Amphion modelliert.' }, en: { foto: 'The real city, from photos (Google 3D Tiles).', eigen: 'Our own city, modelled in Amphion.' },
+  es: { foto: 'La ciudad real, a partir de fotos (Google 3D Tiles).', eigen: 'La ciudad propia, modelada en Amphion.' }, fr: { foto: 'La vraie ville, à partir de photos (Google 3D Tiles).', eigen: 'Notre propre ville, modélisée dans Amphion.' },
+  it: { foto: 'La città vera, dalle foto (Google 3D Tiles).', eigen: 'La nostra città, modellata in Amphion.' }, pt: { foto: 'A cidade real, a partir de fotos (Google 3D Tiles).', eigen: 'A cidade própria, modelada no Amphion.' } };
+for (const [l, t] of Object.entries(STADT_SAGT)) if (SAGT[l]) SAGT[l].stadtArt = t;
+const STADT_SATZ = {
+  foto: /echte\w* stadt|reale\w* stadt|wirkliche\w* stadt|richtige\w* stadt|fotostadt|foto-stadt|stadt aus fotos|google|real city|actual city|photo ?city|photoreal|ciudad real|ciudad verdadera|ciudad de fotos|fotorrealista|vraie ville|ville r[ée]elle|ville en photo|ville photo|photor[ée]alist|citt[àa] vera|citt[àa] reale|citt[àa] fotografica|fotorealistic|cidade real|cidade verdadeira|cidade em foto/i,
+  eigen: /eigene\w* stadt|unsere\w* stadt|modelliert\w* stadt|modellstadt|gebaute\w* stadt|own city|our city|modell?ed city|model city|ciudad propia|propia ciudad|nuestra ciudad|ciudad modelada|propre ville|notre ville|ville mod[ée]lis[ée]e|nostra citt[àa]|propria citt[àa]|citt[àa] propria|citt[àa] modellata|cidade pr[óo]pria|pr[óo]pria cidade|nossa cidade|cidade modelada/i,
+  wechsel: /andere\w* stadt|stadt wechseln|wechsle die stadt|switch (the )?city|other city|otra ciudad|cambia\w* (la )?ciudad|autre ville|change\w* (de |la )?ville|altra citt[àa]|cambia\w* (la )?citt[àa]|outra cidade|muda\w* (a )?cidade/i,
+};
+const stadtSatz = t => { for (const [k, re] of Object.entries(STADT_SATZ)) if (re.test(t)) return k; return null; };
 const sprache = () => SAGT[document.documentElement.lang] ? document.documentElement.lang : 'en';
 
 let renderer, scene, camera, controls, sichtbar = false, gestartet = false, aktiv = null, axo = false;
@@ -186,12 +203,33 @@ function aktiviere(name) {
   } else { blick(m.start); schnitt(m.schnitt || m.schnittStart || 'kein'); }   // schnittStart: Modell beginnt geschnitten (Estate: wie der Plan)
   for (const k of Object.keys(m.dateien)) zeige(k);
   if (m.baeume) ladeBaeume(m);
+  stadtKnoepfe();
   if (m.bau && !m.teile) { let g = null; try { g = JSON.parse(localStorage.getItem('amphion.bau') || 'null'); } catch { /* ohne Speicher */ } setzeBau(Array.isArray(g) && g.length ? g : BAU_START, false); }
 }
 // Sichtbar ist eine Gruppe, wenn ihr Schalter an ist; Gruppen des Zustands folgen dem Zustand
-function sollSichtbar(k) { const m = aktiv; if (m.zustaende) { const z = m.zustaende[m.zustand]; if (k in z && !z[k]) return false; } return m.sichtbar[k === 'kacheln' || k === 'fern' ? 'stadt' : k] !== false; }
+const stadtTeil = (m, k) => !!m.staedte && Object.values(m.staedte).some(l => l.includes(k));   // gehört zu einer der beiden Städte
+function sollSichtbar(k) { const m = aktiv; if (m.zustaende) { const z = m.zustaende[m.zustand]; if (k in z && !z[k]) return false; }
+  if (stadtTeil(m, k)) return m.sichtbar.stadt !== false && !!m.staedte[m.stadtArt]?.includes(k);   // nur die gewählte Stadt
+  return m.sichtbar[k === 'kacheln' || k === 'fern' ? 'stadt' : k] !== false; }
 function zustand(z) { const m = aktiv; if (!m.zustaende?.[z]) return; m.zustand = z; for (const k of Object.keys(m.dateien)) zeige(k); }
-function zeige(k) { const m = aktiv, soll = sollSichtbar(k); if (m.gruppen[k]) m.gruppen[k].visible = soll; else if (soll) lade(k); if (m.baumNetz && m.baeume?.gruppe === k) m.baumNetz.visible = soll; }
+function zeige(k) { const m = aktiv, soll = sollSichtbar(k); if (!soll && SCHWACH && m.gruppen[k] && stadtTeil(m, k) && !m.staedte[m.stadtArt]?.includes(k)) entsorge(m, k); if (m.gruppen[k]) m.gruppen[k].visible = soll; else if (soll) lade(k); if (m.baumNetz && m.baeume?.gruppe === k) m.baumNetz.visible = soll; }
+// Gruppe aus dem Speicher nehmen (Handy: die nicht gewählte Stadt), Netze, Stoffe und Bilder freigeben; ein noch laufendes Laden verwirft sein Ergebnis
+function verwirf(o) { o.traverse(x => { if (x.geometry) x.geometry.dispose(); for (const s of [].concat(x.material || [])) { if (s.map) s.map.dispose(); if (s !== SCHNITT) s.dispose(); } }); }
+function entsorge(m, k) { const g = m.gruppen[k]; if (!g) return; delete m.gruppen[k]; g.removeFromParent(); m.schnittflaechen = m.schnittflaechen.filter(s => { for (let x = s; x; x = x.parent) if (x === g) return false; return true; }); verwirf(g); }
+// Stadt wählen: foto oder eigen; die Bäume der Stadt (Straßenbäume aus Forma) nur in der eigenen Stadt, in der Fotostadt stehen sie im Foto
+function stadtWechsel(art) { const m = aktiv; if (!m?.staedte?.[art]) return false; m.stadtArt = art; m.sichtbar.stadt = true; for (const k of Object.keys(m.dateien)) zeige(k); baumStadt(m); stadtKnoepfe(); return true; }
+function stadtKnoepfe() { for (const b of wrap.querySelectorAll('[data-stadt]')) b.hidden = !aktiv?.staedte?.[b.dataset.stadt] || b.dataset.stadt === aktiv.stadtArt; }
+function baumStadt(m) {
+  if (!m.staedte || !m.baumNetz?.children.length || !m.gruppen.tragwerk?.children.length) return;
+  const P = new THREE.Vector3();
+  if (!m.fuss) { m.fuss = new THREE.Box3(); m.gruppen.tragwerk.updateMatrixWorld(true); m.gruppen.tragwerk.traverse(o => { if (!o.isMesh || o.userData.vollKappe) return; const a = o.geometry.attributes.position; for (let i = 0; i < a.count; i++) { P.fromBufferAttribute(a, i).applyMatrix4(o.matrixWorld); if (P.y > 3 && P.y < 30) m.fuss.expandByPoint(P); } }); m.fuss.expandByScalar(3); }   // Gebäude und Hof
+  const foto = m.stadtArt === 'foto';
+  for (const I of m.baumNetz.children) {
+    const o = I.userData.orig ||= I.instanceMatrix.array.slice(), a = I.instanceMatrix.array; a.set(o);
+    if (foto) for (let i = 0; i < I.count; i++) { const j = 16 * i; P.set(o[j + 12], o[j + 13], o[j + 14]); if (P.x < m.fuss.min.x || P.x > m.fuss.max.x || P.z < m.fuss.min.z || P.z > m.fuss.max.z) { a.fill(0, j, j + 12); a[j] = a[j + 5] = a[j + 10] = 1e-4; } }
+    I.instanceMatrix.needsUpdate = true;
+  }
+}
 
 async function lade(k) {
   const m = aktiv; if (m.gruppen[k]) return;
@@ -199,6 +237,7 @@ async function lade(k) {
   melde('…');
   try {
     const d = await loader.loadAsync(mitVersion(m.basis + m.dateien[k]));
+    if (m.gruppen[k] !== g) { verwirf(d.scene); return; }   // inzwischen umgeschaltet und freigegeben
     const netze = []; d.scene.traverse(o => { if (o.isMesh) netze.push(o); });   // erst sammeln: die Schnittflächen kommen als Kinder dazu
     for (const o of netze) {
       if (o.material.map && !o.material.name.startsWith('tex:')) { o.material = new THREE.MeshBasicMaterial({ map: o.material.map, side: THREE.DoubleSide }); o.frustumCulled = false; continue; }   // Fotokacheln: das Licht steckt im Foto
@@ -224,7 +263,8 @@ async function lade(k) {
     }
     g.add(d.scene); g.visible = m === aktiv ? sollSichtbar(k) : true;
     if (m.versatz?.[k]) g.position.set(...m.versatz[k]);   // z. B. Stadt: Straßenniveau unter dem Wohnungsgeschoss
-    if (m === aktiv && m.schnitt) { strukturAnsicht(true); vollKappen(); } if (status?.textContent === '…') melde('');   // nachgeladene Gruppe in die laufende Strukturansicht
+    if (m === aktiv && m.schnitt) { strukturAnsicht(true); vollKappen(); } if (status?.textContent === '…') melde('');
+    if (k === 'tragwerk') baumStadt(m);   // nachgeladene Gruppe in die laufende Strukturansicht
   } catch (e) { melde(fehler?.textContent || 'Fehler'); console.error(e); }
 }
 // Bäume (Vancouver): die Bibliotheksbäume aus Forma als Vorlagen (Rinde, Kronen), an jedem Standort mit Maßstab und Drehung instanziert
@@ -242,7 +282,7 @@ async function ladeBaeume(m) {
       L.forEach(([, x, y, z, sk, r], k) => { q.setFromAxisAngle(ax, r * Math.PI / 180); M.compose(p.set(x, y, z), q, s.set(sk, sk, sk)); I.setMatrixAt(k, M); });
       I.frustumCulled = false; m.baumNetz.add(I);
     }
-    m.baumNetz.visible = m.sichtbar[m.baeume.gruppe] !== false;
+    m.baumNetz.visible = m.sichtbar[m.baeume.gruppe] !== false; baumStadt(m);
   } catch (e) { console.error(e); }
 }
 
@@ -336,12 +376,13 @@ function tun(a) {
   const T = sagtFuer(aktiv), gesagt = [];
   if (a.modell && MODELLE[a.modell] && !MODELLE[a.modell].versteckt && MODELLE[a.modell] !== aktiv) { aktiviere(a.modell); gesagt.push(T.modell[a.modell]); }
   const m = aktiv;
+  if (a.stadtArt && m.staedte) { const art = a.stadtArt === 'wechsel' ? (m.stadtArt === 'foto' ? 'eigen' : 'foto') : a.stadtArt; if (stadtWechsel(art)) gesagt.push(T.stadtArt?.[art] || ''); }
   if (a.rueck && m.bau) { const v = m.verlauf?.pop(); if (v) { setzeBau(v, false); return T.rueck; } return T.nichtsRueck; }
   if (a.neu && m.bau) { setzeBau(BAU_START); blick(m.start); return T.neu; }
   if (a.rundgang) return rundgang(m) ? (T.rundgangStart || '') : T.unklar;
-  if (a.alles) { fahrtAbbrechen(); m.zustand = '2026'; for (const k of Object.keys(m.dateien)) m.sichtbar[k] = true; axo = false; blick(m.start); schnitt(m.schnittStart || 'kein'); for (const k of Object.keys(m.dateien)) zeige(k); return T.alles; }
+  if (a.alles) { fahrtAbbrechen(); m.zustand = '2026'; for (const k of Object.keys(m.dateien)) m.sichtbar[k] = true; if (m.staedte) { m.stadtArt = m.stadtStart; stadtKnoepfe(); baumStadt(m); } axo = false; blick(m.start); schnitt(m.schnittStart || 'kein'); for (const k of Object.keys(m.dateien)) zeige(k); return T.alles; }
   if (a.zustand && m.zustaende?.[String(a.zustand)]) { zustand(String(a.zustand)); gesagt.push(T.zustand[a.zustand]); }
-  if (a.gruppen) { const an = [], aus = []; for (const [k, v] of Object.entries(a.gruppen)) { if (!(k in m.dateien) || k === 'kacheln' || k === 'fern') continue; m.sichtbar[k] = !!v; zeige(k); if (k === 'stadt') { if (m.dateien.kacheln) zeige('kacheln'); if (m.dateien.fern) zeige('fern'); } (v ? an : aus).push(T.gruppen[k] || k); }
+  if (a.gruppen) { const an = [], aus = []; for (const [k, v] of Object.entries(a.gruppen)) { if (!(k in m.dateien) || k === 'kacheln' || k === 'fern' || (k !== 'stadt' && stadtTeil(m, k))) continue; m.sichtbar[k] = !!v; zeige(k); if (k === 'stadt') { for (const s of Object.keys(m.dateien)) if (s !== 'stadt' && (stadtTeil(m, s) || s === 'kacheln' || s === 'fern')) zeige(s); } (v ? an : aus).push(T.gruppen[k] || k); }
     // Deutsch und Englisch: „Bäume ausgeblendet.“; sonst „Masqué : arbres.“, das stimmt in Einzahl und Mehrzahl
     const liste = (w, L) => T.doppelpunkt ? w[0].toUpperCase() + w.slice(1) + T.doppelpunkt + L.join(', ').toLowerCase() + '.' : L.join(', ') + ' ' + w + '.';
     if (an.length) gesagt.push(liste(T.an, an)); if (aus.length) gesagt.push(liste(T.aus, aus)); }
@@ -358,8 +399,8 @@ function tun(a) {
 }
 
 // Zustand lesen für die Prüfregel tools/pruefe_saetze.mjs (nur lesen, plus Zurücksetzen)
-window.formaZustand = () => { const m = aktiv; if (!m || !camera) return null; const sichtbar = {}; for (const k of Object.keys(m.dateien)) if (k !== 'kacheln' && k !== 'fern') sichtbar[k] = sollSichtbar(k);
-  return { modell: m.name, sichtbar, zustand: m.zustand || null, schnitt: m.schnitt || 'kein', struktur: (() => { let d = null; m.gruppen.gebaeude?.traverse(o => { if (d === null && o.isMesh && o.material !== SCHNITT && !o.material.userData.glas) d = o.material.opacity; }); return d !== null && d < 0.2; })(), abstand: camera.position.distanceTo(controls.target), hoehe: camera.position.y, status: status?.textContent || '', zuruecksetzen: undefined }; };
+window.formaZustand = () => { const m = aktiv; if (!m || !camera) return null; const sichtbar = {}; for (const k of Object.keys(m.dateien)) if (k !== 'kacheln' && k !== 'fern' && !(k !== 'stadt' && stadtTeil(m, k))) sichtbar[k] = k === 'stadt' && m.staedte ? m.sichtbar.stadt !== false : sollSichtbar(k);
+  return { modell: m.name, sichtbar, stadtArt: m.stadtArt || null, stadtGeladen: Object.keys(m.gruppen).filter(k => stadtTeil(m, k) && m.gruppen[k].children.length), zustand: m.zustand || null, schnitt: m.schnitt || 'kein', struktur: (() => { let d = null; m.gruppen.gebaeude?.traverse(o => { if (d === null && o.isMesh && o.material !== SCHNITT && !o.material.userData.glas) d = o.material.opacity; }); return d !== null && d < 0.2; })(), abstand: camera.position.distanceTo(controls.target), hoehe: camera.position.y, status: status?.textContent || '', zuruecksetzen: undefined }; };
 window.formaZustand.zuruecksetzen = () => { tun({ alles: true }); melde(''); };
 window.formaZustand.kamera = (pos, ziel) => kamera(pos, ziel);
 window.formaZustand.faehrt = () => !!(fahrt || rundgangLauf);   // Prüfregel: Anflug und Rundgang laufen   // für Prüfungen und Vergleichsbilder: Kamera exakt setzen
@@ -415,6 +456,9 @@ async function sagen(text) {
   // 2.11. (Tassilo: „meistens versteht es nicht“, Prüfregel tools/pruefe_saetze.mjs): freier Text geht zuerst an das Sprachmodell der Cloud,
   // die Stichwörter (deuten) sind nur der Rückfall, wenn die Cloud nicht antwortet
   const T = SAGT[sprache()]; let a = null;
+  // Stadt umschalten (5.11.): eindeutige Sätze gleich hier, ohne Umweg über die Cloud; auch aus dem anderen Modell heraus
+  const art = stadtSatz(text.toLowerCase());
+  if (art) { const ziel = aktiv?.staedte ? aktiv : Object.values(MODELLE).find(x => x.staedte && !x.versteckt); if (ziel) { melde(tun({ ...(ziel !== aktiv ? { modell: ziel.name } : {}), stadtArt: art })); return; } }
   melde(T.denkt);
   try {
     const ab = new AbortController(), uhr = setTimeout(() => ab.abort(), 9000);
@@ -515,12 +559,17 @@ if (new URLSearchParams(location.search).get('film')) {
     const M = new THREE.Matrix4(), P = new THREE.Vector3();
     for (const I of m.baumNetz.children) { for (let i = 0; i < I.count; i++) { I.getMatrixAt(i, M); P.setFromMatrixPosition(M); if (Math.abs(P.x) > 118 || Math.abs(P.z) > 75 || P.y < 5) { M.makeScale(0.0001, 0.0001, 0.0001); I.setMatrixAt(i, M); } } I.instanceMatrix.needsUpdate = true; }
     const B = new THREE.Box3(), C = new THREE.Vector3();
-    // Kleinzeug am Boden außerhalb des Grundstücks (Straßenbäume als Stäbchen, Autos, Laternen stecken im selben Netz wie der Turm, bis 245 m
-    // weit): Dreiecke, die ganz außerhalb des Blocks (144,8 × 79,2 m) liegen und unter 12 m bleiben, fallen weg; die Brücke liegt höher
-    const P0 = new THREE.Vector3(), fuss = new THREE.Box3().setFromObject(m.gruppen.tragwerk);   // Umriss des Baus aus dem Tragwerk (5.11.: der Turm steht nicht in der Bildmitte)
+    // Kleinzeug außerhalb des Grundstücks (Straßenbäume als Stäbchen, Autos, Laternen stecken im selben Netz wie der Turm, bis 245 m weit):
+    // Dreiecke, die ganz außerhalb von Gebäude und Hof liegen, fallen weg. Umriss aus dem Tragwerk zwischen 3 und 30 m (5.11., Tassilo: „lose
+    // Teile rund um das Gebäude“; die ganze Tragwerksbox reichte mit der Bodenplatte 70 m über den Block hinaus, die Pfosten standen darin)
+    // Prüfregel tools/pruefe_filmanfang.mjs
+    const P0 = new THREE.Vector3(), fuss = new THREE.Box3();
+    m.gruppen.tragwerk.updateMatrixWorld(true);
+    m.gruppen.tragwerk.traverse(o => { if (!o.isMesh) return; const a = o.geometry.attributes.position; for (let i = 0; i < a.count; i++) { P0.fromBufferAttribute(a, i).applyMatrix4(o.matrixWorld); if (P0.y > 3 && P0.y < 30) fuss.expandByPoint(P0); } });
     for (const k of ['pflanzen', 'gebaeude', 'tragwerk']) m.gruppen[k].traverse(o => {
-      if (!o.isMesh || !o.geometry.index) return; const a = o.geometry.attributes.position, ix = o.geometry.index.array, neu = []; o.updateWorldMatrix(true, false);
-      const draussen = i => { P0.fromBufferAttribute(a, i).applyMatrix4(o.matrixWorld); return (P0.x < fuss.min.x - 2 || P0.x > fuss.max.x + 2 || P0.z < fuss.min.z - 2 || P0.z > fuss.max.z + 2) && P0.y < 12; };
+      if (!o.isMesh) return; if (!o.geometry.index) o.geometry.setIndex([...Array(o.geometry.attributes.position.count).keys()]);
+      const a = o.geometry.attributes.position, ix = o.geometry.index.array, neu = []; o.updateWorldMatrix(true, false);
+      const draussen = i => { P0.fromBufferAttribute(a, i).applyMatrix4(o.matrixWorld); return P0.x < fuss.min.x - 2 || P0.x > fuss.max.x + 2 || P0.z < fuss.min.z - 2 || P0.z > fuss.max.z + 2; };
       const weg = new Uint8Array(a.count); for (let i = 0; i < a.count; i++) weg[i] = draussen(i) ? 1 : 0;
       for (let t = 0; t < ix.length; t += 3) if (!(weg[ix[t]] && weg[ix[t + 1]] && weg[ix[t + 2]])) neu.push(ix[t], ix[t + 1], ix[t + 2]);
       if (neu.length < ix.length) o.geometry.setIndex(neu);
