@@ -115,7 +115,7 @@ const leisten = () => wrap.querySelectorAll('[data-leiste]');
 
 function start() {
   if (gestartet) return; gestartet = true; window.formaZaehl?.('modell');
-  renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false, stencil: true, powerPreference: 'high-performance' });   // stencil für die Schnittkappen
+  renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false, stencil: true, powerPreference: 'high-performance', logarithmicDepthBuffer: !!new URLSearchParams(location.search).get('film') });   // Film: logarithmischer Tiefenpuffer gegen Flimmern (5.11.)   // stencil für die Schnittkappen
   renderer.setPixelRatio(Math.min(devicePixelRatio, SCHWACH ? 1.5 : 2)); renderer.outputColorSpace = THREE.SRGBColorSpace;
   // 3D-Ansicht verloren (zu wenig Grafikspeicher): Hinweis und Knopf, der die Seite in der leichten Fassung neu lädt
   canvas.addEventListener('webglcontextlost', e => {
@@ -159,7 +159,10 @@ function rundgang(m) {
   fahren(S[0].pos, S[0].ziel, 2.5, () => { i = 1; melde(S[0].name); setTimeout(weiter, 1200); });
   return true;
 }
-function schleife() { requestAnimationFrame(schleife); if (!sichtbar || !aktiv) return; if (fahrt) fahrt(); else controls?.update(); renderer.render(scene, camera); }
+// Vordere Kameragrenze mit dem Abstand (5.11., Tassilo: „keine einzige Oberfläche darf flimmern“): nah an der Straße 0,1 m, aus der Luft bis 30 m,
+// so bleibt der Tiefenpuffer überall fein genug für Straßen, Dächer und Kacheln
+function tiefe() { if (!controls || !aktiv) return; const n = Math.min(30, Math.max(aktiv.nah || 0.1, camera.position.distanceTo(controls.target) * 0.002)); if (Math.abs(n - camera.near) > camera.near * 0.1) { camera.near = n; camera.updateProjectionMatrix(); } }
+function schleife() { requestAnimationFrame(schleife); if (!sichtbar || !aktiv) return; if (fahrt) fahrt(); else controls?.update(); tiefe(); renderer.render(scene, camera); }
 function groesse() {
   const w = canvas.clientWidth, h = canvas.clientHeight; renderer.setSize(w, h, false);
   if (camera?.isOrthographicCamera) { const r = camera.userData.r, a = w / h; camera.left = -r * a; camera.right = r * a; camera.top = r; camera.bottom = -r; }
@@ -487,13 +490,16 @@ new IntersectionObserver(es => { for (const e of es) { sichtbar = e.isIntersecti
 // werden nicht veröffentlicht. Alle Größen hängen nur von cos(2π t/T) ab, darum ist das letzte Bild wieder das erste.
 if (new URLSearchParams(location.search).get('film')) {
   const F = { dauer: 24, bereit: false, stadt: [], boden: null, hoch: 1, weite: 30, zurueck: 0.12, tiefer: 90, turm: [78, -15], dmax: 1 };   // turm: Mitte des Turms im Grundriss (x, z), gemessen an den Punkten über 100 m   // weite: waagrechte Bildweite im Hochformat (Grad)
-  window.formaFilm = F; F.innen = () => ({ m: aktiv, scene, THREE, renderer });   // nur für Prüfungen der Aufnahme
+  window.formaFilm = F; F.innen = () => ({ m: aktiv, scene, THREE, renderer, camera });   // nur für Prüfungen der Aufnahme
   const LOG = 150, ab = d => Math.log(1 + d / LOG) / Math.log(1 + F.dmax / LOG), radius = e => LOG * ((1 + F.dmax / LOG) ** e - 1);   // Wachstum gleichmäßig im Logarithmus des Abstands
   F.start = async () => {
     const px = +(new URLSearchParams(location.search).get('px')) || 1024;   // Kantenlänge der Aufnahme (2.11., Tassilo: mehr Pixel)
     const py = +(new URLSearchParams(location.search).get('py')) || px;     // Höhe (2.11., Reel im Hochformat 1080 × 1920); ohne py quadratisch wie bisher
     F.hoch = py / px; canvas.style.width = px + 'px'; canvas.style.height = py + 'px'; wrap.querySelector('.m-buehne').style.width = px + 'px';
-    start(); renderer.setPixelRatio(1); aktiviere('vancouver'); groesse();
+    // Überabtastung (5.11., Tassilo: „unser Gebäude flimmert“): Fassadenlamellen sind schmaler als ein Pixel; jedes Bild doppelt so fein zeichnen
+    // und mit hoher Glättung verkleinern (F.bild), dann springen sie nicht mehr von Bild zu Bild
+    F.px = px; F.py = py; F.ss = +(new URLSearchParams(location.search).get('ss')) || 2;
+    start(); renderer.setPixelRatio(F.ss); aktiviere('vancouver'); groesse();
     const himmel = new THREE.Color(0xa9b9c2); scene.background = himmel; scene.fog = new THREE.Fog(himmel, 1e6, 2e6);
     const m = aktiv; for (const o of m.wurzel.children) if (o.geometry?.type === 'CircleGeometry') o.visible = false;
     // Boden: ganz weiß bis zum Horizont (verblasst im Nebel zum Himmel); ein Loch in der Mitte wächst mit der Stadt
@@ -511,10 +517,10 @@ if (new URLSearchParams(location.search).get('film')) {
     const B = new THREE.Box3(), C = new THREE.Vector3();
     // Kleinzeug am Boden außerhalb des Grundstücks (Straßenbäume als Stäbchen, Autos, Laternen stecken im selben Netz wie der Turm, bis 245 m
     // weit): Dreiecke, die ganz außerhalb des Blocks (144,8 × 79,2 m) liegen und unter 12 m bleiben, fallen weg; die Brücke liegt höher
-    const P0 = new THREE.Vector3();
+    const P0 = new THREE.Vector3(), fuss = new THREE.Box3().setFromObject(m.gruppen.tragwerk);   // Umriss des Baus aus dem Tragwerk (5.11.: der Turm steht nicht in der Bildmitte)
     for (const k of ['pflanzen', 'gebaeude', 'tragwerk']) m.gruppen[k].traverse(o => {
       if (!o.isMesh || !o.geometry.index) return; const a = o.geometry.attributes.position, ix = o.geometry.index.array, neu = []; o.updateWorldMatrix(true, false);
-      const draussen = i => { P0.fromBufferAttribute(a, i).applyMatrix4(o.matrixWorld); return (Math.abs(P0.x) > 78 || Math.abs(P0.z) > 45) && P0.y < 12; };
+      const draussen = i => { P0.fromBufferAttribute(a, i).applyMatrix4(o.matrixWorld); return (P0.x < fuss.min.x - 2 || P0.x > fuss.max.x + 2 || P0.z < fuss.min.z - 2 || P0.z > fuss.max.z + 2) && P0.y < 12; };
       const weg = new Uint8Array(a.count); for (let i = 0; i < a.count; i++) weg[i] = draussen(i) ? 1 : 0;
       for (let t = 0; t < ix.length; t += 3) if (!(weg[ix[t]] && weg[ix[t + 1]] && weg[ix[t + 2]])) neu.push(ix[t], ix[t + 1], ix[t + 2]);
       if (neu.length < ix.length) o.geometry.setIndex(neu);
@@ -522,9 +528,12 @@ if (new URLSearchParams(location.search).get('film')) {
     echt.updateMatrixWorld(true);
     echt.traverse(o => { if (o.isMesh) { B.setFromObject(o); B.getCenter(C); F.stadt.push({ o, d: Math.hypot(C.x, C.z), basis: o.scale.y }); } });
     F.dmax = Math.max(...F.stadt.map(k => k.d)); for (const k of F.stadt) k.e = ab(k.d);
-    camera.far = 120000; camera.updateProjectionMatrix();
+    // Tiefenbereich (5.11., Tassilo: „es flimmert alles“): bei 0,1 m bis 120 km trennte der Tiefenpuffer in 2 km Abstand nur auf rund 2,4 m,
+    // Straßen, Dächer und eigene Flächen flimmerten gegen die Fotokacheln. Die Kamera steht nie näher als 300 m: vorn 20 m, Puffer logarithmisch.
+    camera.near = 20; camera.far = 120000; camera.updateProjectionMatrix();
     F.bereit = true;
   };
+  F.bild = (q = 0.92) => { const c = document.createElement('canvas'); c.width = F.px; c.height = F.py; const g = c.getContext('2d'); g.imageSmoothingEnabled = true; g.imageSmoothingQuality = 'high'; g.drawImage(renderer.domElement, 0, 0, F.px, F.py); return q ? c.toDataURL('image/jpeg', q) : g.getImageData(0, 0, F.px, F.py); };
   F.setze = t => {
     const T = F.dauer, u = ((t % T) + T) % T / T, glatt = x => x < 0 ? 0 : x > 1 ? 1 : x * x * (3 - 2 * x);
     const welle = (1 - Math.cos(2 * Math.PI * u)) / 2, weit = glatt(welle * 1.22);   // 0 am Anfang und Ende, oben ein Plateau
