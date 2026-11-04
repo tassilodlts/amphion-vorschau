@@ -212,10 +212,14 @@ function sollSichtbar(k) { const m = aktiv; if (m.zustaende) { const z = m.zusta
   if (stadtTeil(m, k)) return m.sichtbar.stadt !== false && !!m.staedte[m.stadtArt]?.includes(k);   // nur die gewählte Stadt
   return m.sichtbar[k === 'kacheln' || k === 'fern' ? 'stadt' : k] !== false; }
 function zustand(z) { const m = aktiv; if (!m.zustaende?.[z]) return; m.zustand = z; for (const k of Object.keys(m.dateien)) zeige(k); }
-function zeige(k) { const m = aktiv, soll = sollSichtbar(k); if (!soll && SCHWACH && m.gruppen[k] && stadtTeil(m, k) && !m.staedte[m.stadtArt]?.includes(k)) entsorge(m, k); if (m.gruppen[k]) m.gruppen[k].visible = soll; else if (soll) lade(k); if (m.baumNetz && m.baeume?.gruppe === k) m.baumNetz.visible = soll; }
+function zeige(k) { const m = aktiv, soll = sollSichtbar(k); if (k === 'foto') fotoBoden(m, soll); if (!soll && SCHWACH && m.gruppen[k] && stadtTeil(m, k) && !m.staedte[m.stadtArt]?.includes(k)) entsorge(m, k); if (m.gruppen[k]) m.gruppen[k].visible = soll; else if (soll) lade(k); if (m.baumNetz && m.baeume?.gruppe === k) m.baumNetz.visible = soll; }
 // Gruppe aus dem Speicher nehmen (Handy: die nicht gewählte Stadt), Netze, Stoffe und Bilder freigeben; ein noch laufendes Laden verwirft sein Ergebnis
 function verwirf(o) { o.traverse(x => { if (x.geometry) x.geometry.dispose(); for (const s of [].concat(x.material || [])) { if (s.map) s.map.dispose(); if (s !== SCHNITT) s.dispose(); } }); }
 function entsorge(m, k) { const g = m.gruppen[k]; if (!g) return; delete m.gruppen[k]; g.removeFromParent(); m.schnittflaechen = m.schnittflaechen.filter(s => { for (let x = s; x; x = x.parent) if (x === g) return false; return true; }); verwirf(g); }
+// Grund unter der Fotostadt (5.11.): die Fotokacheln haben offene Flickenränder, nach dem Vereinfachen (Handy) bleiben feine Spalten; darunter
+// liegt ein dunkler Grund statt des weißen Himmels, so fallen sie nicht auf (Befund: bei −6 m deckte er Gelände und Wasser zu, die Kacheln reichen bis −85 m)
+function fotoBoden(m, an) { if (!m.fotoBoden && an) { m.fotoBoden = new THREE.Mesh(new THREE.CircleGeometry(16000, 128), new THREE.MeshBasicMaterial({ color: 0x4f5754 })); m.fotoBoden.rotation.x = -Math.PI / 2; m.fotoBoden.position.y = -90; m.wurzel.add(m.fotoBoden); } if (m.fotoBoden) m.fotoBoden.visible = an;
+  for (const o of m.wurzel.children) if (o.geometry?.type === 'CircleGeometry' && o !== m.fotoBoden && !new URLSearchParams(location.search).get('film')) o.visible = !an; }   // unter der tiefsten Kachel (−85 m); der weiße Grund (−75 m) weicht
 // Stadt wählen: foto oder eigen; die Bäume der Stadt (Straßenbäume aus Forma) nur in der eigenen Stadt, in der Fotostadt stehen sie im Foto
 function stadtWechsel(art) { const m = aktiv; if (!m?.staedte?.[art]) return false; m.stadtArt = art; m.sichtbar.stadt = true; for (const k of Object.keys(m.dateien)) zeige(k); baumStadt(m); stadtKnoepfe(); return true; }
 function stadtKnoepfe() { for (const b of wrap.querySelectorAll('[data-stadt]')) b.hidden = !aktiv?.staedte?.[b.dataset.stadt] || b.dataset.stadt === aktiv.stadtArt; }
