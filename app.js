@@ -5,11 +5,19 @@ const PRODUKT = 'Amphion';          // Name, später austauschbar
 const DOWNLOAD_ARM = 'https://github.com/tassilodlts/forma-app/releases/latest/download/Amphion-Mac-Apple-Silicon.dmg';         // Mac, Apple Silicon (.dmg)
 const DOWNLOAD_X64 = 'https://github.com/tassilodlts/forma-app/releases/latest/download/Amphion-Mac-Intel.dmg';         // Mac, Intel (.dmg)
 const DOWNLOAD_WIN = 'https://github.com/tassilodlts/forma-app/releases/latest/download/Amphion-Windows.exe';         // Windows 10 und 11, 64 Bit (Installer)
-const CHECKOUT = { solo: '#abo', studio: '#abo', pro: '#abo' };   // 4.11.: Solo 45/450, Studio 89/890 (Tassilo); Kauf über das Formular, Stripe sobald eingerichtet   // Abo starten: Formular (3.11., Tassilo: „Schlüssel kaufen funktioniert nicht“; Zahlungsdienst folgt), Studio per Mail
+const CHECKOUT = { solo: '#abo', studio: '#abo', privat: '#abo', pro: '#abo', wahl: '#preis' };   // 4.11.: Solo 45/450, Studio 89/890 (Tassilo); Kauf über das Formular, Stripe sobald eingerichtet   // Abo starten: Formular (3.11., Tassilo: „Schlüssel kaufen funktioniert nicht“; Zahlungsdienst folgt), Studio per Mail
 const CLOUD = 'https://cloud.amphion3d.com';
 
 const TEXTE = {
   de: {
+    'abo.textPrivat': 'Schreib uns deine E-Mail-Adresse und kurz dein Projekt. Wir melden uns am selben Tag für ein Gespräch.',
+    'abo.titelPrivat': 'Amphion Privat anfragen',
+    'privat.knopf': 'Gespräch anfragen',
+    'privat.l4': 'Alles aus Studio, ohne Grenzen',
+    'privat.l3': 'Ein fester Ansprechpartner, am Telefon, per Video oder vor Ort',
+    'privat.l2': 'Maximale Geschwindigkeit: Antwort am selben Tag, Ergebnisse über Nacht',
+    'privat.l1': 'Architekten arbeiten für dich: Bestand aufnehmen, Modell, Varianten, Pläne und Renderings vorbereitet',
+    'privat.fuer': 'private Assistenz',
     'abo.titelStudio': 'Amphion Studio kaufen',
     'abo.titelSolo': 'Amphion Solo kaufen',
     'preis.schreibUns': 'Schreib uns.',
@@ -26,8 +34,8 @@ const TEXTE = {
     'preis.jaehrlich': 'Jährlich: 2 Monate geschenkt',
     'preis.monatlich': 'Monatlich',
     'preis.gruender': 'von 100 Gründungsplätzen frei: Wer jetzt kauft, behält seinen Preis für immer.',
-    'cta.titel': 'Probier es mit deinem eigenen Projekt.', 'cta.laden': 'Amphion laden', 'cta.kaufen': 'Schlüssel kaufen', 'cta.klein': 'Laden kostenlos. Ab 45 € im Monat, im ersten Monat Geld zurück.', 'cta.andere': 'Anderer Computer?',
-    'aktion.preis': '45 € im Monat, monatlich kündbar. Im ersten Monat Geld zurück, wenn es nicht passt.',
+    'cta.titel': 'Probier es mit deinem eigenen Projekt.', 'cta.laden': 'Amphion laden', 'cta.kaufen': 'Plan wählen', 'cta.klein': 'Laden kostenlos. Drei Pläne ab 45 € im Monat, im ersten Monat Geld zurück.', 'cta.andere': 'Anderer Computer?',
+    'aktion.preis': 'Drei Pläne ab 45 € im Monat: Solo, Studio für Büros, Privat mit Architekten an deiner Seite. Im ersten Monat Geld zurück.',
     'aktion.kaufen': 'Schlüssel kaufen',
     'aktion.ladenKlein': 'kostenlos',
     'aktion.laden': 'Herunterladen',
@@ -37,7 +45,7 @@ const TEXTE = {
     'held.text': 'Eine Skizze, ein Plan, ein PDF, ein Foto oder ein Satz: Amphion macht daraus ein echtes 3D-Modell, rendert auf deinem Computer und zeichnet die Pläne.',
     'abo.titel': "Abo starten", 'abo.text': "Schreib uns deine E-Mail-Adresse. Du bekommst innerhalb eines Tages den Lizenzschlüssel und die Rechnung. Der Schlüssel gilt für einen Computer; wechseln kannst du ihn jederzeit unter „Mein Konto“.", 'abo.email': "E-Mail-Adresse", 'abo.name': "Name oder Büro (freiwillig)", 'abo.senden': "Schlüssel anfordern", 'abo.danke': "Danke. Du hörst innerhalb eines Tages von uns, an {email}.", 'abo.fehler': "Das hat nicht geklappt. Schreib direkt an hello@amphion3d.com.", 'nav.konto': "Mein Konto",
     'held.ladenArm': 'Mac · Apple Silicon', 'held.ladenX64': 'Mac · Intel', 'held.ladenWin': 'Windows 10 und 11',
-    'held.klein': 'Für Mac (macOS 14 oder neuer) und Windows (10 und 11). Den Schlüssel trägst du in Amphion ein. Vom Handy aus bedienst du Amphion im Browser, solange dein Computer läuft.', 'held.kaufen': 'Schlüssel kaufen',
+    'held.klein': 'Für Mac (macOS 14 oder neuer) und Windows (10 und 11). Den Schlüssel trägst du in Amphion ein. Vom Handy aus bedienst du Amphion im Browser, solange dein Computer läuft.', 'held.kaufen': 'Plan wählen',
     'bild.band': 'FIVE CLEARINGS aus der Luft. Entwurf, Modell und Bild aus Amphion.',
     'modell.titel': 'Sprich mit dem Modell', 'modell.text': 'Hier siehst du zwei fertige Projekte aus Amphion: ein Hochhaus am Wasser mit der ganzen Stadt, in rund 5 Stunden modelliert, und ein Haus mit Garten von 1913 mit seinem Umbau, in rund 2 Stunden. Du kannst sie drehen, schneiden, ein- und ausblenden und mit ihnen sprechen, aber nicht verändern. Alles Weitere, vom Umbau bis zum Rendering, macht die App.', 'modell.reiterB': 'Bauplatz: selbst bauen', 'chip.b1': 'Mach das Dach gelb', 'chip.b2': 'Setz ein gotisches Dach drauf', 'chip.b3': 'Noch ein Geschoss', 'chip.b4': 'Ein Turm an der Ecke', 'chip.b5': 'Große Fenster nach Süden', 'chip.b6': 'Rückgängig', 'chip.b7': 'Neu anfangen', 'modell.steuerung': 'Ziehen dreht · rechte Maustaste oder zwei Finger verschieben · Mausrad oder zwei Finger zoomen, bis hinunter auf die Straße',
     'modell.frage': 'Sag dem Modell, was du sehen willst …', 'modell.reiterV': 'Hochhaus am Wasser', 'modell.reiterM': 'Haus mit Garten', 'modell.diktat': 'Diktieren', 'modell.fehler': 'Modell konnte nicht geladen werden.',
@@ -60,7 +68,7 @@ const TEXTE = {
     'fkt.4t': 'Rendering auf deinem Computer', 'fkt.4': 'Blender Cycles läuft lokal, so oft du willst. Dazu KI-Renderings für Stimmung und Vegetation.',
     'fkt.5t': 'Pläne als PDF', 'fkt.5': 'Grundrisse, Schnitte, Ansichten und Tafeln kommen fertig aus dem Modell.',
     'fkt.6t': 'Vom Handy und aus dem Terminal', 'fkt.6': 'Unterwegs im Browser bedienen. Oder aus Claude Code, Codex und Gemini CLI steuern.',
-    'preis.titel': 'Preise', 'preis.einheit': 'im Monat zzgl. MwSt.',
+    'preis.titel': 'Drei Pläne', 'preis.einheit': 'im Monat zzgl. MwSt.',
     'preis.l1': 'KI für das Modell, unbegrenzt', 'preis.l2': '60 KI-Renderings im Monat',
     'preis.l3': 'Blender-Rendering unbegrenzt, auf deinem Computer', 'preis.l4': 'Alle Updates',
     'preis.knopf': 'Abo starten',
@@ -80,6 +88,14 @@ const TEXTE = {
     'fuss.impressum': 'Impressum', 'fuss.datenschutz': 'Datenschutz', 'fuss.kontakt': 'Kontakt'
   },
   en: {
+    'abo.textPrivat': 'Send us your email and a few words about your project. We get back to you the same day for a call.',
+    'abo.titelPrivat': 'Request Amphion Private',
+    'privat.knopf': 'Request a call',
+    'privat.l4': 'Everything in Studio, without limits',
+    'privat.l3': 'One dedicated contact, by phone, video or on site',
+    'privat.l2': 'Maximum speed: reply the same day, results overnight',
+    'privat.l1': 'Architects work for you: survey, model, options, drawings and renderings prepared',
+    'privat.fuer': 'private assistance',
     'abo.titelStudio': 'Buy Amphion Studio',
     'abo.titelSolo': 'Buy Amphion Solo',
     'preis.schreibUns': 'Write to us.',
@@ -96,8 +112,8 @@ const TEXTE = {
     'preis.jaehrlich': 'Yearly: 2 months free',
     'preis.monatlich': 'Monthly',
     'preis.gruender': 'of 100 founding places left: buy now and keep your price for good.',
-    'cta.titel': 'Try it with your own project.', 'cta.laden': 'Download Amphion', 'cta.kaufen': 'Buy a key', 'cta.klein': 'Free download. From €45 a month, money back in the first month.', 'cta.andere': 'Different computer?',
-    'aktion.preis': '€45 a month, cancel monthly. Money back in the first month if it is not right for you.',
+    'cta.titel': 'Try it with your own project.', 'cta.laden': 'Download Amphion', 'cta.kaufen': 'Choose a plan', 'cta.klein': 'Free download. Three plans from €45 a month, money back in the first month.', 'cta.andere': 'Different computer?',
+    'aktion.preis': 'Three plans from €45 a month: Solo, Studio for practices, Private with architects at your side. Money back in the first month.',
     'aktion.kaufen': 'Buy a key',
     'aktion.ladenKlein': 'free',
     'aktion.laden': 'Download',
@@ -107,7 +123,7 @@ const TEXTE = {
     'held.text': 'A sketch, a plan, a PDF, a photo or one sentence: Amphion turns it into a real 3D model, renders on your computer and draws the plans.',
     'abo.titel': "Start your subscription", 'abo.text': "Send us your email address. Within a day you receive the licence key and the invoice. The key works on one computer; you can switch it any time under “My account”.", 'abo.email': "Email address", 'abo.name': "Name or studio (optional)", 'abo.senden': "Request the key", 'abo.danke': "Thank you. You will hear from us within a day, at {email}.", 'abo.fehler': "That did not work. Write directly to hello@amphion3d.com.", 'nav.konto': "My account",
     'held.ladenArm': 'Mac · Apple Silicon', 'held.ladenX64': 'Mac · Intel', 'held.ladenWin': 'Windows 10 and 11',
-    'held.klein': 'For Mac (macOS 14 or newer) and Windows (10 and 11). You enter the key in Amphion. From your phone you use Amphion in the browser while your computer is on.', 'held.kaufen': 'Buy a key',
+    'held.klein': 'For Mac (macOS 14 or newer) and Windows (10 and 11). You enter the key in Amphion. From your phone you use Amphion in the browser while your computer is on.', 'held.kaufen': 'Choose a plan',
     'bild.band': 'FIVE CLEARINGS from the air. Design, model and image from Amphion.',
     'modell.titel': 'Talk to the model', 'modell.text': 'Here you see two finished projects made in Amphion: a tower by the water with the whole city, modelled in about 5 hours, and a house with garden from 1913 with its remodelling, in about 2 hours. You can turn them, cut them, show and hide parts and talk to them, but not change them. Everything else, from remodelling to rendering, happens in the app.', 'modell.reiterB': 'Building site: try it', 'chip.b1': 'Make the roof yellow', 'chip.b2': 'Put a Gothic roof on it', 'chip.b3': 'One more storey', 'chip.b4': 'A tower on the corner', 'chip.b5': 'Large windows to the south', 'chip.b6': 'Undo', 'chip.b7': 'Start over', 'modell.steuerung': 'Drag to orbit · right mouse button or two fingers to pan · scroll or pinch to zoom, right down to street level',
     'modell.frage': 'Tell the model what you want to see …', 'modell.reiterV': 'Tower by the Water', 'modell.reiterM': 'House with Garden', 'modell.diktat': 'Dictate', 'modell.fehler': 'The model could not be loaded.',
@@ -130,7 +146,7 @@ const TEXTE = {
     'fkt.4t': 'Rendering on your computer', 'fkt.4': 'Blender Cycles runs locally, as often as you like. Plus AI renderings for mood and vegetation.',
     'fkt.5t': 'Drawings as PDF', 'fkt.5': 'Plans, sections, elevations and boards come straight from the model.',
     'fkt.6t': 'From your phone and the terminal', 'fkt.6': 'Use it in the browser on the go. Or drive it from Claude Code, Codex and Gemini CLI.',
-    'preis.titel': 'Pricing', 'preis.einheit': 'per month plus VAT',
+    'preis.titel': 'Three plans', 'preis.einheit': 'per month plus VAT',
     'preis.l1': 'AI for the model, unlimited', 'preis.l2': '60 AI renderings per month',
     'preis.l3': 'Unlimited Blender rendering, on your computer', 'preis.l4': 'All updates',
     'preis.knopf': 'Start subscription',
@@ -150,6 +166,14 @@ const TEXTE = {
     'fuss.impressum': 'Legal notice', 'fuss.datenschutz': 'Privacy', 'fuss.kontakt': 'Contact'
   },
   es: {
+    'abo.textPrivat': 'Déjanos tu correo y unas palabras sobre tu proyecto. Te contestamos el mismo día para hablar.',
+    'abo.titelPrivat': 'Solicitar Amphion Privado',
+    'privat.knopf': 'Pedir una llamada',
+    'privat.l4': 'Todo lo de Studio, sin límites',
+    'privat.l3': 'Una persona de contacto fija, por teléfono, vídeo o en persona',
+    'privat.l2': 'Máxima velocidad: respuesta el mismo día, resultados de un día para otro',
+    'privat.l1': 'Arquitectos trabajan para ti: levantamiento, modelo, variantes, planos y renders preparados',
+    'privat.fuer': 'asistencia privada',
     'abo.titelStudio': 'Comprar Amphion Studio',
     'abo.titelSolo': 'Comprar Amphion Solo',
     'preis.schreibUns': 'Escríbenos.',
@@ -166,8 +190,8 @@ const TEXTE = {
     'preis.jaehrlich': 'Anual: 2 meses gratis',
     'preis.monatlich': 'Mensual',
     'preis.gruender': 'de 100 plazas fundadoras libres: quien compra ahora mantiene su precio para siempre.',
-    'cta.titel': 'Pruébalo con tu propio proyecto.', 'cta.laden': 'Descargar Amphion', 'cta.kaufen': 'Comprar clave', 'cta.klein': 'Descarga gratis. Desde 45 € al mes, el primer mes te devolvemos el dinero.', 'cta.andere': '¿Otro ordenador?',
-    'aktion.preis': '45 € al mes, cancelable cada mes. El primer mes te devolvemos el dinero si no te convence.',
+    'cta.titel': 'Pruébalo con tu propio proyecto.', 'cta.laden': 'Descargar Amphion', 'cta.kaufen': 'Elegir plan', 'cta.klein': 'Descarga gratis. Tres planes desde 45 € al mes, el primer mes te devolvemos el dinero.', 'cta.andere': '¿Otro ordenador?',
+    'aktion.preis': 'Tres planes desde 45 € al mes: Solo, Studio para estudios, Privado con arquitectos a tu lado. El primer mes te devolvemos el dinero.',
     'aktion.kaufen': 'Comprar clave',
     'aktion.ladenKlein': 'gratis',
     'aktion.laden': 'Descargar',
@@ -177,7 +201,7 @@ const TEXTE = {
     'held.text': 'Un boceto, un plano, un PDF, una foto o una frase: Amphion lo convierte en un modelo 3D real, renderiza en tu ordenador y dibuja los planos.',
     'abo.titel': "Empezar la suscripción", 'abo.text': "Déjanos tu correo. En un día recibes la clave de licencia y la factura. La clave vale para un ordenador; puedes cambiarlo cuando quieras en «Mi cuenta».", 'abo.email': "Correo electrónico", 'abo.name': "Nombre o estudio (opcional)", 'abo.senden': "Pedir la clave", 'abo.danke': "Gracias. Te escribimos en un día a {email}.", 'abo.fehler': "No ha funcionado. Escribe directamente a hello@amphion3d.com.", 'nav.konto': "Mi cuenta",
     'held.ladenArm': 'Mac · Apple Silicon', 'held.ladenX64': 'Mac · Intel', 'held.ladenWin': 'Windows 10 y 11',
-    'held.klein': 'Para Mac (macOS 14 o posterior) y Windows (10 y 11). La clave se introduce en Amphion. Desde el móvil usas Amphion en el navegador mientras tu ordenador esté encendido.', 'held.kaufen': 'Comprar clave',
+    'held.klein': 'Para Mac (macOS 14 o posterior) y Windows (10 y 11). La clave se introduce en Amphion. Desde el móvil usas Amphion en el navegador mientras tu ordenador esté encendido.', 'held.kaufen': 'Elegir plan',
     'bild.band': 'FIVE CLEARINGS desde el aire. Diseño, modelo e imagen hechos en Amphion.',
     'modell.titel': 'Habla con el modelo', 'modell.text': 'Aquí ves dos proyectos terminados hechos con Amphion: una torre junto al agua con toda la ciudad, modelada en unas 5 horas, y una casa con jardín de 1913 con su reforma, en unas 2 horas. Puedes girarlos, cortarlos, mostrar y ocultar partes y hablar con ellos, pero no modificarlos. Todo lo demás, de la reforma al render, se hace en la app.', 'modell.reiterB': 'Solar: construye tú', 'chip.b1': 'Pon el tejado amarillo', 'chip.b2': 'Ponle un tejado gótico', 'chip.b3': 'Una planta más', 'chip.b4': 'Una torre en la esquina', 'chip.b5': 'Ventanas grandes al sur', 'chip.b6': 'Deshacer', 'chip.b7': 'Empezar de nuevo', 'modell.steuerung': 'Arrastra para girar · botón derecho o dos dedos para desplazar · rueda o dos dedos para hacer zoom, hasta la calle',
     'modell.frage': 'Dile al modelo qué quieres ver …', 'modell.reiterV': 'Torre junto al agua', 'modell.reiterM': 'Casa con jardín', 'modell.diktat': 'Dictar', 'modell.fehler': 'No se pudo cargar el modelo.',
@@ -200,7 +224,7 @@ const TEXTE = {
     'fkt.4t': 'Renders en tu ordenador', 'fkt.4': 'Blender Cycles funciona en local, tantas veces como quieras. Además, renders con IA para ambiente y vegetación.',
     'fkt.5t': 'Planos en PDF', 'fkt.5': 'Plantas, secciones, alzados y paneles salen listos del modelo.',
     'fkt.6t': 'Desde el móvil y la terminal', 'fkt.6': 'Úsalo en el navegador donde estés. O contrólalo desde Claude Code, Codex y Gemini CLI.',
-    'preis.titel': 'Precios', 'preis.einheit': 'al mes más IVA',
+    'preis.titel': 'Tres planes', 'preis.einheit': 'al mes más IVA',
     'preis.l1': 'IA para el modelo, sin límite', 'preis.l2': '60 renders con IA al mes',
     'preis.l3': 'Renders de Blender ilimitados, en tu ordenador', 'preis.l4': 'Todas las actualizaciones',
     'preis.knopf': 'Empezar suscripción',
@@ -220,6 +244,14 @@ const TEXTE = {
     'fuss.impressum': 'Aviso legal', 'fuss.datenschutz': 'Privacidad', 'fuss.kontakt': 'Contacto'
   },
   fr: {
+    'abo.textPrivat': 'Laisse-nous ton e-mail et quelques mots sur ton projet. Nous te répondons le jour même pour en parler.',
+    'abo.titelPrivat': 'Demander Amphion Privé',
+    'privat.knopf': 'Demander un appel',
+    'privat.l4': 'Tout ce qu’offre Studio, sans limites',
+    'privat.l3': 'Un interlocuteur dédié, au téléphone, en vidéo ou sur place',
+    'privat.l2': 'Vitesse maximale : réponse le jour même, résultats pendant la nuit',
+    'privat.l1': 'Des architectes travaillent pour toi : relevé, modèle, variantes, plans et rendus préparés',
+    'privat.fuer': 'assistance privée',
     'abo.titelStudio': 'Acheter Amphion Studio',
     'abo.titelSolo': 'Acheter Amphion Solo',
     'preis.schreibUns': 'Écris-nous.',
@@ -236,8 +268,8 @@ const TEXTE = {
     'preis.jaehrlich': 'Annuel : 2 mois offerts',
     'preis.monatlich': 'Mensuel',
     'preis.gruender': 'places fondatrices sur 100 encore libres : achète maintenant et garde ton prix pour toujours.',
-    'cta.titel': 'Essaie-le avec ton propre projet.', 'cta.laden': 'Télécharger Amphion', 'cta.kaufen': 'Acheter une clé', 'cta.klein': 'Téléchargement gratuit. Dès 45 € par mois, remboursé le premier mois.', 'cta.andere': 'Autre ordinateur ?',
-    'aktion.preis': '45 € par mois, résiliable chaque mois. Remboursé le premier mois si ça ne te convient pas.',
+    'cta.titel': 'Essaie-le avec ton propre projet.', 'cta.laden': 'Télécharger Amphion', 'cta.kaufen': 'Choisir une formule', 'cta.klein': 'Téléchargement gratuit. Trois formules dès 45 € par mois, remboursé le premier mois.', 'cta.andere': 'Autre ordinateur ?',
+    'aktion.preis': 'Trois formules dès 45 € par mois : Solo, Studio pour les agences, Privé avec des architectes à tes côtés. Remboursé le premier mois.',
     'aktion.kaufen': 'Acheter une clé',
     'aktion.ladenKlein': 'gratuit',
     'aktion.laden': 'Télécharger',
@@ -247,7 +279,7 @@ const TEXTE = {
     'held.text': 'Un croquis, un plan, un PDF, une photo ou une phrase : Amphion en fait un vrai modèle 3D, effectue le rendu sur ton ordinateur et dessine les plans.',
     'abo.titel': "Démarrer l’abonnement", 'abo.text': "Laisse-nous ton adresse e-mail. Sous un jour tu reçois la clé de licence et la facture. La clé vaut pour un ordinateur ; tu peux en changer à tout moment dans « Mon compte ».", 'abo.email': "Adresse e-mail", 'abo.name': "Nom ou agence (facultatif)", 'abo.senden': "Demander la clé", 'abo.danke': "Merci. Tu auras de nos nouvelles sous un jour, à {email}.", 'abo.fehler': "Cela n’a pas fonctionné. Écris directement à hello@amphion3d.com.", 'nav.konto': "Mon compte",
     'held.ladenArm': 'Mac · Apple Silicon', 'held.ladenX64': 'Mac · Intel', 'held.ladenWin': 'Windows 10 et 11',
-    'held.klein': 'Pour Mac (macOS 14 ou plus récent) et Windows (10 et 11). Tu saisis la clé dans Amphion. Depuis ton téléphone, tu utilises Amphion dans le navigateur tant que ton ordinateur est allumé.', 'held.kaufen': 'Acheter une clé',
+    'held.klein': 'Pour Mac (macOS 14 ou plus récent) et Windows (10 et 11). Tu saisis la clé dans Amphion. Depuis ton téléphone, tu utilises Amphion dans le navigateur tant que ton ordinateur est allumé.', 'held.kaufen': 'Choisir une formule',
     'bild.band': 'FIVE CLEARINGS vu du ciel. Projet, modèle et image réalisés avec Amphion.',
     'modell.titel': 'Parle au modèle', 'modell.text': 'Voici deux projets terminés réalisés avec Amphion : une tour au bord de l’eau avec toute la ville, modélisée en 5 heures environ, et une maison avec jardin de 1913 avec sa transformation, en 2 heures environ. Tu peux les faire tourner, les couper, afficher ou masquer des parties et leur parler, mais pas les modifier. Tout le reste, de la transformation au rendu, se fait dans l’app.', 'modell.reiterB': 'Chantier : à toi', 'chip.b1': 'Mets le toit en jaune', 'chip.b2': 'Mets un toit gothique', 'chip.b3': 'Un étage de plus', 'chip.b4': 'Une tour à l’angle', 'chip.b5': 'De grandes fenêtres au sud', 'chip.b6': 'Annuler', 'chip.b7': 'Recommencer', 'modell.steuerung': 'Glisse pour tourner · clic droit ou deux doigts pour déplacer · molette ou deux doigts pour zoomer, jusqu’à la rue',
     'modell.frage': 'Dis au modèle ce que tu veux voir …', 'modell.reiterV': 'Tour au bord de l’eau', 'modell.reiterM': 'Maison avec jardin', 'modell.diktat': 'Dicter', 'modell.fehler': 'Impossible de charger le modèle.',
@@ -270,7 +302,7 @@ const TEXTE = {
     'fkt.4t': 'Rendu sur ton ordinateur', 'fkt.4': 'Blender Cycles tourne en local, aussi souvent que tu veux. En plus, des rendus IA pour l’ambiance et la végétation.',
     'fkt.5t': 'Plans en PDF', 'fkt.5': 'Plans, coupes, façades et planches sortent directement du modèle.',
     'fkt.6t': 'Depuis ton téléphone et le terminal', 'fkt.6': 'Utilise-le dans le navigateur où que tu sois. Ou pilote-le depuis Claude Code, Codex et Gemini CLI.',
-    'preis.titel': 'Tarifs', 'preis.einheit': 'par mois hors TVA',
+    'preis.titel': 'Trois formules', 'preis.einheit': 'par mois hors TVA',
     'preis.l1': 'IA pour le modèle, illimitée', 'preis.l2': '60 rendus IA par mois',
     'preis.l3': 'Rendu Blender illimité, sur ton ordinateur', 'preis.l4': 'Toutes les mises à jour',
     'preis.knopf': 'Démarrer l’abonnement',
@@ -290,6 +322,14 @@ const TEXTE = {
     'fuss.impressum': 'Mentions légales', 'fuss.datenschutz': 'Confidentialité', 'fuss.kontakt': 'Contact'
   },
   it: {
+    'abo.textPrivat': 'Lasciaci la tua e-mail e due parole sul progetto. Ti rispondiamo in giornata per parlarne.',
+    'abo.titelPrivat': 'Richiedi Amphion Privato',
+    'privat.knopf': 'Richiedi una chiamata',
+    'privat.l4': 'Tutto di Studio, senza limiti',
+    'privat.l3': 'Un referente fisso, al telefono, in video o in sede',
+    'privat.l2': 'Massima velocità: risposta in giornata, risultati durante la notte',
+    'privat.l1': 'Architetti lavorano per te: rilievo, modello, varianti, disegni e rendering preparati',
+    'privat.fuer': 'assistenza privata',
     'abo.titelStudio': 'Acquista Amphion Studio',
     'abo.titelSolo': 'Acquista Amphion Solo',
     'preis.schreibUns': 'Scrivici.',
@@ -306,8 +346,8 @@ const TEXTE = {
     'preis.jaehrlich': 'Annuale: 2 mesi in regalo',
     'preis.monatlich': 'Mensile',
     'preis.gruender': 'posti fondatori su 100 ancora liberi: chi compra ora mantiene il prezzo per sempre.',
-    'cta.titel': 'Provalo con il tuo progetto.', 'cta.laden': 'Scarica Amphion', 'cta.kaufen': 'Acquista una chiave', 'cta.klein': 'Download gratuito. Da 45 € al mese, il primo mese ti rimborsiamo.', 'cta.andere': 'Altro computer?',
-    'aktion.preis': '45 € al mese, disdicibile ogni mese. Il primo mese ti rimborsiamo se non ti convince.',
+    'cta.titel': 'Provalo con il tuo progetto.', 'cta.laden': 'Scarica Amphion', 'cta.kaufen': 'Scegli un piano', 'cta.klein': 'Download gratuito. Tre piani da 45 € al mese, il primo mese ti rimborsiamo.', 'cta.andere': 'Altro computer?',
+    'aktion.preis': 'Tre piani da 45 € al mese: Solo, Studio per gli studi, Privato con architetti al tuo fianco. Il primo mese ti rimborsiamo.',
     'aktion.kaufen': 'Acquista una chiave',
     'aktion.ladenKlein': 'gratis',
     'aktion.laden': 'Scarica',
@@ -317,7 +357,7 @@ const TEXTE = {
     'held.text': 'Uno schizzo, una pianta, un PDF, una foto o una frase: Amphion lo trasforma in un vero modello 3D, fa il rendering sul tuo computer e disegna le piante.',
     'abo.titel': "Avvia l’abbonamento", 'abo.text': "Lasciaci la tua e-mail. Entro un giorno ricevi la chiave di licenza e la fattura. La chiave vale per un computer; puoi cambiarlo quando vuoi in «Il mio account».", 'abo.email': "Indirizzo e-mail", 'abo.name': "Nome o studio (facoltativo)", 'abo.senden': "Richiedi la chiave", 'abo.danke': "Grazie. Ti scriviamo entro un giorno a {email}.", 'abo.fehler': "Non ha funzionato. Scrivi direttamente a hello@amphion3d.com.", 'nav.konto': "Il mio account",
     'held.ladenArm': 'Mac · Apple Silicon', 'held.ladenX64': 'Mac · Intel', 'held.ladenWin': 'Windows 10 e 11',
-    'held.klein': 'Per Mac (macOS 14 o successivo) e Windows (10 e 11). La chiave si inserisce in Amphion. Dal telefono usi Amphion nel browser finché il computer è acceso.', 'held.kaufen': 'Acquista una chiave',
+    'held.klein': 'Per Mac (macOS 14 o successivo) e Windows (10 e 11). La chiave si inserisce in Amphion. Dal telefono usi Amphion nel browser finché il computer è acceso.', 'held.kaufen': 'Scegli un piano',
     'bild.band': 'FIVE CLEARINGS dall’alto. Progetto, modello e immagine realizzati con Amphion.',
     'modell.titel': 'Parla con il modello', 'modell.text': 'Qui vedi due progetti finiti realizzati con Amphion: una torre sull’acqua con tutta la città, modellata in circa 5 ore, e una casa con giardino del 1913 con la sua trasformazione, in circa 2 ore. Puoi ruotarli, sezionarli, mostrare e nascondere parti e parlare con loro, ma non modificarli. Tutto il resto, dalla trasformazione al render, si fa nell’app.', 'modell.reiterB': 'Cantiere: prova tu', 'chip.b1': 'Fai il tetto giallo', 'chip.b2': 'Metti un tetto gotico', 'chip.b3': 'Un piano in più', 'chip.b4': 'Una torre sull’angolo', 'chip.b5': 'Grandi finestre a sud', 'chip.b6': 'Annulla', 'chip.b7': 'Ricomincia', 'modell.steuerung': 'Trascina per ruotare · tasto destro o due dita per spostare · rotella o due dita per lo zoom, fino alla strada',
     'modell.frage': 'Di’ al modello cosa vuoi vedere …', 'modell.reiterV': 'Torre sull’acqua', 'modell.reiterM': 'Casa con giardino', 'modell.diktat': 'Detta', 'modell.fehler': 'Impossibile caricare il modello.',
@@ -340,7 +380,7 @@ const TEXTE = {
     'fkt.4t': 'Rendering sul tuo computer', 'fkt.4': 'Blender Cycles gira in locale, tutte le volte che vuoi. In più rendering con IA per atmosfera e vegetazione.',
     'fkt.5t': 'Disegni in PDF', 'fkt.5': 'Piante, sezioni, prospetti e tavole escono direttamente dal modello.',
     'fkt.6t': 'Dal telefono e dal terminale', 'fkt.6': 'Usalo nel browser ovunque tu sia. Oppure comandalo da Claude Code, Codex e Gemini CLI.',
-    'preis.titel': 'Prezzi', 'preis.einheit': 'al mese più IVA',
+    'preis.titel': 'Tre piani', 'preis.einheit': 'al mese più IVA',
     'preis.l1': 'IA per il modello, illimitata', 'preis.l2': '60 rendering con IA al mese',
     'preis.l3': 'Rendering Blender illimitato, sul tuo computer', 'preis.l4': 'Tutti gli aggiornamenti',
     'preis.knopf': 'Inizia l’abbonamento',
@@ -360,6 +400,14 @@ const TEXTE = {
     'fuss.impressum': 'Note legali', 'fuss.datenschutz': 'Privacy', 'fuss.kontakt': 'Contatti'
   },
   pt: {
+    'abo.textPrivat': 'Deixa-nos o teu e-mail e umas palavras sobre o projeto. Respondemos no próprio dia para conversar.',
+    'abo.titelPrivat': 'Pedir o Amphion Privado',
+    'privat.knopf': 'Pedir uma chamada',
+    'privat.l4': 'Tudo do Studio, sem limites',
+    'privat.l3': 'Um contacto fixo, por telefone, vídeo ou no local',
+    'privat.l2': 'Velocidade máxima: resposta no próprio dia, resultados durante a noite',
+    'privat.l1': 'Arquitetos trabalham para ti: levantamento, modelo, variantes, desenhos e renders preparados',
+    'privat.fuer': 'assistência privada',
     'abo.titelStudio': 'Comprar o Amphion Studio',
     'abo.titelSolo': 'Comprar o Amphion Solo',
     'preis.schreibUns': 'Escreve-nos.',
@@ -376,8 +424,8 @@ const TEXTE = {
     'preis.jaehrlich': 'Anual: 2 meses oferecidos',
     'preis.monatlich': 'Mensal',
     'preis.gruender': 'de 100 lugares fundadores livres: quem compra agora mantém o preço para sempre.',
-    'cta.titel': 'Experimenta com o teu próprio projeto.', 'cta.laden': 'Descarregar o Amphion', 'cta.kaufen': 'Comprar uma chave', 'cta.klein': 'Download grátis. A partir de 45 € por mês, no primeiro mês devolvemos o dinheiro.', 'cta.andere': 'Outro computador?',
-    'aktion.preis': '45 € por mês, cancelável todos os meses. No primeiro mês devolvemos o dinheiro se não te convencer.',
+    'cta.titel': 'Experimenta com o teu próprio projeto.', 'cta.laden': 'Descarregar o Amphion', 'cta.kaufen': 'Escolher plano', 'cta.klein': 'Download grátis. Três planos a partir de 45 € por mês, no primeiro mês devolvemos o dinheiro.', 'cta.andere': 'Outro computador?',
+    'aktion.preis': 'Três planos a partir de 45 € por mês: Solo, Studio para gabinetes, Privado com arquitetos ao teu lado. No primeiro mês devolvemos o dinheiro.',
     'aktion.kaufen': 'Comprar uma chave',
     'aktion.ladenKlein': 'grátis',
     'aktion.laden': 'Descarregar',
@@ -387,7 +435,7 @@ const TEXTE = {
     'held.text': 'Um esboço, uma planta, um PDF, uma foto ou uma frase: o Amphion transforma-o num verdadeiro modelo 3D, faz o render no teu computador e desenha as plantas.',
     'abo.titel': "Começar a subscrição", 'abo.text': "Deixa-nos o teu e-mail. Num dia recebes a chave de licença e a fatura. A chave vale para um computador; podes trocá-lo quando quiseres em «A minha conta».", 'abo.email': "Endereço de e-mail", 'abo.name': "Nome ou atelier (opcional)", 'abo.senden': "Pedir a chave", 'abo.danke': "Obrigado. Escrevemos-te num dia, para {email}.", 'abo.fehler': "Não funcionou. Escreve diretamente para hello@amphion3d.com.", 'nav.konto': "A minha conta",
     'held.ladenArm': 'Mac · Apple Silicon', 'held.ladenX64': 'Mac · Intel', 'held.ladenWin': 'Windows 10 e 11',
-    'held.klein': 'Para Mac (macOS 14 ou posterior) e Windows (10 e 11). A chave introduz-se no Amphion. No telemóvel usas o Amphion no navegador enquanto o computador estiver ligado.', 'held.kaufen': 'Comprar uma chave',
+    'held.klein': 'Para Mac (macOS 14 ou posterior) e Windows (10 e 11). A chave introduz-se no Amphion. No telemóvel usas o Amphion no navegador enquanto o computador estiver ligado.', 'held.kaufen': 'Escolher plano',
     'bild.band': 'FIVE CLEARINGS visto do ar. Projeto, modelo e imagem feitos no Amphion.',
     'modell.titel': 'Fala com o modelo', 'modell.text': 'Aqui vês dois projetos terminados feitos com o Amphion: uma torre à beira da água com a cidade inteira, modelada em cerca de 5 horas, e uma casa com jardim de 1913 com a sua remodelação, em cerca de 2 horas. Podes rodá-los, cortá-los, mostrar e ocultar partes e falar com eles, mas não alterá-los. Tudo o resto, da remodelação ao render, faz-se na app.', 'modell.reiterB': 'Obra: experimenta', 'chip.b1': 'Pinta o telhado de amarelo', 'chip.b2': 'Põe um telhado gótico', 'chip.b3': 'Mais um piso', 'chip.b4': 'Uma torre na esquina', 'chip.b5': 'Janelas grandes a sul', 'chip.b6': 'Desfazer', 'chip.b7': 'Recomeçar', 'modell.steuerung': 'Arrasta para rodar · botão direito ou dois dedos para deslocar · roda do rato ou dois dedos para fazer zoom, até à rua',
     'modell.frage': 'Diz ao modelo o que queres ver …', 'modell.reiterV': 'Torre à beira da água', 'modell.reiterM': 'Casa com jardim', 'modell.diktat': 'Ditar', 'modell.fehler': 'Não foi possível carregar o modelo.',
@@ -410,7 +458,7 @@ const TEXTE = {
     'fkt.4t': 'Render no teu computador', 'fkt.4': 'O Blender Cycles corre em local, sempre que quiseres. E ainda renders com IA para ambiente e vegetação.',
     'fkt.5t': 'Desenhos em PDF', 'fkt.5': 'Plantas, cortes, fachadas e painéis saem diretamente do modelo.',
     'fkt.6t': 'No telefone e no terminal', 'fkt.6': 'Usa-o no navegador onde estiveres. Ou controla-o a partir do Claude Code, Codex e Gemini CLI.',
-    'preis.titel': 'Preços', 'preis.einheit': 'por mês mais IVA',
+    'preis.titel': 'Três planos', 'preis.einheit': 'por mês mais IVA',
     'preis.l1': 'IA para o modelo, sem limite', 'preis.l2': '60 renders com IA por mês',
     'preis.l3': 'Render Blender ilimitado, no teu computador', 'preis.l4': 'Todas as atualizações',
     'preis.knopf': 'Começar assinatura',
@@ -487,10 +535,11 @@ fetch(CLOUD + '/v1/gruender').then(r => r.ok ? r.json() : null).then(j => { if (
   if (dlg && form) {
     // Stripe zuerst (3.11., Tassilo: wie bei Antiga): die Cloud gibt die Adresse des gehosteten Checkouts; ohne Zahlungsdienst das Formular
     let plan = 'solo';
-    document.addEventListener('click', async e => { const a = e.target.closest('a[data-checkout]'); if (!a) return; e.preventDefault(); plan = a.dataset.checkout === 'studio' ? 'studio' : 'solo';
-      const titel = dlg.querySelector('h3'); if (titel) titel.textContent = (TEXTE[document.documentElement.lang] || TEXTE.de)[plan === 'studio' ? 'abo.titelStudio' : 'abo.titelSolo'] || titel.textContent;
+    document.addEventListener('click', async e => { const a = e.target.closest('a[data-checkout]'); if (!a || a.dataset.checkout === 'wahl') return; e.preventDefault(); plan = ['studio', 'privat'].includes(a.dataset.checkout) ? a.dataset.checkout : 'solo';   // „wahl“ springt zu den drei Plänen
+      const titel = dlg.querySelector('h3'); const tx = TEXTE[document.documentElement.lang] || TEXTE.de; if (titel) titel.textContent = tx[{ studio: 'abo.titelStudio', privat: 'abo.titelPrivat' }[plan] || 'abo.titelSolo'] || titel.textContent;
+      const absatz = dlg.querySelector('[data-i18n="abo.text"], [data-i18n="abo.textPrivat"]'); if (absatz) { absatz.dataset.i18n = plan === 'privat' ? 'abo.textPrivat' : 'abo.text'; absatz.textContent = tx[absatz.dataset.i18n] || absatz.textContent; }
       a.classList.add('wartet');
-      try { const r = await fetch(CLOUD + '/v1/kauf', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ plan, periode: PERIODE, lang: document.documentElement.lang }) }); const j = await r.json(); if (j.url) { window.formaZaehl?.('kauf'); location.href = j.url; return; } } catch { /* Formular */ }
+      try { if (plan === 'privat') throw 0; const r = await fetch(CLOUD + '/v1/kauf', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ plan, periode: PERIODE, lang: document.documentElement.lang }) }); const j = await r.json(); if (j.url) { window.formaZaehl?.('kauf'); location.href = j.url; return; } } catch { /* Formular */ }
       a.classList.remove('wartet'); meldung.textContent = ''; form.hidden = false; dlg.showModal(); form.querySelector('input[type=email]').focus(); });
     dlg.querySelector('.abo-zu').onclick = () => dlg.close();
     form.onsubmit = async e => {

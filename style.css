@@ -168,7 +168,7 @@ main>section,.band{padding:72px var(--rand);max-width:var(--breit);margin:0 auto
   .galerie .hoch{grid-row:span 2;display:flex;flex-direction:column}
   .galerie .hoch img{flex:1;min-height:0;height:auto;aspect-ratio:auto}
   .liste{grid-template-columns:repeat(3,1fr)}
-  .plaene{grid-template-columns:repeat(2,1fr);gap:48px;max-width:900px}
+  .plaene{grid-template-columns:repeat(3,1fr);gap:40px}
   .held{padding-top:48px}
   .aktion{grid-template-columns:1.7fr 1fr}
 }
@@ -212,3 +212,7 @@ main>section,.band{padding:72px var(--rand);max-width:var(--breit);margin:0 auto
 .periode button{font:inherit;font-weight:700;font-size:15px;padding:9px 16px;border:0;background:var(--bg);color:var(--ink);cursor:pointer}
 .periode button.an{background:var(--ink);color:#fff}
 .plan h3 small{font-size:14px;font-weight:600;color:var(--grau);margin-left:6px}
+.plan.privat h3{color:var(--ink)}
+.plan.privat{border-top-color:#8a6d3b}
+.plan.privat .knopf{border-color:#8a6d3b}
+.plan.privat li::before{background:#8a6d3b}
