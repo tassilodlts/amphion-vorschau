@@ -14,8 +14,8 @@
   "tragwerk": {
    "datei": "tragwerk.glb",
    "mb": 2.21,
-   "dreiecke": 1646046,
-   "objekte": 4391
+   "dreiecke": 1646786,
+   "objekte": 4396
   },
   "gebaeude": {
    "datei": "gebaeude.glb",
@@ -40,7 +40,7 @@
  "baumvorlagen": {
   "anzahl": 823,
   "dreiecke": 85182,
-  "kb": 790.1,
+  "kb": 790.2,
   "dreieckeGesamt": 2474110
  },
  "ohneFarbe": []
