@@ -33,6 +33,10 @@ main>section,.band{padding:72px var(--rand);max-width:var(--breit);margin:0 auto
 /* Held */
 .held{padding-top:36px;padding-bottom:40px}
 /* 4.11. (Tassilo: oben zu viel Weiß, Laden und Kaufen müssen sofort sichtbar und klar sein): kleinere Überschrift, darunter zwei Felder 1 Laden, 2 Kaufen */
+.held-fuer{margin:0 0 14px;font-size:15px;font-weight:600;letter-spacing:.02em;color:var(--akzent)}
+.held-vertrauen{margin:4px 0 0;font-size:14px;color:var(--grau)}
+
+.wer p{font-size:18px;line-height:1.5;color:var(--grau);max-width:62ch}
 .held h1{font-size:clamp(31px,6vw,80px);letter-spacing:-.04em;line-height:.98;max-width:22ch}
 .held h1 em{font-style:normal;color:var(--akzent)}
 .held-text{font-size:clamp(18px,1.9vw,23px);color:var(--grau);max-width:44ch;margin:20px 0 26px;line-height:1.35}
@@ -46,6 +50,8 @@ main>section,.band{padding:72px var(--rand);max-width:var(--breit);margin:0 auto
 .aktion-preis{margin:0 0 14px;color:var(--ink);font-size:16px;line-height:1.4}
 .aktion .knopf{padding:13px 18px;font-size:16px}
 .aktion .klein{margin:10px 0 0}
+.aktion .knopf.teilen{display:block;margin-top:12px;text-align:center;border-style:dashed}
+.aktion .knopf.teilen[hidden]{display:none}
 .pfeil{font-weight:800}
 .knoepfe{display:flex;flex-direction:column;gap:12px;max-width:420px}
 .knopf{display:inline-block;text-align:center;text-decoration:none;font-weight:700;font-size:17px;padding:16px 26px;border:2px solid var(--ink);background:var(--bg);color:var(--ink);transition:background .15s,color .15s,border-color .15s}
@@ -216,3 +222,12 @@ main>section,.band{padding:72px var(--rand);max-width:var(--breit);margin:0 auto
 .plan.privat{border-top-color:#8a6d3b}
 .plan.privat .knopf{border-color:#8a6d3b}
 .plan.privat li::before{background:#8a6d3b}
+/* Handy (4.11. spät, Tassilo: Download sofort sichtbar): Kopf dichter, damit der erste Knopf im ersten Bildschirm liegt */
+@media (max-width:719px){
+  .held{padding-top:18px;padding-bottom:28px}
+  .held-fuer{font-size:13px;margin:0 0 8px}
+  .held-text{font-size:16px;margin:12px 0 16px}
+  .aktion-teil{padding:14px 16px}
+  .aktion .knopf{padding:11px 14px}
+  .aktion .knoepfe{gap:8px}
+}
