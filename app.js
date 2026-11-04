@@ -5,12 +5,28 @@ const PRODUKT = 'Amphion';          // Name, später austauschbar
 const DOWNLOAD_ARM = 'https://github.com/tassilodlts/forma-app/releases/latest/download/Amphion-Mac-Apple-Silicon.dmg';         // Mac, Apple Silicon (.dmg)
 const DOWNLOAD_X64 = 'https://github.com/tassilodlts/forma-app/releases/latest/download/Amphion-Mac-Intel.dmg';         // Mac, Intel (.dmg)
 const DOWNLOAD_WIN = 'https://github.com/tassilodlts/forma-app/releases/latest/download/Amphion-Windows.exe';         // Windows 10 und 11, 64 Bit (Installer)
-const CHECKOUT = { pro: '#abo', studio: 'mailto:hello@amphion3d.com?subject=Amphion%20Studio' };   // Abo starten: Formular (3.11., Tassilo: „Schlüssel kaufen funktioniert nicht“; Zahlungsdienst folgt), Studio per Mail
+const CHECKOUT = { solo: '#abo', studio: '#abo', pro: '#abo' };   // 4.11.: Solo 45/450, Studio 89/890 (Tassilo); Kauf über das Formular, Stripe sobald eingerichtet   // Abo starten: Formular (3.11., Tassilo: „Schlüssel kaufen funktioniert nicht“; Zahlungsdienst folgt), Studio per Mail
 const CLOUD = 'https://cloud.amphion3d.com';
 
 const TEXTE = {
   de: {
-    'cta.titel': 'Probier es mit deinem eigenen Projekt.', 'cta.laden': 'Amphion laden', 'cta.kaufen': 'Schlüssel kaufen', 'cta.klein': 'Laden kostenlos. 45 € im Monat, im ersten Monat Geld zurück.', 'cta.andere': 'Anderer Computer?',
+    'abo.titelStudio': 'Amphion Studio kaufen',
+    'abo.titelSolo': 'Amphion Solo kaufen',
+    'preis.schreibUns': 'Schreib uns.',
+    'preis.begleitung': 'Persönliche Begleitung und Modellierungshilfe für dein Projekt: auf Anfrage.',
+    'preis.schreib': 'Kurz schreiben.',
+    'studio.fuer': 'für Büros',
+    'solo.knopf': 'Solo kaufen',
+    'solo.l4': 'KI für das Modell inklusive, alle Updates',
+    'solo.l3': 'Grundrisse, Schnitte, Ansichten als PDF',
+    'solo.l2': 'Renderings auf deinem Computer, unbegrenzt',
+    'solo.l1': 'Modellieren mit Sprache, Skizze, Foto oder PDF',
+    'preis.einheitJahr': 'im Jahr zzgl. MwSt.',
+    'preis.einheitMonat': 'im Monat zzgl. MwSt.',
+    'preis.jaehrlich': 'Jährlich: 2 Monate geschenkt',
+    'preis.monatlich': 'Monatlich',
+    'preis.gruender': 'von 100 Gründungsplätzen frei: Wer jetzt kauft, behält seinen Preis für immer.',
+    'cta.titel': 'Probier es mit deinem eigenen Projekt.', 'cta.laden': 'Amphion laden', 'cta.kaufen': 'Schlüssel kaufen', 'cta.klein': 'Laden kostenlos. Ab 45 € im Monat, im ersten Monat Geld zurück.', 'cta.andere': 'Anderer Computer?',
     'aktion.preis': '45 € im Monat, monatlich kündbar. Im ersten Monat Geld zurück, wenn es nicht passt.',
     'aktion.kaufen': 'Schlüssel kaufen',
     'aktion.ladenKlein': 'kostenlos',
@@ -44,15 +60,15 @@ const TEXTE = {
     'fkt.4t': 'Rendering auf deinem Computer', 'fkt.4': 'Blender Cycles läuft lokal, so oft du willst. Dazu KI-Renderings für Stimmung und Vegetation.',
     'fkt.5t': 'Pläne als PDF', 'fkt.5': 'Grundrisse, Schnitte, Ansichten und Tafeln kommen fertig aus dem Modell.',
     'fkt.6t': 'Vom Handy und aus dem Terminal', 'fkt.6': 'Unterwegs im Browser bedienen. Oder aus Claude Code, Codex und Gemini CLI steuern.',
-    'preis.titel': 'Zwei Pläne', 'preis.einheit': 'im Monat zzgl. MwSt.',
+    'preis.titel': 'Preise', 'preis.einheit': 'im Monat zzgl. MwSt.',
     'preis.l1': 'KI für das Modell, unbegrenzt', 'preis.l2': '60 KI-Renderings im Monat',
     'preis.l3': 'Blender-Rendering unbegrenzt, auf deinem Computer', 'preis.l4': 'Alle Updates',
     'preis.knopf': 'Abo starten',
-    'studio.l1': 'Alles aus Pro, ohne Grenzen: KI, KI-Renderings, Websuche',
-    'studio.l2': 'Persönliche Beratung am Telefon oder per Video, wenn du sie brauchst',
-    'studio.l3': 'Modellierungshilfe: Wir bauen oder richten dein Projekt mit dir ein',
-    'studio.l4': 'Wünsche an Amphion kommen zuerst dran', 'studio.knopf': 'Studio anfragen',
-    'preis.studis': 'Studierende und Lehrende: Pro für 15 € im Monat mit Hochschul-Mail. Kurz schreiben.', 'preis.garantie': 'Im ersten Monat nicht zufrieden? Du bekommst alles zurück. Gilt für Pro und Studio.',
+    'studio.l1': 'Alles aus Solo',
+    'studio.l2': 'Export für Fachplaner: IFC mit echten Bauteilen, DXF-Pläne mit Layern',
+    'studio.l3': 'Standort-Vorprüfung mit Kataster (Spanien, Deutschland, Italien), kommt 2027',
+    'studio.l4': 'Bauantragspläne nach Landesrecht, kommt 2027', 'studio.knopf': 'Studio kaufen',
+    'preis.studis': 'Studierende und Lehrende: Solo für 15 € im Monat mit Hochschul-Mail.', 'preis.garantie': 'Im ersten Monat nicht zufrieden? Du bekommst alles zurück.',
     'faq.titel': 'Fragen',
     'faq.1f': 'Was brauche ich?', 'faq.1': 'Einen Mac mit macOS 14 oder neuer oder einen PC mit Windows 10 oder 11 (64 Bit), dazu Internet für die KI. Für Renderings installiert Amphion Blender von blender.org, ein Klick genügt.',
     'faq.2f': 'Gibt es Amphion für Windows?', 'faq.2': 'Ja. Lade Amphion für Windows und starte den Installer. Weil Amphion neu ist, zeigt Windows beim ersten Start „Der Computer wurde durch Windows geschützt“. Klick auf „Weitere Informationen“ und dann auf „Trotzdem ausführen“. Danach startet Amphion normal.',
@@ -64,7 +80,23 @@ const TEXTE = {
     'fuss.impressum': 'Impressum', 'fuss.datenschutz': 'Datenschutz', 'fuss.kontakt': 'Kontakt'
   },
   en: {
-    'cta.titel': 'Try it with your own project.', 'cta.laden': 'Download Amphion', 'cta.kaufen': 'Buy a key', 'cta.klein': 'Free download. €45 a month, money back in the first month.', 'cta.andere': 'Different computer?',
+    'abo.titelStudio': 'Buy Amphion Studio',
+    'abo.titelSolo': 'Buy Amphion Solo',
+    'preis.schreibUns': 'Write to us.',
+    'preis.begleitung': 'Personal guidance and modelling help for your project: on request.',
+    'preis.schreib': 'Just write us.',
+    'studio.fuer': 'for practices',
+    'solo.knopf': 'Buy Solo',
+    'solo.l4': 'AI for the model included, all updates',
+    'solo.l3': 'Floor plans, sections, elevations as PDF',
+    'solo.l2': 'Renderings on your own computer, unlimited',
+    'solo.l1': 'Model with speech, sketches, photos or PDFs',
+    'preis.einheitJahr': 'a year plus VAT',
+    'preis.einheitMonat': 'a month plus VAT',
+    'preis.jaehrlich': 'Yearly: 2 months free',
+    'preis.monatlich': 'Monthly',
+    'preis.gruender': 'of 100 founding places left: buy now and keep your price for good.',
+    'cta.titel': 'Try it with your own project.', 'cta.laden': 'Download Amphion', 'cta.kaufen': 'Buy a key', 'cta.klein': 'Free download. From €45 a month, money back in the first month.', 'cta.andere': 'Different computer?',
     'aktion.preis': '€45 a month, cancel monthly. Money back in the first month if it is not right for you.',
     'aktion.kaufen': 'Buy a key',
     'aktion.ladenKlein': 'free',
@@ -98,15 +130,15 @@ const TEXTE = {
     'fkt.4t': 'Rendering on your computer', 'fkt.4': 'Blender Cycles runs locally, as often as you like. Plus AI renderings for mood and vegetation.',
     'fkt.5t': 'Drawings as PDF', 'fkt.5': 'Plans, sections, elevations and boards come straight from the model.',
     'fkt.6t': 'From your phone and the terminal', 'fkt.6': 'Use it in the browser on the go. Or drive it from Claude Code, Codex and Gemini CLI.',
-    'preis.titel': 'Two plans', 'preis.einheit': 'per month plus VAT',
+    'preis.titel': 'Pricing', 'preis.einheit': 'per month plus VAT',
     'preis.l1': 'AI for the model, unlimited', 'preis.l2': '60 AI renderings per month',
     'preis.l3': 'Unlimited Blender rendering, on your computer', 'preis.l4': 'All updates',
     'preis.knopf': 'Start subscription',
-    'studio.l1': 'Everything in Pro, no limits: AI, AI renderings, web search',
-    'studio.l2': 'Personal advice by phone or video whenever you need it',
-    'studio.l3': 'Modelling help: we build or set up your project with you',
-    'studio.l4': 'Your requests for Amphion come first', 'studio.knopf': 'Ask for Studio',
-    'preis.studis': 'Students and teachers: Pro for €15 a month with a university email. Just write us.', 'preis.garantie': 'Not happy in the first month? You get everything back. Applies to Pro and Studio.',
+    'studio.l1': 'Everything in Solo',
+    'studio.l2': 'Export for consultants: IFC with real building elements, DXF drawings with layers',
+    'studio.l3': 'Site check with the land registry (Spain, Germany, Italy), coming 2027',
+    'studio.l4': 'Permit drawings by national rules, coming 2027', 'studio.knopf': 'Buy Studio',
+    'preis.studis': 'Students and teachers: Solo for €15 a month with a university email.', 'preis.garantie': 'Not happy in the first month? You get everything back.',
     'faq.titel': 'Questions',
     'faq.1f': 'What do I need?', 'faq.1': 'A Mac with macOS 14 or newer or a PC with Windows 10 or 11 (64-bit), plus internet for the AI. For renderings Amphion installs Blender from blender.org, one click is enough.',
     'faq.2f': 'Is there a Windows version?', 'faq.2': 'Yes. Download Amphion for Windows and run the installer. Because Amphion is new, Windows shows “Windows protected your PC” the first time. Click “More info”, then “Run anyway”. After that Amphion starts normally.',
@@ -118,7 +150,23 @@ const TEXTE = {
     'fuss.impressum': 'Legal notice', 'fuss.datenschutz': 'Privacy', 'fuss.kontakt': 'Contact'
   },
   es: {
-    'cta.titel': 'Pruébalo con tu propio proyecto.', 'cta.laden': 'Descargar Amphion', 'cta.kaufen': 'Comprar clave', 'cta.klein': 'Descarga gratis. 45 € al mes, el primer mes te devolvemos el dinero.', 'cta.andere': '¿Otro ordenador?',
+    'abo.titelStudio': 'Comprar Amphion Studio',
+    'abo.titelSolo': 'Comprar Amphion Solo',
+    'preis.schreibUns': 'Escríbenos.',
+    'preis.begleitung': 'Acompañamiento personal y ayuda con el modelado de tu proyecto: bajo petición.',
+    'preis.schreib': 'Escríbenos.',
+    'studio.fuer': 'para estudios',
+    'solo.knopf': 'Comprar Solo',
+    'solo.l4': 'IA para el modelo incluida, todas las actualizaciones',
+    'solo.l3': 'Plantas, secciones y alzados en PDF',
+    'solo.l2': 'Renders en tu propio ordenador, sin límite',
+    'solo.l1': 'Modelar con la voz, bocetos, fotos o PDF',
+    'preis.einheitJahr': 'al año más IVA',
+    'preis.einheitMonat': 'al mes más IVA',
+    'preis.jaehrlich': 'Anual: 2 meses gratis',
+    'preis.monatlich': 'Mensual',
+    'preis.gruender': 'de 100 plazas fundadoras libres: quien compra ahora mantiene su precio para siempre.',
+    'cta.titel': 'Pruébalo con tu propio proyecto.', 'cta.laden': 'Descargar Amphion', 'cta.kaufen': 'Comprar clave', 'cta.klein': 'Descarga gratis. Desde 45 € al mes, el primer mes te devolvemos el dinero.', 'cta.andere': '¿Otro ordenador?',
     'aktion.preis': '45 € al mes, cancelable cada mes. El primer mes te devolvemos el dinero si no te convence.',
     'aktion.kaufen': 'Comprar clave',
     'aktion.ladenKlein': 'gratis',
@@ -152,15 +200,15 @@ const TEXTE = {
     'fkt.4t': 'Renders en tu ordenador', 'fkt.4': 'Blender Cycles funciona en local, tantas veces como quieras. Además, renders con IA para ambiente y vegetación.',
     'fkt.5t': 'Planos en PDF', 'fkt.5': 'Plantas, secciones, alzados y paneles salen listos del modelo.',
     'fkt.6t': 'Desde el móvil y la terminal', 'fkt.6': 'Úsalo en el navegador donde estés. O contrólalo desde Claude Code, Codex y Gemini CLI.',
-    'preis.titel': 'Dos planes', 'preis.einheit': 'al mes más IVA',
+    'preis.titel': 'Precios', 'preis.einheit': 'al mes más IVA',
     'preis.l1': 'IA para el modelo, sin límite', 'preis.l2': '60 renders con IA al mes',
     'preis.l3': 'Renders de Blender ilimitados, en tu ordenador', 'preis.l4': 'Todas las actualizaciones',
     'preis.knopf': 'Empezar suscripción',
-    'studio.l1': 'Todo lo de Pro, sin límites: IA, renders con IA, búsqueda web',
-    'studio.l2': 'Asesoría personal por teléfono o vídeo cuando la necesites',
-    'studio.l3': 'Ayuda de modelado: construimos o preparamos tu proyecto contigo',
-    'studio.l4': 'Tus peticiones para Amphion van primero', 'studio.knopf': 'Solicitar Studio',
-    'preis.studis': 'Estudiantes y docentes: Pro por 15 € al mes con correo universitario. Escríbenos.', 'preis.garantie': '¿No te convence el primer mes? Te devolvemos todo. Vale para Pro y Studio.',
+    'studio.l1': 'Todo lo de Solo',
+    'studio.l2': 'Exportación para ingenierías: IFC con elementos reales, planos DXF con capas',
+    'studio.l3': 'Consulta urbanística previa con el Catastro (España, Alemania, Italia), llega en 2027',
+    'studio.l4': 'Planos de proyecto básico según la normativa de cada país, llega en 2027', 'studio.knopf': 'Comprar Studio',
+    'preis.studis': 'Estudiantes y docentes: Solo por 15 € al mes con correo universitario.', 'preis.garantie': '¿No te convence el primer mes? Te devolvemos todo.',
     'faq.titel': 'Preguntas',
     'faq.1f': '¿Qué necesito?', 'faq.1': 'Un Mac con macOS 14 o posterior o un PC con Windows 10 u 11 (64 bits), e internet para la IA. Para los renders Amphion instala Blender desde blender.org, basta un clic.',
     'faq.2f': '¿Hay versión para Windows?', 'faq.2': 'Sí. Descarga Amphion para Windows y ejecuta el instalador. Como Amphion es nuevo, la primera vez Windows muestra «Windows protegió su PC». Pulsa «Más información» y después «Ejecutar de todas formas». Luego Amphion arranca con normalidad.',
@@ -172,7 +220,23 @@ const TEXTE = {
     'fuss.impressum': 'Aviso legal', 'fuss.datenschutz': 'Privacidad', 'fuss.kontakt': 'Contacto'
   },
   fr: {
-    'cta.titel': 'Essaie-le avec ton propre projet.', 'cta.laden': 'Télécharger Amphion', 'cta.kaufen': 'Acheter une clé', 'cta.klein': 'Téléchargement gratuit. 45 € par mois, remboursé le premier mois.', 'cta.andere': 'Autre ordinateur ?',
+    'abo.titelStudio': 'Acheter Amphion Studio',
+    'abo.titelSolo': 'Acheter Amphion Solo',
+    'preis.schreibUns': 'Écris-nous.',
+    'preis.begleitung': 'Accompagnement personnel et aide à la modélisation de ton projet : sur demande.',
+    'preis.schreib': 'Écris-nous.',
+    'studio.fuer': 'pour les agences',
+    'solo.knopf': 'Acheter Solo',
+    'solo.l4': 'IA pour le modèle incluse, toutes les mises à jour',
+    'solo.l3': 'Plans, coupes, élévations en PDF',
+    'solo.l2': 'Rendus sur ton propre ordinateur, illimités',
+    'solo.l1': 'Modéliser par la voix, le croquis, la photo ou le PDF',
+    'preis.einheitJahr': 'par an HT',
+    'preis.einheitMonat': 'par mois HT',
+    'preis.jaehrlich': 'Annuel : 2 mois offerts',
+    'preis.monatlich': 'Mensuel',
+    'preis.gruender': 'places fondatrices sur 100 encore libres : achète maintenant et garde ton prix pour toujours.',
+    'cta.titel': 'Essaie-le avec ton propre projet.', 'cta.laden': 'Télécharger Amphion', 'cta.kaufen': 'Acheter une clé', 'cta.klein': 'Téléchargement gratuit. Dès 45 € par mois, remboursé le premier mois.', 'cta.andere': 'Autre ordinateur ?',
     'aktion.preis': '45 € par mois, résiliable chaque mois. Remboursé le premier mois si ça ne te convient pas.',
     'aktion.kaufen': 'Acheter une clé',
     'aktion.ladenKlein': 'gratuit',
@@ -206,15 +270,15 @@ const TEXTE = {
     'fkt.4t': 'Rendu sur ton ordinateur', 'fkt.4': 'Blender Cycles tourne en local, aussi souvent que tu veux. En plus, des rendus IA pour l’ambiance et la végétation.',
     'fkt.5t': 'Plans en PDF', 'fkt.5': 'Plans, coupes, façades et planches sortent directement du modèle.',
     'fkt.6t': 'Depuis ton téléphone et le terminal', 'fkt.6': 'Utilise-le dans le navigateur où que tu sois. Ou pilote-le depuis Claude Code, Codex et Gemini CLI.',
-    'preis.titel': 'Deux formules', 'preis.einheit': 'par mois hors TVA',
+    'preis.titel': 'Tarifs', 'preis.einheit': 'par mois hors TVA',
     'preis.l1': 'IA pour le modèle, illimitée', 'preis.l2': '60 rendus IA par mois',
     'preis.l3': 'Rendu Blender illimité, sur ton ordinateur', 'preis.l4': 'Toutes les mises à jour',
     'preis.knopf': 'Démarrer l’abonnement',
-    'studio.l1': 'Tout ce qu’offre Pro, sans limites : IA, rendus IA, recherche web',
-    'studio.l2': 'Conseil personnel par téléphone ou en vidéo dès que tu en as besoin',
-    'studio.l3': 'Aide à la modélisation : nous construisons ou préparons ton projet avec toi',
-    'studio.l4': 'Tes demandes pour Amphion passent en premier', 'studio.knopf': 'Demander Studio',
-    'preis.studis': 'Étudiants et enseignants : Pro pour 15 € par mois avec une adresse e-mail universitaire. Écris-nous.', 'preis.garantie': 'Pas convaincu le premier mois ? On te rembourse tout. Valable pour Pro et Studio.',
+    'studio.l1': 'Tout ce qu’offre Solo',
+    'studio.l2': 'Export pour les bureaux d’études : IFC avec de vrais éléments, plans DXF avec calques',
+    'studio.l3': 'Pré-analyse du terrain avec le cadastre (Espagne, Allemagne, Italie), en 2027',
+    'studio.l4': 'Plans de permis selon les règles du pays, en 2027', 'studio.knopf': 'Acheter Studio',
+    'preis.studis': 'Étudiants et enseignants : Solo pour 15 € par mois avec une adresse universitaire.', 'preis.garantie': 'Pas convaincu le premier mois ? On te rembourse tout.',
     'faq.titel': 'Questions',
     'faq.1f': 'De quoi ai-je besoin ?', 'faq.1': 'Un Mac avec macOS 14 ou plus récent ou un PC avec Windows 10 ou 11 (64 bits), et internet pour l’IA. Pour les rendus, Amphion installe Blender depuis blender.org, un clic suffit.',
     'faq.2f': 'Existe-t-il une version Windows ?', 'faq.2': 'Oui. Télécharge Amphion pour Windows et lance l’installateur. Comme Amphion est nouveau, Windows affiche la première fois « Windows a protégé votre ordinateur ». Clique sur « Informations complémentaires », puis sur « Exécuter quand même ». Ensuite Amphion démarre normalement.',
@@ -226,7 +290,23 @@ const TEXTE = {
     'fuss.impressum': 'Mentions légales', 'fuss.datenschutz': 'Confidentialité', 'fuss.kontakt': 'Contact'
   },
   it: {
-    'cta.titel': 'Provalo con il tuo progetto.', 'cta.laden': 'Scarica Amphion', 'cta.kaufen': 'Acquista una chiave', 'cta.klein': 'Download gratuito. 45 € al mese, il primo mese ti rimborsiamo.', 'cta.andere': 'Altro computer?',
+    'abo.titelStudio': 'Acquista Amphion Studio',
+    'abo.titelSolo': 'Acquista Amphion Solo',
+    'preis.schreibUns': 'Scrivici.',
+    'preis.begleitung': 'Accompagnamento personale e aiuto nella modellazione del tuo progetto: su richiesta.',
+    'preis.schreib': 'Scrivici.',
+    'studio.fuer': 'per studi',
+    'solo.knopf': 'Acquista Solo',
+    'solo.l4': 'IA per il modello inclusa, tutti gli aggiornamenti',
+    'solo.l3': 'Piante, sezioni, prospetti in PDF',
+    'solo.l2': 'Rendering sul tuo computer, illimitati',
+    'solo.l1': 'Modellare con la voce, schizzi, foto o PDF',
+    'preis.einheitJahr': 'all’anno più IVA',
+    'preis.einheitMonat': 'al mese più IVA',
+    'preis.jaehrlich': 'Annuale: 2 mesi in regalo',
+    'preis.monatlich': 'Mensile',
+    'preis.gruender': 'posti fondatori su 100 ancora liberi: chi compra ora mantiene il prezzo per sempre.',
+    'cta.titel': 'Provalo con il tuo progetto.', 'cta.laden': 'Scarica Amphion', 'cta.kaufen': 'Acquista una chiave', 'cta.klein': 'Download gratuito. Da 45 € al mese, il primo mese ti rimborsiamo.', 'cta.andere': 'Altro computer?',
     'aktion.preis': '45 € al mese, disdicibile ogni mese. Il primo mese ti rimborsiamo se non ti convince.',
     'aktion.kaufen': 'Acquista una chiave',
     'aktion.ladenKlein': 'gratis',
@@ -260,15 +340,15 @@ const TEXTE = {
     'fkt.4t': 'Rendering sul tuo computer', 'fkt.4': 'Blender Cycles gira in locale, tutte le volte che vuoi. In più rendering con IA per atmosfera e vegetazione.',
     'fkt.5t': 'Disegni in PDF', 'fkt.5': 'Piante, sezioni, prospetti e tavole escono direttamente dal modello.',
     'fkt.6t': 'Dal telefono e dal terminale', 'fkt.6': 'Usalo nel browser ovunque tu sia. Oppure comandalo da Claude Code, Codex e Gemini CLI.',
-    'preis.titel': 'Due piani', 'preis.einheit': 'al mese più IVA',
+    'preis.titel': 'Prezzi', 'preis.einheit': 'al mese più IVA',
     'preis.l1': 'IA per il modello, illimitata', 'preis.l2': '60 rendering con IA al mese',
     'preis.l3': 'Rendering Blender illimitato, sul tuo computer', 'preis.l4': 'Tutti gli aggiornamenti',
     'preis.knopf': 'Inizia l’abbonamento',
-    'studio.l1': 'Tutto quello che c’è in Pro, senza limiti: IA, rendering con IA, ricerca web',
-    'studio.l2': 'Consulenza personale al telefono o in video quando ti serve',
-    'studio.l3': 'Aiuto nella modellazione: costruiamo o impostiamo il tuo progetto con te',
-    'studio.l4': 'Le tue richieste per Amphion hanno la precedenza', 'studio.knopf': 'Richiedi Studio',
-    'preis.studis': 'Studenti e docenti: Pro a 15 € al mese con un’e-mail universitaria. Scrivici.', 'preis.garantie': 'Non ti convince il primo mese? Ti rimborsiamo tutto. Vale per Pro e Studio.',
+    'studio.l1': 'Tutto di Solo',
+    'studio.l2': 'Export per i consulenti: IFC con veri elementi, disegni DXF con layer',
+    'studio.l3': 'Verifica preliminare del lotto con il catasto (Spagna, Germania, Italia), in arrivo nel 2027',
+    'studio.l4': 'Elaborati per il titolo edilizio secondo le regole del paese, in arrivo nel 2027', 'studio.knopf': 'Acquista Studio',
+    'preis.studis': 'Studenti e docenti: Solo a 15 € al mese con e-mail universitaria.', 'preis.garantie': 'Non ti convince il primo mese? Ti rimborsiamo tutto.',
     'faq.titel': 'Domande',
     'faq.1f': 'Di cosa ho bisogno?', 'faq.1': 'Un Mac con macOS 14 o successivo oppure un PC con Windows 10 o 11 (64 bit), e internet per l’IA. Per i rendering Amphion installa Blender da blender.org, basta un clic.',
     'faq.2f': 'Esiste una versione per Windows?', 'faq.2': 'Sì. Scarica Amphion per Windows e avvia il programma di installazione. Poiché Amphion è nuovo, la prima volta Windows mostra «Windows ha protetto il PC». Clicca su «Ulteriori informazioni» e poi su «Esegui comunque». Dopo Amphion si avvia normalmente.',
@@ -280,7 +360,23 @@ const TEXTE = {
     'fuss.impressum': 'Note legali', 'fuss.datenschutz': 'Privacy', 'fuss.kontakt': 'Contatti'
   },
   pt: {
-    'cta.titel': 'Experimenta com o teu próprio projeto.', 'cta.laden': 'Descarregar o Amphion', 'cta.kaufen': 'Comprar uma chave', 'cta.klein': 'Download grátis. 45 € por mês, no primeiro mês devolvemos o dinheiro.', 'cta.andere': 'Outro computador?',
+    'abo.titelStudio': 'Comprar o Amphion Studio',
+    'abo.titelSolo': 'Comprar o Amphion Solo',
+    'preis.schreibUns': 'Escreve-nos.',
+    'preis.begleitung': 'Acompanhamento pessoal e ajuda na modelação do teu projeto: a pedido.',
+    'preis.schreib': 'Escreve-nos.',
+    'studio.fuer': 'para gabinetes',
+    'solo.knopf': 'Comprar Solo',
+    'solo.l4': 'IA para o modelo incluída, todas as atualizações',
+    'solo.l3': 'Plantas, cortes e alçados em PDF',
+    'solo.l2': 'Renders no teu próprio computador, ilimitados',
+    'solo.l1': 'Modelar com a voz, esboços, fotos ou PDF',
+    'preis.einheitJahr': 'por ano mais IVA',
+    'preis.einheitMonat': 'por mês mais IVA',
+    'preis.jaehrlich': 'Anual: 2 meses oferecidos',
+    'preis.monatlich': 'Mensal',
+    'preis.gruender': 'de 100 lugares fundadores livres: quem compra agora mantém o preço para sempre.',
+    'cta.titel': 'Experimenta com o teu próprio projeto.', 'cta.laden': 'Descarregar o Amphion', 'cta.kaufen': 'Comprar uma chave', 'cta.klein': 'Download grátis. A partir de 45 € por mês, no primeiro mês devolvemos o dinheiro.', 'cta.andere': 'Outro computador?',
     'aktion.preis': '45 € por mês, cancelável todos os meses. No primeiro mês devolvemos o dinheiro se não te convencer.',
     'aktion.kaufen': 'Comprar uma chave',
     'aktion.ladenKlein': 'grátis',
@@ -314,15 +410,15 @@ const TEXTE = {
     'fkt.4t': 'Render no teu computador', 'fkt.4': 'O Blender Cycles corre em local, sempre que quiseres. E ainda renders com IA para ambiente e vegetação.',
     'fkt.5t': 'Desenhos em PDF', 'fkt.5': 'Plantas, cortes, fachadas e painéis saem diretamente do modelo.',
     'fkt.6t': 'No telefone e no terminal', 'fkt.6': 'Usa-o no navegador onde estiveres. Ou controla-o a partir do Claude Code, Codex e Gemini CLI.',
-    'preis.titel': 'Dois planos', 'preis.einheit': 'por mês mais IVA',
+    'preis.titel': 'Preços', 'preis.einheit': 'por mês mais IVA',
     'preis.l1': 'IA para o modelo, sem limite', 'preis.l2': '60 renders com IA por mês',
     'preis.l3': 'Render Blender ilimitado, no teu computador', 'preis.l4': 'Todas as atualizações',
     'preis.knopf': 'Começar assinatura',
-    'studio.l1': 'Tudo do Pro, sem limites: IA, renders com IA, pesquisa na web',
-    'studio.l2': 'Aconselhamento pessoal por telefone ou vídeo quando precisares',
-    'studio.l3': 'Ajuda na modelação: construímos ou preparamos o teu projeto contigo',
-    'studio.l4': 'Os teus pedidos para o Amphion vêm primeiro', 'studio.knopf': 'Pedir Studio',
-    'preis.studis': 'Estudantes e professores: Pro por 15 € por mês com um e-mail universitário. Escreve-nos.', 'preis.garantie': 'Não te convenceu no primeiro mês? Devolvemos tudo. Vale para Pro e Studio.',
+    'studio.l1': 'Tudo do Solo',
+    'studio.l2': 'Exportação para projetistas: IFC com elementos reais, desenhos DXF com camadas',
+    'studio.l3': 'Análise prévia do terreno com o cadastro (Espanha, Alemanha, Itália), chega em 2027',
+    'studio.l4': 'Desenhos de licenciamento segundo as regras do país, chega em 2027', 'studio.knopf': 'Comprar Studio',
+    'preis.studis': 'Estudantes e docentes: Solo por 15 € por mês com e-mail universitário.', 'preis.garantie': 'Não te convenceu no primeiro mês? Devolvemos tudo.',
     'faq.titel': 'Perguntas',
     'faq.1f': 'Do que preciso?', 'faq.1': 'Um Mac com macOS 14 ou posterior ou um PC com Windows 10 ou 11 (64 bits), e internet para a IA. Para os renders o Amphion instala o Blender a partir de blender.org, basta um clique.',
     'faq.2f': 'Há versão para Windows?', 'faq.2': 'Sim. Descarrega o Amphion para Windows e executa o instalador. Como o Amphion é novo, na primeira vez o Windows mostra «O Windows protegeu o computador». Clica em «Mais informações» e depois em «Executar mesmo assim». A seguir o Amphion arranca normalmente.',
@@ -375,20 +471,32 @@ const INTEL_MAC = MACINTOSH && (() => { try { const g = document.createElement('
 alle('[data-download="auto"]', el => el.href = WINDOWS ? DOWNLOAD_WIN : MACINTOSH ? (INTEL_MAC ? DOWNLOAD_X64 : DOWNLOAD_ARM) : '#held');
 if (WINDOWS) alle('.held .knoepfe', k => { const w = k.querySelector('[data-download="win"]'); if (!w) return; k.querySelector('.primaer')?.classList.remove('primaer'); w.classList.add('primaer'); k.prepend(w); });
 alle('[data-checkout]', el => el.href = CHECKOUT[el.dataset.checkout] || CHECKOUT.pro);
+// Preise (4.11.): Umschalter Monat/Jahr, Zähler der freien Gründungsplätze aus der Amphion Cloud (/v1/gruender)
+let PERIODE = 'monat';
+function periodeSetzen(p) {
+  PERIODE = p; const t = TEXTE[document.documentElement.lang] || TEXTE.de;
+  for (const b of document.querySelectorAll('[data-periode]')) b.classList.toggle('an', b.dataset.periode === p);
+  for (const z of document.querySelectorAll('.preis .zahl[data-preis-monat]')) z.textContent = z.dataset[p === 'jahr' ? 'preisJahr' : 'preisMonat'];
+  for (const e of document.querySelectorAll('.preis [data-einheit-monat]')) { e.dataset.i18n = p === 'jahr' ? e.dataset.einheitJahr : e.dataset.einheitMonat; e.textContent = t[e.dataset.i18n] || e.textContent; }
+}
+for (const b of document.querySelectorAll('[data-periode]')) b.onclick = () => periodeSetzen(b.dataset.periode);
+fetch(CLOUD + '/v1/gruender').then(r => r.ok ? r.json() : null).then(j => { if (j && Number.isFinite(j.frei)) for (const el of document.querySelectorAll('[data-gruender]')) el.textContent = j.frei; }).catch(() => {});
 // Abo-Formular: öffnet sich bei „Abo starten“, schickt E-Mail und Plan an die Amphion Cloud (/v1/anfrage)
 {
   const dlg = document.querySelector('#abo'), form = dlg?.querySelector('form'), meldung = dlg?.querySelector('.abo-meldung');
   if (dlg && form) {
     // Stripe zuerst (3.11., Tassilo: wie bei Antiga): die Cloud gibt die Adresse des gehosteten Checkouts; ohne Zahlungsdienst das Formular
-    document.addEventListener('click', async e => { const a = e.target.closest('a[data-checkout="pro"]'); if (!a) return; e.preventDefault();
+    let plan = 'solo';
+    document.addEventListener('click', async e => { const a = e.target.closest('a[data-checkout]'); if (!a) return; e.preventDefault(); plan = a.dataset.checkout === 'studio' ? 'studio' : 'solo';
+      const titel = dlg.querySelector('h3'); if (titel) titel.textContent = (TEXTE[document.documentElement.lang] || TEXTE.de)[plan === 'studio' ? 'abo.titelStudio' : 'abo.titelSolo'] || titel.textContent;
       a.classList.add('wartet');
-      try { const r = await fetch(CLOUD + '/v1/kauf', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ plan: 'pro', lang: document.documentElement.lang }) }); const j = await r.json(); if (j.url) { window.formaZaehl?.('kauf'); location.href = j.url; return; } } catch { /* Formular */ }
+      try { const r = await fetch(CLOUD + '/v1/kauf', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ plan, periode: PERIODE, lang: document.documentElement.lang }) }); const j = await r.json(); if (j.url) { window.formaZaehl?.('kauf'); location.href = j.url; return; } } catch { /* Formular */ }
       a.classList.remove('wartet'); meldung.textContent = ''; form.hidden = false; dlg.showModal(); form.querySelector('input[type=email]').focus(); });
     dlg.querySelector('.abo-zu').onclick = () => dlg.close();
     form.onsubmit = async e => {
       e.preventDefault(); const email = form.email.value.trim(), name = form.name.value.trim(); const knopf = form.querySelector('button[type=submit]'); knopf.disabled = true;
       try {
-        const r = await fetch(CLOUD + '/v1/anfrage', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, name, plan: 'pro', lang: document.documentElement.lang }) });
+        const r = await fetch(CLOUD + '/v1/anfrage', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, name, plan, periode: PERIODE, lang: document.documentElement.lang }) });
         if (!r.ok) throw new Error('HTTP ' + r.status);
         form.hidden = true; meldung.textContent = (t['abo.danke'] || '').replace('{email}', email); window.formaZaehl?.('abo');
       } catch { meldung.textContent = t['abo.fehler'] || 'hello@amphion3d.com'; }

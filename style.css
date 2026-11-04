@@ -205,3 +205,10 @@ main>section,.band{padding:72px var(--rand);max-width:var(--breit);margin:0 auto
 .cta-band .knopf{padding:13px 20px;font-size:16px}
 .cta-band .klein{margin:0}
 @media (min-width:720px){.cta-band{grid-template-columns:1fr auto;align-items:center}.cta-band .klein{grid-column:1 / -1}}
+/* Preise 4.11.: Gründungsplätze, Umschalter Monat/Jahr */
+.gruender{display:inline-flex;align-items:baseline;gap:8px;background:#f2fbfc;border:1px solid var(--akzent);padding:10px 16px;margin:0 0 18px;font-size:16px}
+.gruender-zahl{font-size:26px;font-weight:800;color:var(--akzent-dunkel);font-variant-numeric:tabular-nums}
+.periode{display:inline-flex;border:2px solid var(--ink);margin:0 0 28px}
+.periode button{font:inherit;font-weight:700;font-size:15px;padding:9px 16px;border:0;background:var(--bg);color:var(--ink);cursor:pointer}
+.periode button.an{background:var(--ink);color:#fff}
+.plan h3 small{font-size:14px;font-weight:600;color:var(--grau);margin-left:6px}
