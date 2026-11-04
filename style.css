@@ -36,7 +36,6 @@ main>section,.band{padding:72px var(--rand);max-width:var(--breit);margin:0 auto
 .held-fuer{margin:0 0 14px;font-size:15px;font-weight:600;letter-spacing:.02em;color:var(--akzent)}
 .held-vertrauen{margin:4px 0 0;font-size:14px;color:var(--grau)}
 
-.wer p{font-size:18px;line-height:1.5;color:var(--grau);max-width:62ch}
 .held h1{font-size:clamp(31px,6vw,80px);letter-spacing:-.04em;line-height:.98;max-width:22ch}
 .held h1 em{font-style:normal;color:var(--akzent)}
 .held-text{font-size:clamp(18px,1.9vw,23px);color:var(--grau);max-width:44ch;margin:20px 0 26px;line-height:1.35}
