@@ -7,7 +7,7 @@
 
 // Ebene: n·p + c = 0, sichtbar bleibt n·p + c >= 0 (wie im Betrachter). pos: Weltkoordinaten (x, y, z je Punkt), index: Dreiecke oder null
 export function schnittKappen(pos, index, n, c, triangulieren, versatz = 0.003, toleranz = 0.02, loecher = true) {
-  const { ringe: aussen, zuege, u, v } = schnittRinge(pos, index, n, c, toleranz, loecher);
+  const { ringe: aussen, zuege, u, v } = /** @type {{ ringe: any[], zuege: number, u: number[], v: number[] }} */ (schnittRinge(pos, index, n, c, toleranz, loecher));
   const flaecheVon = z => { let a = 0; for (let i = 0; i < z.length; i++) { const p = z[i], q = z[(i + 1) % z.length]; a += p[0] * q[1] - q[0] * p[1]; } return a / 2; };
   const out = []; let flaeche = 0;
   const welt = p => [0, 1, 2].map(k => p[0] * u[k] + p[1] * v[k] + n[k] * (versatz - c));   // auf der Ebene, ein wenig zur sichtbaren Seite
@@ -44,6 +44,10 @@ export function schnittRinge(pos, index, n, c, toleranz = 0.02, loecher = true) 
     const p = []; for (const [i, j] of [[0, 1], [1, 2], [2, 0]]) if (oben[i] !== oben[j]) p.push(kante(ix[i], ix[j], ds[i], ds[j]));
     if (p.length === 2 && Math.hypot(p[0][0] - p[1][0], p[0][1] - p[1][1]) > 1e-6) strecken.push(p);
   }
+  return { ...ringeAusStrecken(strecken, toleranz, loecher, deckelTris), u, v };
+}
+// Ringe aus fertigen Strecken [[x, y], [x, y]] (plan.mjs: offene Schnittreste aller Objekte eines Stils, 4.11. spät)
+export function ringeAusStrecken(strecken, toleranz = 0.02, loecher = true, deckelTris = []) {
   // Verketten mit Toleranz (Draco rundet die Punkte auf einige Millimeter, Ecken zweier Flächen treffen sich darum nicht genau): Raster
   // mit Zellen der Toleranz, gesucht wird in den 3 × 3 Nachbarzellen der nächste freie Endpunkt
   const T = toleranz, zelle = p => Math.floor(p[0] / T) + ',' + Math.floor(p[1] / T), raster = new Map();
@@ -90,7 +94,7 @@ export function schnittRinge(pos, index, n, c, toleranz = 0.02, loecher = true) 
   for (let i = 0; i < enden.length; i++) if (!besucht[enden[i].z]) { const { out } = lauf(i); if (out.length >= 3) zuege.push(out); }
   const flaecheVon = z => { let a = 0; for (let i = 0; i < z.length; i++) { const p = z[i], q = z[(i + 1) % z.length]; a += p[0] * q[1] - q[0] * p[1]; } return a / 2; };
   const innen = (p, z) => { let r = false; for (let i = 0, j = z.length - 1; i < z.length; j = i++) { const a = z[i], b = z[j]; if ((a[1] > p[1]) !== (b[1] > p[1]) && p[0] < (b[0] - a[0]) * (p[1] - a[1]) / (b[1] - a[1]) + a[0]) r = !r; } return r; };
-  const ringe = zuege.map(z => ({ z, a: Math.abs(flaecheVon(z)) })).filter(r => r.a > 1e-4).sort((a, b) => b.a - a.a);
+  /** @type {any[]} */ const ringe = zuege.map(z => ({ z, a: Math.abs(flaecheVon(z)) })).filter(r => r.a > 1e-4).sort((a, b) => b.a - a.a);   // je Ring: z Punkte, a Fläche, tiefe, eltern, loecher
   // Schachtelung: Tiefe = Zahl der größeren Ringe, die einen Punkt des Rings enthalten; Loch gehört zum kleinsten umgebenden Ring gerader Tiefe
   for (let i = 0; i < ringe.length; i++) {
     const r = ringe[i], p = r.z[0]; r.tiefe = 0; r.eltern = null;
@@ -107,7 +111,7 @@ export function schnittRinge(pos, index, n, c, toleranz = 0.02, loecher = true) 
   // nächste gegenläufige parallele Strecke im Abstand 3 bis 80 cm (die andere Wandseite); das Viereck dazwischen über die gemeinsame Länge ist
   // Wand. Räume (breiter als 80 cm) bleiben frei.
   if (loecher && offen.length) for (const q of wandBaender(offen)) aussen.push({ z: q, a: Math.abs(flaecheVon(q)), loecher: [] });
-  return { ringe: aussen, offen, zuege: zuege.length, u, v };
+  return { ringe: aussen, offen, zuege: zuege.length };
 }
 
 function huelle(pkte) {   // konvexe Hülle (monotone Kette)
@@ -145,7 +149,7 @@ function gruppenFuellen(ringe, deckelTris, strecken, rand = 0.3) {
   return out;
 }
 
-function wandBaender(zuege, min = 0.03, max = 0.8) {
+export function wandBaender(zuege, min = 0.03, max = 0.8) {
   const st = []; for (const z of zuege) for (let i = 0; i + 1 < z.length; i++) { const a = z[i], b = z[i + 1], L = Math.hypot(b[0] - a[0], b[1] - a[1]); if (L > 0.01) st.push({ a, b, L, d: [(b[0] - a[0]) / L, (b[1] - a[1]) / L] }); }
   const Z = 1, raster = new Map(), zelle = (x, y) => Math.floor(x / Z) + ',' + Math.floor(y / Z);
   st.forEach((s, i) => { const x0 = Math.min(s.a[0], s.b[0]) - max, x1 = Math.max(s.a[0], s.b[0]) + max, y0 = Math.min(s.a[1], s.b[1]) - max, y1 = Math.max(s.a[1], s.b[1]) + max;

@@ -10,7 +10,7 @@ import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { START as BAU_START, baue, bauLicht } from './bauplatz.js?v=43a2842860';
-import { schnittKappen } from './kappen.js?v=2f09be8d66';
+import { schnittKappen } from './kappen.js?v=65f622dedd';
 
 const wrap = document.querySelector('#modell'); if (!wrap) throw new Error('kein #modell');
 const canvas = wrap.querySelector('canvas'), status = wrap.querySelector('.m-status'), fehler = wrap.querySelector('.m-fehler'), frage = wrap.querySelector('.m-frage');

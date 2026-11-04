@@ -44,8 +44,8 @@ const TEXTE = {
     'preis.jaehrlich': 'Jährlich: 2 Monate geschenkt',
     'preis.monatlich': 'Monatlich',
     'preis.gruender': 'von 100 Gründungsplätzen frei: Wer jetzt kauft, behält seinen Preis für immer.',
-    'cta.titel': 'Probier es mit deinem eigenen Projekt.', 'cta.laden': 'Amphion laden', 'cta.kaufen': 'Plan wählen', 'cta.klein': 'Laden kostenlos. Drei Pläne ab 45 € im Monat, im ersten Monat Geld zurück.', 'cta.andere': 'Anderer Computer?',
-    'aktion.preis': "Drei Pläne ab 45 € im Monat. Im ersten Monat Geld zurück, monatlich kündbar.",
+    'cta.titel': 'Probier es mit deinem eigenen Projekt.', 'cta.laden': 'Amphion laden', 'cta.kaufen': 'Plan wählen', 'cta.klein': "Laden kostenlos. Im ersten Monat Geld zurück, monatlich kündbar.", 'cta.andere': 'Anderer Computer?',
+    'aktion.preis': "Drei Pläne für dein Büro. Im ersten Monat Geld zurück, monatlich kündbar.",
     'aktion.kaufen': 'Schlüssel kaufen',
     'aktion.ladenKlein': 'kostenlos',
     'aktion.laden': 'Herunterladen',
@@ -132,8 +132,8 @@ const TEXTE = {
     'preis.jaehrlich': 'Yearly: 2 months free',
     'preis.monatlich': 'Monthly',
     'preis.gruender': 'of 100 founding places left: buy now and keep your price for good.',
-    'cta.titel': 'Try it with your own project.', 'cta.laden': 'Download Amphion', 'cta.kaufen': 'Choose a plan', 'cta.klein': 'Free download. Three plans from €45 a month, money back in the first month.', 'cta.andere': 'Different computer?',
-    'aktion.preis': "Three plans from €45 a month. Money back in the first month, cancel monthly.",
+    'cta.titel': 'Try it with your own project.', 'cta.laden': 'Download Amphion', 'cta.kaufen': 'Choose a plan', 'cta.klein': "Free download. Money back in the first month, cancel monthly.", 'cta.andere': 'Different computer?',
+    'aktion.preis': "Three plans for your practice. Money back in the first month, cancel monthly.",
     'aktion.kaufen': 'Buy a key',
     'aktion.ladenKlein': 'free',
     'aktion.laden': 'Download',
@@ -220,8 +220,8 @@ const TEXTE = {
     'preis.jaehrlich': 'Anual: 2 meses gratis',
     'preis.monatlich': 'Mensual',
     'preis.gruender': 'de 100 plazas fundadoras libres: quien compra ahora mantiene su precio para siempre.',
-    'cta.titel': 'Pruébalo con tu propio proyecto.', 'cta.laden': 'Descargar Amphion', 'cta.kaufen': 'Elegir plan', 'cta.klein': 'Descarga gratis. Tres planes desde 45 € al mes, el primer mes te devolvemos el dinero.', 'cta.andere': '¿Otro ordenador?',
-    'aktion.preis': "Tres planes desde 45 € al mes. Devolución el primer mes, baja mensual.",
+    'cta.titel': 'Pruébalo con tu propio proyecto.', 'cta.laden': 'Descargar Amphion', 'cta.kaufen': 'Elegir plan', 'cta.klein': "Descarga gratis. Devolución el primer mes, baja mensual.", 'cta.andere': '¿Otro ordenador?',
+    'aktion.preis': "Tres planes para tu estudio. Devolución el primer mes, baja mensual.",
     'aktion.kaufen': 'Comprar clave',
     'aktion.ladenKlein': 'gratis',
     'aktion.laden': 'Descargar',
@@ -308,8 +308,8 @@ const TEXTE = {
     'preis.jaehrlich': 'Annuel : 2 mois offerts',
     'preis.monatlich': 'Mensuel',
     'preis.gruender': 'places fondatrices sur 100 encore libres : achète maintenant et garde ton prix pour toujours.',
-    'cta.titel': 'Essaie-le avec ton propre projet.', 'cta.laden': 'Télécharger Amphion', 'cta.kaufen': 'Choisir une formule', 'cta.klein': 'Téléchargement gratuit. Trois formules dès 45 € par mois, remboursé le premier mois.', 'cta.andere': 'Autre ordinateur ?',
-    'aktion.preis': "Trois offres dès 45 € par mois. Remboursé le premier mois, résiliable chaque mois.",
+    'cta.titel': 'Essaie-le avec ton propre projet.', 'cta.laden': 'Télécharger Amphion', 'cta.kaufen': 'Choisir une formule', 'cta.klein': "Téléchargement gratuit. Remboursé le premier mois, résiliable chaque mois.", 'cta.andere': 'Autre ordinateur ?',
+    'aktion.preis': "Trois formules pour ton agence. Remboursé le premier mois, résiliable chaque mois.",
     'aktion.kaufen': 'Acheter une clé',
     'aktion.ladenKlein': 'gratuit',
     'aktion.laden': 'Télécharger',
@@ -396,8 +396,8 @@ const TEXTE = {
     'preis.jaehrlich': 'Annuale: 2 mesi in regalo',
     'preis.monatlich': 'Mensile',
     'preis.gruender': 'posti fondatori su 100 ancora liberi: chi compra ora mantiene il prezzo per sempre.',
-    'cta.titel': 'Provalo con il tuo progetto.', 'cta.laden': 'Scarica Amphion', 'cta.kaufen': 'Scegli un piano', 'cta.klein': 'Download gratuito. Tre piani da 45 € al mese, il primo mese ti rimborsiamo.', 'cta.andere': 'Altro computer?',
-    'aktion.preis': "Tre piani da 45 € al mese. Rimborso nel primo mese, disdetta mensile.",
+    'cta.titel': 'Provalo con il tuo progetto.', 'cta.laden': 'Scarica Amphion', 'cta.kaufen': 'Scegli un piano', 'cta.klein': "Download gratuito. Rimborso nel primo mese, disdetta mensile.", 'cta.andere': 'Altro computer?',
+    'aktion.preis': "Tre piani per il tuo studio. Rimborso nel primo mese, disdetta mensile.",
     'aktion.kaufen': 'Acquista una chiave',
     'aktion.ladenKlein': 'gratis',
     'aktion.laden': 'Scarica',
@@ -484,8 +484,8 @@ const TEXTE = {
     'preis.jaehrlich': 'Anual: 2 meses oferecidos',
     'preis.monatlich': 'Mensal',
     'preis.gruender': 'de 100 lugares fundadores livres: quem compra agora mantém o preço para sempre.',
-    'cta.titel': 'Experimenta com o teu próprio projeto.', 'cta.laden': 'Descarregar o Amphion', 'cta.kaufen': 'Escolher plano', 'cta.klein': 'Download grátis. Três planos a partir de 45 € por mês, no primeiro mês devolvemos o dinheiro.', 'cta.andere': 'Outro computador?',
-    'aktion.preis': "Três planos desde 45 € por mês. Reembolso no primeiro mês, cancelamento mensal.",
+    'cta.titel': 'Experimenta com o teu próprio projeto.', 'cta.laden': 'Descarregar o Amphion', 'cta.kaufen': 'Escolher plano', 'cta.klein': "Download grátis. Reembolso no primeiro mês, cancelamento mensal.", 'cta.andere': 'Outro computador?',
+    'aktion.preis': "Três planos para o teu atelier. Reembolso no primeiro mês, cancelamento mensal.",
     'aktion.kaufen': 'Comprar uma chave',
     'aktion.ladenKlein': 'grátis',
     'aktion.laden': 'Descarregar',
@@ -581,14 +581,23 @@ if (WINDOWS) alle('.held .knoepfe', k => { const w = k.querySelector('[data-down
 // Handy (4.11. spät, Wunschkunde findet Amphion oft am Handy, installiert wird am Computer): Link teilen oder per Mail an sich selbst
 const HANDY = /iPhone|iPad|Android/i.test(navigator.userAgent) || (navigator.maxTouchPoints > 1 && !MACINTOSH && !WINDOWS);
 alle('[data-teilen]', el => { el.hidden = !HANDY; if (navigator.share) el.onclick = e => { e.preventDefault(); navigator.share({ title: 'Amphion', url: 'https://amphion3d.com/' }).catch(() => {}); }; });
+// Preise erst beim Kaufen (5.11., Tassilo): der Preisteil ist ein Dialog; jeder Link auf #preis öffnet ihn, auch #preis in der Adresse (App)
+{ const dlg = document.querySelector('dialog#preis');
+  if (dlg) {
+    const auf = () => { if (!dlg.open) dlg.showModal(); window.formaZaehl?.('preise'); };
+    document.addEventListener('click', e => { const a = e.target.closest('a[href="#preis"]'); if (!a) return; e.preventDefault(); auf(); });
+    dlg.querySelector('.preise-zu')?.addEventListener('click', () => dlg.close());
+    dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });   // Klick auf den Rand schließt
+    if (location.hash === '#preis') addEventListener('load', auf);
+  } }
 alle('[data-checkout]', el => el.href = CHECKOUT[el.dataset.checkout] || CHECKOUT.pro);
 // Preise (4.11.): Umschalter Monat/Jahr, Zähler der freien Gründungsplätze aus der Amphion Cloud (/v1/gruender)
 let PERIODE = 'monat';
 function periodeSetzen(p) {
   PERIODE = p; const t = TEXTE[document.documentElement.lang] || TEXTE.de;
   for (const b of document.querySelectorAll('[data-periode]')) b.classList.toggle('an', b.dataset.periode === p);
-  for (const z of document.querySelectorAll('.preis .zahl[data-preis-monat]')) z.textContent = z.dataset[p === 'jahr' ? 'preisJahr' : 'preisMonat'];
-  for (const e of document.querySelectorAll('.preis [data-einheit-monat]')) { e.dataset.i18n = p === 'jahr' ? e.dataset.einheitJahr : e.dataset.einheitMonat; e.textContent = t[e.dataset.i18n] || e.textContent; }
+  for (const z of document.querySelectorAll('#preis .zahl[data-preis-monat]')) z.textContent = z.dataset[p === 'jahr' ? 'preisJahr' : 'preisMonat'];
+  for (const e of document.querySelectorAll('#preis [data-einheit-monat]')) { e.dataset.i18n = p === 'jahr' ? e.dataset.einheitJahr : e.dataset.einheitMonat; e.textContent = t[e.dataset.i18n] || e.textContent; }
 }
 for (const b of document.querySelectorAll('[data-periode]')) b.onclick = () => periodeSetzen(b.dataset.periode);
 fetch(CLOUD + '/v1/gruender').then(r => r.ok ? r.json() : null).then(j => { if (j && Number.isFinite(j.frei)) for (const el of document.querySelectorAll('[data-gruender]')) el.textContent = j.frei; }).catch(() => {});
