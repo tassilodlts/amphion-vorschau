@@ -743,4 +743,7 @@ if (film) {
   for (const ev of ['touchstart', 'click', 'scroll', 'keydown']) document.addEventListener(ev, () => { if (film.paused) spielen(); }, { once: true, passive: true });
 }
 document.addEventListener('click', e => { const a = e.target.closest('a[data-download],a[data-checkout]'); if (a) window.formaZaehl(a.dataset.download ? 'laden' : 'kaufen:' + a.dataset.checkout); });
+// Sprachwähler (5.11.2026, Tassilo: „Pon la opción de cambiar idiomas en la web“): Wahl gilt für den Besuch, Seite lädt neu, damit auch Betrachter,
+// Satzfeld und Preise die Sprache übernehmen; ein ?lang= in der Adresse fällt weg, sonst gewänne es gegen die Wahl
+alle('.sprachwahl', el => { el.value = document.documentElement.lang; el.onchange = () => { try { sessionStorage.setItem('forma.lang', el.value); } catch {} const u = new URL(location.href); u.searchParams.delete('lang'); location.replace(u.toString()); }; });
 document.querySelector('.sprachen')?.addEventListener('click', e => { const b = e.target.closest('button[data-lang]'); if (b) anwenden(b.dataset.lang, true); });

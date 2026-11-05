@@ -243,3 +243,8 @@ main>section,.band{padding:72px var(--rand);max-width:var(--breit);margin:0 auto
 .mehr-amphion ul{color:var(--ink)}
 .mehr-bild{margin:0}.mehr-bild img{width:100%;height:auto;display:block;border:1px solid var(--linie)}.mehr-bild figcaption{font-size:13px;color:var(--grau);margin-top:6px}
 @media (max-width:760px){.mehr{grid-template-columns:1fr}.mehr-vgl{grid-template-columns:1fr}}
+
+/* Sprachwähler in der Kopfzeile (5.11.2026) */
+.sprachen{display:flex;align-items:center;gap:12px}
+.sprachwahl{appearance:none;-webkit-appearance:none;border:1px solid var(--linie);background:transparent;color:var(--grau);font:inherit;font-size:14px;padding:6px 10px;border-radius:4px;cursor:pointer}
+.sprachwahl:hover,.sprachwahl:focus{color:var(--ink);border-color:var(--ink)}
