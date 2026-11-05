@@ -234,3 +234,12 @@ main>section,.band{padding:72px var(--rand);max-width:var(--breit);margin:0 auto
   .aktion .knopf{padding:11px 14px}
   .aktion .knoepfe{gap:8px}
 }
+
+/* Probezeit im ersten Bildschirm und Abschnitt „Mehr als ein KI-Chat“ (5.11.2026) */
+.kauf-link{display:inline-block;margin-top:10px;font-size:14px;color:var(--grau)}
+.mehr{border-top:1px solid var(--linie);display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.mehr-vgl{display:grid;grid-template-columns:1fr 1.4fr;gap:20px;margin-top:18px}
+.mehr-vgl h3{margin:0 0 6px;font-size:16px}.mehr-vgl p,.mehr-vgl ul{margin:0;color:var(--grau);font-size:15px;line-height:1.45}.mehr-vgl ul{padding-left:18px}
+.mehr-amphion ul{color:var(--ink)}
+.mehr-bild{margin:0}.mehr-bild img{width:100%;height:auto;display:block;border:1px solid var(--linie)}.mehr-bild figcaption{font-size:13px;color:var(--grau);margin-top:6px}
+@media (max-width:760px){.mehr{grid-template-columns:1fr}.mehr-vgl{grid-template-columns:1fr}}
