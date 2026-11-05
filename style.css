@@ -248,3 +248,6 @@ main>section,.band{padding:72px var(--rand);max-width:var(--breit);margin:0 auto
 .sprachen{display:flex;align-items:center;gap:12px}
 .sprachwahl{appearance:none;-webkit-appearance:none;border:1px solid var(--linie);background:transparent;color:var(--grau);font:inherit;font-size:14px;padding:6px 10px;border-radius:4px;cursor:pointer}
 .sprachwahl:hover,.sprachwahl:focus{color:var(--ink);border-color:var(--ink)}
+
+/* Privat: Preis auf Anfrage (5.11.2026) */
+.zahl.anfrage{font-size:.62em}
