@@ -205,7 +205,7 @@ main>section,.band{padding:72px var(--rand);max-width:var(--breit);margin:0 auto
 .abo{border:0;padding:32px;max-width:460px;width:calc(100% - 32px);box-shadow:0 20px 60px rgba(0,0,0,.25)}
 .abo::backdrop{background:rgba(0,0,0,.45)}
 .abo h3{font-size:26px;margin-bottom:12px}.abo p{color:var(--grau);font-size:16px}
-.abo form{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+.abo form[hidden]{display:none}.abo form{display:flex;flex-direction:column;gap:10px;margin-top:18px}
 .abo input{font:inherit;font-size:17px;padding:12px 14px;border:2px solid var(--ink)}
 .abo-zu{position:absolute;top:10px;right:14px;font:inherit;font-size:26px;background:none;border:0;cursor:pointer;color:var(--grau)}
 .abo-meldung{margin-top:14px;font-weight:700;color:var(--ink)}

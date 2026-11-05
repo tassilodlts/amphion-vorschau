@@ -114,6 +114,7 @@ const TEXTE = {
     'preis.l1': 'KI für das Modell, unbegrenzt', 'preis.l2': '60 KI-Renderings im Monat',
     'preis.l3': 'Blender-Rendering unbegrenzt, auf deinem Computer', 'preis.l4': 'Alle Updates',
     'preis.knopf': 'Abo starten',
+    'preis.paket': 'Mehr KI bei Bedarf: Paket 29 €.',
     'preis.studis': 'Studierende und Lehrende: Amphion mit einfacher KI für 15 € im Monat mit Hochschul-Mail.', 'preis.garantie': 'Im ersten Monat nicht zufrieden? Du bekommst alles zurück.',
     'faq.titel': 'Fragen',
     'faq.1f': 'Was brauche ich?', 'faq.1': 'Einen Mac mit macOS 14 oder neuer oder einen PC mit Windows 10 oder 11 (64 Bit), dazu Internet für die KI. Für Renderings installiert Amphion Blender von blender.org, ein Klick genügt.',
@@ -122,7 +123,7 @@ const TEXTE = {
     'faq.3f': 'Wo liegen meine Daten?', 'faq.3': 'Auf deinem Computer. Projekte, Modelle und Renderings bleiben lokal. An die KI gehen nur die Texte deines Chats und, wenn du es willst, das Bild für ein KI-Rendering.',
     'faq.4f': 'Brauche ich einen eigenen KI-Schlüssel?', 'faq.4': 'Nein. Die KI ist im Abo enthalten. Eigene Schlüssel anderer Anbieter gibt es nicht, du trägst nur deinen Amphion-Schlüssel ein.',
     'faq.5f': 'Muss ich Blender kennen?', 'faq.5': 'Nein. Amphion stellt Kamera, Licht und Materialien selbst ein und startet Blender im Hintergrund. Du siehst nur das Bild.', 'faq.namef': 'Warum heißt es Amphion?', 'faq.name': 'Im griechischen Mythos baute Amphion die Mauern von Theben, ohne einen Stein zu heben. Er sang, und die Steine fügten sich von selbst. So arbeitest du mit Amphion: Du sprichst, und das Gebäude entsteht.', titel: 'Amphion 3D · Software zum 3D-Modellieren, die zuhört',
-    'faq.7f': 'Wie kündige ich?', 'faq.7': 'Jederzeit mit einer Mail. Das Abo läuft bis zum Monatsende, danach ist Schluss. Deine Dateien bleiben bei dir.',
+    'faq.7f': 'Wie kündige ich?', 'faq.7': 'Jederzeit, im Konto unter „Rechnungen und Kündigung“ oder mit einer Mail. Ein Monatsabo läuft bis zum Monatsende, ein Jahresabo bis zum Ende des Jahres, danach ist Schluss. Deine Dateien bleiben bei dir.',
     'fuss.impressum': 'Impressum', 'fuss.datenschutz': 'Datenschutz', 'fuss.kontakt': 'Kontakt'
   },
   en: {
@@ -230,6 +231,7 @@ const TEXTE = {
     'preis.l1': 'AI for the model, unlimited', 'preis.l2': '60 AI renderings per month',
     'preis.l3': 'Unlimited Blender rendering, on your computer', 'preis.l4': 'All updates',
     'preis.knopf': 'Start subscription',
+    'preis.paket': 'More AI when you need it: pack €29.',
     'preis.studis': 'Students and teachers: Amphion with simple AI for €15 a month with a university email.', 'preis.garantie': 'Not happy in the first month? You get everything back.',
     'faq.titel': 'Questions',
     'faq.1f': 'What do I need?', 'faq.1': 'A Mac with macOS 14 or newer or a PC with Windows 10 or 11 (64-bit), plus internet for the AI. For renderings Amphion installs Blender from blender.org, one click is enough.',
@@ -238,7 +240,7 @@ const TEXTE = {
     'faq.3f': 'Where is my data?', 'faq.3': 'On your computer. Projects, models and renderings stay local. Only your chat text goes to the AI, and the image for an AI rendering if you ask for one.',
     'faq.4f': 'Do I need my own AI key?', 'faq.4': 'No. The AI is included in the subscription. There are no keys from other providers, you only enter your Amphion key.',
     'faq.5f': 'Do I need to know Blender?', 'faq.5': 'No. Amphion sets camera, light and materials itself and runs Blender in the background. You only see the image.', 'faq.namef': 'Why is it called Amphion?', 'faq.name': 'In Greek myth, Amphion built the walls of Thebes without lifting a stone. He sang, and the stones set themselves in place. That is how you work with Amphion: you speak, and the building takes shape.', titel: 'Amphion 3D · 3D modelling software that listens',
-    'faq.7f': 'How do I cancel?', 'faq.7': 'Any time with an email. The subscription runs until the end of the month, then it stops. Your files stay with you.',
+    'faq.7f': 'How do I cancel?', 'faq.7': 'Any time, in your account under “Invoices and cancellation” or with an email. A monthly plan runs until the end of the month, a yearly plan until the end of the year, then it stops. Your files stay with you.',
     'fuss.impressum': 'Legal notice', 'fuss.datenschutz': 'Privacy', 'fuss.kontakt': 'Contact'
   },
   es: {
@@ -346,6 +348,7 @@ const TEXTE = {
     'preis.l1': 'IA para el modelo, sin límite', 'preis.l2': '60 renders con IA al mes',
     'preis.l3': 'Renders de Blender ilimitados, en tu ordenador', 'preis.l4': 'Todas las actualizaciones',
     'preis.knopf': 'Empezar suscripción',
+    'preis.paket': 'Más IA cuando la necesites: paquete 29 €.',
     'preis.studis': 'Estudiantes y docentes: Amphion con IA sencilla por 15 € al mes con correo universitario.', 'preis.garantie': '¿No te convence el primer mes? Te devolvemos todo.',
     'faq.titel': 'Preguntas',
     'faq.1f': '¿Qué necesito?', 'faq.1': 'Un Mac con macOS 14 o posterior o un PC con Windows 10 u 11 (64 bits), e internet para la IA. Para los renders Amphion instala Blender desde blender.org, basta un clic.',
@@ -354,7 +357,7 @@ const TEXTE = {
     'faq.3f': '¿Dónde están mis datos?', 'faq.3': 'En tu ordenador. Proyectos, modelos y renders se quedan en local. A la IA solo van los textos de tu chat y, si lo pides, la imagen para un render con IA.',
     'faq.4f': '¿Necesito mi propia clave de IA?', 'faq.4': 'No. La IA está incluida en la suscripción. No hay claves de otros proveedores, solo introduces tu clave de Amphion.',
     'faq.5f': '¿Tengo que saber Blender?', 'faq.5': 'No. Amphion ajusta cámara, luz y materiales por sí misma y ejecuta Blender en segundo plano. Tú solo ves la imagen.', 'faq.namef': '¿Por qué se llama Amphion?', 'faq.name': 'En el mito griego, Anfión levantó las murallas de Tebas sin mover una piedra. Cantaba, y las piedras se colocaban solas. Así trabajas con Amphion: hablas y el edificio toma forma.', titel: 'Amphion 3D · Software de modelado 3D que escucha',
-    'faq.7f': '¿Cómo cancelo?', 'faq.7': 'En cualquier momento con un correo. La suscripción sigue hasta fin de mes y luego termina. Tus archivos se quedan contigo.',
+    'faq.7f': '¿Cómo cancelo?', 'faq.7': 'En cualquier momento, en tu cuenta en «Facturas y baja» o con un correo. Un plan mensual sigue hasta fin de mes, uno anual hasta el final del año, y luego termina. Tus archivos se quedan contigo.',
     'fuss.impressum': 'Aviso legal', 'fuss.datenschutz': 'Privacidad', 'fuss.kontakt': 'Contacto'
   },
   fr: {
@@ -462,6 +465,7 @@ const TEXTE = {
     'preis.l1': 'IA pour le modèle, illimitée', 'preis.l2': '60 rendus IA par mois',
     'preis.l3': 'Rendu Blender illimité, sur ton ordinateur', 'preis.l4': 'Toutes les mises à jour',
     'preis.knopf': 'Démarrer l’abonnement',
+    'preis.paket': 'Plus d’IA si besoin : pack 29 €.',
     'preis.studis': 'Étudiants et enseignants : Amphion avec IA simple pour 15 € par mois avec une adresse universitaire.', 'preis.garantie': 'Pas convaincu le premier mois ? On te rembourse tout.',
     'faq.titel': 'Questions',
     'faq.1f': 'De quoi ai-je besoin ?', 'faq.1': 'Un Mac avec macOS 14 ou plus récent ou un PC avec Windows 10 ou 11 (64 bits), et internet pour l’IA. Pour les rendus, Amphion installe Blender depuis blender.org, un clic suffit.',
@@ -470,7 +474,7 @@ const TEXTE = {
     'faq.3f': 'Où sont mes données ?', 'faq.3': 'Sur ton ordinateur. Projets, modèles et rendus restent en local. Seuls les textes de ton chat vont à l’IA et, si tu le demandes, l’image pour un rendu IA.',
     'faq.4f': 'Ai-je besoin de ma propre clé IA ?', 'faq.4': 'Non. L’IA est incluse dans l’abonnement. Il n’y a pas de clés d’autres fournisseurs, tu saisis seulement ta clé Amphion.',
     'faq.5f': 'Dois-je connaître Blender ?', 'faq.5': 'Non. Amphion règle lui-même caméra, lumière et matériaux et lance Blender en arrière-plan. Tu ne vois que l’image.', 'faq.namef': 'Pourquoi le nom Amphion ?', 'faq.name': 'Dans le mythe grec, Amphion bâtit les murs de Thèbes sans soulever une pierre. Il chantait, et les pierres se mettaient en place d’elles-mêmes. C’est ainsi que tu travailles avec Amphion : tu parles, et le bâtiment prend forme.', titel: 'Amphion 3D · Logiciel de modélisation 3D qui écoute',
-    'faq.7f': 'Comment résilier ?', 'faq.7': 'À tout moment par e-mail. L’abonnement court jusqu’à la fin du mois, puis s’arrête. Tes fichiers restent à toi.',
+    'faq.7f': 'Comment résilier ?', 'faq.7': 'À tout moment, dans ton compte sous « Factures et résiliation » ou par e-mail. Un abonnement mensuel court jusqu’à la fin du mois, un abonnement annuel jusqu’à la fin de l’année, puis il s’arrête. Tes fichiers restent chez toi.',
     'fuss.impressum': 'Mentions légales', 'fuss.datenschutz': 'Confidentialité', 'fuss.kontakt': 'Contact'
   },
   it: {
@@ -578,6 +582,7 @@ const TEXTE = {
     'preis.l1': 'IA per il modello, illimitata', 'preis.l2': '60 rendering con IA al mese',
     'preis.l3': 'Rendering Blender illimitato, sul tuo computer', 'preis.l4': 'Tutti gli aggiornamenti',
     'preis.knopf': 'Inizia l’abbonamento',
+    'preis.paket': 'Più IA quando serve: pacchetto 29 €.',
     'preis.studis': 'Studenti e docenti: Amphion con IA semplice a 15 € al mese con e-mail universitaria.', 'preis.garantie': 'Non ti convince il primo mese? Ti rimborsiamo tutto.',
     'faq.titel': 'Domande',
     'faq.1f': 'Di cosa ho bisogno?', 'faq.1': 'Un Mac con macOS 14 o successivo oppure un PC con Windows 10 o 11 (64 bit), e internet per l’IA. Per i rendering Amphion installa Blender da blender.org, basta un clic.',
@@ -586,7 +591,7 @@ const TEXTE = {
     'faq.3f': 'Dove sono i miei dati?', 'faq.3': 'Sul tuo computer. Progetti, modelli e rendering restano in locale. All’IA vanno solo i testi della tua chat e, se lo chiedi, l’immagine per un rendering IA.',
     'faq.4f': 'Mi serve una mia chiave IA?', 'faq.4': 'No. L’IA è inclusa nell’abbonamento. Non ci sono chiavi di altri fornitori, inserisci solo la tua chiave Amphion.',
     'faq.5f': 'Devo saper usare Blender?', 'faq.5': 'No. Amphion imposta da solo camera, luce e materiali e avvia Blender in background. Tu vedi solo l’immagine.', 'faq.namef': 'Perché si chiama Amphion?', 'faq.name': 'Nel mito greco Anfione costruì le mura di Tebe senza sollevare una pietra. Cantava, e le pietre si mettevano al loro posto da sole. Così lavori con Amphion: parli, e l’edificio prende forma.', titel: 'Amphion 3D · Software di modellazione 3D che ascolta',
-    'faq.7f': 'Come disdico?', 'faq.7': 'In qualsiasi momento con un’e-mail. L’abbonamento dura fino a fine mese, poi si ferma. I tuoi file restano tuoi.',
+    'faq.7f': 'Come disdico?', 'faq.7': 'In qualsiasi momento, nel tuo account sotto «Fatture e disdetta» o con un’e-mail. Un piano mensile dura fino a fine mese, uno annuale fino a fine anno, poi termina. I tuoi file restano con te.',
     'fuss.impressum': 'Note legali', 'fuss.datenschutz': 'Privacy', 'fuss.kontakt': 'Contatti'
   },
   pt: {
@@ -694,6 +699,7 @@ const TEXTE = {
     'preis.l1': 'IA para o modelo, sem limite', 'preis.l2': '60 renders com IA por mês',
     'preis.l3': 'Render Blender ilimitado, no teu computador', 'preis.l4': 'Todas as atualizações',
     'preis.knopf': 'Começar assinatura',
+    'preis.paket': 'Mais IA quando precisar: pacote 29 €.',
     'preis.studis': 'Estudantes e docentes: Amphion com IA simples por 15 € por mês com e-mail universitário.', 'preis.garantie': 'Não te convenceu no primeiro mês? Devolvemos tudo.',
     'faq.titel': 'Perguntas',
     'faq.1f': 'Do que preciso?', 'faq.1': 'Um Mac com macOS 14 ou posterior ou um PC com Windows 10 ou 11 (64 bits), e internet para a IA. Para os renders o Amphion instala o Blender a partir de blender.org, basta um clique.',
@@ -702,7 +708,7 @@ const TEXTE = {
     'faq.3f': 'Onde estão os meus dados?', 'faq.3': 'No teu computador. Projetos, modelos e renders ficam no local. Para a IA vão só os textos do teu chat e, se pedires, a imagem para um render com IA.',
     'faq.4f': 'Preciso da minha própria chave de IA?', 'faq.4': 'Não. A IA está incluída na assinatura. Não há chaves de outros fornecedores, introduzes apenas a tua chave Amphion.',
     'faq.5f': 'Tenho de saber usar o Blender?', 'faq.5': 'Não. O Amphion ajusta sozinho câmara, luz e materiais e executa o Blender em segundo plano. Tu só vês a imagem.', 'faq.namef': 'Porque se chama Amphion?', 'faq.name': 'No mito grego, Anfião ergueu as muralhas de Tebas sem levantar uma pedra. Cantava, e as pedras colocavam-se sozinhas no lugar. É assim que trabalhas com o Amphion: falas, e o edifício ganha forma.', titel: 'Amphion 3D · Software de modelação 3D que escuta',
-    'faq.7f': 'Como cancelo?', 'faq.7': 'A qualquer momento com um e-mail. A assinatura continua até ao fim do mês e depois termina. Os teus ficheiros ficam contigo.',
+    'faq.7f': 'Como cancelo?', 'faq.7': 'A qualquer momento, na tua conta em «Faturas e cancelamento» ou por e-mail. Um plano mensal corre até ao fim do mês, um plano anual até ao fim do ano, e depois termina. Os teus ficheiros ficam contigo.',
     'fuss.impressum': 'Aviso legal', 'fuss.datenschutz': 'Privacidade', 'fuss.kontakt': 'Contacto'
   }
 };
@@ -784,7 +790,8 @@ fetch(CLOUD + '/v1/gruender').then(r => r.ok ? r.json() : null).then(j => { if (
       a.classList.remove('wartet'); meldung.textContent = ''; form.hidden = false; dlg.showModal(); form.querySelector('input[type=email]').focus(); });
     dlg.querySelector('.abo-zu').onclick = () => dlg.close();
     form.onsubmit = async e => {
-      e.preventDefault(); const email = form.email.value.trim(), name = form.name.value.trim(); const knopf = form.querySelector('button[type=submit]'); knopf.disabled = true;
+      e.preventDefault(); const t = TEXTE[document.documentElement.lang] || TEXTE.en;   // 5.11. abends, Befund Kundenprüfung: „t is not defined“, der Kunde sah keine Bestätigung
+      const email = form.email.value.trim(), name = form.name.value.trim(); const knopf = form.querySelector('button[type=submit]'); knopf.disabled = true;
       try {
         const r = await fetch(CLOUD + '/v1/anfrage', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, name, plan, plaetze, periode: PERIODE, lang: document.documentElement.lang }) });
         if (!r.ok) throw new Error('HTTP ' + r.status);
