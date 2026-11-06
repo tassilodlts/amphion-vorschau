@@ -10,6 +10,7 @@ const CLOUD = 'https://cloud.amphion3d.com';
 
 const TEXTE = {
   de: {
+    'aria.senden': 'Senden', 'aria.cta': 'Amphion laden oder kaufen', 'aria.zu': 'Schließen', 'aria.periode': 'Abrechnung',
     'privat.preisText': 'je nachdem, was du brauchst',
     'privat.preis': 'Auf Anfrage',
     'mehr.bild': 'Aus dem Modell gezeichnet: Grundriss Erdgeschoss des Hauses mit Garten.',
@@ -127,6 +128,7 @@ const TEXTE = {
     'fuss.impressum': 'Impressum', 'fuss.datenschutz': 'Datenschutz', 'fuss.kontakt': 'Kontakt'
   },
   en: {
+    'aria.senden': 'Send', 'aria.cta': 'Download or buy Amphion', 'aria.zu': 'Close', 'aria.periode': 'Billing',
     'privat.preisText': 'depending on what you need',
     'privat.preis': 'On request',
     'mehr.bild': 'Drawn from the model: ground floor plan of the house with garden.',
@@ -244,6 +246,7 @@ const TEXTE = {
     'fuss.impressum': 'Legal notice', 'fuss.datenschutz': 'Privacy', 'fuss.kontakt': 'Contact'
   },
   es: {
+    'aria.senden': 'Enviar', 'aria.cta': 'Descargar o comprar Amphion', 'aria.zu': 'Cerrar', 'aria.periode': 'Facturación',
     'privat.preisText': 'según lo que necesites',
     'privat.preis': 'A consultar',
     'mehr.bild': 'Dibujado desde el modelo: planta baja de la casa con jardín.',
@@ -361,6 +364,7 @@ const TEXTE = {
     'fuss.impressum': 'Aviso legal', 'fuss.datenschutz': 'Privacidad', 'fuss.kontakt': 'Contacto'
   },
   fr: {
+    'aria.senden': 'Envoyer', 'aria.cta': 'Télécharger ou acheter Amphion', 'aria.zu': 'Fermer', 'aria.periode': 'Facturation',
     'privat.preisText': 'selon tes besoins',
     'privat.preis': 'Sur demande',
     'mehr.bild': 'Tiré de la maquette : plan du rez-de-chaussée de la maison avec jardin.',
@@ -478,6 +482,7 @@ const TEXTE = {
     'fuss.impressum': 'Mentions légales', 'fuss.datenschutz': 'Confidentialité', 'fuss.kontakt': 'Contact'
   },
   it: {
+    'aria.senden': 'Invia', 'aria.cta': 'Scarica o acquista Amphion', 'aria.zu': 'Chiudi', 'aria.periode': 'Fatturazione',
     'privat.preisText': 'in base a ciò che ti serve',
     'privat.preis': 'Su richiesta',
     'mehr.bild': 'Disegnato dal modello: pianta del piano terra della casa con giardino.',
@@ -595,6 +600,7 @@ const TEXTE = {
     'fuss.impressum': 'Note legali', 'fuss.datenschutz': 'Privacy', 'fuss.kontakt': 'Contatti'
   },
   pt: {
+    'aria.senden': 'Enviar', 'aria.cta': 'Descarregar ou comprar Amphion', 'aria.zu': 'Fechar', 'aria.periode': 'Faturação',
     'privat.preisText': 'conforme o que precisares',
     'privat.preis': 'Sob consulta',
     'mehr.bild': 'Desenhado a partir do modelo: planta do rés-do-chão da casa com jardim.',
