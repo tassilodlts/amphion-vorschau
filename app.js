@@ -125,7 +125,7 @@ const TEXTE = {
     'faq.4f': 'Brauche ich einen eigenen KI-Schlüssel?', 'faq.4': 'Nein. Die KI ist im Abo enthalten. Eigene Schlüssel anderer Anbieter gibt es nicht, du trägst nur deinen Amphion-Schlüssel ein.',
     'faq.5f': 'Muss ich Blender kennen?', 'faq.5': 'Nein. Amphion stellt Kamera, Licht und Materialien selbst ein und startet Blender im Hintergrund. Du siehst nur das Bild.', 'faq.namef': 'Warum heißt es Amphion?', 'faq.name': 'Im griechischen Mythos baute Amphion die Mauern von Theben, ohne einen Stein zu heben. Er sang, und die Steine fügten sich von selbst. So arbeitest du mit Amphion: Du sprichst, und das Gebäude entsteht.', titel: 'Amphion 3D · Software zum 3D-Modellieren, die zuhört',
     'faq.7f': 'Wie kündige ich?', 'faq.7': 'Jederzeit, im Konto unter „Rechnungen und Kündigung“ oder mit einer Mail. Ein Monatsabo läuft bis zum Monatsende, ein Jahresabo bis zum Ende des Jahres, danach ist Schluss. Deine Dateien bleiben bei dir.',
-    'fuss.impressum': 'Impressum', 'fuss.datenschutz': 'Datenschutz', 'fuss.kontakt': 'Kontakt'
+    'fuss.impressum': 'Impressum', 'fuss.datenschutz': 'Datenschutz', 'fuss.lizenz': 'Lizenz', 'fuss.kontakt': 'Kontakt'
   },
   en: {
     'aria.senden': 'Send', 'aria.cta': 'Download or buy Amphion', 'aria.zu': 'Close', 'aria.periode': 'Billing',
@@ -243,7 +243,7 @@ const TEXTE = {
     'faq.4f': 'Do I need my own AI key?', 'faq.4': 'No. The AI is included in the subscription. There are no keys from other providers, you only enter your Amphion key.',
     'faq.5f': 'Do I need to know Blender?', 'faq.5': 'No. Amphion sets camera, light and materials itself and runs Blender in the background. You only see the image.', 'faq.namef': 'Why is it called Amphion?', 'faq.name': 'In Greek myth, Amphion built the walls of Thebes without lifting a stone. He sang, and the stones set themselves in place. That is how you work with Amphion: you speak, and the building takes shape.', titel: 'Amphion 3D · 3D modelling software that listens',
     'faq.7f': 'How do I cancel?', 'faq.7': 'Any time, in your account under “Invoices and cancellation” or with an email. A monthly plan runs until the end of the month, a yearly plan until the end of the year, then it stops. Your files stay with you.',
-    'fuss.impressum': 'Legal notice', 'fuss.datenschutz': 'Privacy', 'fuss.kontakt': 'Contact'
+    'fuss.impressum': 'Legal notice', 'fuss.datenschutz': 'Privacy', 'fuss.lizenz': 'License', 'fuss.kontakt': 'Contact'
   },
   es: {
     'aria.senden': 'Enviar', 'aria.cta': 'Descargar o comprar Amphion', 'aria.zu': 'Cerrar', 'aria.periode': 'Facturación',
@@ -361,7 +361,7 @@ const TEXTE = {
     'faq.4f': '¿Necesito mi propia clave de IA?', 'faq.4': 'No. La IA está incluida en la suscripción. No hay claves de otros proveedores, solo introduces tu clave de Amphion.',
     'faq.5f': '¿Tengo que saber Blender?', 'faq.5': 'No. Amphion ajusta cámara, luz y materiales por sí misma y ejecuta Blender en segundo plano. Tú solo ves la imagen.', 'faq.namef': '¿Por qué se llama Amphion?', 'faq.name': 'En el mito griego, Anfión levantó las murallas de Tebas sin mover una piedra. Cantaba, y las piedras se colocaban solas. Así trabajas con Amphion: hablas y el edificio toma forma.', titel: 'Amphion 3D · Software de modelado 3D que escucha',
     'faq.7f': '¿Cómo cancelo?', 'faq.7': 'En cualquier momento, en tu cuenta en «Facturas y baja» o con un correo. Un plan mensual sigue hasta fin de mes, uno anual hasta el final del año, y luego termina. Tus archivos se quedan contigo.',
-    'fuss.impressum': 'Aviso legal', 'fuss.datenschutz': 'Privacidad', 'fuss.kontakt': 'Contacto'
+    'fuss.impressum': 'Aviso legal', 'fuss.datenschutz': 'Privacidad', 'fuss.lizenz': 'Licencia', 'fuss.kontakt': 'Contacto'
   },
   fr: {
     'aria.senden': 'Envoyer', 'aria.cta': 'Télécharger ou acheter Amphion', 'aria.zu': 'Fermer', 'aria.periode': 'Facturation',
@@ -479,7 +479,7 @@ const TEXTE = {
     'faq.4f': 'Ai-je besoin de ma propre clé IA ?', 'faq.4': 'Non. L’IA est incluse dans l’abonnement. Il n’y a pas de clés d’autres fournisseurs, tu saisis seulement ta clé Amphion.',
     'faq.5f': 'Dois-je connaître Blender ?', 'faq.5': 'Non. Amphion règle lui-même caméra, lumière et matériaux et lance Blender en arrière-plan. Tu ne vois que l’image.', 'faq.namef': 'Pourquoi le nom Amphion ?', 'faq.name': 'Dans le mythe grec, Amphion bâtit les murs de Thèbes sans soulever une pierre. Il chantait, et les pierres se mettaient en place d’elles-mêmes. C’est ainsi que tu travailles avec Amphion : tu parles, et le bâtiment prend forme.', titel: 'Amphion 3D · Logiciel de modélisation 3D qui écoute',
     'faq.7f': 'Comment résilier ?', 'faq.7': 'À tout moment, dans ton compte sous « Factures et résiliation » ou par e-mail. Un abonnement mensuel court jusqu’à la fin du mois, un abonnement annuel jusqu’à la fin de l’année, puis il s’arrête. Tes fichiers restent chez toi.',
-    'fuss.impressum': 'Mentions légales', 'fuss.datenschutz': 'Confidentialité', 'fuss.kontakt': 'Contact'
+    'fuss.impressum': 'Mentions légales', 'fuss.datenschutz': 'Confidentialité', 'fuss.lizenz': 'Licence', 'fuss.kontakt': 'Contact'
   },
   it: {
     'aria.senden': 'Invia', 'aria.cta': 'Scarica o acquista Amphion', 'aria.zu': 'Chiudi', 'aria.periode': 'Fatturazione',
@@ -597,7 +597,7 @@ const TEXTE = {
     'faq.4f': 'Mi serve una mia chiave IA?', 'faq.4': 'No. L’IA è inclusa nell’abbonamento. Non ci sono chiavi di altri fornitori, inserisci solo la tua chiave Amphion.',
     'faq.5f': 'Devo saper usare Blender?', 'faq.5': 'No. Amphion imposta da solo camera, luce e materiali e avvia Blender in background. Tu vedi solo l’immagine.', 'faq.namef': 'Perché si chiama Amphion?', 'faq.name': 'Nel mito greco Anfione costruì le mura di Tebe senza sollevare una pietra. Cantava, e le pietre si mettevano al loro posto da sole. Così lavori con Amphion: parli, e l’edificio prende forma.', titel: 'Amphion 3D · Software di modellazione 3D che ascolta',
     'faq.7f': 'Come disdico?', 'faq.7': 'In qualsiasi momento, nel tuo account sotto «Fatture e disdetta» o con un’e-mail. Un piano mensile dura fino a fine mese, uno annuale fino a fine anno, poi termina. I tuoi file restano con te.',
-    'fuss.impressum': 'Note legali', 'fuss.datenschutz': 'Privacy', 'fuss.kontakt': 'Contatti'
+    'fuss.impressum': 'Note legali', 'fuss.datenschutz': 'Privacy', 'fuss.lizenz': 'Licenza', 'fuss.kontakt': 'Contatti'
   },
   pt: {
     'aria.senden': 'Enviar', 'aria.cta': 'Descarregar ou comprar Amphion', 'aria.zu': 'Fechar', 'aria.periode': 'Faturação',
@@ -715,7 +715,7 @@ const TEXTE = {
     'faq.4f': 'Preciso da minha própria chave de IA?', 'faq.4': 'Não. A IA está incluída na assinatura. Não há chaves de outros fornecedores, introduzes apenas a tua chave Amphion.',
     'faq.5f': 'Tenho de saber usar o Blender?', 'faq.5': 'Não. O Amphion ajusta sozinho câmara, luz e materiais e executa o Blender em segundo plano. Tu só vês a imagem.', 'faq.namef': 'Porque se chama Amphion?', 'faq.name': 'No mito grego, Anfião ergueu as muralhas de Tebas sem levantar uma pedra. Cantava, e as pedras colocavam-se sozinhas no lugar. É assim que trabalhas com o Amphion: falas, e o edifício ganha forma.', titel: 'Amphion 3D · Software de modelação 3D que escuta',
     'faq.7f': 'Como cancelo?', 'faq.7': 'A qualquer momento, na tua conta em «Faturas e cancelamento» ou por e-mail. Um plano mensal corre até ao fim do mês, um plano anual até ao fim do ano, e depois termina. Os teus ficheiros ficam contigo.',
-    'fuss.impressum': 'Aviso legal', 'fuss.datenschutz': 'Privacidade', 'fuss.kontakt': 'Contacto'
+    'fuss.impressum': 'Aviso legal', 'fuss.datenschutz': 'Privacidade', 'fuss.lizenz': 'Licença', 'fuss.kontakt': 'Contacto'
   }
 };
 
