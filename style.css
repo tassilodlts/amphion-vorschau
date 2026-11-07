@@ -254,3 +254,4 @@ main>section,.band{padding:72px var(--rand);max-width:var(--breit);margin:0 auto
 
 /* Privat: Preis auf Anfrage (5.11.2026) */
 .zahl.anfrage{font-size:.62em}
+.dl-version{display:block;font-size:12px;font-weight:400;opacity:.75;margin-top:4px;letter-spacing:.02em}

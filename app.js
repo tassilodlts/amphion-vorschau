@@ -757,6 +757,17 @@ const MACINTOSH = /Macintosh/.test(navigator.userAgent);
 // Intel-Mac am Grafikchip erkennen (4.11.: „auto“ lud auf Intel-Macs die Apple-Silicon-Fassung); unsicher → Apple Silicon, „Anderer Computer?“ führt zu allen Knöpfen
 const INTEL_MAC = MACINTOSH && (() => { try { const g = document.createElement('canvas').getContext('webgl'), d = g?.getExtension('WEBGL_debug_renderer_info'); return !!d && /Intel/i.test(g.getParameter(d.UNMASKED_RENDERER_WEBGL)); } catch { return false; } })();
 alle('[data-download="auto"]', el => el.href = WINDOWS ? DOWNLOAD_WIN : MACINTOSH ? (INTEL_MAC ? DOWNLOAD_X64 : DOWNLOAD_ARM) : '#held');
+// Version unter dem Knopf und im Dateinamen (7.11., site/downloads.js); ohne Antwort bleiben die festen Links
+fetch('https://api.github.com/repos/tassilodlts/forma-app/releases/latest').then(r => r.ok ? r.json() : null).then(rel => {
+  const d = downloadsAusRelease(rel);
+  for (const [k, x] of Object.entries(d)) alle(`[data-download="${k}"]`, el => {
+    el.href = x.url;
+    const s = el.querySelector('.dl-version') || el.appendChild(Object.assign(document.createElement('small'), { className: 'dl-version' }));
+    s.textContent = 'Version ' + x.version;
+  });
+  const auto = WINDOWS ? d.win : MACINTOSH ? (INTEL_MAC ? d.x64 : d.arm) : null;
+  if (auto) alle('[data-download="auto"]', el => { el.href = auto.url; });
+}).catch(() => { /* GitHub nicht erreichbar: feste Links ohne Versionsangabe */ });
 if (WINDOWS) alle('.held .knoepfe', k => { const w = k.querySelector('[data-download="win"]'); if (!w) return; k.querySelector('.primaer')?.classList.remove('primaer'); w.classList.add('primaer'); k.prepend(w); });
 // Handy (4.11. spät, Wunschkunde findet Amphion oft am Handy, installiert wird am Computer): Link teilen oder per Mail an sich selbst
 const HANDY = /iPhone|iPad|Android/i.test(navigator.userAgent) || (navigator.maxTouchPoints > 1 && !MACINTOSH && !WINDOWS);
