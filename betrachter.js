@@ -58,6 +58,7 @@ const MODELLE = window.AMPHION_MODELLE || {
 // nach verlorener 3D-Ansicht (?leicht=1) nur die eigene Stadt ohne Ferne (Befund 3.11.: Absturz auf dem Handy)
 if (SCHWACH && MODELLE.vancouver) { const V = MODELLE.vancouver; V.dateien.foto = 'foto_nah_handy.glb'; V.dateien.fotofern = 'foto_fern_handy.glb'; V.fernst = 5000; }
 if (LEICHT && MODELLE.vancouver) { const V = MODELLE.vancouver; delete V.dateien.fern; delete V.dateien.foto; delete V.dateien.fotofern; V.staedte = { eigen: ['stadt', 'nah'] }; V.stadtArt = 'eigen'; V.fern = 9000; }
+if (LEICHT && MODELLE.muenchen) delete MODELLE.muenchen.dateien.einrichtung;   // leichte Fassung: Haus ohne Möbel (über eine Million Dreiecke)
 for (const m of Object.values(MODELLE)) if (m.staedte) m.stadtStart = m.stadtArt;
 
 // Antworten je Sprache: was die Seite nach einer Aktion sagt
@@ -83,7 +84,28 @@ const stadtSatz = t => { for (const [k, re] of Object.entries(STADT_SATZ)) if (r
 const sprache = () => SAGT[document.documentElement.lang] ? document.documentElement.lang : 'en';
 
 let renderer, scene, camera, controls, sichtbar = false, gestartet = false, aktiv = null, axo = false;
-const loader = new GLTFLoader(), draco = new DRACOLoader(); draco.setDecoderPath(DRACO); loader.setDRACOLoader(draco);
+const loader = new GLTFLoader();
+// iPhone (7.11., Befund „Modell konnte nicht geladen werden“ am iPhone Safari, Villa und Hochhaus): der Draco-Decoder läuft je Worker in
+// eigenem WebAssembly-Speicher, der nie schrumpft; vier Worker, die gleichzeitig Dateien mit über einer Million Dreiecken entpacken, brauchen
+// mehr Speicher, als iOS einem Tab gibt (RangeError: Out of memory, das Laden scheitert). Schwache Geräte: ein Worker, eine Datei nach der
+// anderen, nach dem Laden Decoder freigeben (dispose beendet die Worker; danach braucht es einen neuen DRACOLoader), bei Fehler ein zweiter
+// Versuch mit frischem Decoder. Prüfregel test/site_browser.test.mjs (Handy: höchstens eine Datei gleichzeitig, Fehler einer Nebengruppe still)
+let draco = null;
+function neuerDraco() { draco?.dispose(); draco = new DRACOLoader(); draco.setDecoderPath(DRACO); draco.setWorkerLimit(SCHWACH ? 1 : 4); loader.setDRACOLoader(draco); }
+neuerDraco();
+let reihe = Promise.resolve(), offen = 0, gleichzeitig = 0, hoechstens = 0;
+window.formaLaden = () => ({ offen, hoechstens, worker: SCHWACH ? 1 : 4 });   // Prüfregel: wie viele Dateien höchstens gleichzeitig luden
+async function ladeGlb(url) {
+  const los = async () => { gleichzeitig++; hoechstens = Math.max(hoechstens, gleichzeitig);
+    try { try { return await loader.loadAsync(url); } catch (e) { console.warn('zweiter Versuch', url, e); neuerDraco(); return await loader.loadAsync(url); } }
+    finally { gleichzeitig--; } };
+  offen++;
+  const p = SCHWACH ? (reihe = reihe.then(los, los)) : los();
+  try { return await p; } finally { if (--offen === 0 && SCHWACH) neuerDraco(); }
+}
+// Nebengruppen: scheitert eine, bleibt das Modell ohne sie stehen (Fotostadt: dann die eigene Stadt), ohne Fehlermeldung
+const nebenGruppe = (m, k) => stadtTeil(m, k) || ['baeume', 'pflanzen', 'einrichtung', 'umgebung'].includes(k);
+const fehlerGrund = e => String(e?.name === 'RangeError' ? 'speicher' : e?.message || e).replace(/[^\w ]+/g, ' ').trim().slice(0, 40);
 const SCHNITT = new THREE.MeshBasicMaterial({ color: 0x1c1c1c, side: THREE.BackSide });
 // Schnittkappen über den Stencil-Puffer (three.js-Beispiel webgl_clipping_stencil): je Körper zwei unsichtbare Durchgänge, die Rückseiten
 // zählen hoch, die Vorderseiten herunter; eine große Ebene in der Schnittebene zeichnet dann nur dort, wo der Zähler nicht null ist.
@@ -193,6 +215,7 @@ function aktiviere(name) {
   const m = MODELLE[name]; if (!m || m === aktiv) return;
   if (aktiv) aktiv.wurzel.visible = false;
   aktiv = m; m.wurzel.visible = true;
+  if (m.fehler) fehlerZeigen(); else if (status?.textContent !== '…') melde('');   // Meldung des anderen Modells nicht stehen lassen
   scene.fog = m.nebel ? new THREE.Fog(m.nebel[0], m.nebel[1], m.nebel[2]) : null;   // ferne Stadt und Berge verblassen
   for (const b of wrap.querySelectorAll('.m-reiter button')) b.classList.toggle('on', b.dataset.modell === name);
   for (const l of leisten()) l.hidden = l.dataset.leiste !== name;
@@ -240,7 +263,7 @@ async function lade(k) {
   const g = m.gruppen[k] = new THREE.Group(); g.visible = true; m.wurzel.add(g);
   melde('…');
   try {
-    const d = await loader.loadAsync(mitVersion(m.basis + m.dateien[k]));
+    const d = await ladeGlb(mitVersion(m.basis + m.dateien[k]));
     if (m.gruppen[k] !== g) { verwirf(d.scene); return; }   // inzwischen umgeschaltet und freigegeben
     const netze = []; d.scene.traverse(o => { if (o.isMesh) netze.push(o); });   // erst sammeln: die Schnittflächen kommen als Kinder dazu
     for (const o of netze) {
@@ -269,13 +292,26 @@ async function lade(k) {
     if (m.versatz?.[k]) g.position.set(...m.versatz[k]);   // z. B. Stadt: Straßenniveau unter dem Wohnungsgeschoss
     if (m === aktiv && m.schnitt) { strukturAnsicht(true); vollKappen(); } if (status?.textContent === '…') melde('');
     if (k === 'tragwerk') baumStadt(m);   // nachgeladene Gruppe in die laufende Strukturansicht
-  } catch (e) { melde(fehler?.textContent || 'Fehler'); console.error(e); }
+  } catch (e) {
+    console.error(e); window.formaZaehl?.(`modellfehler:${m.name}/${k}:${fehlerGrund(e)}`);   // Ursache am echten Gerät in der Besucherstatistik
+    if (m.gruppen[k] === g) { delete m.gruppen[k]; g.removeFromParent(); }
+    if (nebenGruppe(m, k)) { if (k === 'foto' && m.stadtArt === 'foto' && m.staedte?.eigen) stadtWechsel('eigen'); if (m === aktiv && status?.textContent === '…') melde(''); return; }
+    m.fehler = true; if (m === aktiv) fehlerZeigen();
+  }
+}
+// Fehler beim Laden eines Hauptteils: Meldung nur beim betroffenen Modell, dazu der Knopf für die leichte Fassung (wie nach verlorener 3D-Ansicht)
+function fehlerZeigen() {
+  melde(fehler?.textContent || 'Fehler');
+  if (LEICHT || wrap.querySelector('.m-leicht')) return;
+  const k = document.createElement('button'); k.type = 'button'; k.className = 'm-leicht'; k.textContent = SAGT[sprache()].leicht;
+  k.onclick = () => { const u = new URL(location.href); u.searchParams.set('leicht', '1'); u.hash = 'modell'; location.href = u.toString(); };
+  wrap.querySelector('.m-buehne').append(k);
 }
 // Bäume (Vancouver): die Bibliotheksbäume aus Forma als Vorlagen (Rinde, Kronen), an jedem Standort mit Maßstab und Drehung instanziert
 async function ladeBaeume(m) {
   if (m.baumNetz) return; m.baumNetz = new THREE.Group(); m.wurzel.add(m.baumNetz);
   try {
-    const [B, d] = await Promise.all([(await fetch(mitVersion(m.basis + m.baeume.standorte))).json(), loader.loadAsync(mitVersion(m.basis + m.baeume.vorlagen))]);
+    const [B, d] = await Promise.all([(await fetch(mitVersion(m.basis + m.baeume.standorte))).json(), ladeGlb(mitVersion(m.basis + m.baeume.vorlagen))]);
     const geo = {}; d.scene.traverse(o => { if (o.isMesh) geo[o.parent?.name || o.name] = o.geometry; });
     const je = {}; for (const b of B) (je[b[0]] ||= []).push(b);
     const mat = new THREE.MeshLambertMaterial({ vertexColors: true, flatShading: true, side: THREE.DoubleSide });

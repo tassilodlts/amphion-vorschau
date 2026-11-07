@@ -39,6 +39,8 @@ main>section,.band{padding:72px var(--rand);max-width:var(--breit);margin:0 auto
 .held h1{font-size:clamp(31px,6vw,80px);letter-spacing:-.04em;line-height:.98;max-width:22ch}
 .held h1 em{font-style:normal;color:var(--akzent)}
 .held-text{font-size:clamp(18px,1.9vw,23px);color:var(--grau);max-width:44ch;margin:20px 0 26px;line-height:1.35}
+.held-leitsatz{margin:18px 0 0;font-size:clamp(20px,2.2vw,28px);font-weight:700;letter-spacing:-.01em;color:var(--ink)}
+.held-leitsatz+.held-text{margin-top:10px}
 .aktion{display:grid;gap:16px;margin:0 0 14px}
 .aktion-teil{border:2px solid var(--ink);padding:18px 20px}
 .aktion-teil.kauf{border-color:var(--akzent);background:#f2fbfc}
@@ -46,6 +48,8 @@ main>section,.band{padding:72px var(--rand);max-width:var(--breit);margin:0 auto
 .aktion-titel small{font-size:14px;font-weight:600;color:var(--grau)}
 .aktion-titel .nr{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--ink);color:#fff;font-size:15px;flex:none}
 .aktion-teil.kauf .nr{background:var(--akzent)}
+/* 7.11.: Ziffer der Schritte nur als Bild (Befund: „230 Tage gratis“, Ziffer 2 und „30 Tage“ lasen sich im Text als eine Zahl) */
+.nr::before{content:attr(data-nr)}
 .aktion-preis{margin:0 0 14px;color:var(--ink);font-size:16px;line-height:1.4}
 .aktion .knopf{padding:13px 18px;font-size:16px}
 .aktion .klein{margin:10px 0 0}
@@ -159,6 +163,15 @@ main>section,.band{padding:72px var(--rand);max-width:var(--breit);margin:0 auto
 .faq summary::after{content:"+";color:var(--akzent);font-weight:400;font-size:28px;line-height:1;flex:none}
 .faq details[open] summary::after{content:"\2212"}
 .faq details p{margin-top:12px;color:var(--grau);font-size:17px;max-width:70ch}
+.faq details p a{color:var(--ink)}
+
+/* Kontakt (7.11.) */
+.kontakt{border-top:1px solid var(--linie)}
+.kontakt h2{margin-bottom:16px}
+.kontakt p{font-size:19px;color:var(--grau);max-width:60ch;margin:0 0 16px}
+.kontakt-wege{list-style:none;padding:0;margin:0;display:grid;gap:8px;font-size:19px}
+.kontakt-wege span{display:inline-block;min-width:96px;color:var(--grau)}
+.kontakt-wege a{color:var(--ink);font-weight:700}
 
 /* Fuß */
 .fuss{display:flex;flex-wrap:wrap;gap:24px;padding:40px var(--rand) 56px;max-width:var(--breit);margin:0 auto;border-top:1px solid var(--linie);font-size:15px;color:var(--hell)}
