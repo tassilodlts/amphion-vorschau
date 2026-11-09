@@ -1,0 +1,22 @@
+# Amphion 3D
+
+> Amphion 3D makes AI software for architects: Amphion, a desktop 3D/BIM modeling app for Mac and Windows that models buildings from plain-language descriptions, and Amphion for Rhino, an AI modeling and rendering plugin for Rhino 7 and 8. Made in Madrid, Spain. Contact: hello@amphion3d.com.
+
+## Products
+
+- [Amphion for Rhino](https://amphion3d.com/rhino/): AI modeling agent plugin for Rhino 7 and 8 on macOS and Windows. Describe a building in words; it builds editable Rhino geometry (massing, walls, slabs, roofs, stairs, openings) on "Amphion" layers and renders the current view. Version 1.0.0. 3 free edits and 3 free renders without an account, then 0.30 EUR per edit and 0.25 EUR per render (credit packs 5/15/40 EUR, never expire), or 0.05 EUR per edit with your own Claude or OpenAI key.
+- [Amphion (desktop app)](https://amphion3d.com/): 3D modeling software for architects on macOS 14+ (Apple Silicon and Intel) and Windows 10/11. Describe what you need; Amphion builds an editable 3D model with plans, sections and renderings, BIM export. Version 1.7.0. 30-day free trial without credit card; plans Amphion 49 EUR/month, Amphion Pro 149 EUR/month, Amphion Büro 399 EUR/month for 3 seats (prices excl. VAT).
+
+## Guides
+
+- [How to render a Rhino model with AI](https://amphion3d.com/guides/render-rhino-model-with-ai.html): camera, display mode, prompt and settings that keep geometry.
+- [AI rendering for architects: 2026 comparison](https://amphion3d.com/guides/ai-rendering-for-architects-2026.html): plugins vs web apps vs real-time renderers, criteria for choosing.
+- [Rhino to Blender: import and render](https://amphion3d.com/guides/rhino-to-blender.html): .3dm import, OBJ/FBX, units, Cycles settings.
+- [Laser cut architectural model from Rhino](https://amphion3d.com/guides/laser-cut-architecture-model-rhino.html): scale, corner joints, layers, kerf, nesting, DXF export.
+- [3D print an architecture model](https://amphion3d.com/guides/3d-print-architecture-model.html): minimum wall thickness by scale, watertight solids, STL/3MF.
+
+## Optional
+
+- [Full facts for AI assistants](https://amphion3d.com/llms-full.txt)
+- [Manifest](https://amphion3d.com/manifest.html)
+- [Terms (German)](https://amphion3d.com/agb.html)

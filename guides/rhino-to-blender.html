@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex">
+<script>window.AMPHION_DATEIEN={".nojekyll":"e3b0c44298","app.js":"02dcb10d3d","apple-touch-icon.png":"6a291409a2","bauplatz.js":"43a2842860","betrachter.js":"a6c9271c77","bilder/amphion_stadt.mp4":"6791048af5","bilder/amphion_stadt_klein.mp4":"9cf19972ef","bilder/app.jpg":"99d7b6b2f8","bilder/muenchen_1913.jpg":"153ba131e9","bilder/muenchen_ecke.jpg":"82cda417df","bilder/muenchen_gr_dg.jpg":"bb0540e280","bilder/muenchen_gr_eg.jpg":"02ddcce3ab","bilder/muenchen_gr_og.jpg":"5b8538d545","bilder/muenchen_iso.jpg":"ba5e3bfb62","bilder/muenchen_salon.jpg":"9721c53bca","bilder/muenchen_terrasse.jpg":"5034a2192f","bilder/muenchen_vogel.jpg":"b6c48b1ed9","bilder/vancouver_dachgaerten.jpg":"9065243320","bilder/vancouver_drohne.jpg":"44cff95a93","bilder/vancouver_lichtung.jpg":"82e8457b8d","bilder/vancouver_park.jpg":"5f72a9ea1c","bilder/vancouver_schnitt.jpg":"1d2e02fbca","bilder/vancouver_sockel.jpg":"f36d8604a2","bilder/vancouver_strasse.jpg":"17a47e3505","bilder/vancouver_terrasse.jpg":"1d92bbbe77","bilder/vancouver_turm.jpg":"268372242b","bilder/vergleich_erker_rendering.jpg":"979ea23a1e","bilder/vergleich_erker_viewport.jpg":"0bf3a2bc30","bilder/vergleich_garten_rendering.jpg":"dedfd8212c","bilder/vergleich_garten_viewport.jpg":"ff28076bb5","bilder/vergleich_kueche_rendering.jpg":"cea6021f2a","bilder/vergleich_kueche_viewport.jpg":"de9db299fd","bilder/vergleich_salon_rendering.jpg":"23100baedf","bilder/vergleich_salon_viewport.jpg":"c43e2ddf49","bilder/vergleich_strasse_rendering.jpg":"cb2cbed718","bilder/vergleich_strasse_viewport.jpg":"f1c3d641d8","blender/amphion_blender.zip":"6600fcb468","f1fec9bdd0579e50fb91ba1a4898edfb.txt":"1e02c2ed97","fab/3d-print-architecture-model-floors.jpg":"d94c93f966","fab/laser-cut-contour-model-rhino.jpg":"012ddeec90","fab/laser-cut-facades-rhino.jpg":"f15df1e6da","favicon-32.png":"2cb1d06e9d","favicon.ico":"1425ec7a48","favicon.svg":"5f71fbf261","fuss.js":"a55742d70a","icon-512.png":"d98030ecd5","kappen.js":"db1c487325","llms-full.txt":"5f0a0abe00","llms.txt":"6d66a7343b","modell/muenchen/baeume.glb":"be3e901168","modell/muenchen/bestand.glb":"755be81e04","modell/muenchen/einrichtung.glb":"7447a397ee","modell/muenchen/haus.glb":"b49fd7d111","modell/muenchen/info.json":"ae89ec4921","modell/muenchen/umgebung.glb":"67be4cf2d7","modell/muenchen/vorschlag.glb":"969b0ae454","modell/vancouver/baeume.json":"da59088580","modell/vancouver/baeume_vorlagen.glb":"516d1c3e9b","modell/vancouver/fern.glb":"43ee1c6a82","modell/vancouver/foto_fern.glb":"7e43848336","modell/vancouver/foto_fern_handy.glb":"fe5067aa16","modell/vancouver/foto_nah.glb":"aaff42fd35","modell/vancouver/foto_nah_handy.glb":"114f70ff84","modell/vancouver/gebaeude.glb":"ad73217289","modell/vancouver/info.json":"6a5ef8d440","modell/vancouver/nah.glb":"ca143062a1","modell/vancouver/pflanzen.glb":"30ee29cbc6","modell/vancouver/stadt.glb":"351831fa9d","modell/vancouver/tragwerk.glb":"6f265a5c94","revit/AmphionRevit.zip":"246f88705f","rhino/Amphion.rhp":"29a6309a8d","rhino/amphion-1.0.0-rh7-any.yak":"44bea71dab","robots.txt":"2d1e1d16c4","sitemap.xml":"6058cffc9f","style.css":"e2f4cef59a","tools/tools.js":"224c6cbf12"}</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rhino to Blender: Import and Render in 5 Minutes</title>
+<meta name="description" content="Get a Rhino model into Blender with layers, materials and correct scale, then render it with Cycles. Native .3dm import, OBJ/FBX, render mesh tips.">
+<link rel="canonical" href="https://amphion3d.com/guides/rhino-to-blender.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Amphion 3D">
+<meta property="og:url" content="https://amphion3d.com/guides/rhino-to-blender.html">
+<meta property="og:title" content="Rhino to Blender: Import and Render in 5 Minutes">
+<meta property="og:description" content="Get a Rhino model into Blender with layers, materials and correct scale, then render it with Cycles. Native .3dm import, OBJ/FBX, render mesh tips.">
+<meta property="og:image" content="https://amphion3d.com/bilder/vergleich_salon_rendering.jpg">
+<meta property="og:image:alt" content="Interior rendering of a living room">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rhino to Blender: Import and Render in 5 Minutes">
+<meta name="twitter:description" content="Get a Rhino model into Blender with layers, materials and correct scale, then render it with Cycles. Native .3dm import, OBJ/FBX, render mesh tips.">
+<meta name="twitter:image" content="https://amphion3d.com/bilder/vergleich_salon_rendering.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Amphion","item":"https://amphion3d.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://amphion3d.com/guides/"},{"@type":"ListItem","position":3,"name":"Rhino to Blender: import and render in 5 minutes","item":"https://amphion3d.com/guides/rhino-to-blender.html"}]},{"@type":"TechArticle","headline":"Rhino to Blender: import and render in 5 minutes","description":"Get a Rhino model into Blender with layers, materials and correct scale, then render it with Cycles. Native .3dm import, OBJ/FBX, render mesh tips.","url":"https://amphion3d.com/guides/rhino-to-blender.html","inLanguage":"en","image":"https://amphion3d.com/bilder/vergleich_salon_rendering.jpg","datePublished":"2026-11-09","dateModified":"2026-11-09","author":{"@type":"Organization","name":"Amphion 3D","url":"https://amphion3d.com/"},"publisher":{"@id":"https://amphion3d.com/#firma"},"mainEntityOfPage":"https://amphion3d.com/guides/rhino-to-blender.html"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can Blender open Rhino .3dm files?","acceptedAnswer":{"@type":"Answer","text":"Yes, with the free Import Rhinoceros 3D add-on (import_3dm). It brings in layers as collections, materials and block instances. Rhino must have saved render meshes in the file."}},{"@type":"Question","name":"Why is my Rhino model huge or tiny in Blender?","acceptedAnswer":{"@type":"Answer","text":"The units differ. Blender works in metres; a Rhino model in millimetres comes in 1000 times too large. Scale by 0.001 and apply the scale, or switch the Rhino file to metres before export."}},{"@type":"Question","name":"Why do curved surfaces look faceted?","acceptedAnswer":{"@type":"Answer","text":"The render mesh is too coarse. Raise the mesh quality in Rhino (Options, Mesh, Custom) before saving or exporting, then import again."}},{"@type":"Question","name":"OBJ or FBX from Rhino to Blender?","acceptedAnswer":{"@type":"Answer","text":"OBJ is the most predictable for geometry and groups. FBX is useful when you need cameras or a single file with many objects. The native .3dm import usually beats both."}},{"@type":"Question","name":"Do I lose my layers?","acceptedAnswer":{"@type":"Answer","text":"Not with the .3dm import, which turns layers into collections. With OBJ, export layers or object names as groups to keep the structure."}}]}]}</script>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="stylesheet" href="../style.css">
+<style>
+.g-wrap{max-width:860px;margin:0 auto;padding:48px var(--rand) 80px}
+.g-crumb{font-size:14px;color:var(--grau)}.g-crumb a{color:var(--grau)}
+.g-wrap h1{font-size:clamp(32px,4.8vw,54px);letter-spacing:-.03em;line-height:1.05;margin-top:10px}
+.g-lead{color:var(--grau);font-size:clamp(17px,2vw,20px);margin:16px 0 0}
+.g-meta{font-size:14px;color:var(--grau);margin-top:12px}
+.g-wrap h2{font-size:clamp(23px,2.8vw,32px);letter-spacing:-.02em;margin-top:48px}
+.g-wrap h3{font-size:19px;margin-top:24px}
+.g-wrap p,.g-wrap li{line-height:1.6}
+.g-wrap ol,.g-wrap ul{padding-left:22px}.g-wrap li{margin:8px 0}
+.g-wrap code{background:#f3f3f3;padding:2px 6px;word-break:break-word}
+.g-box{border:1px solid var(--ink);padding:18px 20px;margin-top:28px}
+.g-box b{display:block;margin-bottom:6px}
+.g-tab{width:100%;border-collapse:collapse;margin-top:16px;font-size:15px;display:block;overflow-x:auto}
+.g-tab td,.g-tab th{border-bottom:1px solid var(--linie);padding:10px 8px;text-align:left;vertical-align:top}
+.g-tab th{font-size:14px;color:var(--grau);font-weight:400}
+.g-fig{margin:28px 0 0}.g-fig img{width:100%;height:auto;display:block}
+.g-fig figcaption{font-size:14px;color:var(--grau);margin-top:8px}
+.g-paar{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media (max-width:640px){.g-paar{grid-template-columns:1fr}}
+.g-cta{margin-top:48px;padding:20px;border-left:3px solid var(--akzent);background:#f3fbfc}
+.g-cta a{font-weight:700;color:var(--akzent-dunkel)}
+.g-liste{list-style:none;padding:0}.g-liste li{border-top:1px solid var(--linie);padding:18px 0;margin:0}
+.g-liste a{font-size:20px;font-weight:700;text-decoration:none;color:var(--ink)}.g-liste span{display:block;color:var(--grau);margin-top:4px}
+.g-mehr{margin-top:56px;border-top:1px solid var(--linie);padding-top:20px}
+.g-mehr ul{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:8px 20px}
+</style>
+</head>
+<body>
+<header class="kopf" style="display:flex;align-items:center;gap:16px">
+  <a class="logo" href="../">Amphion</a><span style="color:var(--grau)">Guides</span>
+  <nav style="margin-left:auto;display:flex;gap:16px;font-size:15px"><a href="./">All guides</a><a href="../rhino/">Rhino plugin</a></nav>
+</header>
+<main class="g-wrap">
+  <p class="g-crumb"><a href="../">Amphion</a> › <a href="./">Guides</a></p>
+  <h1>Rhino to Blender: import and render in 5 minutes</h1>
+  <p class="g-lead">Blender is free, renders with Cycles at production quality and is a good partner for Rhino. The only tricky part is the transfer: units, render meshes and normals. Here is the short, reliable route.</p>
+  <p class="g-meta">Updated 9 November 2026 · Amphion 3D</p>
+  <h2>Before you export: three checks in Rhino</h2>
+  <ol>
+    <li><b>Units.</b> Work in metres if you can (<code>Units</code>). Blender's default unit is the metre, so a model in metres comes in at the right size. A model in millimetres comes in 1000 times too big and needs a scale of 0.001.</li>
+    <li><b>Render meshes.</b> Blender only sees meshes. Switch a viewport to <b>Rendered</b> or <b>Shaded</b> once so Rhino builds the render meshes, then save. For curved surfaces raise the quality under <code>Options › Mesh › Custom</code> (for example max angle 10 to 15°) or round shapes will show facets.</li>
+    <li><b>Normals and closed solids.</b> Use <code>Dir</code> to flip faces that point inwards. Inverted normals show up in Blender as black or see-through faces.</li>
+  </ol>
+
+  <h2>Route A: open the .3dm directly (recommended)</h2>
+  <ol>
+    <li>In Blender 4.2 or newer, open <b>Edit › Preferences › Get Extensions</b> and search for “Rhino”. Install the free <b>Import Rhinoceros 3D</b> add-on (import_3dm). In older versions install the add-on zip from its GitHub release under <b>Add-ons › Install</b>.</li>
+    <li><b>File › Import › Rhinoceros 3D (.3dm)</b>, then pick your file.</li>
+    <li>Layers arrive as collections and Rhino materials as basic Blender materials. Blocks become linked instances, which keeps file size down.</li>
+  </ol>
+  <p>This route keeps the most structure and is the fastest when you repeat the import after design changes.</p>
+
+  <h2>Route B: OBJ or FBX</h2>
+  <ol>
+    <li>Select the objects and use <code>Export Selected</code> to OBJ. In the OBJ options choose <b>Export Rhino object names as OBJ groups</b> or layers as groups, and polygon meshes with the quality you need.</li>
+    <li>In Blender: <b>File › Import › Wavefront (.obj)</b>. Set <b>Forward</b> and <b>Up</b> axes so that Z stays up (Rhino and Blender both use Z up, so Y forward, Z up is usually right).</li>
+    <li>Use FBX if you need cameras or a single file for many objects; use OBJ if you want the most predictable result.</li>
+  </ol>
+
+  <h2>Clean up in Blender (one minute)</h2>
+  <ul>
+    <li>Select all, <b>Mesh › Clean Up › Merge by Distance</b> with a small distance (0.0001 m) to weld the seams between Rhino surfaces.</li>
+    <li>Right click › <b>Shade Auto Smooth</b> so curved parts look smooth and flat walls stay crisp.</li>
+    <li>Check the scale with the N panel: a 3 m storey should read 3 m.</li>
+  </ul>
+
+  <h2>Render with Cycles</h2>
+  <ol>
+    <li><b>Render engine:</b> Cycles, device GPU if you have one (Metal on Apple Silicon, OptiX or CUDA on NVIDIA).</li>
+    <li><b>Light:</b> in World, use the <b>Sky Texture</b> (Nishita) for a physical sun and sky, or an HDRI from a CC0 library for real context light.</li>
+    <li><b>Camera:</b> match your Rhino view. 24 to 35 mm for exteriors, 18 to 24 mm for interiors, camera at 1.6 m, and enable <b>Shift</b> instead of tilting to keep verticals straight.</li>
+    <li><b>Colour management:</b> View Transform <b>AgX</b> (Blender 4) or Filmic, Look medium contrast.</li>
+    <li><b>Samples:</b> 128 to 256 with the denoiser on (OpenImageDenoise). Interiors with small windows need more samples or a larger light portal.</li>
+    <li><b>Materials:</b> replace the imported colours with a few real materials: plaster with slight roughness variation, glass with Transmission 1.0, timber with an image texture. Five good materials beat fifty flat ones.</li>
+  </ol>
+
+  <div class="g-box"><b>Faster alternative for early phases</b>If you only need a quick mood image, an AI rendering of the Rhino viewport takes seconds and needs no export. Read <a href="render-rhino-model-with-ai.html">how to render a Rhino model with AI</a>. For final images with controllable light and materials, Blender and Cycles remain the better tool.</div>
+  <div class="g-cta"><b>Model and render without leaving Rhino.</b> <a href="../rhino/">Amphion for Rhino</a> is an AI modeling agent for Rhino 7 and 8 on Mac and Windows: describe what you want, it builds editable geometry, then renders the current view. 3 free edits and 3 free renders, no account needed.</div>
+  <h2 id="faq">Questions</h2>
+  <h3>Can Blender open Rhino .3dm files?</h3>
+  <p>Yes, with the free Import Rhinoceros 3D add-on (import_3dm). It brings in layers as collections, materials and block instances. Rhino must have saved render meshes in the file.</p>
+  <h3>Why is my Rhino model huge or tiny in Blender?</h3>
+  <p>The units differ. Blender works in metres; a Rhino model in millimetres comes in 1000 times too large. Scale by 0.001 and apply the scale, or switch the Rhino file to metres before export.</p>
+  <h3>Why do curved surfaces look faceted?</h3>
+  <p>The render mesh is too coarse. Raise the mesh quality in Rhino (Options, Mesh, Custom) before saving or exporting, then import again.</p>
+  <h3>OBJ or FBX from Rhino to Blender?</h3>
+  <p>OBJ is the most predictable for geometry and groups. FBX is useful when you need cameras or a single file with many objects. The native .3dm import usually beats both.</p>
+  <h3>Do I lose my layers?</h3>
+  <p>Not with the .3dm import, which turns layers into collections. With OBJ, export layers or object names as groups to keep the structure.</p>
+  <nav class="g-mehr" aria-label="More guides"><b>More guides</b>
+  <ul><li><a href="render-rhino-model-with-ai.html">How to render a Rhino model with AI</a></li><li><a href="laser-cut-architecture-model-rhino.html">Laser cut architectural model from Rhino: file setup</a></li><li><a href="3d-print-architecture-model.html">3D print an architecture model: wall thickness and scale</a></li><li><a href="ai-rendering-for-architects-2026.html">AI rendering for architects: 2026 comparison</a></li><li><a href="./">All guides</a></li></ul></nav>
+</main>
+<footer class="fuss">
+  <span>© 2026 Amphion 3D</span>
+  <a href="../impressum.html">Impressum</a>
+  <a href="../datenschutz.html">Datenschutz</a>
+  <a href="../agb.html">AGB</a>
+  <a href="../widerruf.html">Widerruf</a>
+  <a href="mailto:hello@amphion3d.com">hello@amphion3d.com</a>
+</footer>
+<script src="../fuss.js"></script>
+</body>
+</html>
