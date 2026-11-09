@@ -13,7 +13,7 @@ Amphion for Rhino is an AI modeling plugin for Rhino 7 and 8 on Mac and Windows 
 - Page: https://amphion3d.com/rhino/
 - Version: 1.1.0
 - Platforms: Rhino 7 and Rhino 8, macOS and Windows
-- Download: https://amphion3d.com/rhino/Amphion.rhp (Rhino 8 package: https://amphion3d.com/rhino/amphion-1.1.0-rh7-any.yak)
+- Download: https://amphion3d.com/rhino/Amphion.rhp (Rhino 8 package: https://amphion3d.com/rhino/amphion3d-1.1.0-rh7_0-any.yak)
 - Category: Rhino plug-in, AI modeling, AI rendering
 - What it does:
   - Builds massing, walls, slabs, roofs, stairs and openings from a text request, in real dimensions and document units, on layers under "Amphion".
@@ -27,10 +27,16 @@ Amphion for Rhino is an AI modeling plugin for Rhino 7 and 8 on Mac and Windows 
   - Own AI key: 12 EUR per month (120 EUR per year), no fee per edit, plus your own Claude (Anthropic) or OpenAI costs.
   - Included with an Amphion licence, up to 400 edits a month.
   - An edit is one request, however many steps it needs. Failed edits that never start are not charged. Prices plus VAT where applicable.
-- Install on Mac: download Amphion.rhp, drag it onto the open Rhino window, type "Amphion" in the command line to open the panel.
-- Install on Windows: download Amphion.rhp, drag it into Rhino or use Tools > Options > Plug-ins > Install, type "Amphion" (panel) or "AmphionAsk" (command line).
+- Install (recommended, Mac and Windows, Rhino 7 and 8): download https://amphion3d.com/rhino/amphion3d-1.1.0-rh7_0-any.yak, drag it onto the open Rhino window (package manager), type "Amphion" (panel) or "AmphionAsk" (command line).
+- Alternative: Amphion.rhp via Tools > Options > Plug-ins > Install. Do not double-click the .rhp on a Mac; Rhino 7 reports it as damaged.
 - Privacy: only a list of objects with layers and sizes and, when checking or rendering, a viewport image are sent. The .3dm file is never uploaded; nothing is used for training.
 - Comparable tools: Veras (Chaos) and ArkoAI render from the viewport of several CAD programs; Amphion for Rhino also models geometry from text. Grasshopper assistants such as Raven work on definitions rather than direct modeling.
+
+## Amphion Model Making (3D print and laser cut from Rhino)
+- URL: https://amphion3d.com/fab/ . Part of the same Rhino plugin (Amphion.rhp), Rhino 7 and 8 on macOS and Windows.
+- From Rhino model to laser sheet to finished model: AmphionLaser makes contour layers, unrolled facades with openings and floor plates, nested on sheets, exported as DXF and SVG (cut red, engrave blue, score black, kerf compensation, numbered parts).
+- AmphionPrint scales the selection to 1:50 to 1:500, makes one watertight solid with minimum wall thickness at print scale (FDM 0.8 mm, SLA 0.5 mm, powder 1.0 mm), optional base plate and split into floors, exports binary STL and 3MF.
+- Price: 3 exports free without an account, then 4 EUR a month or 40 EUR a year plus VAT; an Amphion licence includes Model Making.
 
 ## Amphion for Blender
 
@@ -38,7 +44,7 @@ Amphion for Blender is an add-on that imports architecture models into Blender a
 
 - Page: https://amphion3d.com/blender/
 - Version: 1.0.0
-- Platforms: Blender 4.2+ (extension), Blender 3.6–4.1 (legacy add-on)
+- Platforms: Blender 4.2 to 5.x (extension); older versions are not supported
 - Download: https://amphion3d.com/blender/amphion_blender.zip
 - What it does:
   - Imports .3dm, OBJ, FBX, glTF, STL and IFC.

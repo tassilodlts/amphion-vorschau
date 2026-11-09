@@ -211,10 +211,9 @@
     if (aktiv === 'textura') {
       e.append(el('p', { className: 'klein', textContent: T.mosaico }), el('div', { className: 't-kachel' }, ...[0, 1, 2, 3].map(() => el('img', { src: url, alt: '' }))));
     } else if (!w.sinBild) {
-      const v = el('div', { className: 't-vgl' }, el('img', { src: url, alt: T.despues }), el('div', { className: 'vor' }, el('img', { src: eingabe.url, alt: T.antes })), el('div', { className: 'griff' }));
-      const setz = x => { const r = v.getBoundingClientRect(), p = Math.max(0, Math.min(1, (x - r.left) / r.width)); v.querySelector('.vor').style.clipPath = `inset(0 ${100 - p * 100}% 0 0)`; v.querySelector('.griff').style.left = p * 100 + '%'; };
-      v.onpointerdown = ev => { v.setPointerCapture(ev.pointerId); setz(ev.clientX); v.onpointermove = m => setz(m.clientX); };
-      v.onpointerup = () => { v.onpointermove = null; };
+      // 9.11.2026 (Tassilo: kein Schieber): Eingabe und Ergebnis nebeneinander, auf dem Handy untereinander; Prüfregel test/site_einheit.test.mjs
+      const v = el('div', { className: 't-paar' }, el('figure', {}, el('img', { src: eingabe.url, alt: T.antes }), el('figcaption', { textContent: T.antes })),
+        el('figure', {}, el('img', { src: url, alt: T.despues }), el('figcaption', { textContent: T.despues })));
       e.append(v);
     } else e.append(el('img', { src: url, alt: '', style: 'max-width:100%;display:block' }));
     e.append(el('div', { className: 't-aktion' }, el('a', { href: url, download: `amphion-${aktiv}.png`, textContent: T.descargar }), el('button', { textContent: T.otra, onclick: los })),

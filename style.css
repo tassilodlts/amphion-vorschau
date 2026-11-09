@@ -198,21 +198,17 @@ main>section,.band{padding:72px var(--rand);max-width:var(--breit);margin:0 auto
   .aktion{grid-template-columns:1.7fr 1fr}
 }
 
-/* Vergleich Modell und KI-Rendering (2.11., Tassilo: Regler in der Mitte, links Viewport, nach links ziehen zeigt das Rendering) */
+/* Vergleich Modell und Ergebnis (9.11.2026, Tassilo: kein Schieber, zwei Bilder nebeneinander, auf dem Handy untereinander) */
 .vergleich{margin-top:36px}
 .vergleich h4{font-size:20px;margin:0 0 6px;letter-spacing:-.01em}
 .vergleich p{margin:0 0 14px;color:var(--hell);max-width:640px}
-.vgl-buehne{position:relative;aspect-ratio:3/2;overflow:hidden;background:#eee;user-select:none;-webkit-user-select:none}
-.vgl-buehne img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
-.vgl-vorne{clip-path:inset(0 calc(100% - var(--x,50%)) 0 0)}
-.vgl-griff{position:absolute;top:0;bottom:0;left:var(--x,50%);width:2px;margin-left:-1px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.12);pointer-events:none}
-.vgl-griff::after{content:'‹ ›';position:absolute;top:50%;left:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:#fff;color:#000;font-size:18px;line-height:44px;text-align:center;letter-spacing:2px;box-shadow:0 2px 12px rgba(0,0,0,.25)}
-.vgl-regler{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;-webkit-appearance:none;appearance:none}
-.vgl-marke{position:absolute;top:12px;font-size:12px;padding:4px 8px;background:rgba(0,0,0,.55);color:#fff;pointer-events:none}
-.vgl-marke.links{left:12px}.vgl-marke.rechts{right:12px}
 .vgl-wahl{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 .vgl-wahl button{font:inherit;font-size:14px;padding:8px 14px;border:1px solid var(--linie);background:var(--bg);color:var(--ink);cursor:pointer;min-height:40px}
 .vgl-wahl button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.bild-paar{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.bild-paar figure{margin:0}.bild-paar img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block;background:#eee}
+.bild-paar figcaption{font-size:14px;color:var(--grau);margin-top:6px}
+@media (max-width:640px){.bild-paar{grid-template-columns:1fr}}
 
 /* Abo-Formular (3.11.) */
 .abo{border:0;padding:32px;max-width:460px;width:calc(100% - 32px);box-shadow:0 20px 60px rgba(0,0,0,.25)}
@@ -491,10 +487,8 @@ main>section.zahlen{display:grid;grid-template-columns:repeat(2,1fr);gap:40px 28
 .t-go:disabled{opacity:.5;cursor:wait}
 .t-meld{font-size:15px;min-height:20px}.t-meld.err{color:#b3261e}
 .t-erg{margin-top:24px}
-.t-vgl{position:relative;overflow:hidden;user-select:none;touch-action:none;background:#eee}
-.t-vgl img{display:block;width:100%}.t-vgl .vor{position:absolute;inset:0;clip-path:inset(0 50% 0 0)}.t-vgl .vor img{width:100%;height:100%;object-fit:cover}
-.t-vgl .griff{position:absolute;top:0;bottom:0;left:50%;width:2px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.2)}
-.t-vgl .griff:after{content:'⇆';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:16px}
+.t-paar{display:grid;grid-template-columns:1fr 1fr;gap:12px}.t-paar figure{margin:0}.t-paar img{width:100%;display:block;background:#eee}.t-paar figcaption{font-size:14px;color:var(--grau);margin-top:6px}
+@media (max-width:640px){.t-paar{grid-template-columns:1fr}}
 .t-kachel{display:grid;grid-template-columns:1fr 1fr;max-width:640px}.t-kachel img{width:100%;display:block}
 .t-aktion{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;align-items:center}
 .t-aktion a,.t-aktion button{font:inherit;cursor:pointer;padding:10px 14px;border:1px solid var(--ink);background:var(--bg);color:var(--ink);text-decoration:none}
@@ -547,3 +541,14 @@ code.t-tok{word-break:break-all;background:var(--beton);padding:2px 6px}
 .fuss-plugins{flex-basis:100%;display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline}
 .fuss-plugins b{color:var(--ink);font-weight:700}
 .plugin-karte img.ganz{object-fit:contain;background:#fff}   /* Modellfotos auf Weiß ganz zeigen */
+
+/* Modellbau (9.11.2026, Tassilo: „Fab versteht niemand“): drei beschriftete Schritte Rhino-Modell, Laserplatte, fertiges Modell */
+.schritte-klein{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.schritte-klein figure{margin:0}
+.plugin-karte .schritte-klein img{aspect-ratio:1/1;object-fit:contain;background:#fff}.plugin-karte .schritte-klein img.ausschnitt{object-fit:cover;object-position:50% 50%}
+.schritte-klein figcaption{font-size:12px;color:var(--grau);margin-top:4px}
+.schritte{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:40px 0 0;padding:0;list-style:none}
+.schritt{margin:0;position:relative}.schritt img{width:100%;aspect-ratio:4/3;object-fit:contain;display:block;border:1px solid var(--linie);background:#fff}
+.schritt img.ausschnitt{object-fit:cover}
+.schritt figcaption{font-size:14px;color:var(--grau);margin-top:8px}.schritt figcaption b{display:block;color:var(--ink);font-size:16px}
+.schritt+.schritt::before{content:'→';position:absolute;left:-14px;top:calc(37.5% - 12px);font-size:20px;color:var(--grau)}
+@media (max-width:640px){.schritte{grid-template-columns:1fr}.schritt+.schritt::before{content:'↓';left:50%;top:-24px}.schritte{gap:28px}}
