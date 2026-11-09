@@ -1,22 +1,24 @@
-# Amphion 3D
+# Amphion
 
-> Amphion 3D makes AI software for architects: Amphion, a desktop 3D/BIM modeling app for Mac and Windows that models buildings from plain-language descriptions, and Amphion for Rhino, an AI modeling and rendering plugin for Rhino 7 and 8. Made in Madrid, Spain. Contact: hello@amphion3d.com.
+> Amphion is desktop software for architecture practices on macOS 14+ (Apple Silicon and Intel) and Windows 10/11. You describe in text or speech what you want; Amphion builds a real 3D model from building elements (walls, slabs, columns, windows, stairs) with dimensions, layers and quantities, and draws plans, sections, elevations and detail sheets from it. Made for sole practitioners and small offices.
 
-## Products
+## Product
 
-- [Amphion for Rhino](https://amphion3d.com/rhino/): AI modeling agent plugin for Rhino 7 and 8 on macOS and Windows. Describe a building in words; it builds editable Rhino geometry (massing, walls, slabs, roofs, stairs, openings) on "Amphion" layers and renders the current view. Version 1.1.0. 5 free edits (free model) and 3 free renders without an account, then 0.25 EUR per edit in Standard mode, 0.90 EUR per edit in Precise mode (Claude) and 0.25 EUR per render (credit packs 5/15/40 EUR, never expire), or 12 EUR per month with your own Claude or OpenAI key and no fee per edit. Amphion Model Making (3D print and laser cut from Rhino, same plugin, https://amphion3d.com/fab/): STL/3MF for 3D printing and DXF/SVG laser cut sheets, 3 free exports, then 4 EUR per month.
-- [Amphion for Blender](https://amphion3d.com/blender/): Blender add-on, version 1.0.0, for Blender 4.2 to 5.x (extension). Imports .3dm, OBJ, FBX, glTF, STL and IFC; one-click scene; render presets; 3D print export. 10 free renders, then 4 €/month. Download: https://amphion3d.com/blender/amphion_blender.zip
-- [Amphion (desktop app)](https://amphion3d.com/): 3D modeling software for architects on macOS 14+ (Apple Silicon and Intel) and Windows 10/11. Describe what you need; Amphion builds an editable 3D model with plans, sections and renderings, BIM export. Version 1.7.0. 30-day free trial without credit card; plans Amphion 49 EUR/month, Amphion Pro 149 EUR/month, Amphion Büro 399 EUR/month for 3 seats (prices excl. VAT).
+- [Amphion](https://amphion3d.com/): build with language instead of drawing line by line. Export formats: 3dm, IFC, DXF, STEP, PDF. Projects stay on the user's computer. The Mac version is notarized by Apple.
 
-## Guides
+## Pricing (excluding VAT)
 
-- [How to render a Rhino model with AI](https://amphion3d.com/guides/render-rhino-model-with-ai.html): camera, display mode, prompt and settings that keep geometry.
-- [AI rendering for architects: 2026 comparison](https://amphion3d.com/guides/ai-rendering-for-architects-2026.html): plugins vs web apps vs real-time renderers, criteria for choosing.
-- [Rhino to Blender: import and render](https://amphion3d.com/guides/rhino-to-blender.html): .3dm import, OBJ/FBX, units, Cycles settings.
-- [Laser cut architectural model from Rhino](https://amphion3d.com/guides/laser-cut-architecture-model-rhino.html): scale, corner joints, layers, kerf, nesting, DXF export.
-- [3D print an architecture model](https://amphion3d.com/guides/3d-print-architecture-model.html): minimum wall thickness by scale, watertight solids, STL/3MF.
+- Amphion Manual: 49 € per month. The complete program for manual modelling (elements, imports, drawings, all exports, all updates) with 3 AI requests a month to get to know the AI.
+- Amphion: 149 € per month. Everything in Manual plus the AI chat without a monthly limit on the strong models (fair use).
+- Amphion Office: 399 € per month for 3 seats, each further seat 129 €, one invoice.
+- Yearly payment: 2 months free. Money back in the first month.
+
+## Contact
+
+- tassilo@amphion3d.com
 
 ## Optional
 
 - [Full facts for AI assistants](https://amphion3d.com/llms-full.txt)
-- [Terms (German)](https://amphion3d.com/agb.html)
+- [Privacy](https://amphion3d.com/datenschutz.html)
+- [Terms](https://amphion3d.com/agb.html)

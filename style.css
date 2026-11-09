@@ -553,3 +553,62 @@ code.t-tok{word-break:break-all;background:var(--beton);padding:2px 6px}
 .schritt figcaption{font-size:14px;color:var(--grau);margin-top:8px}.schritt figcaption b{display:block;color:var(--ink);font-size:16px}
 .schritt+.schritt::before{content:'→';position:absolute;left:-14px;top:calc(37.5% - 12px);font-size:20px;color:var(--grau)}
 @media (max-width:640px){.schritte{grid-template-columns:1fr}.schritt+.schritt::before{content:'↓';left:50%;top:-24px}.schritte{gap:28px}}
+
+/* ===== 10.11.2026 Fokus: ernst statt Spielzeug (Masterprompt Abschnitt 6) =====
+   Weiß als Grund, fast Schwarz für Text, mittleres Grau für Nebentexte, eine zurückhaltende Akzentfarbe nur für den Haupt-CTA. Inter (SIL OFL,
+   site/schrift), Regular und Medium. Keine Verläufe, keine Kursive, keine Einblendungen, keine Zähler. Schmale Textspalten, große Bilder ohne Rahmen. */
+@font-face{font-family:"Inter";src:url("schrift/InterVariable.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+:root{--ink:#141414;--bg:#fff;--grau:#666;--hell:#8a8a8a;--linie:#e8e8e8;--papier:#fff;--akzent:#22465e;--akzent-dunkel:#17344a;--spalte:65ch}
+body{font-family:"Inter","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:400;color:var(--ink);background:var(--bg)}
+h1,h2,h3,h4{font-weight:500;letter-spacing:-.02em}
+h2{font-size:clamp(28px,3.6vw,44px);margin-bottom:32px}
+main section:not(.held) h2:not(.aktion-titel)::before{content:none}
+main>section,.band{padding-top:120px;padding-bottom:120px}
+p,li{max-width:var(--spalte)}
+*,*::before,*::after{animation:none!important;transition:none!important}
+.gleit{opacity:1!important;transform:none!important}
+::selection{background:#d9e2e8;color:var(--ink)}
+.kopf{background:#fff;backdrop-filter:none}
+.kaufen{background:var(--akzent);font-weight:500}
+.kaufen:hover{background:var(--akzent-dunkel)}
+/* Held: eine Spalte, ruhig */
+main>section.held.ruhig{display:block;min-height:0;background:none;border:0;max-width:var(--breit);margin:0 auto;padding:120px var(--rand) 96px}
+.held.ruhig .held-neu{display:block;font:500 14px/1.4 "Inter",sans-serif;letter-spacing:.01em;text-transform:none;color:var(--grau);border:0;margin:0 0 28px;padding:0}
+.held.ruhig h1{font-size:clamp(40px,6vw,84px);font-weight:500;letter-spacing:-.035em;line-height:1.02;max-width:none;color:var(--ink)}
+.held.ruhig h1 span{display:inline;color:var(--ink);font-style:normal}
+.held.ruhig .held-text{margin-top:32px;font-size:clamp(18px,1.6vw,22px);line-height:1.5;color:var(--grau);max-width:var(--spalte)}
+.held.ruhig .held-laden{margin:44px 0 0;display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.held.ruhig .held-systeme{font-size:14px;color:var(--grau)}
+.held.ruhig .held-systeme a{color:var(--grau)}
+.held.ruhig .held-vertrauen{margin-top:28px;font-size:14px;color:var(--grau)}
+.held.ruhig .teilen{font-size:14px;color:var(--grau)}
+.knopf{font-weight:500;border-radius:2px;box-shadow:none}
+.knopf.akzent{background:var(--akzent);color:#fff;border-color:var(--akzent)}
+.knopf.akzent:hover{background:var(--akzent-dunkel)}
+.knopf:not(.akzent){background:#fff;color:var(--ink);border:1px solid var(--ink)}
+/* Beweis: großer Platz für das Bildschirmvideo */
+.demo{padding-top:0!important}
+.demo-buehne{margin:0}
+.demo-buehne img,.demo-buehne video{width:100%;height:auto;display:block;background:#f4f4f4}
+.demo-buehne figcaption{margin-top:14px;font-size:14px;color:var(--grau)}
+.export{padding-top:0!important;padding-bottom:48px!important}
+.export p{font-size:15px;color:var(--grau);letter-spacing:.01em}
+.mehr-liste{list-style:none;margin-top:28px;display:grid;gap:12px}
+.mehr-liste li{padding-left:18px;position:relative;color:var(--ink)}
+.mehr-liste li::before{content:"";position:absolute;left:0;top:.7em;width:8px;height:1px;background:var(--ink)}
+.zahlen b{font-weight:500}
+/* Projekte groß, ohne Rahmen */
+.projekt{margin-top:64px}
+.projekt header p{color:var(--grau);max-width:var(--spalte)}
+.galerie figure.breit{grid-column:1/-1}
+.galerie img{border:0;box-shadow:none;border-radius:0}
+.galerie figcaption{font-size:13px;color:var(--grau)}
+.haltung h2{max-width:20ch}
+.haltung p{font-size:clamp(18px,1.6vw,21px);color:var(--grau)}
+/* Preise */
+.preise .garantie.gross{font-size:17px;color:var(--ink);margin:0 0 20px}
+.preise .plan{border:1px solid var(--linie);box-shadow:none;border-radius:2px}
+.preise .plan.hervor{border-color:var(--ink)}
+.preise h3 small{font-weight:400;color:var(--grau)}
+.fuss-marken{color:var(--hell)}
+main.weiter{padding:120px var(--rand);font-size:16px}

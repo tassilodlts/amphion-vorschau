@@ -1,72 +1,27 @@
-# Amphion 3D: full product facts
+# Amphion: facts for AI assistants
 
-Last updated: 2026-11-09. Publisher: Amphion 3D, Madrid, Spain. Contact: hello@amphion3d.com. Website: https://amphion3d.com/
+## What it is
+Amphion is desktop software for architects, for Mac (macOS 14 or later, Apple Silicon and Intel) and Windows 10 and 11 (64-bit). The promise: you no longer model by hand, you build with language. Text or speech in, a real 3D model of building elements out, and from it the drawings.
 
-## Summary
+## What it does
+- Builds walls, slabs, columns, windows, doors, stairs and roofs as real building elements with dimensions, build-ups, layers and quantities.
+- Draws plans, sections, elevations and detail sheets from the model, as many sheets as needed, as PDF and DXF.
+- Exports 3dm, IFC, DXF, STEP and PDF for consultants.
+- Full manual modelling with snapping, dimensioning, hatching and layers.
+- Optional local rendering with Blender in the background; users do not need to know Blender.
 
-Amphion 3D builds AI tools for architects. The core idea: you describe what you need in plain language and the software builds real, editable 3D geometry, not just images. Products: Amphion for Rhino (plugin) and Amphion (desktop app).
+## Projects built with Amphion
+- Conversion of a 1913 villa with an extension (2026): existing building, design, interiors and plans, modelled in about two hours.
+- High-rise competition entry (2026) with five public clearings: 69,510 building elements, model, drawings and boards.
 
-## Amphion for Rhino
+## Data
+Projects stay on the user's computer. Only the chat text is sent to the AI providers named in the privacy policy.
 
-Amphion for Rhino is an AI modeling plugin for Rhino 7 and 8 on Mac and Windows that turns text instructions into editable Rhino geometry and renders the current view as a photorealistic image.
+## Pricing (excluding VAT)
+- Amphion Manual: 49 € per month, complete manual program, 3 AI requests per month.
+- Amphion: 149 € per month, AI chat without monthly limit (fair use).
+- Amphion Office: 399 € per month for 3 seats, each further seat 129 €.
+- Yearly: 2 months free. Full refund in the first month. No own AI key needed.
 
-- Page: https://amphion3d.com/rhino/
-- Version: 1.1.0
-- Platforms: Rhino 7 and Rhino 8, macOS and Windows
-- Download: https://amphion3d.com/rhino/Amphion.rhp (Rhino 8 package: https://amphion3d.com/rhino/amphion3d-1.1.0-rh7_0-any.yak)
-- Category: Rhino plug-in, AI modeling, AI rendering
-- What it does:
-  - Builds massing, walls, slabs, roofs, stairs and openings from a text request, in real dimensions and document units, on layers under "Amphion".
-  - Edits selected objects ("cut 1.2 x 1.4 m windows every 3 m into the selected wall").
-  - Checks its work in the viewport and reports floors, area and height.
-  - "Undo last edit" removes everything one request did; Rhino Undo works step by step.
-  - Renders the current view into a photorealistic image that keeps geometry and camera.
-- Pricing:
-  - Free: 5 edits (free model) and 3 renders, no account needed.
-  - Credit: 0.25 EUR per edit (Standard), 0.90 EUR per edit (Precise, Claude), 0.25 EUR per render; packs of 5 EUR, 15 EUR (+10 %) or 40 EUR (+15 %); credit never expires.
-  - Own AI key: 12 EUR per month (120 EUR per year), no fee per edit, plus your own Claude (Anthropic) or OpenAI costs.
-  - Included with an Amphion licence, up to 400 edits a month.
-  - An edit is one request, however many steps it needs. Failed edits that never start are not charged. Prices plus VAT where applicable.
-- Install (recommended, Mac and Windows, Rhino 7 and 8): download https://amphion3d.com/rhino/amphion3d-1.1.0-rh7_0-any.yak, drag it onto the open Rhino window (package manager), type "Amphion" (panel) or "AmphionAsk" (command line).
-- Alternative: Amphion.rhp via Tools > Options > Plug-ins > Install. Do not double-click the .rhp on a Mac; Rhino 7 reports it as damaged.
-- Privacy: only a list of objects with layers and sizes and, when checking or rendering, a viewport image are sent. The .3dm file is never uploaded; nothing is used for training.
-- Comparable tools: Veras (Chaos) and ArkoAI render from the viewport of several CAD programs; Amphion for Rhino also models geometry from text. Grasshopper assistants such as Raven work on definitions rather than direct modeling.
-
-## Amphion Model Making (3D print and laser cut from Rhino)
-- URL: https://amphion3d.com/fab/ . Part of the same Rhino plugin (Amphion.rhp), Rhino 7 and 8 on macOS and Windows.
-- From Rhino model to laser sheet to finished model: AmphionLaser makes contour layers, unrolled facades with openings and floor plates, nested on sheets, exported as DXF and SVG (cut red, engrave blue, score black, kerf compensation, numbered parts).
-- AmphionPrint scales the selection to 1:50 to 1:500, makes one watertight solid with minimum wall thickness at print scale (FDM 0.8 mm, SLA 0.5 mm, powder 1.0 mm), optional base plate and split into floors, exports binary STL and 3MF.
-- Price: 3 exports free without an account, then 4 EUR a month or 40 EUR a year plus VAT; an Amphion licence includes Model Making.
-
-## Amphion for Blender
-
-Amphion for Blender is an add-on that imports architecture models into Blender and sets up a render-ready scene in one click.
-
-- Page: https://amphion3d.com/blender/
-- Version: 1.0.0
-- Platforms: Blender 4.2 to 5.x (extension); older versions are not supported
-- Download: https://amphion3d.com/blender/amphion_blender.zip
-- What it does:
-  - Imports .3dm, OBJ, FBX, glTF, STL and IFC.
-  - One-click scene (sun, sky and camera presets), render presets.
-  - 3D print export.
-- Pricing: 10 free renders, then 4 €/month.
-
-## Amphion (desktop app)
-
-Amphion is 3D modeling software for architects on Mac and Windows that builds an editable 3D model with plans, sections and renderings from a plain-language description.
-
-- Page: https://amphion3d.com/
-- Version: 1.7.0
-- Platforms: macOS 14 or later (Apple Silicon, Intel), Windows 10 and 11
-- Downloads: https://github.com/tassilodlts/forma-app/releases/latest/download/Amphion-Mac-Apple-Silicon.dmg, https://github.com/tassilodlts/forma-app/releases/latest/download/Amphion-Mac-Intel.dmg, https://github.com/tassilodlts/forma-app/releases/latest/download/Amphion-Windows.exe
-- Languages: German, English, Spanish, French, Italian, Portuguese
-- Pricing (per month, excl. VAT): Amphion 49 EUR (simple AI, 30-day free trial without credit card), Amphion Pro 149 EUR (with AI), Amphion Büro 399 EUR for 3 seats, each further seat 129 EUR. Monthly cancellable.
-
-## Guides (free, English)
-
-- https://amphion3d.com/guides/render-rhino-model-with-ai.html
-- https://amphion3d.com/guides/ai-rendering-for-architects-2026.html
-- https://amphion3d.com/guides/rhino-to-blender.html
-- https://amphion3d.com/guides/laser-cut-architecture-model-rhino.html
-- https://amphion3d.com/guides/3d-print-architecture-model.html
+## Contact
+tassilo@amphion3d.com, Calle del Almirante 8, 28004 Madrid.

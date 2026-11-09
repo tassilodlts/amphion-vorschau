@@ -9,17 +9,18 @@
     it: ['Note legali', 'Privacy', 'Condizioni', 'Recesso', 'Licenza'], pt: ['Aviso legal', 'Privacidade', 'Termos', 'Livre resolução', 'Licença'],
   };
   // Kopf und Plugins-Gruppe im Fuß, Reihenfolge wie N
-  const N = ['nav.plugins', 'nav.projekte', 'nav.funktionen', 'nav.faq', 'nav.konto', 'held.laden', 'fuss.plugins', 'fuss.guides', 'fuss.marken'];   // 9.11.: Markenhinweis
+  // 10.11.2026 (Fokus): ohne Plugins, mit Preise; Reihenfolge wie N
+  const N = ['nav.projekte', 'nav.funktionen', 'nav.preis', 'nav.faq', 'nav.konto', 'held.laden', 'fuss.marken'];
   const T = {
-    de: ['Plugins', 'Projekte', 'Funktionen', 'Fragen', 'Mein Konto', 'Kostenlos laden', 'Plugins', 'Guides', 'Rhino und Rhinoceros sind Marken von Robert McNeel & Associates, Revit von Autodesk, Archicad von Graphisoft, Blender von der Blender Foundation. Amphion ist ein eigenständiges Produkt und mit diesen Unternehmen nicht verbunden.'],
-    en: ['Plugins', 'Projects', 'Features', 'FAQ', 'My account', 'Download free', 'Plugins', 'Guides', 'Rhino and Rhinoceros are trademarks of Robert McNeel & Associates, Revit of Autodesk, Archicad of Graphisoft, Blender of the Blender Foundation. Amphion is an independent product and not affiliated with these companies.'],
-    es: ['Plugins', 'Proyectos', 'Funciones', 'Preguntas', 'Mi cuenta', 'Descargar gratis', 'Plugins', 'Guías', 'Rhino y Rhinoceros son marcas de Robert McNeel & Associates, Revit de Autodesk, Archicad de Graphisoft y Blender de la Blender Foundation. Amphion es un producto independiente y no está vinculado a estas empresas.'],
-    fr: ['Plugins', 'Projets', 'Fonctions', 'Questions', 'Mon compte', 'Télécharger gratuitement', 'Plugins', 'Guides', 'Rhino et Rhinoceros sont des marques de Robert McNeel & Associates, Revit d’Autodesk, Archicad de Graphisoft, Blender de la Blender Foundation. Amphion est un produit indépendant, sans lien avec ces sociétés.'],
-    it: ['Plugin', 'Progetti', 'Funzioni', 'Domande', 'Il mio account', 'Scarica gratis', 'Plugin', 'Guide', 'Rhino e Rhinoceros sono marchi di Robert McNeel & Associates, Revit di Autodesk, Archicad di Graphisoft, Blender della Blender Foundation. Amphion è un prodotto indipendente e non è collegato a queste aziende.'],
-    pt: ['Plugins', 'Projetos', 'Funções', 'Perguntas', 'A minha conta', 'Descarregar grátis', 'Plugins', 'Guias', 'Rhino e Rhinoceros são marcas da Robert McNeel & Associates, Revit da Autodesk, Archicad da Graphisoft e Blender da Blender Foundation. O Amphion é um produto independente e não está ligado a estas empresas.'],
+    de: ['Projekte', 'Funktionen', 'Preise', 'Fragen', 'Mein Konto', 'Kostenlos laden', 'Mac und macOS sind Marken von Apple Inc., Windows von Microsoft, Blender von der Blender Foundation. Amphion ist mit diesen Unternehmen nicht verbunden.'],
+    en: ['Projects', 'Features', 'Pricing', 'FAQ', 'My account', 'Download free', 'Mac and macOS are trademarks of Apple Inc., Windows of Microsoft, Blender of the Blender Foundation. Amphion is not affiliated with these companies.'],
+    es: ['Proyectos', 'Funciones', 'Precios', 'Preguntas', 'Mi cuenta', 'Descargar gratis', 'Mac y macOS son marcas de Apple Inc., Windows de Microsoft y Blender de la Blender Foundation. Amphion no está vinculado a estas empresas.'],
+    fr: ['Projets', 'Fonctions', 'Tarifs', 'Questions', 'Mon compte', 'Télécharger gratuitement', 'Mac et macOS sont des marques d’Apple Inc., Windows de Microsoft, Blender de la Blender Foundation. Amphion n’est pas lié à ces sociétés.'],
+    it: ['Progetti', 'Funzioni', 'Prezzi', 'Domande', 'Il mio account', 'Scarica gratis', 'Mac e macOS sono marchi di Apple Inc., Windows di Microsoft, Blender della Blender Foundation. Amphion non è collegato a queste aziende.'],
+    pt: ['Projetos', 'Funções', 'Preços', 'Perguntas', 'A minha conta', 'Descarregar grátis', 'Mac e macOS são marcas da Apple Inc., Windows da Microsoft e Blender da Blender Foundation. O Amphion não está ligado a estas empresas.'],
   };
   const q = new URLSearchParams(location.search).get('lang'), g = (navigator.languages || [navigator.language || 'en']).map(l => String(l).slice(0, 2).toLowerCase());
-  let w = null; try { w = sessionStorage.getItem('forma.lang'); } catch { /* ohne Speicher */ }   // Wahl auf der Startseite gilt für den Besuch (app.js)
+  let w = null; try { w = sessionStorage.getItem('amphion.lang'); } catch { /* ohne Speicher */ }   // Wahl auf der Startseite gilt für den Besuch (app.js)
   const l = W[q] ? q : W[w] ? w : g.find(x => W[x]) || 'en', mit = W[q] ? '?lang=' + q : '';
   if (!W[q] && W[w]) { const da = [...document.querySelectorAll('[data-sprache]')]; if (da.some(s => s.dataset.sprache === w)) { document.documentElement.lang = w; for (const s of da) s.classList.toggle('on', s.dataset.sprache === w); } }
   for (const a of document.querySelectorAll('footer.fuss [data-fuss]')) {
@@ -30,6 +31,6 @@
   // Links zur Startseite und zum Konto behalten die gewählte Sprache
   if (mit) for (const a of document.querySelectorAll('header.kopf a[href]')) { const h = a.getAttribute('href'), [weg, anker = ''] = h.split('#'); if (!/^[a-z]+:/.test(h)) a.setAttribute('href', weg.split('?')[0] + mit + (anker ? '#' + anker : '')); }
   const wahl = document.querySelector('header.kopf .sprachwahl');
-  if (wahl) { wahl.value = l; wahl.onchange = () => { try { sessionStorage.setItem('forma.lang', wahl.value); } catch { /* ohne Speicher */ } const u = new URL(location.href); u.searchParams.set('lang', wahl.value); location.href = u.href; }; }
+  if (wahl) { wahl.value = l; wahl.onchange = () => { try { sessionStorage.setItem('amphion.lang', wahl.value); } catch { /* ohne Speicher */ } const u = new URL(location.href); u.searchParams.set('lang', wahl.value); location.href = u.href; }; }
   for (const j of document.querySelectorAll('footer.fuss [data-jahr]')) j.textContent = new Date().getFullYear();
 })();
