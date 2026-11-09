@@ -4,7 +4,7 @@
 
 ## Products
 
-- [Amphion for Rhino](https://amphion3d.com/rhino/): AI modeling agent plugin for Rhino 7 and 8 on macOS and Windows. Describe a building in words; it builds editable Rhino geometry (massing, walls, slabs, roofs, stairs, openings) on "Amphion" layers and renders the current view. Version 1.0.0. 3 free edits and 3 free renders without an account, then 0.30 EUR per edit and 0.25 EUR per render (credit packs 5/15/40 EUR, never expire), or 0.05 EUR per edit with your own Claude or OpenAI key.
+- [Amphion for Rhino](https://amphion3d.com/rhino/): AI modeling agent plugin for Rhino 7 and 8 on macOS and Windows. Describe a building in words; it builds editable Rhino geometry (massing, walls, slabs, roofs, stairs, openings) on "Amphion" layers and renders the current view. Version 1.1.0. 5 free edits (free model) and 3 free renders without an account, then 0.25 EUR per edit in Standard mode, 0.90 EUR per edit in Precise mode (Claude) and 0.25 EUR per render (credit packs 5/15/40 EUR, never expire), or 12 EUR per month with your own Claude or OpenAI key and no fee per edit. Amphion Fab (same plugin, https://amphion3d.com/fab/): STL/3MF for 3D printing and DXF/SVG laser cut sheets, 3 free exports, then 4 EUR per month.
 - [Amphion (desktop app)](https://amphion3d.com/): 3D modeling software for architects on macOS 14+ (Apple Silicon and Intel) and Windows 10/11. Describe what you need; Amphion builds an editable 3D model with plans, sections and renderings, BIM export. Version 1.7.0. 30-day free trial without credit card; plans Amphion 49 EUR/month, Amphion Pro 149 EUR/month, Amphion Büro 399 EUR/month for 3 seats (prices excl. VAT).
 
 ## Guides

@@ -11,9 +11,9 @@ Amphion 3D builds AI tools for architects. The core idea: you describe what you 
 Amphion for Rhino is an AI modeling plugin for Rhino 7 and 8 on Mac and Windows that turns text instructions into editable Rhino geometry and renders the current view as a photorealistic image.
 
 - Page: https://amphion3d.com/rhino/
-- Version: 1.0.0
+- Version: 1.1.0
 - Platforms: Rhino 7 and Rhino 8, macOS and Windows
-- Download: https://amphion3d.com/rhino/Amphion.rhp (Rhino 8 package: https://amphion3d.com/rhino/amphion-1.0.0-rh7-any.yak)
+- Download: https://amphion3d.com/rhino/Amphion.rhp (Rhino 8 package: https://amphion3d.com/rhino/amphion-1.1.0-rh7-any.yak)
 - Category: Rhino plug-in, AI modeling, AI rendering
 - What it does:
   - Builds massing, walls, slabs, roofs, stairs and openings from a text request, in real dimensions and document units, on layers under "Amphion".
@@ -22,9 +22,9 @@ Amphion for Rhino is an AI modeling plugin for Rhino 7 and 8 on Mac and Windows 
   - "Undo last edit" removes everything one request did; Rhino Undo works step by step.
   - Renders the current view into a photorealistic image that keeps geometry and camera.
 - Pricing:
-  - Free: 3 edits and 3 renders, no account needed.
-  - Credit: 0.30 EUR per edit, 0.25 EUR per render; packs of 5 EUR, 15 EUR (+10 %) or 40 EUR (+15 %); credit never expires.
-  - Own AI key: 0.05 EUR per edit plus your own Claude (Anthropic) or OpenAI costs.
+  - Free: 5 edits (free model) and 3 renders, no account needed.
+  - Credit: 0.25 EUR per edit (Standard), 0.90 EUR per edit (Precise, Claude), 0.25 EUR per render; packs of 5 EUR, 15 EUR (+10 %) or 40 EUR (+15 %); credit never expires.
+  - Own AI key: 12 EUR per month (120 EUR per year), no fee per edit, plus your own Claude (Anthropic) or OpenAI costs.
   - Included with an Amphion licence, up to 400 edits a month.
   - An edit is one request, however many steps it needs. Failed edits that never start are not charged. Prices plus VAT where applicable.
 - Install on Mac: download Amphion.rhp, drag it onto the open Rhino window, type "Amphion" in the command line to open the panel.
