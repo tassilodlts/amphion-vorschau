@@ -10,6 +10,9 @@ const CLOUD = 'https://cloud.amphion3d.com';
 
 const TEXTE = {
   de: {
+    'blatt.projekt': 'Projekt', 'blatt.massstab': 'Maßstab', 'blatt.blatt': 'Blatt',
+    // 9.11.2026 Startseite wie treform.ai (Tassilo): Einblendung, Chatbox, Leiste der Programme, kein Kaufknopf
+    'held.neu': 'Neu: Amphion Tools, zwölf KI-Werkzeuge im Browser', 'held.laden': 'Kostenlos laden', 'held.andere': 'Direkt für', 'held.vertrauen2': 'Für Mac und Windows · Projekte bleiben auf deinem Computer', 'nav.manifest': 'Manifest', 'chat.kopf': 'Amphion KI', 'mit.titel': 'Arbeitet mit dem, was du schon nutzt', 'mit.text': 'Dein Modell geht als 3dm, IFC, DXF, STEP und PDF weiter. Gerendert wird mit Blender auf deinem Computer, gesteuert auch aus dem Terminal.', 'zahl.1': 'Bauteile im Hochhaus am Wasser', 'zahl.2': 'Stunden für die Villa von 1913', 'zahl.3': 'Sprachen, gesprochen und geschrieben', 'zahl.4': 'Satz genügt für das erste Modell', 'cta.klein2': 'Kostenlos laden, für Mac und Windows.', 'chat.f1': 'Villa von 1913, zwei Geschosse und Dachgeschoss, Garten nach Süden.', 'chat.a1': 'Wände, Decken, Fenster und Dach stehen. Garten und Nachbarn sind gesetzt.', 'chat.f2': 'Schneide das Erdgeschoss auf und zeichne den Grundriss 1:100.', 'chat.a2': 'Grundriss EG fertig, als PDF und DXF.', 'chat.f3': 'Hochhaus am Wasser, mit der ganzen Stadt drumherum.', 'chat.a3': '69 510 Bauteile. Die Stadt kommt aus echten Kartendaten.', 'chat.f4': 'Rendere den Blick vom Park im Abendlicht.', 'chat.a4': 'Rendering läuft auf deinem Computer. Fertig.',
     'aria.senden': 'Senden', 'aria.cta': 'Amphion laden oder kaufen', 'aria.zu': 'Schließen', 'aria.periode': 'Abrechnung',
     'privat.preisText': 'je nachdem, was du brauchst',
     'privat.preis': 'Auf Anfrage',
@@ -129,6 +132,9 @@ const TEXTE = {
     'fuss.impressum': 'Impressum', 'fuss.datenschutz': 'Datenschutz', 'fuss.lizenz': 'Lizenz', 'fuss.kontakt': 'Kontakt'
   },
   en: {
+    'blatt.projekt': 'Project', 'blatt.massstab': 'Scale', 'blatt.blatt': 'Sheet',
+    // 9.11.2026 Startseite wie treform.ai (Tassilo): Einblendung, Chatbox, Leiste der Programme, kein Kaufknopf
+    'held.neu': 'New: Amphion Tools, twelve AI tools in your browser', 'held.laden': 'Download free', 'held.andere': 'Direct for', 'held.vertrauen2': 'For Mac and Windows · Projects stay on your computer', 'nav.manifest': 'Manifesto', 'chat.kopf': 'Amphion AI', 'mit.titel': 'Works with the tools you already use', 'mit.text': 'Your model goes on as 3dm, IFC, DXF, STEP and PDF. Rendering runs in Blender on your computer, and you can drive it from the terminal too.', 'zahl.1': 'components in the tower on the water', 'zahl.2': 'hours for the 1913 villa', 'zahl.3': 'languages, spoken and written', 'zahl.4': 'sentence is enough for a first model', 'cta.klein2': 'Free download, for Mac and Windows.', 'chat.f1': '1913 villa, two floors plus attic, garden to the south.', 'chat.a1': 'Walls, slabs, windows and roof are in. Garden and neighbours placed.', 'chat.f2': 'Cut open the ground floor and draw the plan at 1:100.', 'chat.a2': 'Ground floor plan done, as PDF and DXF.', 'chat.f3': 'Tower on the water, with the whole city around it.', 'chat.a3': '69,510 components. The city comes from real map data.', 'chat.f4': 'Render the view from the park in evening light.', 'chat.a4': 'Rendering on your computer. Done.',
     'aria.senden': 'Send', 'aria.cta': 'Download or buy Amphion', 'aria.zu': 'Close', 'aria.periode': 'Billing',
     'privat.preisText': 'depending on what you need',
     'privat.preis': 'On request',
@@ -248,6 +254,9 @@ const TEXTE = {
     'fuss.impressum': 'Legal notice', 'fuss.datenschutz': 'Privacy', 'fuss.lizenz': 'Licence', 'fuss.kontakt': 'Contact'
   },
   es: {
+    'blatt.projekt': 'Proyecto', 'blatt.massstab': 'Escala', 'blatt.blatt': 'Hoja',
+    // 9.11.2026 Startseite wie treform.ai (Tassilo): Einblendung, Chatbox, Leiste der Programme, kein Kaufknopf
+    'held.neu': 'Nuevo: Amphion Tools, doce herramientas de IA en el navegador', 'held.laden': 'Descargar gratis', 'held.andere': 'Directo para', 'held.vertrauen2': 'Para Mac y Windows · Los proyectos se quedan en tu ordenador', 'nav.manifest': 'Manifiesto', 'chat.kopf': 'Amphion IA', 'mit.titel': 'Funciona con lo que ya usas', 'mit.text': 'Tu modelo sale en 3dm, IFC, DXF, STEP y PDF. Se renderiza con Blender en tu ordenador y también se controla desde la terminal.', 'zahl.1': 'elementos en la torre junto al agua', 'zahl.2': 'horas para la villa de 1913', 'zahl.3': 'idiomas, hablados y escritos', 'zahl.4': 'frase basta para el primer modelo', 'cta.klein2': 'Descarga gratis, para Mac y Windows.', 'chat.f1': 'Villa de 1913, dos plantas y bajo cubierta, jardín al sur.', 'chat.a1': 'Muros, forjados, ventanas y cubierta listos. Jardín y vecinos colocados.', 'chat.f2': 'Corta la planta baja y dibuja la planta a 1:100.', 'chat.a2': 'Planta baja lista, en PDF y DXF.', 'chat.f3': 'Torre junto al agua, con toda la ciudad alrededor.', 'chat.a3': '69.510 elementos. La ciudad sale de datos cartográficos reales.', 'chat.f4': 'Renderiza la vista desde el parque con luz de tarde.', 'chat.a4': 'Render en tu ordenador. Listo.',
     'aria.senden': 'Enviar', 'aria.cta': 'Descargar o comprar Amphion', 'aria.zu': 'Cerrar', 'aria.periode': 'Facturación',
     'privat.preisText': 'según lo que necesites',
     'privat.preis': 'A consultar',
@@ -367,6 +376,9 @@ const TEXTE = {
     'fuss.impressum': 'Aviso legal', 'fuss.datenschutz': 'Privacidad', 'fuss.lizenz': 'Licencia', 'fuss.kontakt': 'Contacto'
   },
   fr: {
+    'blatt.projekt': 'Projet', 'blatt.massstab': 'Échelle', 'blatt.blatt': 'Feuille',
+    // 9.11.2026 Startseite wie treform.ai (Tassilo): Einblendung, Chatbox, Leiste der Programme, kein Kaufknopf
+    'held.neu': 'Nouveau : Amphion Tools, douze outils d’IA dans le navigateur', 'held.laden': 'Télécharger gratuitement', 'held.andere': 'Directement pour', 'held.vertrauen2': 'Pour Mac et Windows · Les projets restent sur ton ordinateur', 'nav.manifest': 'Manifeste', 'chat.kopf': 'Amphion IA', 'mit.titel': 'Fonctionne avec ce que tu utilises déjà', 'mit.text': 'Ton modèle part en 3dm, IFC, DXF, STEP et PDF. Le rendu tourne avec Blender sur ton ordinateur, pilotable aussi depuis le terminal.', 'zahl.1': 'éléments dans la tour au bord de l’eau', 'zahl.2': 'heures pour la villa de 1913', 'zahl.3': 'langues, parlées et écrites', 'zahl.4': 'phrase suffit pour un premier modèle', 'cta.klein2': 'Téléchargement gratuit, pour Mac et Windows.', 'chat.f1': 'Villa de 1913, deux niveaux et combles, jardin au sud.', 'chat.a1': 'Murs, dalles, fenêtres et toit en place. Jardin et voisins posés.', 'chat.f2': 'Coupe le rez-de-chaussée et dessine le plan au 1:100.', 'chat.a2': 'Plan du rez-de-chaussée prêt, en PDF et DXF.', 'chat.f3': 'Tour au bord de l’eau, avec toute la ville autour.', 'chat.a3': '69 510 éléments. La ville vient de vraies données cartographiques.', 'chat.f4': 'Fais le rendu de la vue depuis le parc, lumière du soir.', 'chat.a4': 'Rendu sur ton ordinateur. Terminé.',
     'aria.senden': 'Envoyer', 'aria.cta': 'Télécharger ou acheter Amphion', 'aria.zu': 'Fermer', 'aria.periode': 'Facturation',
     'privat.preisText': 'selon tes besoins',
     'privat.preis': 'Sur demande',
@@ -486,6 +498,9 @@ const TEXTE = {
     'fuss.impressum': 'Mentions légales', 'fuss.datenschutz': 'Confidentialité', 'fuss.lizenz': 'Licence', 'fuss.kontakt': 'Contact'
   },
   it: {
+    'blatt.projekt': 'Progetto', 'blatt.massstab': 'Scala', 'blatt.blatt': 'Foglio',
+    // 9.11.2026 Startseite wie treform.ai (Tassilo): Einblendung, Chatbox, Leiste der Programme, kein Kaufknopf
+    'held.neu': 'Novità: Amphion Tools, dodici strumenti IA nel browser', 'held.laden': 'Scarica gratis', 'held.andere': 'Diretto per', 'held.vertrauen2': 'Per Mac e Windows · I progetti restano sul tuo computer', 'nav.manifest': 'Manifesto', 'chat.kopf': 'Amphion IA', 'mit.titel': 'Funziona con ciò che usi già', 'mit.text': 'Il tuo modello esce in 3dm, IFC, DXF, STEP e PDF. Il rendering gira con Blender sul tuo computer, e lo comandi anche dal terminale.', 'zahl.1': 'elementi nella torre sull’acqua', 'zahl.2': 'ore per la villa del 1913', 'zahl.3': 'lingue, parlate e scritte', 'zahl.4': 'frase basta per il primo modello', 'cta.klein2': 'Download gratuito, per Mac e Windows.', 'chat.f1': 'Villa del 1913, due piani e sottotetto, giardino a sud.', 'chat.a1': 'Muri, solai, finestre e tetto pronti. Giardino e vicini inseriti.', 'chat.f2': 'Taglia il piano terra e disegna la pianta in scala 1:100.', 'chat.a2': 'Pianta del piano terra pronta, in PDF e DXF.', 'chat.f3': 'Torre sull’acqua, con tutta la città intorno.', 'chat.a3': '69.510 elementi. La città viene da dati cartografici reali.', 'chat.f4': 'Fai il rendering della vista dal parco con la luce della sera.', 'chat.a4': 'Rendering sul tuo computer. Fatto.',
     'aria.senden': 'Invia', 'aria.cta': 'Scarica o acquista Amphion', 'aria.zu': 'Chiudi', 'aria.periode': 'Fatturazione',
     'privat.preisText': 'in base a ciò che ti serve',
     'privat.preis': 'Su richiesta',
@@ -605,6 +620,9 @@ const TEXTE = {
     'fuss.impressum': 'Note legali', 'fuss.datenschutz': 'Privacy', 'fuss.lizenz': 'Licenza', 'fuss.kontakt': 'Contatti'
   },
   pt: {
+    'blatt.projekt': 'Projeto', 'blatt.massstab': 'Escala', 'blatt.blatt': 'Folha',
+    // 9.11.2026 Startseite wie treform.ai (Tassilo): Einblendung, Chatbox, Leiste der Programme, kein Kaufknopf
+    'held.neu': 'Novo: Amphion Tools, doze ferramentas de IA no navegador', 'held.laden': 'Descarregar grátis', 'held.andere': 'Direto para', 'held.vertrauen2': 'Para Mac e Windows · Os projetos ficam no teu computador', 'nav.manifest': 'Manifesto', 'chat.kopf': 'Amphion IA', 'mit.titel': 'Funciona com o que já usas', 'mit.text': 'O teu modelo sai em 3dm, IFC, DXF, STEP e PDF. A renderização corre no Blender no teu computador e também se controla a partir do terminal.', 'zahl.1': 'elementos na torre junto à água', 'zahl.2': 'horas para a moradia de 1913', 'zahl.3': 'línguas, faladas e escritas', 'zahl.4': 'frase basta para o primeiro modelo', 'cta.klein2': 'Descarga grátis, para Mac e Windows.', 'chat.f1': 'Moradia de 1913, dois pisos e sótão, jardim a sul.', 'chat.a1': 'Paredes, lajes, janelas e cobertura prontas. Jardim e vizinhos colocados.', 'chat.f2': 'Corta o rés-do-chão e desenha a planta a 1:100.', 'chat.a2': 'Planta do rés-do-chão pronta, em PDF e DXF.', 'chat.f3': 'Torre junto à água, com a cidade inteira à volta.', 'chat.a3': '69 510 elementos. A cidade vem de dados cartográficos reais.', 'chat.f4': 'Renderiza a vista do parque com luz de fim de tarde.', 'chat.a4': 'Renderização no teu computador. Pronto.',
     'aria.senden': 'Enviar', 'aria.cta': 'Descarregar ou comprar Amphion', 'aria.zu': 'Fechar', 'aria.periode': 'Faturação',
     'privat.preisText': 'conforme o que precisares',
     'privat.preis': 'Sob consulta',
@@ -867,3 +885,39 @@ document.addEventListener('click', e => { const a = e.target.closest('a[data-dow
 // Satzfeld und Preise die Sprache übernehmen; ein ?lang= in der Adresse fällt weg, sonst gewänne es gegen die Wahl
 alle('.sprachwahl', el => { el.value = document.documentElement.lang; el.onchange = () => { try { sessionStorage.setItem('forma.lang', el.value); } catch {} const u = new URL(location.href); u.searchParams.delete('lang'); location.replace(u.toString()); }; });
 document.querySelector('.sprachen')?.addEventListener('click', e => { const b = e.target.closest('button[data-lang]'); if (b) anwenden(b.dataset.lang, true); });
+
+// Startseite in Bewegung (9.11.2026, Tassilo: „wie treform.ai, wenn man die Seite startet, kommen Sachen rein“): Einblendung des Kopfs, Chatbox tippt
+// vier Sätze und blendet das passende Bild dahinter ein, Abschnitte gleiten beim Scrollen herein, Zahlen zählen hoch. Mit „weniger Bewegung“ steht alles still.
+{ const RUHIG = matchMedia('(prefers-reduced-motion: reduce)').matches, t = () => TEXTE[document.documentElement.lang] || TEXTE.de;
+  const held = document.querySelector('.held'), bilder = [...document.querySelectorAll('.blatt-bild img')], verlauf = document.querySelector('.chat-verlauf'), tippen = document.querySelector('.chat-tippen');
+  // Schriftfeld des Planblatts wechselt mit dem Bild: Projekt, Maßstab, Blatt
+  const KOPF = [['proj.muct', '1:500'], ['proj.muct', '1:100'], ['proj.vanct', '1:5000'], ['proj.vanct', '3D']];
+  const feld = (sel, w) => { const e = document.querySelector(sel); if (!e || e.textContent === w) return; e.classList.add('wechsel'); setTimeout(() => { e.textContent = w; e.classList.remove('wechsel'); }, 350); };
+  const zeige = i => { bilder.forEach((b, j) => b.classList.toggle('on', j === i)); feld('.bk-projekt', t()[KOPF[i][0]] || ''); feld('.bk-mass', KOPF[i][1]); feld('.bk-blatt', `0${i + 1}/04`); };
+  const warte = ms => new Promise(r => setTimeout(r, ms));
+  const blase = (art, text) => { const d = Object.assign(document.createElement('div'), { className: 'chat-blase ' + art, textContent: text }); verlauf.append(d); while (verlauf.children.length > 3) verlauf.firstElementChild.remove(); requestAnimationFrame(() => d.classList.add('da')); return d; };
+  if (verlauf && tippen) (async () => {
+    await warte(RUHIG ? 0 : 1400);
+    for (let n = 0; ; n = (n + 1) % 4) {
+      const f = t()['chat.f' + (n + 1)], a = t()['chat.a' + (n + 1)];
+      if (RUHIG) { blase('ich', f); blase('ki', a); zeige(n); await warte(6000); continue; }
+      for (let k = 1; k <= f.length; k++) { tippen.textContent = f.slice(0, k); await warte(28 + Math.random() * 40); }
+      await warte(450); tippen.textContent = ''; blase('ich', f);
+      const d = blase('ki denkt', ''); await warte(1300); d.classList.remove('denkt'); d.textContent = a; zeige(n);
+      await warte(4200);
+    }
+  })();
+  const ul = document.querySelector('.mit-liste'); if (ul) ul.append(...[...ul.children].map(c => { const k = c.cloneNode(true); k.setAttribute('aria-hidden', 'true'); return k; }));   // Leiste läuft endlos
+  // Abschnitte gleiten herein
+  const gleiten = [...document.querySelectorAll('main > section:not(.held), main > figure, main > aside, .galerie > *, .liste > li, .schritte li, .zahlen > div')];
+  if (!RUHIG && 'IntersectionObserver' in window) {
+    gleiten.forEach(e => e.classList.add('gleit'));
+    const io = new IntersectionObserver(es => { for (const e of es) if (e.isIntersecting) { e.target.classList.add('da'); io.unobserve(e.target); } }, { rootMargin: '0px 0px -8% 0px' });
+    gleiten.forEach(e => io.observe(e));
+  }
+  // Zahlen zählen hoch
+  const zahl = new IntersectionObserver(es => { for (const e of es) if (e.isIntersecting) { zahl.unobserve(e.target); const z = +e.target.dataset.zahl, t0 = performance.now(), fmt = new Intl.NumberFormat(document.documentElement.lang);
+    const lauf = now => { const u = Math.min(1, (now - t0) / 1400), v = Math.round(z * (1 - Math.pow(1 - u, 3))); e.target.textContent = fmt.format(v); if (u < 1) requestAnimationFrame(lauf); };
+    if (RUHIG) e.target.textContent = fmt.format(z); else requestAnimationFrame(lauf); } }, { threshold: .6 });
+  document.querySelectorAll('[data-zahl]').forEach(e => zahl.observe(e));
+}
