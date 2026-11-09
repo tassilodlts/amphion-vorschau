@@ -32,6 +32,20 @@ Amphion for Rhino is an AI modeling plugin for Rhino 7 and 8 on Mac and Windows 
 - Privacy: only a list of objects with layers and sizes and, when checking or rendering, a viewport image are sent. The .3dm file is never uploaded; nothing is used for training.
 - Comparable tools: Veras (Chaos) and ArkoAI render from the viewport of several CAD programs; Amphion for Rhino also models geometry from text. Grasshopper assistants such as Raven work on definitions rather than direct modeling.
 
+## Amphion for Blender
+
+Amphion for Blender is an add-on that imports architecture models into Blender and sets up a render-ready scene in one click.
+
+- Page: https://amphion3d.com/blender/
+- Version: 1.0.0
+- Platforms: Blender 4.2+ (extension), Blender 3.6–4.1 (legacy add-on)
+- Download: https://amphion3d.com/blender/amphion_blender.zip
+- What it does:
+  - Imports .3dm, OBJ, FBX, glTF, STL and IFC.
+  - One-click scene (sun, sky and camera presets), render presets.
+  - 3D print export.
+- Pricing: 10 free renders, then 4 €/month.
+
 ## Amphion (desktop app)
 
 Amphion is 3D modeling software for architects on Mac and Windows that builds an editable 3D model with plans, sections and renderings from a plain-language description.
