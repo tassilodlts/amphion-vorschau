@@ -9,14 +9,14 @@
     it: ['Note legali', 'Privacy', 'Condizioni', 'Recesso', 'Licenza'], pt: ['Aviso legal', 'Privacidade', 'Termos', 'Livre resolução', 'Licença'],
   };
   // Kopf und Plugins-Gruppe im Fuß, Reihenfolge wie N
-  const N = ['nav.plugins', 'nav.projekte', 'nav.funktionen', 'nav.faq', 'nav.konto', 'held.laden', 'fuss.plugins', 'fuss.guides'];
+  const N = ['nav.plugins', 'nav.projekte', 'nav.funktionen', 'nav.faq', 'nav.konto', 'held.laden', 'fuss.plugins', 'fuss.guides', 'fuss.marken'];   // 9.11.: Markenhinweis
   const T = {
-    de: ['Plugins', 'Projekte', 'Funktionen', 'Fragen', 'Mein Konto', 'Kostenlos laden', 'Plugins', 'Guides'],
-    en: ['Plugins', 'Projects', 'Features', 'FAQ', 'My account', 'Download free', 'Plugins', 'Guides'],
-    es: ['Plugins', 'Proyectos', 'Funciones', 'Preguntas', 'Mi cuenta', 'Descargar gratis', 'Plugins', 'Guías'],
-    fr: ['Plugins', 'Projets', 'Fonctions', 'Questions', 'Mon compte', 'Télécharger gratuitement', 'Plugins', 'Guides'],
-    it: ['Plugin', 'Progetti', 'Funzioni', 'Domande', 'Il mio account', 'Scarica gratis', 'Plugin', 'Guide'],
-    pt: ['Plugins', 'Projetos', 'Funções', 'Perguntas', 'A minha conta', 'Descarregar grátis', 'Plugins', 'Guias'],
+    de: ['Plugins', 'Projekte', 'Funktionen', 'Fragen', 'Mein Konto', 'Kostenlos laden', 'Plugins', 'Guides', 'Rhino und Rhinoceros sind Marken von Robert McNeel & Associates, Revit von Autodesk, Archicad von Graphisoft, Blender von der Blender Foundation. Amphion ist ein eigenständiges Produkt und mit diesen Unternehmen nicht verbunden.'],
+    en: ['Plugins', 'Projects', 'Features', 'FAQ', 'My account', 'Download free', 'Plugins', 'Guides', 'Rhino and Rhinoceros are trademarks of Robert McNeel & Associates, Revit of Autodesk, Archicad of Graphisoft, Blender of the Blender Foundation. Amphion is an independent product and not affiliated with these companies.'],
+    es: ['Plugins', 'Proyectos', 'Funciones', 'Preguntas', 'Mi cuenta', 'Descargar gratis', 'Plugins', 'Guías', 'Rhino y Rhinoceros son marcas de Robert McNeel & Associates, Revit de Autodesk, Archicad de Graphisoft y Blender de la Blender Foundation. Amphion es un producto independiente y no está vinculado a estas empresas.'],
+    fr: ['Plugins', 'Projets', 'Fonctions', 'Questions', 'Mon compte', 'Télécharger gratuitement', 'Plugins', 'Guides', 'Rhino et Rhinoceros sont des marques de Robert McNeel & Associates, Revit d’Autodesk, Archicad de Graphisoft, Blender de la Blender Foundation. Amphion est un produit indépendant, sans lien avec ces sociétés.'],
+    it: ['Plugin', 'Progetti', 'Funzioni', 'Domande', 'Il mio account', 'Scarica gratis', 'Plugin', 'Guide', 'Rhino e Rhinoceros sono marchi di Robert McNeel & Associates, Revit di Autodesk, Archicad di Graphisoft, Blender della Blender Foundation. Amphion è un prodotto indipendente e non è collegato a queste aziende.'],
+    pt: ['Plugins', 'Projetos', 'Funções', 'Perguntas', 'A minha conta', 'Descarregar grátis', 'Plugins', 'Guias', 'Rhino e Rhinoceros são marcas da Robert McNeel & Associates, Revit da Autodesk, Archicad da Graphisoft e Blender da Blender Foundation. O Amphion é um produto independente e não está ligado a estas empresas.'],
   };
   const q = new URLSearchParams(location.search).get('lang'), g = (navigator.languages || [navigator.language || 'en']).map(l => String(l).slice(0, 2).toLowerCase());
   let w = null; try { w = sessionStorage.getItem('forma.lang'); } catch { /* ohne Speicher */ }   // Wahl auf der Startseite gilt für den Besuch (app.js)
