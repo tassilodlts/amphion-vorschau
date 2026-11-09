@@ -19,5 +19,4 @@
 ## Optional
 
 - [Full facts for AI assistants](https://amphion3d.com/llms-full.txt)
-- [Manifest](https://amphion3d.com/manifest.html)
 - [Terms (German)](https://amphion3d.com/agb.html)
