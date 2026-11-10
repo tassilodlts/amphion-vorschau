@@ -2,7 +2,7 @@
 // gleichmäßig und immer gleich sein“): Markup aus tools/kopf_fuss.mjs, hier nur die Beschriftung in der Sprache der Startseite (?lang=, sonst das Gerät,
 // sonst Englisch) und die Sprachwahl. Die Startseite beschriftet Kopf und Fuß selbst (app.js, dieselben Schlüssel). Kontakt bleibt unübersetzt.
 (() => {
-  const K = ['impressum', 'datenschutz', 'agb', 'widerruf', 'lizenz', 'guides'];   // 10.11.: Anleitungen im Fuß (englisch)
+  const K = ['impressum', 'datenschutz', 'agb', 'widerruf', 'lizenz'];   // 10.11. spät (Tassilo: Rendering-Plugins und Anleitungen raus): ohne Anleitungen
   const W = {
     de: ['Impressum', 'Datenschutz', 'AGB', 'Widerruf', 'Lizenz', 'Anleitungen'], en: ['Legal notice', 'Privacy', 'Terms', 'Withdrawal', 'Licence', 'Guides'],
     es: ['Aviso legal', 'Privacidad', 'Condiciones', 'Desistimiento', 'Licencia', 'Guías'], fr: ['Mentions légales', 'Confidentialité', 'CGV', 'Rétractation', 'Licence', 'Guides'],
