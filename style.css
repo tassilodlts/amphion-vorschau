@@ -663,3 +663,6 @@ main>section.zahlen{padding-top:28px;padding-bottom:40px}
   .held.ruhig .held-text{order:3;margin-top:16px}.held.ruhig .held-laden{order:4}.held.ruhig .beta-liste{order:5}.held.ruhig .held-vertrauen{order:6}
   .held.ruhig .held-video figcaption{display:none}
 }
+
+/* 10.11.2026: kleine Suchwort-Zeile in der h1 unter der großen Überschrift */
+.held h1 .held-zeile,h1 .held-zeile{display:block;font-size:clamp(15px,1.25vw,19px);font-weight:500;letter-spacing:0;line-height:1.35;margin-top:.7em;color:var(--grau,#6b6b6b)}
