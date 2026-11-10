@@ -674,3 +674,5 @@ main>section.zahlen{padding-top:28px;padding-bottom:40px}
 .g-klein{font-size:13px;color:var(--grau);margin-top:32px}
 .fuss-themen{flex-basis:100%;display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px}
 .g-wrap p+p{margin-top:14px}
+/* 10.11.2026: Probezeit unter den Ladeknöpfen */
+.held-probe{font-weight:600;margin:.6em 0 0}
