@@ -34,7 +34,9 @@
   if (mit) for (const a of document.querySelectorAll('header.kopf a[href]')) { const h = a.getAttribute('href'), [weg, anker = ''] = h.split('#'); if (!/^[a-z]+:/.test(h)) a.setAttribute('href', weg.split('?')[0] + mit + (anker ? '#' + anker : '')); }
   const wahl = document.querySelector('header.kopf .sprachwahl');
   if (wahl && ziel) { wahl.value = l; wahl.onchange = () => { try { sessionStorage.setItem('amphion.lang', wahl.value); } catch { /* ohne Speicher */ }
-    const alt = document.querySelector(`link[rel="alternate"][hreflang="${wahl.value}"]`); location.href = alt ? alt.href : new URL((wahl.value === 'de' ? '' : wahl.value + '/') + '?lang=' + wahl.value, new URL(document.querySelector('header.kopf .logo').href, location.href).href.replace(/(en|es)\/$/, '')).href; }; }
+    // 10.11.2026: Englisch liegt unter /, die anderen unter /<lang>/; ohne Zielseite dieser Sprache gilt der Sprachlink im Fuß
+    const alt = document.querySelector(`link[rel="alternate"][hreflang="${wahl.value}"]`), fl = document.querySelector(`footer.fuss .fuss-sprachen a[hreflang="${wahl.value}"]`);
+    location.href = alt ? alt.href : fl ? fl.href : new URL('?lang=' + wahl.value, location.href).href; }; }
   else if (wahl) { wahl.value = l; wahl.onchange = () => { try { sessionStorage.setItem('amphion.lang', wahl.value); } catch { /* ohne Speicher */ } const u = new URL(location.href); u.searchParams.set('lang', wahl.value); location.href = u.href; }; }
   for (const j of document.querySelectorAll('footer.fuss [data-jahr]')) j.textContent = new Date().getFullYear();
 })();
