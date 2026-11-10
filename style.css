@@ -666,3 +666,5 @@ main>section.zahlen{padding-top:28px;padding-bottom:40px}
 
 /* 10.11.2026: kleine Suchwort-Zeile in der h1 unter der großen Überschrift */
 .held h1 .held-zeile,h1 .held-zeile{display:block;font-size:clamp(15px,1.25vw,19px);font-weight:500;letter-spacing:0;line-height:1.35;margin-top:.7em;color:var(--grau,#6b6b6b)}
+/* 10.11.2026: Flug um Vancouver ist quadratisch, nicht über die ganze Breite */
+.demo-buehne video.quadrat{display:block;width:100%;max-width:820px;height:auto;aspect-ratio:1/1;margin:0 auto}
