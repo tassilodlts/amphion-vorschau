@@ -102,6 +102,15 @@ const TEXTE = {
     'held.text': 'Du baust nicht mehr Linie für Linie. Du sagst, was du willst, und Amphion baut echte Wände, Decken, Stützen, Fenster und Treppen mit Maßen, Layern und Mengen.',
     'held.titel1': 'Beschreib es.',
     'held.titel2': 'Amphion modelliert es.',
+    'beta.titel': "Amphion ist noch in der Beta.",
+    'beta.text': "Es läuft, ist aber noch nicht perfekt. Schreib uns, was fehlt oder hakt:",
+    'beta.frage': "Sag mir Bescheid, wenn die fertige Version da ist:",
+    'beta.ph': "name@buero.de",
+    'beta.senden': "Eintragen",
+    'beta.zustimmung': "Ich bin einverstanden, dass Amphion mir dazu E-Mails schickt. Abmelden geht jederzeit mit einer Antwort.",
+    'beta.danke': "Danke! Wir schreiben dir, sobald die fertige Version da ist.",
+    'beta.ungueltig': "Bitte eine gültige E-Mail-Adresse und das Häkchen.",
+    'beta.fehler': "Das hat nicht geklappt. Schreib uns einfach an tassilo@amphion3d.com.",
     'held.vertrauen': 'Projekte bleiben auf deinem Computer. Die Mac-Version ist von Apple notarisiert.',
     'held.video': "Das Beispielhaus von 1913 in Amphion, mit den Nachbarhäusern. Danach Ansicht und Rendering aus demselben Modell.",
     'held.videoAlt': "Das Beispielhaus von 1913 entsteht in Amphion, danach Ansichten und Renderings",
@@ -264,6 +273,15 @@ const TEXTE = {
     'held.text': 'You no longer draw line by line. You say what you want, and Amphion builds real walls, slabs, columns, windows and stairs, with dimensions, layers and quantities.',
     'held.titel1': 'Describe it.',
     'held.titel2': 'Amphion models it.',
+    'beta.titel': "Amphion is still in beta.",
+    'beta.text': "It works, but it isn’t perfect yet. Tell us what’s missing or broken:",
+    'beta.frage': "Let me know when the finished version is out:",
+    'beta.ph': "name@studio.com",
+    'beta.senden': "Sign up",
+    'beta.zustimmung': "I agree that Amphion may email me about this. Unsubscribe any time by replying.",
+    'beta.danke': "Thank you! We’ll write as soon as the finished version is out.",
+    'beta.ungueltig': "Please enter a valid email address and tick the box.",
+    'beta.fehler': "That didn’t work. Just write to tassilo@amphion3d.com.",
     'held.vertrauen': 'Projects stay on your computer. The Mac version is notarized by Apple.',
     'held.video': "The 1913 sample house in Amphion, with its neighbours. Then viewport and rendering from the same model.",
     'held.videoAlt': "The 1913 sample house takes shape in Amphion, then viewports and renderings",
@@ -426,6 +444,15 @@ const TEXTE = {
     'held.text': 'Ya no dibujas línea a línea. Dices lo que quieres y Amphion construye muros, forjados, pilares, ventanas y escaleras de verdad, con medidas, capas y cantidades.',
     'held.titel1': 'Descríbelo.',
     'held.titel2': 'Amphion lo modela.',
+    'beta.titel': "Amphion todavía está en beta.",
+    'beta.text': "Funciona, pero aún no es perfecto. Escríbenos qué falta o qué falla:",
+    'beta.frage': "Avísame cuando salga la versión definitiva:",
+    'beta.ph': "nombre@estudio.es",
+    'beta.senden': "Apuntarme",
+    'beta.zustimmung': "Acepto que Amphion me envíe correos sobre esto. Puedo darme de baja cuando quiera respondiendo.",
+    'beta.danke': "¡Gracias! Te escribiremos en cuanto salga la versión definitiva.",
+    'beta.ungueltig': "Introduce un correo válido y marca la casilla.",
+    'beta.fehler': "No ha funcionado. Escríbenos a tassilo@amphion3d.com.",
     'held.vertrauen': 'Los proyectos se quedan en tu ordenador. La versión para Mac está notarizada por Apple.',
     'held.video': "La casa de ejemplo de 1913 en Amphion, con las casas vecinas. Después vista y render del mismo modelo.",
     'held.videoAlt': "La casa de ejemplo de 1913 se construye en Amphion, después vistas y renders",
@@ -588,6 +615,15 @@ const TEXTE = {
     'held.text': 'Tu ne dessines plus trait par trait. Tu dis ce que tu veux, et Amphion construit de vrais murs, dalles, poteaux, fenêtres et escaliers, avec cotes, calques et quantités.',
     'held.titel1': 'Décris-le.',
     'held.titel2': 'Amphion le modélise.',
+    'beta.titel': "Amphion est encore en bêta.",
+    'beta.text': "Il fonctionne, mais n’est pas encore parfait. Dis-nous ce qui manque ou coince :",
+    'beta.frage': "Préviens-moi quand la version finale sera prête :",
+    'beta.ph': "nom@agence.fr",
+    'beta.senden': "M’inscrire",
+    'beta.zustimmung': "J’accepte qu’Amphion m’envoie des e-mails à ce sujet. Désinscription à tout moment en répondant.",
+    'beta.danke': "Merci ! Nous t’écrirons dès que la version finale sera prête.",
+    'beta.ungueltig': "Merci d’indiquer une adresse valide et de cocher la case.",
+    'beta.fehler': "Cela n’a pas fonctionné. Écris-nous à tassilo@amphion3d.com.",
     'held.vertrauen': 'Les projets restent sur ton ordinateur. La version Mac est notarisée par Apple.',
     'held.video': "La maison exemple de 1913 dans Amphion, avec ses voisines. Puis vue et rendu du même modèle.",
     'held.videoAlt': "La maison exemple de 1913 se construit dans Amphion, puis vues et rendus",
@@ -750,6 +786,15 @@ const TEXTE = {
     'held.text': 'Non disegni più linea per linea. Dici quello che vuoi e Amphion costruisce muri, solai, pilastri, finestre e scale veri, con misure, livelli e quantità.',
     'held.titel1': 'Descrivilo.',
     'held.titel2': 'Amphion lo modella.',
+    'beta.titel': "Amphion è ancora in beta.",
+    'beta.text': "Funziona, ma non è ancora perfetto. Scrivici cosa manca o non va:",
+    'beta.frage': "Avvisami quando esce la versione definitiva:",
+    'beta.ph': "nome@studio.it",
+    'beta.senden': "Iscrivimi",
+    'beta.zustimmung': "Accetto che Amphion mi invii e-mail a riguardo. Posso disiscrivermi in qualsiasi momento rispondendo.",
+    'beta.danke': "Grazie! Ti scriveremo appena esce la versione definitiva.",
+    'beta.ungueltig': "Inserisci un indirizzo valido e spunta la casella.",
+    'beta.fehler': "Non ha funzionato. Scrivici a tassilo@amphion3d.com.",
     'held.vertrauen': 'I progetti restano sul tuo computer. La versione per Mac è notarizzata da Apple.',
     'held.video': "La casa di esempio del 1913 in Amphion, con le case vicine. Poi vista e rendering dallo stesso modello.",
     'held.videoAlt': "La casa di esempio del 1913 prende forma in Amphion, poi viste e rendering",
@@ -912,6 +957,15 @@ const TEXTE = {
     'held.text': 'Já não desenhas linha a linha. Dizes o que queres e o Amphion constrói paredes, lajes, pilares, janelas e escadas a sério, com medidas, camadas e quantidades.',
     'held.titel1': 'Descreve-o.',
     'held.titel2': 'O Amphion modela-o.',
+    'beta.titel': "O Amphion ainda está em beta.",
+    'beta.text': "Funciona, mas ainda não é perfeito. Diz-nos o que falta ou falha:",
+    'beta.frage': "Avisa-me quando sair a versão final:",
+    'beta.ph': "nome@atelier.pt",
+    'beta.senden': "Inscrever",
+    'beta.zustimmung': "Aceito que o Amphion me envie e-mails sobre isto. Posso cancelar a qualquer momento respondendo.",
+    'beta.danke': "Obrigado! Escrevemos-te assim que sair a versão final.",
+    'beta.ungueltig': "Indica um e-mail válido e marca a caixa.",
+    'beta.fehler': "Não funcionou. Escreve-nos para tassilo@amphion3d.com.",
     'held.vertrauen': 'Os projetos ficam no teu computador. A versão para Mac é notarizada pela Apple.',
     'held.video': "A casa de exemplo de 1913 no Amphion, com as casas vizinhas. Depois vista e render do mesmo modelo.",
     'held.videoAlt': "A casa de exemplo de 1913 nasce no Amphion, depois vistas e renders",
@@ -1088,3 +1142,16 @@ anwenden(spracheWaehlen(), false);
 alle('.sprachwahl', el => { el.value = document.documentElement.lang; el.onchange = () => { try { sessionStorage.setItem('amphion.lang', el.value); } catch {} const u = new URL(location.href); u.searchParams.delete('lang'); location.replace(u.toString()); }; });
 document.querySelector('.sprachen')?.addEventListener('click', e => { const b = e.target.closest('button[data-lang]'); if (b) anwenden(b.dataset.lang, true); });
 // 10.11.2026 (Fokus, Gestaltung ernst): keine Einblendungen, kein Tippen, keine Zähler. Die Seite steht ruhig.
+
+// Beta-Liste (10.11.2026): Adresse mit Zustimmung an die Amphion Cloud (/v1/interesse), Rückmeldung in der Sprache der Seite
+document.querySelector('.beta-form')?.addEventListener('submit', async e => {
+  e.preventDefault();
+  const f = e.currentTarget, m = f.querySelector('.beta-meldung'), email = f.email.value.trim(), lang = document.documentElement.lang || 'de', t = k => (TEXTE[lang] || TEXTE.de)[k];
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || !f.zustimmung.checked) { m.textContent = t('beta.ungueltig'); return; }
+  f.querySelector('button').disabled = true;
+  try {
+    const r = await fetch(CLOUD + '/v1/interesse', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, zustimmung: true, lang, quelle: 'website-beta' }) });
+    if (!r.ok) throw new Error(String(r.status));
+    m.textContent = t('beta.danke'); f.email.value = '';
+  } catch { m.textContent = t('beta.fehler'); f.querySelector('button').disabled = false; }
+});
