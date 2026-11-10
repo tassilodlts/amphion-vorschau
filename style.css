@@ -551,6 +551,7 @@ code.t-tok{word-break:break-all;background:var(--beton);padding:2px 6px}
 .fuss-plugins{flex-basis:100%;display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline}
 .fuss-plugins b{color:var(--ink);font-weight:700}
 .fuss-marken{flex-basis:100%;font-size:12px;line-height:1.5;color:var(--muted,#777)}   /* 9.11.: Markenhinweis */
+.fuss-sprachen{flex-basis:100%;display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px}   /* 10.11.: Sprachseiten als echte Links (Suchmaschinen) */
 .plugin-karte img.ganz{object-fit:contain;background:#fff}   /* Modellfotos auf Weiß ganz zeigen */
 
 /* Modellbau (9.11.2026, Tassilo: „Fab versteht niemand“): drei beschriftete Schritte Rhino-Modell, Laserplatte, fertiges Modell */
@@ -567,7 +568,9 @@ code.t-tok{word-break:break-all;background:var(--beton);padding:2px 6px}
 /* ===== 10.11.2026 Fokus: ernst statt Spielzeug (Masterprompt Abschnitt 6) =====
    Weiß als Grund, fast Schwarz für Text, mittleres Grau für Nebentexte, eine zurückhaltende Akzentfarbe nur für den Haupt-CTA. Inter (SIL OFL,
    site/schrift), Regular und Medium. Keine Verläufe, keine Kursive, keine Einblendungen, keine Zähler. Schmale Textspalten, große Bilder ohne Rahmen. */
-@font-face{font-family:"Inter";src:url("schrift/InterVariable.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+/* 10.11.2026 (Ladezeit): Latein-Auszug (102 kB statt 352 kB, pyftsubset, alle Sprachen der Seite); die volle Schrift nur für andere Zeichen */
+@font-face{font-family:"Inter";src:url("schrift/InterLatin.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2190-2199,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Inter";src:url("schrift/InterVariable.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap;unicode-range:U+0100-0130,U+0132-0151,U+0154-02BA,U+02BD-02C5,U+02C7-02D9,U+02DB,U+02DD-1FFF,U+2070-2073,U+2075-20AB,U+20AD-2121,U+2123-218F,U+219A-2211,U+2213-2214,U+2216-FEFE,U+FF00-FFFC}
 :root{--ink:#141414;--bg:#fff;--grau:#666;--hell:#8a8a8a;--linie:#e8e8e8;--papier:#fff;--akzent:#22465e;--akzent-dunkel:#17344a;--spalte:65ch}
 body{font-family:"Inter","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:400;color:var(--ink);background:var(--bg)}
 h1,h2,h3,h4{font-weight:500;letter-spacing:-.02em}
@@ -650,3 +653,13 @@ main.weiter{padding:120px var(--rand);font-size:16px}
 .kaufen::after{top:-7px;right:-8px;font-size:9px;padding:3px 5px}
 main>section.held.ruhig{max-width:1480px}
 @media (min-width:1000px){.held.ruhig .held-innen{grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr);gap:40px}.held.ruhig h1{font-size:clamp(40px,4.6vw,72px)}}
+/* 10.11.2026 mittags: Zahlen direkt unter dem Demo-Video, wenig Weiß; am Handy das Startvideo gleich unter der Überschrift */
+main>section.demo{padding-bottom:0!important}
+main>section.zahlen{padding-top:28px;padding-bottom:40px}
+@media (max-width:999px){
+  .held.ruhig .held-links{display:contents}
+  .held.ruhig .held-innen{display:flex;flex-direction:column;align-items:stretch;gap:0}
+  .held.ruhig .held-neu{order:0}.held.ruhig h1{order:1}.held.ruhig .held-video{order:2;margin:18px 0 4px}
+  .held.ruhig .held-text{order:3;margin-top:16px}.held.ruhig .held-laden{order:4}.held.ruhig .beta-liste{order:5}.held.ruhig .held-vertrauen{order:6}
+  .held.ruhig .held-video figcaption{display:none}
+}

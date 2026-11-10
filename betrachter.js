@@ -23,7 +23,9 @@ const FOV = 38;
 const LEICHT = new URLSearchParams(location.search).has('leicht');
 const SCHWACH = LEICHT || matchMedia('(pointer: coarse)').matches || innerWidth < 760 || (navigator.deviceMemory > 0 && navigator.deviceMemory <= 4);
 // Versionsstempel aus der Veröffentlichung (tools/veroeffentlichen.mjs): Modelle nie gemischt aus altem und neuem Stand
-const mitVersion = pfad => window.AMPHION_DATEIEN?.[pfad] ? `${pfad}?v=${window.AMPHION_DATEIEN[pfad]}` : pfad;
+// 10.11.2026 (Sprachseiten site/<lang>/, data-wurzel="../"): Modelle liegen weiter unter site/modell/, Wege von der Wurzel der Website aus
+const WURZEL = document.documentElement.dataset.wurzel || '';
+const mitVersion = pfad => WURZEL + (window.AMPHION_DATEIEN?.[pfad] ? `${pfad}?v=${window.AMPHION_DATEIEN[pfad]}` : pfad);
 // Koordinaten: X nach Osten, Y nach oben, Z nach Süden (Norden ist -Z). Schnittebene [nx, ny, nz, c]: sichtbar bleibt, was n·p + c >= 0 erfüllt.
 // Eigene Modelle je Seite (3.11., Amphion Estate): window.AMPHION_MODELLE ersetzt die Liste unten, derselbe Betrachter
 const MODELLE = window.AMPHION_MODELLE || {
@@ -592,7 +594,7 @@ if (new URLSearchParams(location.search).get('film')) {
     m.sichtbar.stadt = false; for (const k of Object.keys(m.dateien)) zeige(k);
     const echt = new THREE.Group(); m.wurzel.add(echt);
     for (const f of ['film/google_nah.glb', 'film/google_fern.glb']) {
-      const d = await loader.loadAsync(f); d.scene.traverse(o => { if (o.isMesh) { o.material = new THREE.MeshBasicMaterial({ map: o.material.map, side: THREE.DoubleSide }); o.frustumCulled = false; } }); echt.add(d.scene);
+      const d = await loader.loadAsync(WURZEL + f); d.scene.traverse(o => { if (o.isMesh) { o.material = new THREE.MeshBasicMaterial({ map: o.material.map, side: THREE.DoubleSide }); o.frustumCulled = false; } }); echt.add(d.scene);
     }
     while (K.some(k => !m.gruppen[k]?.children.length) || !m.baumNetz?.children.length) await new Promise(r => setTimeout(r, 200));   // alles geladen
     // Bäume rundherum weg (4.11. spät: „komische Bäume rund um den Sockel“): nur was auf dem Turm und den Dachgärten des Sockels steht, bleibt

@@ -2,11 +2,11 @@
 // gleichmäßig und immer gleich sein“): Markup aus tools/kopf_fuss.mjs, hier nur die Beschriftung in der Sprache der Startseite (?lang=, sonst das Gerät,
 // sonst Englisch) und die Sprachwahl. Die Startseite beschriftet Kopf und Fuß selbst (app.js, dieselben Schlüssel). Kontakt bleibt unübersetzt.
 (() => {
-  const K = ['impressum', 'datenschutz', 'agb', 'widerruf', 'lizenz'];
+  const K = ['impressum', 'datenschutz', 'agb', 'widerruf', 'lizenz', 'guides'];   // 10.11.: Anleitungen im Fuß (englisch)
   const W = {
-    de: ['Impressum', 'Datenschutz', 'AGB', 'Widerruf', 'Lizenz'], en: ['Legal notice', 'Privacy', 'Terms', 'Withdrawal', 'Licence'],
-    es: ['Aviso legal', 'Privacidad', 'Condiciones', 'Desistimiento', 'Licencia'], fr: ['Mentions légales', 'Confidentialité', 'CGV', 'Rétractation', 'Licence'],
-    it: ['Note legali', 'Privacy', 'Condizioni', 'Recesso', 'Licenza'], pt: ['Aviso legal', 'Privacidade', 'Termos', 'Livre resolução', 'Licença'],
+    de: ['Impressum', 'Datenschutz', 'AGB', 'Widerruf', 'Lizenz', 'Anleitungen'], en: ['Legal notice', 'Privacy', 'Terms', 'Withdrawal', 'Licence', 'Guides'],
+    es: ['Aviso legal', 'Privacidad', 'Condiciones', 'Desistimiento', 'Licencia', 'Guías'], fr: ['Mentions légales', 'Confidentialité', 'CGV', 'Rétractation', 'Licence', 'Guides'],
+    it: ['Note legali', 'Privacy', 'Condizioni', 'Recesso', 'Licenza', 'Guide'], pt: ['Aviso legal', 'Privacidade', 'Termos', 'Livre resolução', 'Licença', 'Guias'],
   };
   // Kopf und Plugins-Gruppe im Fuß, Reihenfolge wie N
   // 10.11.2026 (Fokus): ohne Plugins, mit Preise; Reihenfolge wie N
