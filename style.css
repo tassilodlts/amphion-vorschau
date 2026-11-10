@@ -625,7 +625,7 @@ main>section.held.ruhig{display:block;min-height:0;background:none;border:0;max-
 main.weiter{padding:120px var(--rand);font-size:16px}
 
 /* Beta (10.11.2026): stark sichtbar über den Download-Knöpfen, mit Mail-Liste für die fertige Fassung */
-.beta{margin:28px 0 0;padding:18px 20px;border:2px solid #d98a00;border-radius:12px;background:#fff5dc;color:#1b1b1a;max-width:560px;box-shadow:0 8px 24px rgba(217,138,0,.18)}
+.beta{margin:20px 0 0;padding:12px 16px;border:2px solid #d98a00;border-radius:12px;background:#fff5dc;color:#1b1b1a;max-width:560px;box-shadow:0 8px 24px rgba(217,138,0,.18)}
 .beta-kopf{margin:0;font-size:19px;font-weight:700;color:#1b1b1a;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .beta-marke{display:inline-block;background:#d98a00;color:#fff;font:700 12px/1 var(--mono,monospace);letter-spacing:.12em;text-transform:uppercase;padding:6px 9px;border-radius:5px}
 .beta-text{margin:8px 0 0;font-size:15px;color:#1b1b1a;line-height:1.45}
@@ -641,3 +641,6 @@ main.weiter{padding:120px var(--rand);font-size:16px}
 .beta-meldung:empty{display:none}
 .held.ruhig .held-laden{margin-top:24px}
 @media (max-width:640px){.held.ruhig .held-innen{padding-top:8px}.beta{padding:14px}}
+.beta-liste{margin-top:18px;border-width:1px;box-shadow:none}
+.beta-liste .beta-form{margin:0}
+.held.ruhig .held-laden{margin-top:18px}
