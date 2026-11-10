@@ -21,7 +21,9 @@
   };
   const q = new URLSearchParams(location.search).get('lang'), g = (navigator.languages || [navigator.language || 'en']).map(l => String(l).slice(0, 2).toLowerCase());
   let w = null; try { w = sessionStorage.getItem('amphion.lang'); } catch { /* ohne Speicher */ }   // Wahl auf der Startseite gilt für den Besuch (app.js)
-  const l = W[q] ? q : W[w] ? w : g.find(x => W[x]) || 'en', mit = W[q] ? '?lang=' + q : '';
+  // 10.11.2026 (Zielseiten, tools/zielseiten.mjs): Seiten mit data-zielseite sind in ihrer Sprache geschrieben; Kopf und Fuß bleiben in dieser Sprache
+  const html = document.documentElement, ziel = html.hasAttribute('data-zielseite') && W[html.lang] ? html.lang : null;
+  const l = ziel || (W[q] ? q : W[w] ? w : g.find(x => W[x]) || 'en'), mit = !ziel && W[q] ? '?lang=' + q : '';
   if (!W[q] && W[w]) { const da = [...document.querySelectorAll('[data-sprache]')]; if (da.some(s => s.dataset.sprache === w)) { document.documentElement.lang = w; for (const s of da) s.classList.toggle('on', s.dataset.sprache === w); } }
   for (const a of document.querySelectorAll('footer.fuss [data-fuss]')) {
     const i = K.indexOf(a.dataset.fuss); if (i < 0) continue;
@@ -31,6 +33,8 @@
   // Links zur Startseite und zum Konto behalten die gewählte Sprache
   if (mit) for (const a of document.querySelectorAll('header.kopf a[href]')) { const h = a.getAttribute('href'), [weg, anker = ''] = h.split('#'); if (!/^[a-z]+:/.test(h)) a.setAttribute('href', weg.split('?')[0] + mit + (anker ? '#' + anker : '')); }
   const wahl = document.querySelector('header.kopf .sprachwahl');
-  if (wahl) { wahl.value = l; wahl.onchange = () => { try { sessionStorage.setItem('amphion.lang', wahl.value); } catch { /* ohne Speicher */ } const u = new URL(location.href); u.searchParams.set('lang', wahl.value); location.href = u.href; }; }
+  if (wahl && ziel) { wahl.value = l; wahl.onchange = () => { try { sessionStorage.setItem('amphion.lang', wahl.value); } catch { /* ohne Speicher */ }
+    const alt = document.querySelector(`link[rel="alternate"][hreflang="${wahl.value}"]`); location.href = alt ? alt.href : new URL((wahl.value === 'de' ? '' : wahl.value + '/') + '?lang=' + wahl.value, new URL(document.querySelector('header.kopf .logo').href, location.href).href.replace(/(en|es)\/$/, '')).href; }; }
+  else if (wahl) { wahl.value = l; wahl.onchange = () => { try { sessionStorage.setItem('amphion.lang', wahl.value); } catch { /* ohne Speicher */ } const u = new URL(location.href); u.searchParams.set('lang', wahl.value); location.href = u.href; }; }
   for (const j of document.querySelectorAll('footer.fuss [data-jahr]')) j.textContent = new Date().getFullYear();
 })();

@@ -54,6 +54,96 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://amphion3d.com/pt/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://amphion3d.com/"/>
   </url>
+  <url><loc>https://amphion3d.com/architektursoftware-mac/</loc><lastmod>2026-11-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://amphion3d.com/architektursoftware-mac/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amphion3d.com/en/architecture-software-mac/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://amphion3d.com/es/programa-arquitectura-mac/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amphion3d.com/en/architecture-software-mac/"/>
+  </url>
+  <url><loc>https://amphion3d.com/en/architecture-software-mac/</loc><lastmod>2026-11-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://amphion3d.com/architektursoftware-mac/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amphion3d.com/en/architecture-software-mac/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://amphion3d.com/es/programa-arquitectura-mac/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amphion3d.com/en/architecture-software-mac/"/>
+  </url>
+  <url><loc>https://amphion3d.com/es/programa-arquitectura-mac/</loc><lastmod>2026-11-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://amphion3d.com/architektursoftware-mac/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amphion3d.com/en/architecture-software-mac/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://amphion3d.com/es/programa-arquitectura-mac/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amphion3d.com/en/architecture-software-mac/"/>
+  </url>
+  <url><loc>https://amphion3d.com/grundriss-in-3d-modell/</loc><lastmod>2026-11-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://amphion3d.com/grundriss-in-3d-modell/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amphion3d.com/en/floor-plan-to-3d-model/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://amphion3d.com/es/convertir-plano-modelo-3d/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amphion3d.com/en/floor-plan-to-3d-model/"/>
+  </url>
+  <url><loc>https://amphion3d.com/en/floor-plan-to-3d-model/</loc><lastmod>2026-11-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://amphion3d.com/grundriss-in-3d-modell/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amphion3d.com/en/floor-plan-to-3d-model/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://amphion3d.com/es/convertir-plano-modelo-3d/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amphion3d.com/en/floor-plan-to-3d-model/"/>
+  </url>
+  <url><loc>https://amphion3d.com/es/convertir-plano-modelo-3d/</loc><lastmod>2026-11-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://amphion3d.com/grundriss-in-3d-modell/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amphion3d.com/en/floor-plan-to-3d-model/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://amphion3d.com/es/convertir-plano-modelo-3d/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amphion3d.com/en/floor-plan-to-3d-model/"/>
+  </url>
+  <url><loc>https://amphion3d.com/grundrisse-ansichten-schnitte/</loc><lastmod>2026-11-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://amphion3d.com/grundrisse-ansichten-schnitte/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amphion3d.com/en/floor-plans-elevations-sections/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://amphion3d.com/es/plantas-alzados-secciones/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amphion3d.com/en/floor-plans-elevations-sections/"/>
+  </url>
+  <url><loc>https://amphion3d.com/en/floor-plans-elevations-sections/</loc><lastmod>2026-11-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://amphion3d.com/grundrisse-ansichten-schnitte/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amphion3d.com/en/floor-plans-elevations-sections/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://amphion3d.com/es/plantas-alzados-secciones/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amphion3d.com/en/floor-plans-elevations-sections/"/>
+  </url>
+  <url><loc>https://amphion3d.com/es/plantas-alzados-secciones/</loc><lastmod>2026-11-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://amphion3d.com/grundrisse-ansichten-schnitte/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amphion3d.com/en/floor-plans-elevations-sections/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://amphion3d.com/es/plantas-alzados-secciones/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amphion3d.com/en/floor-plans-elevations-sections/"/>
+  </url>
+  <url><loc>https://amphion3d.com/software-kleine-architekturbueros/</loc><lastmod>2026-11-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://amphion3d.com/software-kleine-architekturbueros/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amphion3d.com/en/software-small-architecture-practices/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://amphion3d.com/es/software-estudios-arquitectura-pequenos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amphion3d.com/en/software-small-architecture-practices/"/>
+  </url>
+  <url><loc>https://amphion3d.com/en/software-small-architecture-practices/</loc><lastmod>2026-11-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://amphion3d.com/software-kleine-architekturbueros/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amphion3d.com/en/software-small-architecture-practices/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://amphion3d.com/es/software-estudios-arquitectura-pequenos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amphion3d.com/en/software-small-architecture-practices/"/>
+  </url>
+  <url><loc>https://amphion3d.com/es/software-estudios-arquitectura-pequenos/</loc><lastmod>2026-11-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://amphion3d.com/software-kleine-architekturbueros/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amphion3d.com/en/software-small-architecture-practices/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://amphion3d.com/es/software-estudios-arquitectura-pequenos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amphion3d.com/en/software-small-architecture-practices/"/>
+  </url>
+  <url><loc>https://amphion3d.com/renderings-aus-3d-modell/</loc><lastmod>2026-11-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://amphion3d.com/renderings-aus-3d-modell/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amphion3d.com/en/renderings-from-3d-model/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://amphion3d.com/es/renders-arquitectura-modelo-3d/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amphion3d.com/en/renderings-from-3d-model/"/>
+  </url>
+  <url><loc>https://amphion3d.com/en/renderings-from-3d-model/</loc><lastmod>2026-11-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://amphion3d.com/renderings-aus-3d-modell/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amphion3d.com/en/renderings-from-3d-model/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://amphion3d.com/es/renders-arquitectura-modelo-3d/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amphion3d.com/en/renderings-from-3d-model/"/>
+  </url>
+  <url><loc>https://amphion3d.com/es/renders-arquitectura-modelo-3d/</loc><lastmod>2026-11-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://amphion3d.com/renderings-aus-3d-modell/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://amphion3d.com/en/renderings-from-3d-model/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://amphion3d.com/es/renders-arquitectura-modelo-3d/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://amphion3d.com/en/renderings-from-3d-model/"/>
+  </url>
   <url><loc>https://amphion3d.com/agb.html</loc><lastmod>2026-11-10</lastmod><changefreq>yearly</changefreq><priority>0.2</priority></url>
   <url><loc>https://amphion3d.com/widerruf.html</loc><lastmod>2026-11-10</lastmod><changefreq>yearly</changefreq><priority>0.2</priority></url>
 </urlset>
