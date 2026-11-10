@@ -644,3 +644,9 @@ main.weiter{padding:120px var(--rand);font-size:16px}
 .beta-liste{margin-top:18px;border-width:1px;box-shadow:none}
 .beta-liste .beta-form{margin:0}
 .held.ruhig .held-laden{margin-top:18px}
+/* 10.11.2026 nachmittags: Beta nur als kleine Marke oben rechts am Knopf (Tassilo: „nur Beta, nichts mehr“), Video größer */
+.held-laden .knopf.akzent,.kaufen{position:relative}
+.held-laden .knopf.akzent::after,.kaufen::after{content:"Beta";position:absolute;top:-9px;right:-10px;background:#d98a00;color:#fff;font:700 10px/1 var(--mono,monospace);letter-spacing:.1em;text-transform:uppercase;padding:4px 6px;border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.kaufen::after{top:-7px;right:-8px;font-size:9px;padding:3px 5px}
+main>section.held.ruhig{max-width:1480px}
+@media (min-width:1000px){.held.ruhig .held-innen{grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr);gap:40px}.held.ruhig h1{font-size:clamp(40px,4.6vw,72px)}}
