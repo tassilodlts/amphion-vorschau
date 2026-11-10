@@ -32,7 +32,7 @@ main>section,.band{padding:72px var(--rand);max-width:var(--breit);margin:0 auto
 
 /* Held */
 .held{padding-top:36px;padding-bottom:40px}
-/* 4.11. (Tassilo: oben zu viel Weiß, Laden und Kaufen müssen sofort sichtbar und klar sein): kleinere Überschrift, darunter zwei Felder 1 Laden, 2 Kaufen */
+/* 4.11. (Auftrag: oben zu viel Weiß, Laden und Kaufen müssen sofort sichtbar und klar sein): kleinere Überschrift, darunter zwei Felder 1 Laden, 2 Kaufen */
 .held-fuer{margin:0 0 14px;font-size:15px;font-weight:600;letter-spacing:.02em;color:var(--akzent)}
 .held-vertrauen{margin:4px 0 0;font-size:14px;color:var(--grau)}
 
@@ -201,7 +201,7 @@ main>section,.band{padding:72px var(--rand);max-width:var(--breit);margin:0 auto
   .aktion{grid-template-columns:1.7fr 1fr}
 }
 
-/* Vergleich Modell und Ergebnis (9.11.2026, Tassilo: kein Schieber, zwei Bilder nebeneinander, auf dem Handy untereinander) */
+/* Vergleich Modell und Ergebnis (9.11.2026, Auftrag: kein Schieber, zwei Bilder nebeneinander, auf dem Handy untereinander) */
 .vergleich{margin-top:36px}
 .vergleich h4{font-size:20px;margin:0 0 6px;letter-spacing:-.01em}
 .vergleich p{margin:0 0 14px;color:var(--hell);max-width:640px}
@@ -222,7 +222,7 @@ main>section,.band{padding:72px var(--rand);max-width:var(--breit);margin:0 auto
 .abo-zu{position:absolute;top:10px;right:14px;font:inherit;font-size:26px;background:none;border:0;cursor:pointer;color:var(--grau)}
 .abo-meldung{margin-top:14px;font-weight:700;color:var(--ink)}
 
-/* Kaufknöpfe zwischen den Abschnitten (4.11., Tassilo: überall Call-to-Action, sofort verständlich) */
+/* Kaufknöpfe zwischen den Abschnitten (4.11., Auftrag: überall Call-to-Action, sofort verständlich) */
 .cta-band{max-width:var(--breit);margin:8px auto 0;padding:28px var(--rand);border-top:1px solid var(--linie);border-bottom:1px solid var(--linie);display:grid;gap:12px;justify-items:start}
 .cta-titel{font-size:clamp(20px,2.2vw,26px);font-weight:700;letter-spacing:-.01em;margin:0}
 .cta-knoepfe{display:flex;flex-wrap:wrap;gap:12px}
@@ -240,7 +240,7 @@ main>section,.band{padding:72px var(--rand);max-width:var(--breit);margin:0 auto
 .plan.privat{border-top-color:#8a6d3b}
 .plan.privat .knopf{border-color:#8a6d3b}
 .plan.privat li::before{background:#8a6d3b}
-/* Handy (4.11. spät, Tassilo: Download sofort sichtbar): Kopf dichter, damit der erste Knopf im ersten Bildschirm liegt */
+/* Handy (4.11. spät, Auftrag: Download sofort sichtbar): Kopf dichter, damit der erste Knopf im ersten Bildschirm liegt */
 @media (max-width:719px){
   .held{padding-top:18px;padding-bottom:28px}
   .held-fuer{font-size:13px;margin:0 0 8px}
@@ -554,7 +554,7 @@ code.t-tok{word-break:break-all;background:var(--beton);padding:2px 6px}
 .fuss-sprachen{flex-basis:100%;display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px}   /* 10.11.: Sprachseiten als echte Links (Suchmaschinen) */
 .plugin-karte img.ganz{object-fit:contain;background:#fff}   /* Modellfotos auf Weiß ganz zeigen */
 
-/* Modellbau (9.11.2026, Tassilo: „Fab versteht niemand“): drei beschriftete Schritte Rhino-Modell, Laserplatte, fertiges Modell */
+/* Modellbau (9.11.2026, Auftrag: „Fab versteht niemand“): drei beschriftete Schritte Rhino-Modell, Laserplatte, fertiges Modell */
 .schritte-klein{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.schritte-klein figure{margin:0}
 .plugin-karte .schritte-klein img{aspect-ratio:1/1;object-fit:contain;background:#fff}.plugin-karte .schritte-klein img.ausschnitt{object-fit:cover;object-position:50% 50%}
 .schritte-klein figcaption{font-size:12px;color:var(--grau);margin-top:4px}
@@ -578,8 +578,6 @@ h2{font-size:clamp(28px,3.6vw,44px);margin-bottom:32px}
 main section:not(.held) h2:not(.aktion-titel)::before{content:none}
 main>section,.band{padding-top:120px;padding-bottom:120px}
 p,li{max-width:var(--spalte)}
-*,*::before,*::after{animation:none!important;transition:none!important}
-.gleit{opacity:1!important;transform:none!important}
 ::selection{background:#d9e2e8;color:var(--ink)}
 .kopf{background:#fff;backdrop-filter:none}
 .kaufen{background:var(--akzent);font-weight:500}
@@ -647,10 +645,8 @@ main.weiter{padding:120px var(--rand);font-size:16px}
 .beta-liste{margin-top:18px;border-width:1px;box-shadow:none}
 .beta-liste .beta-form{margin:0}
 .held.ruhig .held-laden{margin-top:18px}
-/* 10.11.2026 nachmittags: Beta nur als kleine Marke oben rechts am Knopf (Tassilo: „nur Beta, nichts mehr“), Video größer */
+/* 11.11.2026 (Tassilo: „das Beta überall wegnehmen“): keine Marke am Knopf mehr; Video größer */
 .held-laden .knopf.akzent,.kaufen{position:relative}
-.held-laden .knopf.akzent::after,.kaufen::after{content:"Beta";position:absolute;top:-9px;right:-10px;background:#d98a00;color:#fff;font:700 10px/1 var(--mono,monospace);letter-spacing:.1em;text-transform:uppercase;padding:4px 6px;border-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,.2)}
-.kaufen::after{top:-7px;right:-8px;font-size:9px;padding:3px 5px}
 main>section.held.ruhig{max-width:1480px}
 @media (min-width:1000px){.held.ruhig .held-innen{grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr);gap:40px}.held.ruhig h1{font-size:clamp(40px,4.6vw,72px)}}
 /* 10.11.2026 mittags: Zahlen direkt unter dem Demo-Video, wenig Weiß; am Handy das Startvideo gleich unter der Überschrift */
@@ -676,3 +672,118 @@ main>section.zahlen{padding-top:28px;padding-bottom:40px}
 .g-wrap p+p{margin-top:14px}
 /* 10.11.2026: Probezeit unter den Ladeknöpfen */
 .held-probe{font-weight:600;margin:.6em 0 0}
+
+/* ==== 10.11.2026 abends: dunkle Fassung (Auftrag: „der schwarze Hintergrund ist elegant, passt zu einem Architekten; die Leute sollen der
+   Software sofort trauen; Knöpfe fließen weich“). Eigene Handschrift statt Kopie: Nachtplan mit Haarlinien, Etiketten in Mono, Kupfer aus der
+   Fassade des Turms als Akzent, helle Knöpfe. ==== */
+:root{--ink:#eceae5;--bg:#0b0b0c;--papier:#121214;--karte:#131316;--grau:#a29e96;--hell:#6f6c66;--linie:#242428;--akzent:#c8794a;--akzent-dunkel:#a9603a;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;color-scheme:dark}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+::selection{background:#c8794a55;color:#fff}
+h1,h2,h3,h4{color:var(--ink);font-weight:400;letter-spacing:-.03em}
+h2{font-size:clamp(30px,3.8vw,54px);line-height:1.04}
+p,li,figcaption,dd{color:var(--grau)}
+/* Kopf: schwebend, dunkel, Haarlinie */
+.kopf{position:sticky;top:0;z-index:50;background:rgba(11,11,12,.72);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--linie)}
+.kopf .logo{color:var(--ink);letter-spacing:-.02em}
+.kopf .menu a{color:var(--grau);transition:color .25s}
+.kopf .menu a:hover{color:var(--ink)}
+.sprachwahl{background:transparent;color:var(--grau);border:1px solid var(--linie);border-radius:999px}
+.kaufen{background:var(--ink);color:#0b0b0c!important;border-radius:999px;padding:9px 16px;font-weight:600;transition:transform .25s,background .25s}
+.kaufen:hover{background:#fff;transform:translateY(-1px)}
+/* Knöpfe */
+.knopf{border-radius:999px;transition:transform .25s,background .25s,border-color .25s}
+.knopf.akzent{background:var(--ink);color:#0b0b0c;border-color:var(--ink)}
+.knopf.akzent:hover{background:#fff;border-color:#fff;transform:translateY(-1px)}
+.knopf:not(.akzent){background:transparent;color:var(--ink);border:1px solid #3a3a40}
+.knopf:not(.akzent):hover{border-color:var(--ink)}
+/* Startbereich: feines Raster wie ein Plan bei Nacht */
+main>section.held.ruhig{position:relative}
+main>section.held.ruhig::before{content:"";position:absolute;inset:0 calc(50% - 50vw);z-index:-1;pointer-events:none;
+  background-image:linear-gradient(#ffffff09 1px,transparent 1px),linear-gradient(90deg,#ffffff09 1px,transparent 1px);background-size:48px 48px;
+  -webkit-mask-image:radial-gradient(ellipse at 30% 30%,#000 30%,transparent 75%);mask-image:radial-gradient(ellipse at 30% 30%,#000 30%,transparent 75%)}
+.held.ruhig .held-neu{font:500 12px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--akzent)}
+.held.ruhig h1{font-weight:300;letter-spacing:-.045em}
+.held.ruhig h1 span{color:var(--ink)}
+.held.ruhig h1 span.held-zeile,.held h1 span.held-zeile{color:var(--grau);font-weight:400}
+.held.ruhig .held-text{color:var(--grau)}
+.held-probe{color:var(--ink)}
+.held-video video,.held-video img{border-radius:14px;border:1px solid var(--linie);box-shadow:0 40px 120px -40px #000,0 0 0 1px #ffffff08}
+/* Abschnitte: Nummer als Etikett über der Überschrift */
+main{counter-reset:abschnitt}
+main>section:not(.held):not(.zahlen):not(.export){counter-increment:abschnitt}
+main section:not(.held) h2:not(.aktion-titel)::before{content:counter(abschnitt,decimal-leading-zero);display:block;font:500 12px/1 var(--mono);letter-spacing:.14em;color:var(--akzent);margin-bottom:18px}
+/* Karten, Bilder, Videos */
+.demo-buehne img,.demo-buehne video{background:#000;border-radius:14px;border:1px solid var(--linie)}
+.galerie img,.projekt img{border-radius:10px}
+.galerie figcaption,.demo-buehne figcaption{color:var(--hell)}
+.preise .plan{background:var(--karte);border:1px solid var(--linie);border-radius:16px;transition:border-color .3s,transform .3s}
+.preise .plan:hover{border-color:#3a3a40;transform:translateY(-2px)}
+.preise .plan.hervor{border-color:var(--akzent);box-shadow:0 0 0 1px var(--akzent) inset}
+.preise .garantie.gross{color:var(--ink)}
+.zahlen b{color:var(--ink)}
+.mehr-liste li::before{background:var(--akzent)}
+/* Fragen: Haarlinien, weich aufklappen */
+.faq details{border-top:1px solid var(--linie)}
+.faq details:last-of-type{border-bottom:1px solid var(--linie)}
+.faq summary{color:var(--ink);cursor:pointer}
+.faq details p{color:var(--grau)}
+/* Beta-Liste dunkel */
+.beta,.beta-liste{background:var(--karte);border:1px solid var(--linie);color:var(--ink);box-shadow:none;border-radius:14px}
+.beta-kopf,.beta-label,.beta-text{color:var(--ink)}
+.beta-zeile input{background:#0b0b0c;color:var(--ink);border:1px solid #333}
+.beta-zeile .knopf{background:var(--ink);color:#0b0b0c;border-color:var(--ink)}
+.beta-ok,.beta-ok a{color:var(--hell)}
+.beta-meldung{color:var(--akzent)}
+/* Modell-Bereich: Eingabe und Chips dunkel */
+.modell input,.modell textarea{background:var(--karte);color:var(--ink);border:1px solid var(--linie)}
+.modell button,.chips button,.chip{background:transparent;color:var(--grau);border:1px solid var(--linie);border-radius:999px}
+.modell button:hover,.chip:hover{color:var(--ink);border-color:#3a3a40}
+/* Fuß */
+.fuss{border-top:1px solid var(--linie);color:var(--hell)}
+.fuss a{color:var(--grau)}
+.fuss-marken{color:var(--hell)}
+/* Weiches Auftauchen beim Scrollen (site/fuss.js setzt .auf, sobald sichtbar) */
+@media (prefers-reduced-motion:no-preference){
+  .weich{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+  .weich.auf{opacity:1;transform:none}
+}
+.held-laden .knopf.akzent{background:var(--ink);border-color:var(--ink);color:#0b0b0c}
+.held-laden .knopf.akzent:hover{background:#fff;border-color:#fff;color:#0b0b0c}
+
+/* ==== 10.11.2026 abends, zweite Runde (Auftrag: „fast ein bisschen zu laut“, „lieber mit dem Apfel drin“, „einfach ästhetischer“): leiser ==== */
+main>section.held.ruhig::before{content:none}
+.held.ruhig .held-neu{color:var(--hell);letter-spacing:.12em}
+main section:not(.held) h2:not(.aktion-titel)::before{color:var(--hell)}
+.held.ruhig h1{font-weight:300}
+.kaufen{padding:8px 15px 8px 13px;font-weight:500;font-size:14px}
+/* Logo des Systems im Knopf */
+/* 10.11. abends, dritte Runde (Auftrag: „bei Treform wird der Apfel mit dem Knopf etwas größer, eine Ästhetik, die überzeugt“): Text, dann
+   das Logo in einem eigenen dunklen Kreis; beim Darüberfahren wächst der Knopf leicht und der Kreis mit dem Logo deutlich, weich */
+.os-mac,.os-win{display:inline-flex;align-items:center;gap:10px;transition:transform .35s cubic-bezier(.2,.7,.2,1),background .25s,box-shadow .35s}
+.os-mac::before,.os-win::before{content:"";order:2;flex:none;width:26px;height:26px;border-radius:50%;background:#0b0b0c url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M16.37 12.52c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.78-3.32-1.8-1.41-.14-2.76.83-3.48.83-.72 0-1.83-.81-3-.79-1.55.02-2.97.9-3.77 2.28-1.61 2.79-.41 6.92 1.15 9.19.77 1.11 1.68 2.35 2.87 2.31 1.15-.05 1.59-.75 2.98-.75 1.39 0 1.78.75 3 .72 1.24-.02 2.03-1.13 2.78-2.24.88-1.29 1.24-2.53 1.26-2.6-.03-.01-2.41-.92-2.43-3.69zM14.1 5.75c.63-.77 1.06-1.83.94-2.89-.91.04-2.01.61-2.67 1.37-.58.67-1.1 1.76-.96 2.8 1.02.08 2.05-.52 2.69-1.28z'/%3E%3C/svg%3E") 50% 46%/13px no-repeat;
+  transition:transform .35s cubic-bezier(.2,.7,.2,1),background-size .35s cubic-bezier(.2,.7,.2,1)}
+.os-win::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M3 5.5l7.4-1v7.1H3zm8.3-1.1L21 3v8.6h-9.7zM3 12.4h7.4v7.1L3 18.5zm8.3 0H21V21l-9.7-1.4z'/%3E%3C/svg%3E");background-position:center;background-size:11px}
+.kaufen.os-mac,.kaufen.os-win{padding:5px 5px 5px 16px}
+.held-laden .knopf.os-mac,.held-laden .knopf.os-win{padding:9px 9px 9px 26px}
+.held-laden .knopf.os-mac::before,.held-laden .knopf.os-win::before{width:38px;height:38px;background-size:17px}
+.os-mac:hover,.os-win:hover{transform:scale(1.035);box-shadow:0 10px 30px -12px #ffffff40}
+.os-mac:hover::before{transform:scale(1.12);background-size:16px}
+.os-win:hover::before{transform:scale(1.12);background-size:13px}
+.held-laden .knopf.os-mac:hover::before{background-size:21px}
+.held-laden .knopf.os-win:hover::before{background-size:16px}
+.m-frage[hidden]{display:none!important}
+
+/* 10.11.2026 abends: Projekte als Planblätter und Turm als Reihe (Aufbau, Darstellungen) */
+.galerie.plaene{grid-template-columns:repeat(3,1fr);gap:20px}
+.galerie.plaene img{background:#fff;padding:14px;border-radius:10px;width:100%;height:auto}
+.reihe-titel{font:500 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--hell);margin:44px 0 16px}
+.galerie.reihe{display:grid;gap:14px}
+.galerie.aufbau{grid-template-columns:repeat(4,1fr)}
+.galerie.darstellung{grid-template-columns:repeat(5,1fr)}
+.galerie.reihe img{width:100%;aspect-ratio:1/2;object-fit:cover;border-radius:10px;background:#000}
+.galerie.reihe figcaption,.galerie.plaene figcaption{margin-top:8px;font-size:13px;color:var(--grau)}
+@media (max-width:760px){.galerie.plaene{grid-template-columns:repeat(2,1fr)}.galerie.aufbau{grid-template-columns:repeat(2,1fr)}.galerie.darstellung{grid-template-columns:repeat(3,1fr)}}
+.galerie.plaene img{aspect-ratio:auto!important;object-fit:contain!important;height:auto!important;max-height:none!important}
