@@ -294,7 +294,7 @@ main>section.held{max-width:none;margin:0;padding:0;position:relative;overflow:h
 /* 10.11.2026: Video rechts neben dem Text (tools/video_aufbau.mjs), am Handy darunter */
 .held-links{min-width:0}
 .held-video{margin:0;min-width:0}
-.held-video video{display:block;width:100%;height:auto;aspect-ratio:1600/1064;border-radius:10px;background:#e9e7e2;box-shadow:0 30px 80px rgba(27,27,26,.18),0 2px 8px rgba(27,27,26,.10)}
+.held-video video{display:block;width:100%;height:auto;aspect-ratio:1600/894;border-radius:10px;background:#e9e7e2;box-shadow:0 30px 80px rgba(27,27,26,.18),0 2px 8px rgba(27,27,26,.10)}
 .held-video figcaption{margin-top:12px;font:500 11px/1.5 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--hell)}
 @media (min-width:1000px){.held-innen{grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:48px}}
 @media (prefers-reduced-motion:reduce){.held-video video{animation:none}}
