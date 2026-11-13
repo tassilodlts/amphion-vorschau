@@ -136,6 +136,8 @@ const TEXTE = {
     'held.ladenX64': 'Mac · Intel',
     'held.teilen': 'Am Handy? Link an den Computer schicken',
     'held.text': 'Du baust nicht mehr Linie für Linie. Du sagst, was du willst, und Amphion baut echte Wände, Decken, Stützen, Fenster und Treppen mit Maßen, Layern und Mengen.',
+    'held.mobil': 'Architektur, einfach gemacht',
+    'aria.menue': 'Menü',
     'held.titel1': 'Beschreib es.',
     'held.titel2': 'Amphion modelliert es.',
     'held.zeile': 'Software für Architekten: 3D-Modell, Pläne und Schnitte',
@@ -353,6 +355,8 @@ const TEXTE = {
     'held.ladenX64': 'Mac · Intel',
     'held.teilen': 'On your phone? Send the link to your computer',
     'held.text': 'You no longer draw line by line. You say what you want, and Amphion builds real walls, slabs, columns, windows and stairs, with dimensions, layers and quantities.',
+    'held.mobil': 'Architecture made simple',
+    'aria.menue': 'Menu',
     'held.titel1': 'Describe it.',
     'held.titel2': 'Amphion models it.',
     'held.zeile': 'Architecture software: 3D model, plans and sections',
@@ -570,6 +574,8 @@ const TEXTE = {
     'held.ladenX64': 'Mac · Intel',
     'held.teilen': '¿En el móvil? Envía el enlace a tu ordenador',
     'held.text': 'Ya no dibujas línea a línea. Dices lo que quieres y Amphion construye muros, forjados, pilares, ventanas y escaleras de verdad, con medidas, capas y cantidades.',
+    'held.mobil': 'Arquitectura, simplificada',
+    'aria.menue': 'Menú',
     'held.titel1': 'Descríbelo.',
     'held.titel2': 'Amphion lo modela.',
     'held.zeile': 'Software de arquitectura: modelo 3D, plantas y secciones',
@@ -787,6 +793,8 @@ const TEXTE = {
     'held.ladenX64': 'Mac · Intel',
     'held.teilen': 'Sur ton téléphone ? Envoie le lien à ton ordinateur',
     'held.text': 'Tu ne dessines plus trait par trait. Tu dis ce que tu veux, et Amphion construit de vrais murs, dalles, poteaux, fenêtres et escaliers, avec cotes, calques et quantités.',
+    'held.mobil': 'L’architecture, simplifiée',
+    'aria.menue': 'Menu',
     'held.titel1': 'Décris-le.',
     'held.titel2': 'Amphion le modélise.',
     'held.zeile': 'Logiciel d’architecture : maquette 3D, plans et coupes',
@@ -1004,6 +1012,8 @@ const TEXTE = {
     'held.ladenX64': 'Mac · Intel',
     'held.teilen': 'Sei sul telefono? Invia il link al tuo computer',
     'held.text': 'Non disegni più linea per linea. Dici quello che vuoi e Amphion costruisce muri, solai, pilastri, finestre e scale veri, con misure, livelli e quantità.',
+    'held.mobil': 'Architettura, semplificata',
+    'aria.menue': 'Menu',
     'held.titel1': 'Descrivilo.',
     'held.titel2': 'Amphion lo modella.',
     'held.zeile': 'Software di architettura: modello 3D, piante e sezioni',
@@ -1221,6 +1231,8 @@ const TEXTE = {
     'held.ladenX64': 'Mac · Intel',
     'held.teilen': 'No telemóvel? Envia o link para o teu computador',
     'held.text': 'Já não desenhas linha a linha. Dizes o que queres e o Amphion constrói paredes, lajes, pilares, janelas e escadas a sério, com medidas, camadas e quantidades.',
+    'held.mobil': 'Arquitetura, simplificada',
+    'aria.menue': 'Menu',
     'held.titel1': 'Descreve-o.',
     'held.titel2': 'O Amphion modela-o.',
     'held.zeile': 'Software de arquitetura: modelo 3D, plantas e cortes',
@@ -1513,5 +1525,17 @@ document.querySelector('.beta-form')?.addEventListener('submit', async e => {
     for (const z of ziele) { if (z.closest('.held')) continue; z.classList.add('erscheint'); const p = z.parentElement; const n = gruppen.get(p) || 0; gruppen.set(p, n + 1); z.style.setProperty('--v', Math.min(n, 6) * 70 + 'ms'); }
     const io = new IntersectionObserver(es => { for (const e of es) if (e.isIntersecting) { e.target.classList.add('da'); io.unobserve(e.target); } }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
     ziele.forEach(z => z.classList.contains('erscheint') && io.observe(z));
+  }
+}
+
+// Menü am Handy: drei Striche öffnen und schließen die Liste (13.11.2026)
+{
+  const kopf = document.querySelector('.kopf'), knopf = kopf?.querySelector('.menue-knopf');
+  if (knopf) {
+    const zu = () => { kopf.classList.remove('menue-auf'); knopf.setAttribute('aria-expanded', 'false'); };
+    knopf.addEventListener('click', () => { const auf = kopf.classList.toggle('menue-auf'); knopf.setAttribute('aria-expanded', String(auf)); });
+    kopf.querySelectorAll('.menu a').forEach(a => a.addEventListener('click', zu));
+    addEventListener('keydown', e => { if (e.key === 'Escape') zu(); });
+    addEventListener('resize', () => { if (innerWidth > 719) zu(); });
   }
 }
