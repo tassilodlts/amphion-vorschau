@@ -1570,7 +1570,7 @@ document.querySelector('.beta-form')?.addEventListener('submit', async e => {
     const bauen = () => {
       if (buehne || !mq.matches || !folge.length) return;
       sek.classList.add('scrollbuehne');
-      const lauf = document.createElement('div'); lauf.className = 'turm-lauf'; lauf.style.height = `calc(${folge.length} * 62vh + 100vh)`;
+      const lauf = document.createElement('div'); lauf.className = 'turm-lauf'; lauf.style.height = `calc(${folge.length} * 26vh + 100vh)`;   // 13.11.2026 (Tassilo: Sprung schneller): 26 statt 62 vh je Bild
       const st = document.createElement('div'); st.className = 'turm-buehne';
       const kopf = document.createElement('p'); kopf.className = 'turm-gruppe';
       const rahmen = document.createElement('div'); rahmen.className = 'turm-rahmen';
