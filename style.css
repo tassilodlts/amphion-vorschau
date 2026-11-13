@@ -988,3 +988,11 @@ main section:not(.held) h2:not(.aktion-titel)::before{color:var(--hell)}
   .turm-punkte i.neu{margin-left:10px}
   .turm-punkte i.an{background:var(--ink)}
 }
+/* 13.11.2026: Demo-Knopf gross und klar, zweimal auf der Seite (termin-band oben, kontakt unten) */
+.knopf.termin,.knopf.termin:link,.knopf.termin:visited{background:var(--ink);border-color:var(--ink);color:var(--bg);font-size:20px;padding:20px 34px;border-radius:999px}
+.knopf.termin::after{content:" →"}
+.knopf.termin:hover{background:var(--akzent);border-color:var(--akzent);color:#fff}
+.termin-band{max-width:var(--breit);margin:0 auto;padding:40px var(--rand);border-top:1px solid var(--linie);display:grid;gap:14px;justify-items:start}
+.termin-titel{font-size:clamp(24px,3vw,34px);font-weight:800;margin:0;line-height:1.15}
+.termin-band .klein{margin:0;color:var(--grau)}
+@media (max-width:719px){.knopf.termin{width:100%;font-size:17px;padding:18px 14px;white-space:nowrap}}
