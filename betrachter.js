@@ -280,9 +280,9 @@ async function lade(k) {
       }
       const glas = o.material.name === 'glas', solid = o.material.name === 'solid';   // solid: geschlossene Körper (tools/web_3dm_glb.mjs), nur sie bekommen Kappen
       o.material = glas
-        ? new THREE.MeshStandardMaterial({ vertexColors: true, metalness: 0.15, roughness: 0.04, envMap: UMGEBUNG, envMapIntensity: 1.35, transparent: true, opacity: 0.58, side: THREE.DoubleSide, depthWrite: false })   // spiegelt, leicht getönt
+        ? new THREE.MeshStandardMaterial({ color: 0xdcebf2, metalness: 0.05, roughness: 0.02, envMap: UMGEBUNG, envMapIntensity: 0.9, transparent: true, opacity: 0.14, side: THREE.DoubleSide, depthWrite: false })   // 13.11.2026 (Tassilo: Glas war eine blaue, undurchsichtige Fläche): fast klar, nur Spiegelung, man schaut hindurch
         : new THREE.MeshLambertMaterial({ vertexColors: true, flatShading: true, side: THREE.DoubleSide });
-      o.frustumCulled = false;
+      o.frustumCulled = false; if (glas) o.renderOrder = 3;
       const kappenGruppe_ = m.kappen ? m.kappen.includes(k) : KAPPEN_GRUPPEN.has(k);
       if (solid && kappenGruppe_) { const s = kappenGruppe(o.geometry); s.visible = !!m.schnitt; o.add(s); m.schnittflaechen.push(s); }
       // offene Körper (Wände ohne Deckel, Böden als Fläche) in denselben Gruppen: im Schnitt nur Vorderseiten, Rückseiten dunkel, so wirkt

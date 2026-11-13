@@ -1386,7 +1386,7 @@ let PERIODE = 'monat';
 function periodeSetzen(p) {
   PERIODE = p; const t = TEXTE[document.documentElement.lang] || TEXTE.de;
   for (const b of document.querySelectorAll('[data-periode]')) b.classList.toggle('an', b.dataset.periode === p);
-  for (const z of document.querySelectorAll('#preis .zahl[data-preis-monat]')) z.textContent = z.dataset[p === 'jahr' ? 'preisJahr' : 'preisMonat'];
+  for (const z of document.querySelectorAll('#preis .zahl[data-preis-monat]')) (window.zahlRollt || ((el, x) => { el.textContent = x; }))(z, z.dataset[p === 'jahr' ? 'preisJahr' : 'preisMonat']);
   for (const e of document.querySelectorAll('#preis [data-einheit-monat]')) { e.dataset.i18n = p === 'jahr' ? e.dataset.einheitJahr : e.dataset.einheitMonat; e.textContent = t[e.dataset.i18n] || e.textContent; }
   bueroPreis();
 }
@@ -1395,7 +1395,7 @@ function bueroPreis() {
   const inp = document.querySelector('#preis [data-plaetze]'); if (!inp) return;
   const n = Math.min(100, Math.max(3, Math.floor(+inp.value) || 3)), jahr = PERIODE === 'jahr', plan = inp.closest('.plan');
   const euro = c => String(c).replace(/\B(?=(\d{3})+$)/g, ' ') + ' €';
-  const z = plan.querySelector('.zahl'); z.textContent = euro((jahr ? 3990 : 399) + (n - 3) * (jahr ? 1290 : 129));
+  const z = plan.querySelector('.zahl'); (window.zahlRollt || ((el, x) => { el.textContent = x; }))(z, euro((jahr ? 3990 : 399) + (n - 3) * (jahr ? 1290 : 129)));
   const e = plan.querySelector('.einheit'), tx = TEXTE[document.documentElement.lang] || TEXTE.de; if (e) e.textContent = (tx[e.dataset.i18n] || e.textContent).replace(/\b3\b/, String(n));
 }
 document.querySelector('#preis [data-plaetze]')?.addEventListener('input', bueroPreis);
@@ -1471,4 +1471,47 @@ document.querySelector('.beta-form')?.addEventListener('submit', async e => {
   for (const v of videos) sicht.observe(v);
   const beruehrt = () => { for (const v of videos) if (v.paused && v.getBoundingClientRect().top < innerHeight) spiel(v); };
   for (const ev of ['touchstart', 'pointerdown', 'scroll']) addEventListener(ev, beruehrt, { passive: true, once: ev !== 'scroll' });
+}
+
+// ==== 13.11.2026 (Tassilo: „bei Treform fließt alles viel mehr, wenn man von einem Knopf zum nächsten drückt“): Bewegung ohne Bibliothek ====
+// 1. Gleiter: ein Ring wandert weich zwischen den Reitern und beim Monat/Jahr-Schalter; 2. Einblenden beim Scrollen; 3. Zahlen rollen zum neuen Wert;
+// 4. Einlauf der Startseite. Aus bei „weniger Bewegung“ und in Prüfläufen (navigator.webdriver), damit Tests nur Endzustände sehen.
+{
+  const ruhig = matchMedia('(prefers-reduced-motion: reduce)').matches || navigator.webdriver;
+  const gleiter = (box, aktiv, klasse) => {
+    if (!box) return;
+    box.classList.add('mit-gleiter'); const ring = document.createElement('span'); ring.className = 'gleiter'; ring.setAttribute('aria-hidden', 'true'); box.prepend(ring);
+    const setze = (springen) => { const b = box.querySelector(aktiv); if (!b) return; if (springen) ring.style.transition = 'none';
+      ring.style.transform = `translate(${b.offsetLeft}px,${b.offsetTop}px)`; ring.style.width = b.offsetWidth + 'px'; ring.style.height = b.offsetHeight + 'px';
+      if (springen) { ring.offsetWidth; ring.style.transition = ''; } };
+    setze(true);
+    new MutationObserver(() => setze(false)).observe(box, { subtree: true, attributes: true, attributeFilter: ['class'] });
+    addEventListener('resize', () => setze(true)); document.fonts?.ready.then(() => setze(true));
+    new ResizeObserver(() => setze(true)).observe(box);
+    // wenn der Dialog erst beim Öffnen Maße bekommt
+    box.closest('dialog')?.addEventListener('toggle', () => setze(true)); box.closest('dialog')?.addEventListener('transitionend', () => setze(true));
+    return klasse;
+  };
+  gleiter(document.querySelector('.m-reiter'), 'button.on');
+  gleiter(document.querySelector('#preis .periode'), 'button.an');
+  const dlg = document.querySelector('#preis');
+  if (dlg) { const o = dlg.showModal.bind(dlg); dlg.showModal = () => { o(); requestAnimationFrame(() => dlg.querySelectorAll('.mit-gleiter').forEach(b => b.dispatchEvent(new Event('transitionend')))); }; }
+
+  // Zahlen rollen: wird von periodeSetzen und bueroPreis benutzt (window.zahlRollt)
+  window.zahlRollt = (el, text) => {
+    const ziel = parseInt(String(text).replace(/\D/g, ''), 10), von = parseInt(String(el.textContent).replace(/\D/g, ''), 10);
+    if (ruhig || !Number.isFinite(ziel) || !Number.isFinite(von) || von === ziel) { el.textContent = text; return; }
+    cancelAnimationFrame(el._anim); const t0 = performance.now(), dauer = 520, fmt = n => String(Math.round(n)).replace(/\B(?=(\d{3})+$)/g, ' ') + ' €';
+    const schritt = t => { const k = Math.min(1, (t - t0) / dauer), e = 1 - Math.pow(1 - k, 4); el.textContent = k < 1 ? fmt(von + (ziel - von) * e) : text; if (k < 1) el._anim = requestAnimationFrame(schritt); };
+    el._anim = requestAnimationFrame(schritt);
+  };
+
+  if (!ruhig && 'IntersectionObserver' in window) {
+    document.documentElement.classList.add('fluss');
+    const ziele = [...document.querySelectorAll('main > section:not(.held) > *, .galerie > *, .liste > li, .schritte li, .zahlen > div, .faq details, .projekt, .cta-band > *')];
+    const gruppen = new Map();
+    for (const z of ziele) { if (z.closest('.held')) continue; z.classList.add('erscheint'); const p = z.parentElement; const n = gruppen.get(p) || 0; gruppen.set(p, n + 1); z.style.setProperty('--v', Math.min(n, 6) * 70 + 'ms'); }
+    const io = new IntersectionObserver(es => { for (const e of es) if (e.isIntersecting) { e.target.classList.add('da'); io.unobserve(e.target); } }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    ziele.forEach(z => z.classList.contains('erscheint') && io.observe(z));
+  }
 }
