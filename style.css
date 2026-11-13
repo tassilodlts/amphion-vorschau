@@ -787,3 +787,61 @@ main section:not(.held) h2:not(.aktion-titel)::before{color:var(--hell)}
 .galerie.reihe figcaption,.galerie.plaene figcaption{margin-top:8px;font-size:13px;color:var(--grau)}
 @media (max-width:760px){.galerie.plaene{grid-template-columns:repeat(2,1fr)}.galerie.aufbau{grid-template-columns:repeat(2,1fr)}.galerie.darstellung{grid-template-columns:repeat(3,1fr)}}
 .galerie.plaene img{aspect-ratio:auto!important;object-fit:contain!important;height:auto!important;max-height:none!important}
+
+/* ==== 13.11.2026 (Tassilo: „bei Treform deckt der Apfel beim Darüberfahren den ganzen Knopf ab; bei allen Mac- und Windows-Knöpfen; Preistabelle Farben falsch, Knöpfe abgeschnitten; Logo in schönerer Schrift; maximale Ästhetik“) ==== */
+/* Logo: Didot-Wortmarke */
+@font-face{font-family:"GFS Didot";src:url("schrift/GFSDidot-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+.kopf .logo{font-family:"GFS Didot","Didot","Bodoni 72",Georgia,serif;font-weight:400;font-size:29px;letter-spacing:.015em;line-height:1;padding-bottom:2px;transition:letter-spacing .5s cubic-bezier(.2,.7,.2,1),color .3s}
+.kopf .logo:hover{letter-spacing:.05em}
+
+/* Mac- und Windows-Knöpfe: Logo im Kreis rechts; beim Darüberfahren wächst der Kreis über den ganzen Knopf, der Text weicht */
+.os-mac,.os-win{position:relative;isolation:isolate;overflow:hidden;transition:transform .45s cubic-bezier(.2,.7,.2,1),background .3s,box-shadow .45s,color .25s,border-color .3s}
+.os-mac::before,.os-win::before{position:absolute;order:0;right:5px;top:50%;width:26px;height:26px;margin-top:-13px;border-radius:999px;z-index:-1;
+  transition:right .5s cubic-bezier(.2,.7,.2,1),top .5s cubic-bezier(.2,.7,.2,1),width .5s cubic-bezier(.2,.7,.2,1),height .5s cubic-bezier(.2,.7,.2,1),margin .5s cubic-bezier(.2,.7,.2,1),background-size .5s cubic-bezier(.2,.7,.2,1)}
+.kaufen.os-mac,.kaufen.os-win{padding:7px 46px 7px 17px}
+.held-laden .knopf.os-mac,.held-laden .knopf.os-win{padding:12px 66px 12px 28px}
+.held-laden .knopf.os-mac::before,.held-laden .knopf.os-win::before{right:9px;width:38px;height:38px;margin-top:-19px}
+.os-mac:hover,.os-win:hover{transform:translateY(-1px);box-shadow:0 14px 40px -14px #ffffff55;color:transparent!important}
+.os-mac:hover::before,.os-win:hover::before{right:0;top:0;width:100%;height:100%;margin-top:0;transform:none}
+.os-mac:hover::before{background-size:20px}
+.os-win:hover::before{background-size:17px}
+.held-laden .knopf.os-mac:hover::before{background-size:28px}
+.held-laden .knopf.os-win:hover::before{background-size:24px}
+.os-mac:focus-visible,.os-win:focus-visible{outline:2px solid var(--akzent);outline-offset:3px}
+/* Download-Links in der Zeile darunter: gleiche Bewegung, dezent */
+.held-systeme a{text-decoration:none;border-bottom:1px solid var(--linie);padding-bottom:1px;transition:color .25s,border-color .25s}
+.held-systeme a:hover{color:var(--ink);border-color:var(--ink)}
+
+/* Preise: dunkles Blatt, drei Spalten, Knöpfe vollständig */
+.preise{background:#0e0e10;color:var(--ink);border:1px solid var(--linie);border-radius:24px;padding:56px clamp(20px,4vw,52px) 40px;box-shadow:0 60px 160px -40px #000}
+.preise::backdrop{background:rgba(5,5,6,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.preise h2{font-family:"GFS Didot","Didot",Georgia,serif;font-weight:400;letter-spacing:-.01em;margin-bottom:12px}
+.preise h2::before{content:none!important}
+.preise-zu{margin:-30px -22px 0 0;color:var(--grau);border-radius:50%;transition:color .2s,background .2s}
+.preise-zu:hover{color:var(--ink);background:#ffffff12}
+.preise .garantie.gross{color:var(--grau);font-size:17px}
+.preise .periode{border:1px solid var(--linie);border-radius:999px;padding:4px;background:#17171a;margin:8px 0 36px}
+.preise .periode button{background:transparent;color:var(--grau);border-radius:999px;padding:10px 20px;font-weight:500;transition:background .3s,color .3s}
+.preise .periode button.an{background:var(--ink);color:#0b0b0c}
+.preise .plaene{gap:24px;align-items:stretch}
+@media (min-width:1000px){.preise .plaene{grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}}
+.preise .plan{padding:34px 30px 30px;border-top-width:1px;background:linear-gradient(180deg,#161619,#111113);border:1px solid var(--linie);border-radius:20px;color:var(--ink)}
+.preise .plan.hervor{border-color:var(--akzent);background:linear-gradient(180deg,#1b1613,#121012);box-shadow:0 0 0 1px var(--akzent) inset,0 30px 80px -40px #c8794a88}
+.preise .plan h3{color:var(--ink);font-size:21px;font-weight:500;letter-spacing:-.01em}
+.preise .plan.hervor h3{color:var(--ink)}
+.preise .plan h3 small{display:inline-block;font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#0b0b0c;background:var(--akzent);border-radius:999px;padding:5px 9px;margin-left:10px;vertical-align:3px}
+.preise .plan .zahl{font-size:clamp(40px,4vw,56px);font-weight:300;letter-spacing:-.045em;color:var(--ink)}
+.preise .plan .einheit{color:var(--hell)}
+.preise .plan li{color:var(--grau);font-size:16px;line-height:1.45}
+.preise .plan li::before{width:6px;height:6px;border-radius:50%;top:9px;background:var(--hell)}
+.preise .plan.hervor li::before{background:var(--akzent)}
+.preise .plan .plaetze{color:var(--grau)}
+.preise .plan .plaetze input{background:#0b0b0c;color:var(--ink);border:1px solid var(--linie);border-radius:10px;padding:8px 10px}
+.preise .plan .knopf{display:block;width:100%;padding:15px 20px;font-size:16px;line-height:1.2;white-space:normal;background:transparent;color:var(--ink);border:1px solid #3a3a40}
+.preise .plan .knopf:hover{border-color:var(--ink);background:#ffffff0f;color:var(--ink)}
+.preise .plan .knopf.akzent{background:var(--ink);color:#0b0b0c;border-color:var(--ink)}
+.preise .plan .knopf.akzent:hover{background:var(--akzent);border-color:var(--akzent);color:#0b0b0c}
+.preise>.klein{margin-top:28px;color:var(--hell);text-align:center}
+@media (max-width:719px){.preise{border-radius:0;border:0}}
+.preise>.klein{max-width:none;width:100%;display:block}
+.held-laden .knopf.os-mac:hover::before,.held-laden .knopf.os-win:hover::before{right:0;top:0;width:100%;height:100%;margin-top:0}
