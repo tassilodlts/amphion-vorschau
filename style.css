@@ -965,3 +965,8 @@ main section:not(.held) h2:not(.aktion-titel)::before{color:var(--hell)}
   .kopf .menu .sprachwahl{order:9;align-self:flex-start;margin:18px 0 4px;font-size:16px;padding:10px 18px;min-height:44px}
   .kopf .sprachen{display:none}
 }
+/* 13.11.2026 (Tassilo: „Architecture made simple“ auch am Rechner, Zeile „für Architekten im eigenen Büro“ weg): die h1 ist die Überschrift auf allen Geräten */
+@media (max-width:719px){
+  .held.ruhig h1{order:2;position:static;width:auto;height:auto;overflow:visible;clip:auto;white-space:normal;margin:0;font-size:clamp(34px,10.4vw,44px);font-weight:700;letter-spacing:-.04em;line-height:1.04}
+  .held.ruhig h1 span.held-zeile{font-size:14px;font-weight:400;letter-spacing:0;margin-top:.8em}
+}
