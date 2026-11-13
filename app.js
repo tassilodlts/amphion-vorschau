@@ -192,7 +192,7 @@ const TEXTE = {
     'preis.monatlich': 'Monatlich',
     'preis.mwst': 'Alle Preise zzgl. MwSt.',
     'preis.titel': 'Preise',
-    'pro.fuer': 'empfohlen',
+    'pro.fuer': 'Beliebteste Wahl',
     'pro.knopf': 'Amphion wählen',
     'pro.l1': 'Alles aus Manuell',
     'pro.l2': 'KI-Chat ohne Monatslimit mit den starken Modellen (faire Nutzung)',
@@ -409,7 +409,7 @@ const TEXTE = {
     'preis.monatlich': 'Monthly',
     'preis.mwst': 'All prices excluding VAT.',
     'preis.titel': 'Pricing',
-    'pro.fuer': 'recommended',
+    'pro.fuer': 'Most popular',
     'pro.knopf': 'Choose Amphion',
     'pro.l1': 'Everything in Manual',
     'pro.l2': 'AI chat without a monthly limit on the strong models (fair use)',
@@ -626,7 +626,7 @@ const TEXTE = {
     'preis.monatlich': 'Mensual',
     'preis.mwst': 'Todos los precios sin IVA.',
     'preis.titel': 'Precios',
-    'pro.fuer': 'recomendado',
+    'pro.fuer': 'Más popular',
     'pro.knopf': 'Elegir Amphion',
     'pro.l1': 'Todo lo de Manual',
     'pro.l2': 'Chat de IA sin límite mensual con los modelos potentes (uso razonable)',
@@ -843,7 +843,7 @@ const TEXTE = {
     'preis.monatlich': 'Mensuel',
     'preis.mwst': 'Tous les prix hors TVA.',
     'preis.titel': 'Tarifs',
-    'pro.fuer': 'recommandé',
+    'pro.fuer': 'Le plus populaire',
     'pro.knopf': 'Choisir Amphion',
     'pro.l1': 'Tout Manuel',
     'pro.l2': 'Chat d’IA sans limite mensuelle avec les modèles puissants (usage raisonnable)',
@@ -1060,7 +1060,7 @@ const TEXTE = {
     'preis.monatlich': 'Mensile',
     'preis.mwst': 'Tutti i prezzi IVA esclusa.',
     'preis.titel': 'Prezzi',
-    'pro.fuer': 'consigliato',
+    'pro.fuer': 'Più popolare',
     'pro.knopf': 'Scegli Amphion',
     'pro.l1': 'Tutto di Manuale',
     'pro.l2': 'Chat IA senza limite mensile con i modelli potenti (uso corretto)',
@@ -1277,7 +1277,7 @@ const TEXTE = {
     'preis.monatlich': 'Mensal',
     'preis.mwst': 'Todos os preços sem IVA.',
     'preis.titel': 'Preços',
-    'pro.fuer': 'recomendado',
+    'pro.fuer': 'Mais popular',
     'pro.knopf': 'Escolher Amphion',
     'pro.l1': 'Tudo do Manual',
     'pro.l2': 'Chat de IA sem limite mensal com os modelos potentes (uso razoável)',
@@ -1388,7 +1388,17 @@ function periodeSetzen(p) {
   for (const b of document.querySelectorAll('[data-periode]')) b.classList.toggle('an', b.dataset.periode === p);
   for (const z of document.querySelectorAll('#preis .zahl[data-preis-monat]')) z.textContent = z.dataset[p === 'jahr' ? 'preisJahr' : 'preisMonat'];
   for (const e of document.querySelectorAll('#preis [data-einheit-monat]')) { e.dataset.i18n = p === 'jahr' ? e.dataset.einheitJahr : e.dataset.einheitMonat; e.textContent = t[e.dataset.i18n] || e.textContent; }
+  bueroPreis();
 }
+// 13.11.2026 (Tassilo: „bei Amphion Büro 4 Plätze eintippen, dann geht der Preis hoch“): 3 Plätze inklusive, jeder weitere 129 € im Monat (1 290 € im Jahr), wie der Checkout (cloud/worker.mjs)
+function bueroPreis() {
+  const inp = document.querySelector('#preis [data-plaetze]'); if (!inp) return;
+  const n = Math.min(100, Math.max(3, Math.floor(+inp.value) || 3)), jahr = PERIODE === 'jahr', plan = inp.closest('.plan');
+  const euro = c => String(c).replace(/\B(?=(\d{3})+$)/g, '\u00a0') + '\u00a0€';
+  const z = plan.querySelector('.zahl'); z.textContent = euro((jahr ? 3990 : 399) + (n - 3) * (jahr ? 1290 : 129));
+  const e = plan.querySelector('.einheit'), tx = TEXTE[document.documentElement.lang] || TEXTE.de; if (e) e.textContent = (tx[e.dataset.i18n] || e.textContent).replace(/\b3\b/, String(n));
+}
+document.querySelector('#preis [data-plaetze]')?.addEventListener('input', bueroPreis);
 for (const b of document.querySelectorAll('[data-periode]')) b.onclick = () => periodeSetzen(b.dataset.periode);
 // Abo-Formular: öffnet sich bei „Abo starten“, schickt E-Mail und Plan an die Amphion Cloud (/v1/anfrage)
 {
