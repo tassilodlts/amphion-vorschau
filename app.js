@@ -72,7 +72,7 @@ const TEXTE = {
     'faq.titel': 'Fragen',
     'faq.u': 'Amphion Manuell ist das vollständige Programm zum Modellieren von Hand, mit Plänen, Importen und allen Exporten. Zum Kennenlernen der KI hast du drei Anfragen im Monat. Amphion enthält dazu den KI-Chat ohne Monatslimit mit den starken Modellen: Du baust mit Sprache.',
     'faq.uf': 'Was ist der Unterschied zwischen Manuell und Amphion?',
-    'faq.win': 'Über den Microsoft Store. Der Knopf „Windows“ öffnet Amphion dort, ein Klick auf „Herunterladen“ installiert es. Microsoft prüft und signiert die App, Windows zeigt deshalb keine Warnung, und Updates kommen automatisch über den Store.',
+    'faq.win': 'Über den Microsoft Store. Der Knopf „Windows“ öffnet Amphion dort, ein Klick auf „Herunterladen“ installiert es. Updates kommen automatisch über den Store.',
     'faq.winf': 'Wie installiere ich Amphion unter Windows?',
     'fkt.1': 'Wände, Decken, Stützen, Fenster, Treppen. Mit Maßen, Schichten, Layern und Mengen, nicht nur Flächen.',
     'fkt.1t': 'Echte Bauteile',
@@ -104,6 +104,7 @@ const TEXTE = {
     'plan.elEg': 'Elektroplan Erdgeschoss',
     'plan.elOg': 'Elektroplan Obergeschoss',
     'plan.schnitt': 'Schnitt durch das Treppenhaus',
+    'turm.titel': 'Ein Modell, vom Tragwerk bis zum Bild',
     'turm.aufbau': 'Das Tragwerk, Schritt für Schritt',
     'turm.a1': 'Stahlbetonkern',
     'turm.a2': 'Kern und Stahltragwerk',
@@ -149,7 +150,7 @@ const TEXTE = {
     'beta.ungueltig': "Bitte eine gültige E-Mail-Adresse und das Häkchen.",
     'beta.fehler': "Das hat nicht geklappt. Schreib uns einfach an tassilo@amphion3d.com.",
     'held.probe': '30 Tage gratis. Vor der ersten Abbuchung jederzeit kündbar.',
-    'held.vertrauen': 'Projekte bleiben auf deinem Computer. Die Mac-Version ist von Apple notarisiert.',
+    'held.vertrauen': 'Projekte bleiben auf deinem Computer.',
     'held.video': "Das Beispielhaus von 1913 in Amphion, mit den Nachbarhäusern. Danach Ansicht und Rendering aus demselben Modell.",
     'held.videoAlt': "Das Beispielhaus von 1913 entsteht in Amphion, danach Ansichten und Renderings",
     'kontakt.text': 'Fragen, Wünsche oder ein Fehler im Programm: Schreib uns.',
@@ -291,7 +292,7 @@ const TEXTE = {
     'faq.titel': 'Questions',
     'faq.u': 'Amphion Manual is the complete program for modelling by hand, with drawings, imports and every export. To get to know the AI you have three requests a month. Amphion adds the AI chat without a monthly limit on the strong models: you build with language.',
     'faq.uf': 'What is the difference between Manual and Amphion?',
-    'faq.win': 'Through the Microsoft Store. The Windows button opens Amphion there, and one click on “Get” installs it. Microsoft reviews and signs the app, so Windows shows no warning, and updates arrive automatically through the Store.',
+    'faq.win': 'Through the Microsoft Store. The Windows button opens Amphion there, and one click on “Get” installs it. Updates arrive automatically through the Store.',
     'faq.winf': 'How do I install Amphion on Windows?',
     'fkt.1': 'Walls, slabs, columns, windows, stairs. With dimensions, build-ups, layers and quantities, not just surfaces.',
     'fkt.1t': 'Real building elements',
@@ -323,6 +324,7 @@ const TEXTE = {
     'plan.elEg': 'Electrical plan, ground floor',
     'plan.elOg': 'Electrical plan, first floor',
     'plan.schnitt': 'Section through the stair',
+    'turm.titel': 'One model, from structure to image',
     'turm.aufbau': 'The structure, step by step',
     'turm.a1': 'Reinforced concrete core',
     'turm.a2': 'Core and steel structure',
@@ -368,7 +370,7 @@ const TEXTE = {
     'beta.ungueltig': "Please enter a valid email address and tick the box.",
     'beta.fehler': "That didn’t work. Just write to tassilo@amphion3d.com.",
     'held.probe': '30 days free. Cancel any time before the first charge.',
-    'held.vertrauen': 'Projects stay on your computer. The Mac version is notarized by Apple.',
+    'held.vertrauen': 'Projects stay on your computer.',
     'held.video': "The 1913 sample house in Amphion, with its neighbours. Then viewport and rendering from the same model.",
     'held.videoAlt': "The 1913 sample house takes shape in Amphion, then viewports and renderings",
     'kontakt.text': 'Questions, wishes or a bug in the program: write to us.',
@@ -510,7 +512,7 @@ const TEXTE = {
     'faq.titel': 'Preguntas',
     'faq.u': 'Amphion Manual es el programa completo para modelar a mano, con planos, importaciones y todas las exportaciones. Para conocer la IA tienes tres consultas al mes. Amphion añade el chat de IA sin límite mensual con los modelos potentes: construyes con la palabra.',
     'faq.uf': '¿Qué diferencia hay entre Manual y Amphion?',
-    'faq.win': 'Desde Microsoft Store. El botón de Windows abre Amphion allí y un clic en «Obtener» lo instala. Microsoft revisa y firma la app, así que Windows no muestra ningún aviso, y las actualizaciones llegan solas por la Store.',
+    'faq.win': 'Desde Microsoft Store. El botón de Windows abre Amphion allí y un clic en «Obtener» lo instala. Las actualizaciones llegan solas por la Store.',
     'faq.winf': '¿Cómo instalo Amphion en Windows?',
     'fkt.1': 'Muros, forjados, pilares, ventanas, escaleras. Con medidas, capas constructivas, capas de dibujo y cantidades, no solo superficies.',
     'fkt.1t': 'Elementos constructivos reales',
@@ -542,6 +544,7 @@ const TEXTE = {
     'plan.elEg': 'Plano eléctrico, planta baja',
     'plan.elOg': 'Plano eléctrico, planta primera',
     'plan.schnitt': 'Sección por la escalera',
+    'turm.titel': 'Un modelo, de la estructura a la imagen',
     'turm.aufbau': 'La estructura, paso a paso',
     'turm.a1': 'Núcleo de hormigón armado',
     'turm.a2': 'Núcleo y estructura de acero',
@@ -587,7 +590,7 @@ const TEXTE = {
     'beta.ungueltig': "Introduce un correo válido y marca la casilla.",
     'beta.fehler': "No ha funcionado. Escríbenos a tassilo@amphion3d.com.",
     'held.probe': '30 días gratis. Cancela cuando quieras antes del primer cobro.',
-    'held.vertrauen': 'Los proyectos se quedan en tu ordenador. La versión para Mac está notarizada por Apple.',
+    'held.vertrauen': 'Los proyectos se quedan en tu ordenador.',
     'held.video': "La casa de ejemplo de 1913 en Amphion, con las casas vecinas. Después vista y render del mismo modelo.",
     'held.videoAlt': "La casa de ejemplo de 1913 se construye en Amphion, después vistas y renders",
     'kontakt.text': 'Preguntas, sugerencias o un error en el programa: escríbenos.',
@@ -729,7 +732,7 @@ const TEXTE = {
     'faq.titel': 'Questions',
     'faq.u': 'Amphion Manuel est le logiciel complet pour modéliser à la main, avec plans, imports et tous les exports. Pour découvrir l’IA, tu as trois demandes par mois. Amphion ajoute le chat d’IA sans limite mensuelle avec les modèles puissants : tu construis avec la parole.',
     'faq.uf': 'Quelle est la différence entre Manuel et Amphion ?',
-    'faq.win': 'Via le Microsoft Store. Le bouton Windows y ouvre Amphion, et un clic sur « Obtenir » l’installe. Microsoft vérifie et signe l’application, Windows n’affiche donc aucun avertissement, et les mises à jour arrivent automatiquement par le Store.',
+    'faq.win': 'Via le Microsoft Store. Le bouton Windows y ouvre Amphion, et un clic sur « Obtenir » l’installe. Les mises à jour arrivent automatiquement par le Store.',
     'faq.winf': 'Comment installer Amphion sous Windows ?',
     'fkt.1': 'Murs, dalles, poteaux, fenêtres, escaliers. Avec cotes, compositions, calques et quantités, pas seulement des surfaces.',
     'fkt.1t': 'De vrais éléments de construction',
@@ -761,6 +764,7 @@ const TEXTE = {
     'plan.elEg': 'Plan électrique, rez-de-chaussée',
     'plan.elOg': 'Plan électrique, étage',
     'plan.schnitt': 'Coupe par l’escalier',
+    'turm.titel': 'Un modèle, de la structure à l’image',
     'turm.aufbau': 'La structure, étape par étape',
     'turm.a1': 'Noyau en béton armé',
     'turm.a2': 'Noyau et structure acier',
@@ -806,7 +810,7 @@ const TEXTE = {
     'beta.ungueltig': "Merci d’indiquer une adresse valide et de cocher la case.",
     'beta.fehler': "Cela n’a pas fonctionné. Écris-nous à tassilo@amphion3d.com.",
     'held.probe': '30 jours gratuits. Résiliable à tout moment avant le premier prélèvement.',
-    'held.vertrauen': 'Les projets restent sur ton ordinateur. La version Mac est notarisée par Apple.',
+    'held.vertrauen': 'Les projets restent sur ton ordinateur.',
     'held.video': "La maison exemple de 1913 dans Amphion, avec ses voisines. Puis vue et rendu du même modèle.",
     'held.videoAlt': "La maison exemple de 1913 se construit dans Amphion, puis vues et rendus",
     'kontakt.text': 'Questions, souhaits ou un bug dans le logiciel : écris-nous.',
@@ -948,7 +952,7 @@ const TEXTE = {
     'faq.titel': 'Domande',
     'faq.u': 'Amphion Manuale è il programma completo per modellare a mano, con tavole, importazioni e tutte le esportazioni. Per conoscere l’IA hai tre richieste al mese. Amphion aggiunge la chat IA senza limite mensile con i modelli potenti: costruisci con la parola.',
     'faq.uf': 'Che differenza c’è tra Manuale e Amphion?',
-    'faq.win': 'Dal Microsoft Store. Il pulsante Windows apre Amphion lì e un clic su «Ottieni» lo installa. Microsoft verifica e firma l’app, quindi Windows non mostra avvisi, e gli aggiornamenti arrivano automaticamente dallo Store.',
+    'faq.win': 'Dal Microsoft Store. Il pulsante Windows apre Amphion lì e un clic su «Ottieni» lo installa. Gli aggiornamenti arrivano automaticamente dallo Store.',
     'faq.winf': 'Come installo Amphion su Windows?',
     'fkt.1': 'Muri, solai, pilastri, finestre, scale. Con misure, stratigrafie, livelli e quantità, non solo superfici.',
     'fkt.1t': 'Veri elementi costruttivi',
@@ -980,6 +984,7 @@ const TEXTE = {
     'plan.elEg': 'Impianto elettrico, piano terra',
     'plan.elOg': 'Impianto elettrico, primo piano',
     'plan.schnitt': 'Sezione sulla scala',
+    'turm.titel': 'Un modello, dalla struttura all’immagine',
     'turm.aufbau': 'La struttura, passo dopo passo',
     'turm.a1': 'Nucleo in cemento armato',
     'turm.a2': 'Nucleo e struttura in acciaio',
@@ -1025,7 +1030,7 @@ const TEXTE = {
     'beta.ungueltig': "Inserisci un indirizzo valido e spunta la casella.",
     'beta.fehler': "Non ha funzionato. Scrivici a tassilo@amphion3d.com.",
     'held.probe': '30 giorni gratis. Disdici quando vuoi prima del primo addebito.',
-    'held.vertrauen': 'I progetti restano sul tuo computer. La versione per Mac è notarizzata da Apple.',
+    'held.vertrauen': 'I progetti restano sul tuo computer.',
     'held.video': "La casa di esempio del 1913 in Amphion, con le case vicine. Poi vista e rendering dallo stesso modello.",
     'held.videoAlt': "La casa di esempio del 1913 prende forma in Amphion, poi viste e rendering",
     'kontakt.text': 'Domande, richieste o un errore nel programma: scrivici.',
@@ -1167,7 +1172,7 @@ const TEXTE = {
     'faq.titel': 'Perguntas',
     'faq.u': 'O Amphion Manual é o programa completo para modelar à mão, com desenhos, importações e todas as exportações. Para conheceres a IA tens três pedidos por mês. O Amphion acrescenta o chat de IA sem limite mensal com os modelos potentes: constróis com a palavra.',
     'faq.uf': 'Qual é a diferença entre Manual e Amphion?',
-    'faq.win': 'Pela Microsoft Store. O botão Windows abre o Amphion lá e um clique em «Obter» instala-o. A Microsoft verifica e assina a app, por isso o Windows não mostra avisos, e as atualizações chegam automaticamente pela Store.',
+    'faq.win': 'Pela Microsoft Store. O botão Windows abre o Amphion lá e um clique em «Obter» instala-o. As atualizações chegam automaticamente pela Store.',
     'faq.winf': 'Como instalo o Amphion no Windows?',
     'fkt.1': 'Paredes, lajes, pilares, janelas, escadas. Com medidas, camadas construtivas, camadas de desenho e quantidades, não só superfícies.',
     'fkt.1t': 'Elementos construtivos reais',
@@ -1199,6 +1204,7 @@ const TEXTE = {
     'plan.elEg': 'Planta elétrica, rés-do-chão',
     'plan.elOg': 'Planta elétrica, primeiro piso',
     'plan.schnitt': 'Corte pela escada',
+    'turm.titel': 'Um modelo, da estrutura à imagem',
     'turm.aufbau': 'A estrutura, passo a passo',
     'turm.a1': 'Núcleo de betão armado',
     'turm.a2': 'Núcleo e estrutura de aço',
@@ -1244,7 +1250,7 @@ const TEXTE = {
     'beta.ungueltig': "Indica um e-mail válido e marca a caixa.",
     'beta.fehler': "Não funcionou. Escreve-nos para tassilo@amphion3d.com.",
     'held.probe': '30 dias grátis. Cancela a qualquer momento antes da primeira cobrança.',
-    'held.vertrauen': 'Os projetos ficam no teu computador. A versão para Mac é notarizada pela Apple.',
+    'held.vertrauen': 'Os projetos ficam no teu computador.',
     'held.video': "A casa de exemplo de 1913 no Amphion, com as casas vizinhas. Depois vista e render do mesmo modelo.",
     'held.videoAlt': "A casa de exemplo de 1913 nasce no Amphion, depois vistas e renders",
     'kontakt.text': 'Perguntas, sugestões ou um erro no programa: escreve-nos.',
@@ -1481,6 +1487,9 @@ document.querySelector('.beta-form')?.addEventListener('submit', async e => {
   const spiel = v => { v.muted = true; const p = v.play(); if (p) p.catch(() => {}); };
   const sicht = new IntersectionObserver(es => { for (const e of es) e.isIntersecting ? spiel(e.target) : e.target.pause(); }, { threshold: 0.2 });
   for (const v of videos) sicht.observe(v);
+  // 13.11.2026 (Tassilo: am Handy startet das Video nicht von selbst): sobald Daten da sind noch einmal starten, wenn es im Bild ist; WebM ist raus (iPhone)
+  for (const v of videos) { v.setAttribute('webkit-playsinline', ''); v.playsInline = true; for (const ev of ['loadeddata', 'canplay']) v.addEventListener(ev, () => { const r = v.getBoundingClientRect(); if (v.paused && r.top < innerHeight && r.bottom > 0) spiel(v); }); }
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) for (const v of videos) { const r = v.getBoundingClientRect(); if (v.paused && r.top < innerHeight && r.bottom > 0) spiel(v); } });
   const beruehrt = () => { for (const v of videos) if (v.paused && v.getBoundingClientRect().top < innerHeight) spiel(v); };
   for (const ev of ['touchstart', 'pointerdown', 'scroll']) addEventListener(ev, beruehrt, { passive: true, once: ev !== 'scroll' });
 }
@@ -1547,5 +1556,43 @@ document.querySelector('.beta-form')?.addEventListener('submit', async e => {
     const ort = spr.nextSibling; const heim = spr.parentNode;
     const setze = () => { if (mq.matches) menu.appendChild(spr); else heim.insertBefore(spr, ort && ort.parentNode === heim ? ort : null); };
     setze(); mq.addEventListener('change', setze);
+  }
+}
+
+// Turm am Handy als Scroll-Bühne (13.11.2026, Tassilo: „beim Runterscrollen verändert sich der Turm am selben Ort: erst kommen die Strukturelemente
+// dazu, dann die Ansichtsarten, 4 und dann 5“): die neun Bilder liegen übereinander, die Scrollposition wählt das sichtbare
+{
+  const sek = document.querySelector('section.turm'), mq = matchMedia('(max-width: 719px)');
+  if (sek) {
+    const gruppen = [...sek.querySelectorAll('.galerie.reihe')].map(g => ({ titel: g.previousElementSibling, bilder: [...g.querySelectorAll('figure')] }));
+    const folge = gruppen.flatMap((g, gi) => g.bilder.map(f => ({ f, gi })));
+    let buehne = null;
+    const bauen = () => {
+      if (buehne || !mq.matches || !folge.length) return;
+      sek.classList.add('scrollbuehne');
+      const lauf = document.createElement('div'); lauf.className = 'turm-lauf'; lauf.style.height = `calc(${folge.length} * 62vh + 100vh)`;
+      const st = document.createElement('div'); st.className = 'turm-buehne';
+      const kopf = document.createElement('p'); kopf.className = 'turm-gruppe';
+      const rahmen = document.createElement('div'); rahmen.className = 'turm-rahmen';
+      const unter = document.createElement('p'); unter.className = 'turm-unter';
+      const punkte = document.createElement('div'); punkte.className = 'turm-punkte';
+      folge.forEach(({ f, gi }, i) => {
+        const img = f.querySelector('img').cloneNode(); img.loading = 'eager'; img.removeAttribute('data-i18n-alt'); img.dataset.i = String(i); rahmen.append(img);
+        const p = document.createElement('i'); if (i > 0 && folge[i - 1].gi !== gi) p.className = 'neu'; punkte.append(p);
+      });
+      st.append(kopf, rahmen, unter, punkte); lauf.append(st); sek.append(lauf); buehne = { lauf, kopf, unter, imgs: [...rahmen.children], punkte: [...punkte.children], i: -1 };
+      setze();
+    };
+    const setze = () => {
+      if (!buehne) return;
+      const r = buehne.lauf.getBoundingClientRect(), weg = Math.max(1, r.height - innerHeight), p = Math.min(0.9999, Math.max(0, -r.top / weg));
+      const i = Math.floor(p * folge.length); if (i === buehne.i) return; buehne.i = i;
+      buehne.imgs.forEach((im, k) => im.classList.toggle('an', k === i)); buehne.punkte.forEach((pt, k) => pt.classList.toggle('an', k <= i));
+      buehne.kopf.textContent = gruppen[folge[i].gi].titel?.textContent || ''; buehne.unter.textContent = folge[i].f.querySelector('figcaption')?.textContent || '';
+    };
+    addEventListener('scroll', setze, { passive: true }); addEventListener('resize', () => { bauen(); setze(); });
+    // nach dem Sprachwechsel die Texte neu lesen
+    new MutationObserver(() => { if (buehne) { buehne.i = -1; setze(); } }).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+    bauen();
   }
 }
