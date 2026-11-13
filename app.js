@@ -1394,7 +1394,7 @@ function periodeSetzen(p) {
 function bueroPreis() {
   const inp = document.querySelector('#preis [data-plaetze]'); if (!inp) return;
   const n = Math.min(100, Math.max(3, Math.floor(+inp.value) || 3)), jahr = PERIODE === 'jahr', plan = inp.closest('.plan');
-  const euro = c => String(c).replace(/\B(?=(\d{3})+$)/g, '\u00a0') + '\u00a0€';
+  const euro = c => String(c).replace(/\B(?=(\d{3})+$)/g, ' ') + ' €';
   const z = plan.querySelector('.zahl'); z.textContent = euro((jahr ? 3990 : 399) + (n - 3) * (jahr ? 1290 : 129));
   const e = plan.querySelector('.einheit'), tx = TEXTE[document.documentElement.lang] || TEXTE.de; if (e) e.textContent = (tx[e.dataset.i18n] || e.textContent).replace(/\b3\b/, String(n));
 }
