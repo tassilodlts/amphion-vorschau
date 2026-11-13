@@ -1539,3 +1539,13 @@ document.querySelector('.beta-form')?.addEventListener('submit', async e => {
     addEventListener('resize', () => { if (innerWidth > 719) zu(); });
   }
 }
+
+// Sprachwahl am Handy im Menü statt in der Kopfzeile (13.11.2026, Tassilo): derselbe Knoten zieht je nach Breite um
+{
+  const kopf = document.querySelector('.kopf'), spr = kopf?.querySelector('.sprachwahl'), menu = kopf?.querySelector('.menu'), mq = matchMedia('(max-width: 719px)');
+  if (spr && menu) {
+    const ort = spr.nextSibling; const heim = spr.parentNode;
+    const setze = () => { if (mq.matches) menu.appendChild(spr); else heim.insertBefore(spr, ort && ort.parentNode === heim ? ort : null); };
+    setze(); mq.addEventListener('change', setze);
+  }
+}

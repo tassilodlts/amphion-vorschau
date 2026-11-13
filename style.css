@@ -961,3 +961,7 @@ main section:not(.held) h2:not(.aktion-titel)::before{color:var(--hell)}
   .kopf .sprachen{order:2}.menue-knopf{order:3;margin-left:0}
   .held.ruhig .held-neu{font-size:9.5px;letter-spacing:.07em;padding:7px 13px;white-space:nowrap}
 }
+@media (max-width:719px){
+  .kopf .menu .sprachwahl{order:9;align-self:flex-start;margin:18px 0 4px;font-size:16px;padding:10px 18px;min-height:44px}
+  .kopf .sprachen{display:none}
+}
