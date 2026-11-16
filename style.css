@@ -545,7 +545,11 @@ code.t-tok{word-break:break-all;background:var(--beton);padding:2px 6px}
 .plugin-karte img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block;border:1px solid var(--linie);background:var(--beton)}
 .plugin-karte h3{margin-top:14px}
 .plugin-karte p{color:var(--grau);font-size:16px;margin-top:6px}
-.plugin-karte:hover h3{color:var(--akzent)}
+.plugin-karte a:hover h3{color:var(--akzent)}
+.plugin-karte>a{text-decoration:none;color:var(--ink)}
+.plugin-wege{display:flex;gap:18px;align-items:center;margin-top:12px}
+.plugin-laden{background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:600}
+.plugin-laden:hover{background:var(--akzent);color:#fff}
 @media (min-width:720px){.plugin-karten{grid-template-columns:repeat(2,1fr)}}
 @media (min-width:1100px){.plugin-karten{grid-template-columns:repeat(4,1fr)}}
 .fuss-plugins{flex-basis:100%;display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline}

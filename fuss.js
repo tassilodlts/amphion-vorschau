@@ -4,19 +4,19 @@
 (() => {
   const K = ['impressum', 'datenschutz', 'agb', 'widerruf', 'lizenz'];   // 10.11. spät (Tassilo: Rendering-Plugins und Anleitungen raus): ohne Anleitungen
   const W = {
-    de: ['Impressum', 'Datenschutz', 'AGB', 'Widerruf', 'Lizenz', 'Anleitungen'], en: ['Legal notice', 'Privacy', 'Terms', 'Withdrawal', 'Licence', 'Guides'],
+    de: ['Impressum', 'Datenschutz', 'AGB', 'Widerruf', 'Lizenz', 'Anleitungen'], en: ['Legal notice', 'Privacy', 'Terms', 'Withdrawal', 'Licence', 'Guides', 'Plugins'],
     es: ['Aviso legal', 'Privacidad', 'Condiciones', 'Desistimiento', 'Licencia', 'Guías'], fr: ['Mentions légales', 'Confidentialité', 'CGV', 'Rétractation', 'Licence', 'Guides'],
-    it: ['Note legali', 'Privacy', 'Condizioni', 'Recesso', 'Licenza', 'Guide'], pt: ['Aviso legal', 'Privacidade', 'Termos', 'Livre resolução', 'Licença', 'Guias'],
+    it: ['Note legali', 'Privacy', 'Condizioni', 'Recesso', 'Licenza', 'Guide'], pt: ['Aviso legal', 'Privacidade', 'Termos', 'Livre resolução', 'Licença', 'Guias', 'Plugins'],
   };
   // Kopf und Plugins-Gruppe im Fuß, Reihenfolge wie N
-  // 10.11.2026 (Fokus): ohne Plugins, mit Preise; Reihenfolge wie N
-  const N = ['nav.projekte', 'nav.funktionen', 'nav.preis', 'nav.faq', 'nav.konto', 'held.laden', 'fuss.marken'];
+  // 10.11.2026 (Fokus): ohne Plugins, mit Preise; 16.11.2026 (Tassilo: Plugins wieder auf der Startseite): nav.plugins; Reihenfolge wie N
+  const N = ['nav.projekte', 'nav.funktionen', 'nav.preis', 'nav.faq', 'nav.konto', 'held.laden', 'fuss.marken', 'nav.plugins'];
   const T = {
-    de: ['Projekte', 'Funktionen', 'Preise', 'Fragen', 'Mein Konto', 'Kostenlos laden', 'Mac und macOS sind Marken von Apple Inc., Windows von Microsoft, Blender von der Blender Foundation. Amphion ist mit diesen Unternehmen nicht verbunden.'],
+    de: ['Projekte', 'Funktionen', 'Preise', 'Fragen', 'Mein Konto', 'Kostenlos laden', 'Mac und macOS sind Marken von Apple Inc., Windows von Microsoft, Blender von der Blender Foundation. Amphion ist mit diesen Unternehmen nicht verbunden.', 'Plugins'],
     en: ['Projects', 'Features', 'Pricing', 'FAQ', 'My account', 'Download free', 'Mac and macOS are trademarks of Apple Inc., Windows of Microsoft, Blender of the Blender Foundation. Amphion is not affiliated with these companies.'],
-    es: ['Proyectos', 'Funciones', 'Precios', 'Preguntas', 'Mi cuenta', 'Descargar gratis', 'Mac y macOS son marcas de Apple Inc., Windows de Microsoft y Blender de la Blender Foundation. Amphion no está vinculado a estas empresas.'],
+    es: ['Proyectos', 'Funciones', 'Precios', 'Preguntas', 'Mi cuenta', 'Descargar gratis', 'Mac y macOS son marcas de Apple Inc., Windows de Microsoft y Blender de la Blender Foundation. Amphion no está vinculado a estas empresas.', 'Plugins'],
     fr: ['Projets', 'Fonctions', 'Tarifs', 'Questions', 'Mon compte', 'Télécharger gratuitement', 'Mac et macOS sont des marques d’Apple Inc., Windows de Microsoft, Blender de la Blender Foundation. Amphion n’est pas lié à ces sociétés.'],
-    it: ['Progetti', 'Funzioni', 'Prezzi', 'Domande', 'Il mio account', 'Scarica gratis', 'Mac e macOS sono marchi di Apple Inc., Windows di Microsoft, Blender della Blender Foundation. Amphion non è collegato a queste aziende.'],
+    it: ['Progetti', 'Funzioni', 'Prezzi', 'Domande', 'Il mio account', 'Scarica gratis', 'Mac e macOS sono marchi di Apple Inc., Windows di Microsoft, Blender della Blender Foundation. Amphion non è collegato a queste aziende.', 'Plugins'],
     pt: ['Projetos', 'Funções', 'Preços', 'Perguntas', 'A minha conta', 'Descarregar grátis', 'Mac e macOS são marcas da Apple Inc., Windows da Microsoft e Blender da Blender Foundation. O Amphion não está ligado a estas empresas.'],
   };
   const q = new URLSearchParams(location.search).get('lang'), g = (navigator.languages || [navigator.language || 'en']).map(l => String(l).slice(0, 2).toLowerCase());
